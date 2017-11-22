@@ -28,9 +28,10 @@ use Ksoft\Klaravel\Traits\CallsInteractions;
 ```
 
 
-### Credits
+***Thanks:***  
+[EloquentRepo](https://github.com/OzanKurt/Repoist) based on a more advanced implementation you can find here: https://github.com/OzanKurt/Repoist  
 
-[EloquentRepo](https://github.com/OzanKurt/Repoist) Based on https://github.com/OzanKurt/Repoist  
+***Credits:***   
 [DevOps](https://sunnyface.com "Programador ios málaga Marbella") Web development  
 [AppDev](https://gestorapp.com "Gestor de aplicaciones moviles en málaga, mijas, marbella") Mobile aplications  
 [SocialApp](https://sosvecinos.com "Plataforma móvil para la gestion de comunidades") Residents mobile application  

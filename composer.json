@@ -2,10 +2,6 @@
     "name": "ksoft/klaravel",
     "description": "A collection of traits and usefull classes and php functions for Laravel",
     "type": "library",
-    "require-dev": {
-      "kikoseijo/Repoist": "master",
-      "reliese/laravel": "^0.0.13"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -13,6 +9,10 @@
             "email": "kiko@sunnyface.com"
         }
     ],
+    "require-dev": {
+      "kikoseijo/Repoist": "master",
+      "reliese/laravel": "^0.0.13"
+    },
     "autoload": {
         "psr-4": {
             "Ksoft\\Klaravel\\": "src/"

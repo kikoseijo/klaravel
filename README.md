@@ -26,14 +26,14 @@ use Ksoft\Klaravel\Traits\CallsInteractions;
 ```
 
 
+### Credits
 
-#### Credits
-
-[EloquentRepo](https://github.com/OzanKurt/Repoist) Based on https://github.com/OzanKurt/Repoist
-[DevOps](https://sunnyface.com "Programador ios málaga Marbella") Web development
-[AppDev](https://gestorapp.com "Gestor de aplicaciones moviles en málaga, mijas, marbella") Mobile aplications
-[SocialApp](https://sosvecinos.com "Plataforma móvil para la gestion de comunidades") Residents mobile application
+[EloquentRepo](https://github.com/OzanKurt/Repoist) Based on https://github.com/OzanKurt/Repoist  
+[DevOps](https://sunnyface.com "Programador ios málaga Marbella") Web development  
+[AppDev](https://gestorapp.com "Gestor de aplicaciones moviles en málaga, mijas, marbella") Mobile aplications  
+[SocialApp](https://sosvecinos.com "Plataforma móvil para la gestion de comunidades") Residents mobile application  
 [KikoSeijo.com](https://kikoseijo.com "Programador freelance movil y Laravel") Freelance senior programmer
+
 ---
 
 Happy Days!

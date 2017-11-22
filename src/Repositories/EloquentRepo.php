@@ -83,6 +83,8 @@ abstract class EloquentRepo implements Contract
                 }
                 $i++;
             }
+        } else {
+          $query->where($column, 'like', $value)
         }
         return $paginate > 0 ? $query->paginate($paginate) : $query->get();
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ksoft\Klaravel;
+namespace Ksoft\Klaravel\Traits;
 
 use Illuminate\Support\Str;
 

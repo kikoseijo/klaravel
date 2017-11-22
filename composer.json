@@ -1,0 +1,25 @@
+{
+    "name": "ksoft/klaravel",
+    "description": "A collection of traits and usefull classes and php functions for Laravel",
+    "type": "laravel composer-plugin",
+    "require-dev": {
+      "kikoseijo/Repoist": "master",
+      "reliese/laravel": "^0.0.13"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kiko Seijo",
+            "email": "kiko@sunnyface.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ksoft\\Klaravel\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "config": {
+        "sort-packages": true,
+    }
+}

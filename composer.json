@@ -9,10 +9,6 @@
             "email": "kiko@sunnyface.com"
         }
     ],
-    "require-dev": {
-      "kikoseijo/Repoist": "master",
-      "reliese/laravel": "^0.0.13"
-    },
     "autoload": {
         "psr-4": {
             "Ksoft\\Klaravel\\": "src/"

@@ -40,6 +40,17 @@ use Ksoft\Klaravel\Traits\CallsInteractions;
 [KikoSeijo.com](https://kikoseijo.com "Programador freelance movil y Laravel") Freelance senior programmer
 
 ---
-<div style="text-align: right; margin-bottom:182px; margin-top:0; padding-top:0;">
-Happy Days! *by Kiko Seijo*
-</div>
+<div dir=rtl markdown=1>Happy Days! *by Kiko Seijo*</div>
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+.  

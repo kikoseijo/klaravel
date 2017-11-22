@@ -3,7 +3,7 @@
 namespace Ksoft\Klaravel\Traits;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 /**
  * Crud controller functions using interactions
  *

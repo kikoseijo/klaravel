@@ -2,9 +2,11 @@
 
 Utility functions for PHP + Laravel.
 
-Install by requiring the library with composer `composer require ksoft/klaravel`, after this you can start using the Classes, Repositories, Traits, etc. by requiring them in your projects.
+Install by requiring the library with composer in your own project.  
+`composer require ksoft/klaravel`  
+after this you can start using importing and using Classes, Repositories, Traits, etc. by requiring them in your projects.
 
-Feel free to send suggestions or your own classes to be included, ill have a close look to it and a feed back for you!
+Suggestions welcome, free feedback!
 
 
 ### Classes

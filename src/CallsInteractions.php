@@ -2,7 +2,6 @@
 
 namespace Ksoft\Klaravel;
 
-use Closure;
 use Illuminate\Support\Str;
 
 trait CallsInteractions
@@ -28,7 +27,7 @@ trait CallsInteractions
      */
     public static function interact($interaction, array $parameters = [])
     {
-        if (! Str::contains($interaction, '@')) {
+        if (!Str::contains($interaction, '@')) {
             $interaction = $interaction.'@handle';
         }
 

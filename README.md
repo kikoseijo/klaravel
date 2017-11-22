@@ -2,10 +2,13 @@
 
 Utility functions for PHP + Laravel.
 
-## traits
+## Traits
 
-```
+```php
 use Ksoft\Klaravel\CallsInteractions;
 ```
+
+
+---
 
 Happy Days!

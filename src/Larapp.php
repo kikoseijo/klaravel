@@ -12,4 +12,9 @@ class Larapp
      * Larapp::$version = '1.2.3';
      */
     public static $version = '0.0.2';
+
+    public static function isLumen()
+    {
+        return str_contains(app()->version(), 'Lumen');
+    }
 }

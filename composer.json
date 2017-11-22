@@ -1,7 +1,7 @@
 {
     "name": "ksoft/klaravel",
     "description": "A collection of traits and usefull classes and php functions for Laravel",
-    "type": "laravel composer-plugin",
+    "type": "library",
     "require-dev": {
       "kikoseijo/Repoist": "master",
       "reliese/laravel": "^0.0.13"

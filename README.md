@@ -26,6 +26,7 @@ use Ksoft\Klaravel\Repositories\EloquentRepo;
 ### Traits
 
 ```php
+use Ksoft\Klaravel\Traits\KrudController;
 use Ksoft\Klaravel\Traits\CallsInteractions;
 ```
 

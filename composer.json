@@ -18,7 +18,7 @@
             "Ksoft\\Klaravel\\": "src/"
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "dev-master",
     "config": {
         "sort-packages": true
     }

@@ -84,7 +84,7 @@ abstract class EloquentRepo implements Contract
                 $i++;
             }
         } else {
-          $query->where($column, 'like', $value)
+          $query->where($column, 'like', $value);
         }
         return $paginate > 0 ? $query->paginate($paginate) : $query->get();
     }
@@ -126,7 +126,7 @@ abstract class EloquentRepo implements Contract
      */
     protected function resolveEntity()
     {
-        if (!method_exists($this, 'entity')) {
+        if (!method_exists($this, 'model')) {
             throw new NoEntityDefined();
         }
 

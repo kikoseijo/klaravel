@@ -9,13 +9,13 @@ use Ksoft\Klaravel\Contracts\EloquentRepo as Contract;
 abstract class EloquentRepo implements Contract
 {
     /**
-     * @var $entity
+     * @var $model
      */
-    protected $entity;
+    protected $model;
 
     public function __construct()
     {
-        $this->entity = $this->resolveEntity();
+        $this->model = $this->resolveEntity();
     }
 
     /**
@@ -23,7 +23,7 @@ abstract class EloquentRepo implements Contract
      */
     public function all()
     {
-        return $this->entity->get();
+        return $this->model->get();
     }
 
     /**
@@ -31,11 +31,11 @@ abstract class EloquentRepo implements Contract
      */
     public function find($id)
     {
-        $model = $this->entity->find($id);
+        $model = $this->model->find($id);
 
         if (!$model) {
             throw (new ModelNotFoundException)->setModel(
-                get_class($this->entity->getModel()),
+                get_class($this->model->getModel()),
                 $id
             );
         }
@@ -48,7 +48,7 @@ abstract class EloquentRepo implements Contract
      */
     public function findWhere($column, $value)
     {
-        return $this->entity->where($column, $value)->get();
+        return $this->model->where($column, $value)->get();
     }
 
     /**
@@ -56,11 +56,11 @@ abstract class EloquentRepo implements Contract
      */
     public function findWhereFirst($column, $value)
     {
-        $model = $this->entity->where($column, $value)->first();
+        $model = $this->model->where($column, $value)->first();
 
         if (!$model) {
             throw (new ModelNotFoundException)->setModel(
-                get_class($this->entity->getModel())
+                get_class($this->model->getModel())
             );
         }
 
@@ -72,7 +72,7 @@ abstract class EloquentRepo implements Contract
      */
     public function findWhereLike($column, $value, $paginate = 0)
     {
-        $query = $this->entity;
+        $query = $this->model;
         if (is_array($column)) {
             $i=0;
             foreach ($column as $columnItem) {
@@ -94,7 +94,7 @@ abstract class EloquentRepo implements Contract
      */
     public function paginate($perPage = 10)
     {
-        return $this->entity->paginate($perPage);
+        return $this->model->paginate($perPage);
     }
 
     /**
@@ -102,7 +102,7 @@ abstract class EloquentRepo implements Contract
      */
     public function create(array $properties)
     {
-        return $this->entity->create($properties);
+        return $this->model->create($properties);
     }
 
     /**
@@ -130,6 +130,6 @@ abstract class EloquentRepo implements Contract
             throw new NoEntityDefined();
         }
 
-        return app($this->entity());
+        return app($this->model());
     }
 }

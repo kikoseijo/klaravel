@@ -4,11 +4,28 @@ Utility functions for PHP + Laravel.
 
 Install by requiring the library with composer in your own project.
 
-```composer require ksoft/klaravel```
+`composer require ksoft/klaravel`
 
 after this you can start using importing and using Classes, Repositories, Traits, etc. by requiring them in your projects.
 
 Suggestions welcome, free feedback!
+
+```php
+$app->withFacades();
+$app->withEloquent();
+
+$app->configure('ksoft');
+```
+
+main controller.
+use Ksoft\Klaravel\Traits\JsonTrait;
+
+/*
+|--------------------------------------------------------------------------
+| Register Service Providers
+|--------------------------------------------------------------------------
+ */
+$app->register(Ksoft\Klaravel\ServiceProvider::class);
 
 
 ### Classes
@@ -26,7 +43,7 @@ use Ksoft\Klaravel\Repositories\EloquentRepo;
 ### Traits
 
 ```php
-use Ksoft\Klaravel\Traits\KrudController;
+use Ksoft\Klaravel\Traits\Krud;
 use Ksoft\Klaravel\Traits\CallsInteractions;
 ```
 

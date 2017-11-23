@@ -18,5 +18,13 @@
     "minimum-stability": "stable",
     "config": {
         "sort-packages": true
+    },
+    "require": {
+        "doctrine/dbal": "^2.6",
+        "intervention/image": "^2.4",
+        "ramsey/uuid": "^3.7",
+        "zircote/swagger-php": "^2.0"
+    },
+    "require-dev": {
     }
 }

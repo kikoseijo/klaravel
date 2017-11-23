@@ -3,26 +3,27 @@
 namespace Ksoft\Klaravel\Traits;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+
 /**
  * Crud controller functions using interactions
  *
  * Use this trait to handle all APIResource routes and work on Interacions only.
  */
-trait KrudController
+trait Krud
 {
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the records.
+     * GET|HEAD /genres
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function index(Request $request)
     {
         $query = $request->has('name') ? $request->input('name') : '';
         return $this->repo->withRelationships($request->input('pageSize'), $query);
     }
-
 
     /**
      * @param Request $request
@@ -35,43 +36,45 @@ trait KrudController
         return $this->repo->findWhereLike('name', '%'.$query.'%', 10);
     }
 
-
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created genre in storage.
+     * POST /genres
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Illuminate\Http\Request $request
+     *
+     * @return Response
      */
     public function store(Request $request)
     {
         return $this->interaction($this->createInteraction, [$request->all()]);
     }
 
-
     /**
-     * Update the specified resource in storage.
+     * Update the specified record in storage.
+     * PUT/PATCH /genres/{id}
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @param Illuminate\Http\Request $request
+     *
+     * @return Response
      */
     public function update(Request $request, $id)
     {
         return $this->interaction($this->updateInteraction, [$id, $request->all()]);
     }
 
-
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified record from storage.
+     * DELETE /genres/{id}
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     *
+     * @return Response
      */
     public function destroy($id)
     {
         $this->repo->delete($id);
     }
-
 
     /**
      * Execute the given interaction.
@@ -89,7 +92,6 @@ trait KrudController
         return $this->call($interaction, $parameters);
     }
 
-
     /**
      * Will call interacion handle function if no other method its defined.
      *
@@ -99,7 +101,7 @@ trait KrudController
      */
     protected function call($interaction, array $parameters = [])
     {
-        if (!Str::contains($interaction, '@')) {
+        if (!str_contains($interaction, '@')) {
             $interaction = $interaction.'@handle';
         }
 

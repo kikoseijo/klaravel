@@ -36,8 +36,8 @@ class ServiceProvider extends BaseServiceProvider
         $this->mergeConfigFrom($configPath, 'ksoft');
 
         $this->registerCommands();
-        $this->registerAliases();
         $this->registerServices();
+        $this->registerAliases();
     }
 
 
@@ -48,7 +48,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     protected function registerCommands()
     {
-        if (1==2 || $this->app->runningInConsole()) {
+        if ($this->app->runningInConsole()) {
             $this->commands([
                 MakeKrud::class,
                 BuildSwagger::class,

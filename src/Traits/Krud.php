@@ -21,7 +21,7 @@ trait Krud
      */
     public function index(Request $request)
     {
-        $query = $request->has('name') ? $request->input('name') : '';
+        $query = $request->input('q') ?: '';
         return $this->repo->withRelationships($request->input('pageSize'), $query);
     }
 
@@ -31,7 +31,7 @@ trait Krud
      */
     public function search(Request $request)
     {
-        $query = str_replace('*', '%', $request->input('query'));
+        $query = str_replace('*', '%', $request->input('q'));
 
         return $this->repo->findWhereLike('name', '%'.$query.'%', 10);
     }

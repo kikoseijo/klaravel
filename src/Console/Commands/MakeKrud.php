@@ -109,7 +109,6 @@ class MakeKrud extends Command
         if (!is_array($this->paths) || !array_key_exists($key, $this->paths)) {
             return;
         }
-
         $content  = $this->fileManager->get(KLARAVEL_PATH.'/stubs' . $stub);
         $fileName = $this->getFileName($stub);
 
@@ -119,6 +118,7 @@ class MakeKrud extends Command
             '%subfolder%'     => $subfolderName,
             '%model%'         => $this->modelName,
             '%modelSingular%' => str_singular($this->modelName),
+            '%models_path%' => $this->models_path,
             '%table_name%'    => snake_case($this->modelName),
             '%model_name_url%'    => kebab_case($this->modelName),
         ];
@@ -145,8 +145,10 @@ class MakeKrud extends Command
                 return;
             }
             $this->fileManager->put($filePath, $content);
-        } else {
+        } elseif ($this->force) { // No matter what, we going to write it there.
             $this->fileManager->put($filePath, $content);
+        } else {
+            logi('Skipping file overwirte due to configuration value.'. $filePath);
         }
 
         if (0 === strpos($this->paths[$key], 'Contracts/')) {
@@ -162,9 +164,11 @@ class MakeKrud extends Command
     {
       $this->fileManager  = app('files');
       $this->paths = config('ksoft.krud.paths');
+      $this->force = config('ksoft.krud.force_rewrite');
       $this->appNamespace = app()->getNamespace();
       $model           = $this->appNamespace.$this->argument('model');
       $this->model     = str_replace('/', '\\', $model);
+      $this->models_path = config('ksoft.krud.models_path')
       $modelParts      = explode('\\', $this->model);
       $this->modelName = array_pop($modelParts);
     }
@@ -172,6 +176,7 @@ class MakeKrud extends Command
     protected function generateModelFromDb()
     {
 
+        // Disabled for now, uncomment and require libraries if yo uwnat to use it....
         if ($this->force || !class_exists($this->model)) {
             // $this->call('code:models', ['--table' => snake_case($this->modelName)]);
             // $this->call('infyom:model', ['model' => str_singular($this->modelName), '--fromTable' => 'yes']);

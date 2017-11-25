@@ -36,7 +36,7 @@ class BuildSwagger extends Command
         // logi($directory);
         $this->defineConstants(config('ksoft.swagger.constants') ?: []);
 
-        $models_path = config('ksoft.swagger.models_path');
+        $models_path = config('ksoft.models_path');
         $excluded_models = config('ksoft.swagger.excluded_models', []);
 
         $model_files = app('files')->files(app_path($models_path));
@@ -48,9 +48,9 @@ class BuildSwagger extends Command
               $models[] = $model; // \App\Models\ChatMessage::class;
           }
         }
-        $models = [
-            \App\Models\ChatMessage::class
-        ];
+        // $models = [
+        //     \App\Models\ChatMessage::class
+        // ];
         $this->line(json_encode($models));
         // return;
         // logi(json_encode($models));

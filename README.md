@@ -117,7 +117,7 @@ $theKruds = [
 
 Route::get('krud', function () use ($theKruds){
   foreach ($theKruds as $kKey => $kVal){
-    echo 'Creating CRUD for ' . kKey . "\n";
+    echo "doing KRUD for $kKey<br>\n";
     Artisan::call('ksoft:krud', [
       'model' => $kKey, '--folder' => $kVal, '--prefix' => $prefix
     ]);

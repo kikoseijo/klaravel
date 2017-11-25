@@ -18,6 +18,7 @@ class %model%Controller extends BaseKrudController
     protected $updateInteraction;
 
     public static $tag                  = "%model% controller";
+    public static $modelName            = "%model%";
     public static $summary              = "This endpoints to serve all %model% related endpoints.";
     public static $responseDefinition   = "#/definitions/Response";
 

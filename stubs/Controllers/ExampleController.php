@@ -21,6 +21,7 @@ class %model%Controller extends BaseKrudController
     public static $modelName            = "%model%";
     public static $summary              = "This endpoints to serve all %model% related endpoints.";
     public static $responseDefinition   = "#/definitions/Response";
+    public static $modelDefinition      = "#/definitions/%model_path%";
 
     /**
      * @param CategoryRepository $repo

@@ -7,6 +7,9 @@ use Illuminate\Console\Command;
 class MakeKrud extends Command
 {
     // for development...
+    /**
+     * @var mixed
+     */
     protected $force = false;
 
     /**
@@ -47,7 +50,7 @@ class MakeKrud extends Command
      *
      * @var array
      */
-    protected $paths;
+    protected $write_paths;
 
     /**
      * @var mixed
@@ -56,15 +59,11 @@ class MakeKrud extends Command
     /**
      * @var mixed
      */
-    protected $modelName;
+    protected $model_name;
     /**
      * @var mixed
      */
     protected $fileManager;
-    /**
-     * @var mixed
-     */
-    protected $appNamespace;
     /**
      * @var array
      */
@@ -90,7 +89,7 @@ class MakeKrud extends Command
 
         // Print Contract lines in console.
         $this->error('-------- [CONTRACT] => [INTERACTION] ----------');
-        $this->info("// $this->modelName");
+        $this->info("// $this->model_name");
         foreach ($this->printableContracts as $line) {
             $this->info($line);
         }
@@ -106,28 +105,29 @@ class MakeKrud extends Command
     protected function makeKrudItem($key, $stub)
     {
         // If its disabled from config
-        if (!is_array($this->paths) || !array_key_exists($key, $this->paths)) {
+        if (!is_array($this->write_paths) || !array_key_exists($key, $this->write_paths)) {
             return;
         }
-        $content  = $this->fileManager->get(KLARAVEL_PATH.'/stubs' . $stub);
+        $content  = $this->fileManager->get(KLARAVEL_PATH.'/stubs'.$stub);
         $fileName = $this->getFileName($stub);
 
-        $subfolderName = $this->option('folder') ? '\\'.$this->option('folder') : '';
+        $modelSingularName = str_singular($this->model_name);
+        $subfolderName     = $this->option('folder') ? '\\'.$this->option('folder') : '';
 
         $replacements = [
-            '%subfolder%'     => $subfolderName,
-            '%model%'         => $this->modelName,
-            '%modelSingular%' => str_singular($this->modelName),
-            '%models_path%' => $this->models_path,
-            '%table_name%'    => snake_case($this->modelName),
-            '%model_name_url%'    => kebab_case($this->modelName),
+            '%subfolder%'      => $subfolderName,
+            '%model%'          => $this->model_name,
+            '%modelSingular%'  => $modelSingularName,
+            '%model_path%'     => $this->model_namespace,
+            '%table_name%'     => snake_case($this->model_name),
+            '%model_name_url%' => kebab_case($this->model_name),
         ];
 
         $content = str_replace(array_keys($replacements), array_values($replacements), $content);
 
         $subFolder = $this->option('folder') ? $this->option('folder').'/' : '';
 
-        $fileDirectory = app()->basePath().'/app/'.$this->paths[$key].$subFolder;
+        $fileDirectory = app()->basePath().'/app/'.$this->write_paths[$key].$subFolder;
         $filePath      = $fileDirectory.$fileName;
 
         // $this->line("Will create $filePath.");
@@ -148,12 +148,12 @@ class MakeKrud extends Command
         } elseif ($this->force) { // No matter what, we going to write it there.
             $this->fileManager->put($filePath, $content);
         } else {
-            logi('Skipping file overwirte due to configuration value.'. $filePath);
+            logi('Skipping file overwirte due to configuration value.'.$filePath);
         }
 
-        if (0 === strpos($this->paths[$key], 'Contracts/')) {
+        if (0 === strpos($this->write_paths[$key], 'Contracts/')) {
             $shortName                  = str_replace('.php', '', $fileName);
-            $contract                   = str_replace('/', '\\', $this->paths[$key].$subFolder.$shortName);
+            $contract                   = str_replace('/', '\\', $this->write_paths[$key].$subFolder.$shortName);
             $repo                       = str_replace('Contracts\\', '', $contract);
             $this->printableContracts[] = "'$contract' => '$repo',";
         }
@@ -162,56 +162,60 @@ class MakeKrud extends Command
 
     protected function prepareThings()
     {
-      $this->fileManager  = app('files');
-      $this->paths = config('ksoft.krud.paths');
-      $this->force = config('ksoft.krud.force_rewrite');
-      $this->appNamespace = app()->getNamespace();
-      $model           = $this->appNamespace.$this->argument('model');
-      $this->model     = str_replace('/', '\\', $model);
-      $this->models_path = config('ksoft.krud.models_path')
-      $modelParts      = explode('\\', $this->model);
-      $this->modelName = array_pop($modelParts);
+        $name = str_singular($this->argument('model'));
+        $path = config('ksoft.models_path');
+        $full_model             = app()->getNamespace().$path.$name;
+
+        $this->fileManager = app('files');
+        $this->write_paths       = config('ksoft.krud.paths');
+        $this->force       = config('ksoft.krud.force_rewrite');
+        $this->model_namespace       = str_replace('/', '\\', $full_model);
+        $modelParts        = explode('\\', $this->model_namespace);
+        $this->model_name  = array_pop($modelParts);
     }
 
     protected function generateModelFromDb()
     {
 
         // Disabled for now, uncomment and require libraries if yo uwnat to use it....
-        if ($this->force || !class_exists($this->model)) {
-            // $this->call('code:models', ['--table' => snake_case($this->modelName)]);
-            // $this->call('infyom:model', ['model' => str_singular($this->modelName), '--fromTable' => 'yes']);
+        if ($this->force || !class_exists($this->model_namespace)) {
+            // $this->call('code:models', ['--table' => snake_case($this->model_name)]);
+            // $this->call('infyom:model', ['model' => str_singular($this->model_name), '--fromTable' => 'yes']);
         }
     }
 
+    /**
+     * @return null
+     */
     protected function writeRoutes()
     {
-      $prefix = $this->option('prefix') ? $this->option('prefix') : '';
-      $folder = $this->option('folder') ? $this->option('folder') . '\\' : '';
+        $prefix = $this->option('prefix') ? $this->option('prefix') : '';
+        $folder = $this->option('folder') ? $this->option('folder').'\\' : '';
 
-      $newRoutes  = $this->fileManager->get(KLARAVEL_PATH.'/stubs/routes/resource.stub');
+        $newRoutes = $this->fileManager->get(KLARAVEL_PATH.'/stubs/routes/resource.stub');
 
-      $replacements = [
-          '%modelo%'     => $this->modelName,
-          '%keyname%'    => kebab_case($this->modelName),
-          '%prefix%' => ($prefix?$prefix.'.':''),
-          '%prefixed%' => '/' . ($prefix? $prefix.'/' : ''),
-          '%folder%'    => $folder,
-      ];
-      $parsedRoutes = str_replace(array_keys($replacements), array_values($replacements), $newRoutes);
+        $replacements = [
+            '%modelo%'   => $this->model_name,
+            '%keyname%'  => kebab_case($this->model_name),
+            '%prefix%'   => ($prefix ? $prefix.'.' : ''),
+            '%prefixed%' => '/'.($prefix ? $prefix.'/' : ''),
+            '%folder%'   => $folder,
+        ];
+        $parsedRoutes = str_replace(array_keys($replacements), array_values($replacements), $newRoutes);
 
-      $this->info($parsedRoutes);
+        $this->info($parsedRoutes);
 
-      if ($this->option('no-routes')){
-          return;
-      }
+        if ($this->option('no-routes')) {
+            return;
+        }
 
-      if (config('ksoft.krud.write_routes')) {
-          $routes_path = app()->basePath().'/routes/api.php';
-          $routeContents = file_get_contents($routes_path);
-          $routeContents .= "\n\n".$parsedRoutes;
-          file_put_contents($routes_path, $routeContents);
-          $this->info('Route for model ' . $this->modelName . ' created in /routes/api.php');
-      }
+        if (config('ksoft.krud.write_routes')) {
+            $routes_path   = app()->basePath().'/routes/api.php';
+            $routeContents = file_get_contents($routes_path);
+            $routeContents .= "\n\n".$parsedRoutes;
+            file_put_contents($routes_path, $routeContents);
+            $this->info('Route for model '.$this->model_name.' created in /routes/api.php');
+        }
 
     }
 
@@ -222,7 +226,7 @@ class MakeKrud extends Command
     {
         $arr  = explode('/', $filePath);
         $name = end($arr);
-        return str_replace('Example', $this->modelName, $name);
+        return str_replace('Example', $this->model_name, $name);
     }
 
     protected function isLumen()

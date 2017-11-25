@@ -3,7 +3,7 @@
 
 return [
     'runtime_console' => true, // true: enables commands being runned by php.
-
+    'models_path' => 'Models/', // defaults "Models/"
 
     /**
      * Swagger Builder configuration
@@ -23,7 +23,7 @@ return [
        * Eventualy will generate crud from all models in a given path.
        * Off right now...
        */
-      'models_path' => 'Models/', // defaults "Models/"
+
       'excluded_models' => [
         'Notification', 'TokenGuard'
       ],

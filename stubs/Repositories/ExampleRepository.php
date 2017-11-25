@@ -2,7 +2,7 @@
 
 namespace App\Repositories%subfolder%;
 
-use App\%models_path%%modelSingular%;
+use %model_path%;
 use App\Contracts\Repositories%subfolder%\%model%Repository as Contract;
 use Kevupton\Ethereal\Repositories\Repository;
 

@@ -48,7 +48,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     protected function registerCommands()
     {
-        if (1==1 || $this->app->runningInConsole()) {
+        if (config('ksoft.runtime_console') || $this->app->runningInConsole()) {
             $this->commands([
                 MakeKrud::class,
                 BuildSwagger::class,

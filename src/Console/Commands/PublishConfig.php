@@ -30,7 +30,7 @@ class PublishConfig extends Command
     {
         $this->info('Publish config files');
 
-        $optionSelected = $this->choice('What whould you like to publish?', ['all', 'config', 'basekrud'], 0);
+        $optionSelected = $this->choice('What whould you like to publish?', ['all', 'Configuration', 'BaseKrudController'], 0);
 
         if ($optionSelected == 'all' || $optionSelected == 'config') {
             $this->publishConfig();

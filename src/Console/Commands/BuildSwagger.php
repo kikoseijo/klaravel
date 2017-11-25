@@ -41,18 +41,35 @@ class BuildSwagger extends Command
 
         $model_files = app('files')->files(app_path($models_path));
 
-        foreach ($model_files as $model_file) {
-          $model_name = pathinfo($model_file)['filename'];
-          $model = '\App\\'.str_replace('/', '\\', $models_path).$model_name;
-          if (!in_array($model_name, $excluded_models) && (new $model()) instanceof Model) {
-              $models[] = $model;
-          }
-        }
+        // foreach ($model_files as $model_file) {
+        //   $model_name = pathinfo($model_file)['filename'];
+        //   $model = '\App\\'.str_replace('/', '\\', $models_path).$model_name.'::class';
+        //   if (!in_array($model_name, $excluded_models) && (new $model()) instanceof Model) {
+        //       $models[] = $$model;
+        //   }
+        // }
+        // logi(json_encode($models));
+        $models[] = \App\Models\ChatMessage::class;
+        $models[] = \App\Models\ChatUser::class;
+        $models[] = \App\Models\Chat::class;
+        $models[] = \App\Models\Friend::class;
+        $models[] = \App\Models\Genre::class;
+        $models[] = \App\Models\Hub::class;
+        $models[] = \App\Models\HubMember::class;
+        $models[] = \App\Models\Playlist::class;
+        $models[] = \App\Models\PlaylistTrack::class;
+        $models[] = \App\Models\Post::class;
+        $models[] = \App\Models\PrivateMessage::class;
+        $models[] = \App\Models\Role::class;
+        $models[] = \App\Models\Setting::class;
         $models[] = \App\Models\User::class;
 
         //logi(json_encode($models));
-        $options['processors'] = array_merge([new LaravelSwagger($models)], Analysis::processors());
-        $swagger = \Swagger\scan($directory, $options);
+        // $options['processors'] = array_merge([new LaravelSwagger($models)], Analysis::processors());
+        // $swagger = \Swagger\scan($directory, $options);
+        // 
+        /** @var Swagger\Annotations\Swagger $swagger */
+        $swagger = \Kevupton\LaravelSwagger\scan($directory, compact('models'));
 
         $docDir = config('ksoft.swagger.json_path');
         $filename = $docDir.'/'.config('ksoft.swagger.json_name');
@@ -67,6 +84,7 @@ class BuildSwagger extends Command
     {
         if (! empty($constants)) {
             foreach ($constants as $key => $value) {
+              logi("$key => $value");
                 defined($key) || define($key, $value);
             }
         }

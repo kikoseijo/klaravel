@@ -1,0 +1,8 @@
+/**
+ * %modelo% Krud Routes
+ */
+$router->get('%prefixed%%keyname%', ['uses' => '%folder%%modelo%Controller@index', 'as' => '%prefix%%keyname%.index']);
+$router->get('%prefixed%%keyname%/{id:[\d]+}', ['uses' => '%folder%%modelo%Controller@index', 'as' => '%prefix%%keyname%.show']);
+$router->post('%prefixed%%keyname%', ['uses' => '%folder%%modelo%Controller@index', 'as' => '%prefix%%keyname%.store']);
+$router->put('%prefixed%%keyname%/{id:[\d]+}', ['uses' => '%folder%%modelo%Controller@index', 'as' => '%prefix%%keyname%.update']);
+$router->delete('%prefixed%%keyname%/{id:[\d]+}', ['uses' => '%folder%%modelo%Controller@index', 'as' => '%prefix%%keyname%.destroy']);

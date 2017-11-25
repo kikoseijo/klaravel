@@ -4,9 +4,9 @@ namespace App\Repositories%subfolder%;
 
 use App\Models\%modelSingular%;
 use App\Contracts\Repositories%subfolder%\%model%Repository as Contract;
-use Ksoft\Klaravel\Repositories\EloquentRepo;
+use Kevupton\Ethereal\Repositories\Repository;
 
-class %model%Repository extends EloquentRepo implements Contract
+class %model%Repository extends Repository implements Contract
 {
     public function model()
     {

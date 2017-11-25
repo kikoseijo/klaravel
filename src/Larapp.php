@@ -4,7 +4,7 @@ namespace Ksoft\Klaravel;
 
 class Larapp
 {
-    use Traits\CallsInteractions
+    use Traits\CallsInteractions,
           Traits\UserModelOptions;
 
     /**

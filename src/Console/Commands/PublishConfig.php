@@ -12,14 +12,14 @@ class PublishConfig extends Command
      *
      * @var string
      */
-    protected $name = 'ksoft:publish-config';
+    protected $name = 'ksoft:publish';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Publish config';
+    protected $description = 'Will pubish usefull files, like BaseKrudController and configuration';
 
     /**
      * Execute the console command.
@@ -30,12 +30,33 @@ class PublishConfig extends Command
     {
         $this->info('Publish config files');
 
-        $configDir = base_path('config');
+        $optionSelected = $this->choice('What whould you like to publish?', ['all', 'config', 'basekrud'], 0);
 
-        (new Publisher($this))->publishFile(
-            KLARAVEL_PATH.'/stubs/config/ksoft.php',
-            $configDir,
-            'ksoft.php'
-        );
+        if ($optionSelected == 'all' || $optionSelected == 'config') {
+            $this->publishConfig();
+            $this->info('Publish configuration file: <info>✔</info>');
+        }
+
+        if ($optionSelected == 'all' || $optionSelected == 'basekrud') {
+            $this->publishBaseKrud();
+            $this->info('Publish BaseKrudController file: <info>✔</info>');
+
+        }
+    }
+
+    protected function publishConfig(){
+      (new Publisher($this))->publishFile(
+          KLARAVEL_PATH.'/stubs/config/ksoft.php',
+          base_path('config'),
+          'ksoft.php'
+      );
+    }
+
+    protected function publishBaseKrud(){
+      (new Publisher($this))->publishFile(
+          KLARAVEL_PATH.'/stubs/controllers/BaseKrudController.php',
+          base_path('app/Http/Controllers'),
+          'BaseKrudController.php'
+      );
     }
 }

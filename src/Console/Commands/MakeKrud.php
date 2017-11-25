@@ -15,7 +15,8 @@ class MakeKrud extends Command
      */
     protected $signature = 'ksoft:krud
                             {model : Model name}
-                            {folder? : Optional Subfolder}';
+                            {--F|folder= : Optional Subfolder}
+                            {--P|prefix= : Route prefix}';
 
     /**
      * The console command description.
@@ -30,13 +31,13 @@ class MakeKrud extends Command
      * @var array
      */
     protected $stubs = [
-        'controller'         => '/Controllers/ExampleController.php',
-        'contract'           => '/Contracts/ExampleRepository.php',
-        'repo'               => '/Repositories/ExampleRepository.php',
-        'update_contract'    => '/Contracts/ExampleUpdate.php',
-        'create_contract'    => '/Contracts/ExampleCreate.php',
-        'update_interaction' => '/Interactions/ExampleUpdate.php',
-        'create_interaction' => '/Interactions/ExampleCreate.php',
+        'controller'         => '/controllers/ExampleController.php',
+        // 'contract'           => '/Contracts/ExampleRepository.php',
+        // 'repo'               => '/Repositories/ExampleRepository.php',
+        // 'update_contract'    => '/Contracts/ExampleUpdate.php',
+        // 'create_contract'    => '/Contracts/ExampleCreate.php',
+        // 'update_interaction' => '/Interactions/ExampleUpdate.php',
+        // 'create_interaction' => '/Interactions/ExampleCreate.php',
     ];
 
     /**
@@ -97,36 +98,20 @@ class MakeKrud extends Command
             $this->info($line);
         }
 
-        $this->error('-------- ROUTES ----------');
-        $this->info('$router->group([');
-        $this->info("\t'prefix' => 'v1/".strtolower($this->modelName)."',");
-        $this->info("\t'namespace' => '{$this->argument('folder')}'");
-        $this->info('], function () use ($router) {');
-        $this->info("\t".'$router->get(\'/\', \''.$this->modelName.'Controller@index\');');
-        $this->info("\t".'$router->get(\'/{id:[\d]+}\', \''.$this->modelName.'Controller@show\');');
-        $this->info("\t".'$router->post(\'/search\', \''.$this->modelName.'Controller@search\');');
-        $this->info("\t".'$router->post(\'/\', \''.$this->modelName.'Controller@store\');');
-        $this->info("\t".'$router->put(\'/{id:[\d]+}\', \''.$this->modelName.'Controller@update\');');
-        $this->info("\t".'$router->delete(\'/{id:[\d]+}\', \''.$this->modelName.'Controller@destroy\');');
-        $this->info('});');
+        // $this->error('-------- ROUTES ----------');
+        // $this->info('$router->group([');
+        // $this->info("\t'prefix' => 'v1/".strtolower($this->modelName)."',");
+        // $this->info("\t'namespace' => '{$this->option('folder')}'");
+        // $this->info('], function () use ($router) {');
+        // $this->info("\t".'$router->get(\'/\', \''.$this->modelName.'Controller@index\');');
+        // $this->info("\t".'$router->get(\'/{id:[\d]+}\', \''.$this->modelName.'Controller@show\');');
+        // $this->info("\t".'$router->post(\'/search\', \''.$this->modelName.'Controller@search\');');
+        // $this->info("\t".'$router->post(\'/\', \''.$this->modelName.'Controller@store\');');
+        // $this->info("\t".'$router->put(\'/{id:[\d]+}\', \''.$this->modelName.'Controller@update\');');
+        // $this->info("\t".'$router->delete(\'/{id:[\d]+}\', \''.$this->modelName.'Controller@destroy\');');
+        // $this->info('});');
 
-        $newRoute = "// {$this->modelName}" . "\n";
-        $newRoute .= '$router->group([' . "\n\t";
-        $newRoute .= "'prefix' => 'v1/".strtolower($this->modelName)."'," . "\n\t";
-        $newRoute .= "'namespace' => '{$this->argument('folder')}'" . "\n";
-        $newRoute .= '], function () use ($router) {' . "\n\t";
-        $newRoute .= '$router->get(\'/\', \''.$this->modelName.'Controller@index\');' . "\n\t";
-        $newRoute .= '$router->get(\'/{id:[\d]+}\', \''.$this->modelName.'Controller@show\');' . "\n\t";
-        $newRoute .= '$router->post(\'/search\', \''.$this->modelName.'Controller@search\');' . "\n\t";
-        $newRoute .= '$router->post(\'/\', \''.$this->modelName.'Controller@store\');' . "\n\t";
-        $newRoute .= '$router->put(\'/{id:[\d]+}\', \''.$this->modelName.'Controller@update\');' . "\n\t";
-        $newRoute .= '$router->delete(\'/{id:[\d]+}\', \''.$this->modelName.'Controller@destroy\');' . "\n";
-        $newRoute .= '});' . "\n";
-
-        $routes_path = app()->basePath().'/routes/api.php';
-        $routeContents = file_get_contents($routes_path);
-        $routeContents .= "\n\n".$newRoute;
-        file_put_contents($routes_path, $routeContents);
+        $this->writeRoutes();
 
     }
 
@@ -139,19 +124,19 @@ class MakeKrud extends Command
         $content  = $this->fileManager->get(KLARAVEL_PATH.'/stubs' . $stub);
         $fileName = $this->getFileName($stub);
 
-        $subfolderName = $this->argument('folder') ? '\\'.$this->argument('folder') : '';
+        $subfolderName = $this->option('folder') ? '\\'.$this->option('folder') : '';
 
         $replacements = [
             '%subfolder%'     => $subfolderName,
             '%model%'         => $this->modelName,
             '%modelSingular%' => str_singular($this->modelName),
             '%table_name%'    => snake_case($this->modelName),
-            '%model_name_camel%'    => camel_case($this->modelName),
+            '%model_name_url%'    => kebab_case($this->modelName),
         ];
 
         $content = str_replace(array_keys($replacements), array_values($replacements), $content);
 
-        $subFolder = $this->argument('folder') ? $this->argument('folder').'/' : '';
+        $subFolder = $this->option('folder') ? $this->option('folder').'/' : '';
 
         $fileDirectory = app()->basePath().'/app/'.$this->paths[$key].$subFolder;
         $filePath      = $fileDirectory.$fileName;
@@ -192,8 +177,32 @@ class MakeKrud extends Command
         $this->modelName = array_pop($modelParts);
         if ($this->force || !class_exists($this->model)) {
             // $this->call('code:models', ['--table' => snake_case($this->modelName)]);
-            $this->call('infyom:model', ['model' => str_singular($this->modelName), '--fromTable' => 'yes']);
+            // $this->call('infyom:model', ['model' => str_singular($this->modelName), '--fromTable' => 'yes']);
         }
+    }
+
+    protected function writeRoutes()
+    {
+      $prefix = $this->option('prefix') ? $this->option('prefix') : '';
+      $folder = $this->option('folder') ? $this->option('folder') . '\\' : '';
+
+      $newRoutes  = $this->fileManager->get(KLARAVEL_PATH.'/stubs/routes/resource.stub');
+
+      $replacements = [
+          '%modelo%'     => $this->modelName,
+          '%keyname%'    => kebab_case($this->modelName),
+          '%prefix%' => ($prefix?$prefix.'.':''),
+          '%prefixed%' => '/' . ($prefix? $prefix.'/' : ''),
+          '%folder%'    => $folder,
+      ];
+      $parsedRoutes = str_replace(array_keys($replacements), array_values($replacements), $newRoutes);
+
+      $routes_path = app()->basePath().'/routes/api.php';
+      $routeContents = file_get_contents($routes_path);
+      $routeContents .= "\n\n".$parsedRoutes;
+      file_put_contents($routes_path, $routeContents);
+
+      $this->info('Route for model ' . $this->modelName . ' created in /routes/api.php');
     }
 
     /**

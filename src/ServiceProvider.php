@@ -48,7 +48,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     protected function registerCommands()
     {
-        if ($this->app->runningInConsole()) {
+        if (1==1 || $this->app->runningInConsole()) {
             $this->commands([
                 MakeKrud::class,
                 BuildSwagger::class,

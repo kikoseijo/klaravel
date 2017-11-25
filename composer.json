@@ -13,7 +13,10 @@
     "autoload": {
         "psr-4": {
             "Ksoft\\Klaravel\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "minimum-stability": "stable",
     "config": {
@@ -22,9 +25,18 @@
     "require": {
         "doctrine/dbal": "^2.6",
         "intervention/image": "^2.4",
-        "ramsey/uuid": "^3.7",
-        "zircote/swagger-php": "^2.0"
+        "kevupton/laravel-swagger": "*",
+        "kevupton/ethereal": "*",
+        "ramsey/uuid": "^3.7"
     },
-    "require-dev": {
-    }
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/Users/smac/Developer/Laravel-Plugins/ethereal"
+        },
+        {
+            "type": "path",
+            "url": "/Users/smac/Developer/Laravel-Plugins/laravel-swagger"
+        }
+    ]
 }

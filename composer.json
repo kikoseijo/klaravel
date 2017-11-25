@@ -1,6 +1,6 @@
 {
     "name": "ksoft/klaravel",
-    "version": "0.0.5",
+    "version": "1.0.0",
     "description": "A collection of traits and usefull classes and php functions for Laravel",
     "type": "library",
     "license": "MIT",
@@ -25,18 +25,8 @@
     "require": {
         "doctrine/dbal": "^2.6",
         "intervention/image": "^2.4",
-        "kevupton/laravel-swagger": "*",
-        "kevupton/ethereal": "*",
+        "kevupton/ethereal": "v2.3.9.6",
+        "kevupton/laravel-swagger": "^1.4",
         "ramsey/uuid": "^3.7"
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/Users/smac/Developer/Laravel-Plugins/ethereal"
-        },
-        {
-            "type": "path",
-            "url": "/Users/smac/Developer/Laravel-Plugins/laravel-swagger"
-        }
-    ]
+    }
 }

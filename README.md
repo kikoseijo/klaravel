@@ -126,20 +126,51 @@ Route::get('krud', function () use ($theKruds){
 });
 ```
 
-### What will produce
+### What will KRUD produce
 
 Will give you following structure from each given model: replacing 'Example' with your model name.
 
 | Functionality | FilePath
 | --- | ---
-| controller | /controllers/ExampleController.php
-| contract | /Contracts/ExampleRepository.php
-| repo | /Repositories/ExampleRepository.php
-| update_contract | /Contracts/ExampleUpdate.php
-| create_contract | /Contracts/ExampleCreate.php
-| update_interaction | /Interactions/ExampleUpdate.php
-| create_interaction | /Interactions/ExampleCreate.php
+| Model Controller | /Controllers/Subfolder/ExampleController.php
+| Controller Contract | /Contracts/Subfolder/ExampleRepository.php
+| Model repository | /Repositories/Subfolder/ExampleRepository.php
+| Update Interaction Contract | /Contracts/Subfolder/ExampleUpdate.php
+| Create Interaction Contract | /Contracts/Subfolder/ExampleCreate.php
+| Update Interaction | /Interactions/Subfolder/ExampleUpdate.php
+| Create Interaction | /Interactions/Subfolder/ExampleCreate.php
+
+This package will add a single line for building a full crud api route, and will save it to `routes\api.php` with the following:
+
+```php
+/**
+ * Chats Krud Resource Route
+ */
+lumen_resource($router, '/v1/chats', 'v1.chats', 'User\ChatsController');
+
 ```
+
+# Full procedure
+
+
+The full scope of this start making the models by generating the migrations, spend time on this, so, start by:
+
+- Creating your Migrations.
+- Make Seeders, its not strictly necesary, but you should...
+- Make your model (*Working* on automate this, follow this guide: [Ethereal](https://github.com/kevupton/ethereal/wiki/ethereal))
+- Generate CRUD: `php artisan ksoft:krud Model`
+- Generate Swagger: `php artisan ksoft:swagger`
+
+Thats all, you got full working API, with its Swagger v2 Specks,
+
+So, basicaly, instead of creating each of this configuration, this package does it for you, isnt it handy? will create the files for each model, this command will produce this files, extending all its base functionality from other packages thats provides an extra layer of functionality.
+
+### and now What?
+
+Well, if yo got reading this far all this above might make sense to you, am i right?  
+
+You should concentrate in validation, make custom validations if you need them, if you havent done so when creating the models, othewise just concentrate on giving your app the customized functionality, you can overwrite all functionality thanks to the class this files extends from. Just follow the [thanks section](#thanks) to have a deeper understanting of what all this is about, or checkout dependancies on composer.json-
+
 
 ### Notes
 
@@ -178,7 +209,7 @@ that extends from `Kevupton\Ethereal\Repositories\Repository`
 ### Traits
 
 ```php
-use Ksoft\Klaravel\Traits\Krud;
+use Ksoft\Klaravel\Traits\KrudController;
 use Ksoft\Klaravel\Traits\CallsInteractions;
 ```
 
@@ -186,7 +217,7 @@ use Ksoft\Klaravel\Traits\CallsInteractions;
 
 
 ***Thanks:***  
-[Ethereal](https://github.com/kevupton/ethereal) for providing an excellent implementation on dynamic methods and inteligence.
+[Ethereal](https://github.com/kevupton/ethereal) for providing an excellent implementation on dynamic methods and inteligence.  
 [Laravel Swagger](https://github.com/kevupton/laravel-swagger) excellent dynamic Swagger generation system.
 
 ***Credits:***   

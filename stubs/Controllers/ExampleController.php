@@ -34,5 +34,19 @@ class %model%Controller extends BaseKrudController
         $this->repo                 = $repo;
     }
 
+    /**
+     * Funs before destroy.
+     * DELETE /%model_name_url%/{id}
+     *
+     * @param  int $id
+     *
+     * @return Response
+     */
+    protected function beforeDestroy(Request $request, $id) {
+       //runs here
+    }
+
+
+
 
 }

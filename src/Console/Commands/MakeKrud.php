@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 class MakeKrud extends Command
 {
 
-    protected $force = true;
+    protected $force = false;
     /**
      * The name and signature of the console command.
      *
@@ -15,6 +15,7 @@ class MakeKrud extends Command
      */
     protected $signature = 'ksoft:krud
                             {model : Model name}
+                            {--R|no-routes : Dont add dynamic rotues to api.php}
                             {--F|folder= : Optional Subfolder}
                             {--P|prefix= : Route prefix}';
 
@@ -31,9 +32,9 @@ class MakeKrud extends Command
      * @var array
      */
     protected $stubs = [
-        'controller'         => '/controllers/ExampleController.php',
+        // 'controller'         => '/controllers/ExampleController.php',
         // 'contract'           => '/Contracts/ExampleRepository.php',
-        // 'repo'               => '/Repositories/ExampleRepository.php',
+        'repo'               => '/Repositories/ExampleRepository.php',
         // 'update_contract'    => '/Contracts/ExampleUpdate.php',
         // 'create_contract'    => '/Contracts/ExampleCreate.php',
         // 'update_interaction' => '/Interactions/ExampleUpdate.php',
@@ -41,19 +42,11 @@ class MakeKrud extends Command
     ];
 
     /**
-     * Stub paths.
+     * This valiable defines where to save each model/class...
      *
      * @var array
      */
-    protected $paths = [
-        'controller'         => 'Http/Controllers/',
-        'contract'           => 'Contracts/Repositories/',
-        'repo'               => 'Repositories/',
-        'update_contract'    => 'Contracts/Interactions/',
-        'create_contract'    => 'Contracts/Interactions/',
-        'update_interaction' => 'Interactions/',
-        'create_interaction' => 'Interactions/',
-    ];
+    protected $paths;
 
     /**
      * @var mixed
@@ -85,6 +78,7 @@ class MakeKrud extends Command
     {
 
         $this->fileManager  = app('files');
+        $this->paths = config('ksoft.krud.paths');
         $this->appNamespace = app()->getNamespace();
         $this->setupModelName();
 
@@ -98,28 +92,19 @@ class MakeKrud extends Command
             $this->info($line);
         }
 
-        // $this->error('-------- ROUTES ----------');
-        // $this->info('$router->group([');
-        // $this->info("\t'prefix' => 'v1/".strtolower($this->modelName)."',");
-        // $this->info("\t'namespace' => '{$this->option('folder')}'");
-        // $this->info('], function () use ($router) {');
-        // $this->info("\t".'$router->get(\'/\', \''.$this->modelName.'Controller@index\');');
-        // $this->info("\t".'$router->get(\'/{id:[\d]+}\', \''.$this->modelName.'Controller@show\');');
-        // $this->info("\t".'$router->post(\'/search\', \''.$this->modelName.'Controller@search\');');
-        // $this->info("\t".'$router->post(\'/\', \''.$this->modelName.'Controller@store\');');
-        // $this->info("\t".'$router->put(\'/{id:[\d]+}\', \''.$this->modelName.'Controller@update\');');
-        // $this->info("\t".'$router->delete(\'/{id:[\d]+}\', \''.$this->modelName.'Controller@destroy\');');
-        // $this->info('});');
-
         $this->writeRoutes();
 
     }
 
     /**
-     * Create a new contract
+     * Create a new item for model.
      */
     protected function makeKrudItem($key, $stub)
     {
+        // If its disabled from config
+        if (!is_array($this->paths) || !array_key_exists($key, $this->paths)) {
+            return;
+        }
 
         $content  = $this->fileManager->get(KLARAVEL_PATH.'/stubs' . $stub);
         $fileName = $this->getFileName($stub);
@@ -197,12 +182,20 @@ class MakeKrud extends Command
       ];
       $parsedRoutes = str_replace(array_keys($replacements), array_values($replacements), $newRoutes);
 
-      $routes_path = app()->basePath().'/routes/api.php';
-      $routeContents = file_get_contents($routes_path);
-      $routeContents .= "\n\n".$parsedRoutes;
-      file_put_contents($routes_path, $routeContents);
+      $this->info($parsedRoutes);
 
-      $this->info('Route for model ' . $this->modelName . ' created in /routes/api.php');
+      if ($this->option('no-routes')){
+          return;
+      }
+
+      if (config('ksoft.krud.write_routes')) {
+          $routes_path = app()->basePath().'/routes/api.php';
+          $routeContents = file_get_contents($routes_path);
+          $routeContents .= "\n\n".$parsedRoutes;
+          file_put_contents($routes_path, $routeContents);
+          $this->info('Route for model ' . $this->modelName . ' created in /routes/api.php');
+      }
+
     }
 
     /**

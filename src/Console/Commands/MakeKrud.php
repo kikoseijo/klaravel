@@ -6,8 +6,9 @@ use Illuminate\Console\Command;
 
 class MakeKrud extends Command
 {
-
+    // for development...
     protected $force = false;
+
     /**
      * The name and signature of the console command.
      *
@@ -32,13 +33,13 @@ class MakeKrud extends Command
      * @var array
      */
     protected $stubs = [
-        // 'controller'         => '/controllers/ExampleController.php',
-        // 'contract'           => '/Contracts/ExampleRepository.php',
+        'controller'         => '/controllers/ExampleController.php',
+        'contract'           => '/Contracts/ExampleRepository.php',
         'repo'               => '/Repositories/ExampleRepository.php',
-        // 'update_contract'    => '/Contracts/ExampleUpdate.php',
-        // 'create_contract'    => '/Contracts/ExampleCreate.php',
-        // 'update_interaction' => '/Interactions/ExampleUpdate.php',
-        // 'create_interaction' => '/Interactions/ExampleCreate.php',
+        'update_contract'    => '/Contracts/ExampleUpdate.php',
+        'create_contract'    => '/Contracts/ExampleCreate.php',
+        'update_interaction' => '/Interactions/ExampleUpdate.php',
+        'create_interaction' => '/Interactions/ExampleCreate.php',
     ];
 
     /**
@@ -76,22 +77,25 @@ class MakeKrud extends Command
      */
     public function handle()
     {
+        // Setup vars. $this-> etc..
+        $this->prepareThings();
 
-        $this->fileManager  = app('files');
-        $this->paths = config('ksoft.krud.paths');
-        $this->appNamespace = app()->getNamespace();
-        $this->setupModelName();
+        // Disabled- Generate model file from DB table.
+        $this->generateModelFromDb();
 
+        // For each available template, add to Model.
         foreach ($this->stubs as $key => $stub) {
             $this->makeKrudItem($key, $stub);
         }
 
-        $this->error('-------- CONTRACTS ----------');
+        // Print Contract lines in console.
+        $this->error('-------- [CONTRACT] => [INTERACTION] ----------');
         $this->info("// $this->modelName");
         foreach ($this->printableContracts as $line) {
             $this->info($line);
         }
 
+        // Print + Write? Routes.
         $this->writeRoutes();
 
     }
@@ -154,12 +158,20 @@ class MakeKrud extends Command
         //$this->line("The [{$fileName}] has been created.");
     }
 
-    protected function setupModelName()
+    protected function prepareThings()
     {
-        $model           = $this->appNamespace.$this->argument('model');
-        $this->model     = str_replace('/', '\\', $model);
-        $modelParts      = explode('\\', $this->model);
-        $this->modelName = array_pop($modelParts);
+      $this->fileManager  = app('files');
+      $this->paths = config('ksoft.krud.paths');
+      $this->appNamespace = app()->getNamespace();
+      $model           = $this->appNamespace.$this->argument('model');
+      $this->model     = str_replace('/', '\\', $model);
+      $modelParts      = explode('\\', $this->model);
+      $this->modelName = array_pop($modelParts);
+    }
+
+    protected function generateModelFromDb()
+    {
+
         if ($this->force || !class_exists($this->model)) {
             // $this->call('code:models', ['--table' => snake_case($this->modelName)]);
             // $this->call('infyom:model', ['model' => str_singular($this->modelName), '--fromTable' => 'yes']);

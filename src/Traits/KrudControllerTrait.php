@@ -21,8 +21,7 @@ trait KrudControllerTrait
    */
   public function index(Request $request)
   {
-      $query = $request->input('q') ?: '';
-      return $this->repo->withRelationships($request->input('pageSize'), $query);
+      return $this->repo->withRelationships($request);
   }
 
   /**
@@ -37,7 +36,7 @@ trait KrudControllerTrait
   }
 
   /**
-   * Store a newly created genre in storage.
+   * Store a newly created record in storage.
    * POST /records
    *
    * @param Illuminate\Http\Request $request

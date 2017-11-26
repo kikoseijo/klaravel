@@ -1,95 +1,13 @@
-# Pim, Pam, Pum for Laravel + Lumen
-
- This repo its under heavy development, could change completely tomorrow,
-if you like it and want to use for production go ahead and clone it.
-
-
-`composer require ksoft/klaravel`
-
-
-Suggestions are welcome, free feedback on return!
-
-## Install
-
-Add service provider to configuration in Laravel to be able to run the commands.
-
-```php
-Ksoft\Klaravel\ServiceProvider::class,
-```
-
-#### for Lumen
-
-Enable facades, eloquent, configuration handler and service provider.
-
-```php
-$app->withFacades();
-$app->withEloquent();
-
-$app->configure('ksoft');
-...
-/*
-|--------------------------------------------------------------------------
-| Register Service Providers
-|--------------------------------------------------------------------------
- */
-...
-$app->register(Ksoft\Klaravel\ServiceProvider::class);
-...
-
-
-```
-
-## Use it
-
-Publish configuration, and start by generating your crud classes.
-
-```bash
-➜  Lumen-boxx-api git:(master) ✗ php artisan ksoft:publish
-Publish config files
-
- What whould you like to publish? [all]:
-  [0] all
-  [1] Configuration
-  [2] BaseKrudController
-```
-#### Configuration
-
-```php
-return [
-    'runtime_console' => false, // true: enables commands being runned by php.
-    'swagger' => [
-      'constants' => [  // Dynamic constants for lumen generation.
-          'API_HOST' => env('APP_URL', 'http://example.dev'),
-      ],
-      /**
-       * Where and how?
-       */
-      'docs_route' => '/docs',
-      'api_route' => '/api/documentation',
-      'json_path' => storage_path('api-docs'), // defautl "Models/"
-      'json_name' => 'api-docs.json',
-      /**
-       * Eventualy will generate crud from all models in a given path.
-       * Off right now...
-       */
-      'models_path' => 'Models/', // defaults "Models/"
-      'excluded_models' => [
-        'Notification', 'TokenGuard'
-      ],
-    ],
-
-];
-
-```
-
-
-## What this package provides
 
 The main purpose of this package its to generate on the fly several classes inside your projects,
 on a clean an easy way will provide by default with full CRUD with Swagger generation on a clever and simple
 way.
 
-#### Example:
+This are the main functionalities you can find on this package-library.
+
+- [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks)
+
+### Example:
 
 We are going to create a full CRUD for the models *Role* inside a Subfolder
 called *Admin* and route prefix *v1* crud using the console
@@ -174,7 +92,7 @@ You should concentrate in validation, make custom validations if you need them, 
 
 ### Notes
 
-Generating model its on the oven, right now could be done with couple packages, both are disabled right now.
+Generating model directly from the table database its one of the next features, right now you could have it done with couple packages, them both not enabled right now.
 
 ```php
 \\ Ksoft\Klaravel\Console\Commands\MakeKrud
@@ -190,41 +108,3 @@ protected function setupModelName()
     }
 }
 ```
-
-
-### Classes
-
-```php
-use Ksoft\Klaravel\Larapp;
-```
-
-### Repositories
-
-```php
-use Ksoft\Klaravel\Repositories\EloquentRepo;
-```
-
-that extends from `Kevupton\Ethereal\Repositories\Repository`
-
-### Traits
-
-```php
-use Ksoft\Klaravel\Traits\KrudController;
-use Ksoft\Klaravel\Traits\CallsInteractions;
-```
-
-
-
-
-***Thanks:***  
-[Ethereal](https://github.com/kevupton/ethereal) for providing an excellent implementation on dynamic methods and inteligence.  
-[Laravel Swagger](https://github.com/kevupton/laravel-swagger) excellent dynamic Swagger generation system.
-
-***Credits:***   
-[DevOps](https://sunnyface.com "Programador ios málaga Marbella") Web development  
-[AppDev](https://gestorapp.com "Gestor de aplicaciones moviles en málaga, mijas, marbella") Mobile aplications  
-[SocialApp](https://sosvecinos.com "Plataforma móvil para la gestion de comunidades") Residents mobile application  
-[KikoSeijo.com](https://kikoseijo.com "Programador freelance movil y Laravel") Freelance senior programmer
-
----
-<div dir=rtl markdown=1>***!Happy Days***</div>

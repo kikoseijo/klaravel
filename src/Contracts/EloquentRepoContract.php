@@ -19,7 +19,8 @@ interface EloquentRepoContract
     /**
      * @param $column
      * @param $value
-     * @return array
+     * @return Illuminate\Support\Collection |
+     *          Illuminate\Pagination\LengthAwarePaginator
      */
     public function findWhere($column, $value);
 
@@ -31,21 +32,23 @@ interface EloquentRepoContract
     public function findWhereFirst($column, $value);
 
     /**
-     * 
+     *
      * @param string $column
      * @param string|array $value
      * @param number|null $paginate
-     * @return Collection|Pagination
+     * @return Illuminate\Support\Collection
+     * @return Illuminate\Pagination\LengthAwarePaginator
      */
-    public function findWhereLike($column, $value, $paginate = 0);
+    public function findWhereLike($column, $value);
 
     /**
-     * Returns laravel paginated object with records
+     * Returns paginated object with records if $request->limit > 0
      *
-     * @param $perPage
-     * @return array
+     * @param Illuminate\Support\Collection $records
+     * @return Illuminate\Support\Collection
+     * @return Illuminate\Pagination\LengthAwarePaginator
      */
-    public function paginate($perPage = 10);
+    public function paginateIf($records);
 
     /**
      * @param array $properties

@@ -3,28 +3,41 @@
 namespace Ksoft\Klaravel\Repositories;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Ksoft\Klaravel\Contracts\EloquentRepoContract as Contract;
 
 abstract class EloquentRepo implements Contract
 {
     /**
-    * @var $model
-    */
+     * @var Illuminate\Database\Eloquent\Model
+     */
     protected $model;
 
+    /**
+     *  @var Illuminate\Http\Request
+     */
+    protected $request;
 
     /**
-     * This is the only mandatary function you have to implement,
+     * This are the only mandatary function you have to implement,
      * Return your model class here.
      *
      * {@inheritdoc}
      */
     abstract protected function model();
+    /**
+     * @param $request
+     */
+    abstract protected function withRelationships($request);
 
-
-    public function __construct()
+    /**
+     * [__construct ::]
+     */
+    public function __construct(Request $request)
     {
-        $this->model = app($this->model());
+        $this->model   = app($this->model());
+        $this->request = $request;
     }
 
     /**
@@ -40,16 +53,16 @@ abstract class EloquentRepo implements Contract
      */
     public function find($id)
     {
-        $model = $this->model->find($id);
+        $record = $this->model->find($id);
 
-        if (!$model) {
+        if (!$record) {
             throw (new ModelNotFoundException)->setModel(
                 get_class($this->model->getModel()),
                 $id
             );
         }
 
-        return $model;
+        return $record;
     }
 
     /**
@@ -65,27 +78,27 @@ abstract class EloquentRepo implements Contract
      */
     public function findWhereFirst($column, $value)
     {
-        $model = $this->model->where($column, $value)->first();
+        $record = $this->model->where($column, $value)->first();
 
-        if (!$model) {
+        if (!$record) {
             throw (new ModelNotFoundException)->setModel(
                 get_class($this->model->getModel())
             );
         }
 
-        return $model;
+        return $record;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function findWhereLike($column, $value, $paginate = 0)
+    public function findWhereLike($column, $value)
     {
         $query = $this->model;
         if (is_array($column)) {
-            $i=0;
+            $i = 0;
             foreach ($column as $columnItem) {
-                if ($i==0) {
+                if ($i == 0) {
                     $query->where($column, 'like', $value);
                 } else {
                     $query->orWhere($column, 'like', $value);
@@ -93,17 +106,34 @@ abstract class EloquentRepo implements Contract
                 $i++;
             }
         } else {
-          $query->where($column, 'like', $value);
+            $query->where($column, 'like', $value);
         }
-        return $paginate > 0 ? $query->paginate($paginate) : $query->get();
+        return $this->paginateIf($query->get());
     }
 
     /**
      * {@inheritdoc}
      */
-    public function paginate($perPage = 10)
+    public function paginateIf($records)
     {
-        return $this->model->paginate($perPage);
+        $per_page = $this->request->input('limit') > 0 ? $this->request->input('limit') : 0;
+
+        if ($per_page > 0) {
+
+            $page   = $this->request->input('page') > 0 ? $this->request->input('page') : 1;
+            $offset = ($page * $per_page) - $per_page;
+
+            return new LengthAwarePaginator(
+                array_slice($records->toArray(), $offset, $per_page, true),
+                count($records),
+                $per_page,
+                $page,
+                ['path' => $this->request->url(), 'query' => $this->request->query()]
+            );
+        } else {
+
+            return $records;
+        }
     }
 
     /**

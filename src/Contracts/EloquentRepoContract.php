@@ -61,7 +61,7 @@ interface EloquentRepoContract
      *
      * @param $id
      * @param array $properties
-     * @return void
+     * @return Model
      */
     public function update($id, array $properties);
 

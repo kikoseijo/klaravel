@@ -59,7 +59,9 @@ trait KrudControllerTrait
    */
   public function update(Request $request, $id)
   {
-      return $this->interaction($this->updateInteraction, [$id, $request->all()]);
+      $record = $this->interaction($this->updateInteraction, [$id, $request->all()]);
+
+      return response()->json($record, $this->json()->getStatusCode());
   }
 
   /**

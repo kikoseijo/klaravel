@@ -26,6 +26,7 @@ abstract class EloquentRepo implements Contract
      * {@inheritdoc}
      */
     abstract protected function model();
+
     /**
      * @param $request
      */
@@ -149,7 +150,9 @@ abstract class EloquentRepo implements Contract
      */
     public function update($id, array $properties)
     {
-        return $this->find($id)->update($properties);
+        $record = $this->find($id);
+        $record->update($properties);
+        return $record;
     }
 
     /**

@@ -35,9 +35,9 @@ class ServiceProvider extends BaseServiceProvider
         $configPath = KLARAVEL_PATH.'/stubs/config/ksoft.php';
         $this->mergeConfigFrom($configPath, 'ksoft');
 
-        $this->registerCommands();
         $this->registerServices();
         $this->registerAliases();
+        $this->registerCommands();
     }
 
 

@@ -4,7 +4,7 @@ namespace Ksoft\Klaravel\Console\Commands;
 
 use Illuminate\Console\Command;
 use Ksoft\Klaravel\Console\Helpers\LaravelSwagger;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 use Swagger\Analysis;
 use Swagger\Annotations\Swagger;
 use Symfony\Component\Finder\Finder;
@@ -43,38 +43,18 @@ class BuildSwagger extends Command
 
         foreach ($model_files as $model_file) {
           $model_name = pathinfo($model_file)['filename'];
-          $model = '\\App\\'.str_replace('/', '\\', $models_path).$model_name;
-          if (!in_array($model_name, $excluded_models)) { //  && (new $model()) instanceof Model
+          $model = 'App\\'.str_replace('/', '\\', $models_path).$model_name;
+          if (!in_array($model_name, $excluded_models) && (new $model()) instanceof Eloquent) { //
               $models[] = $model; // \App\Models\ChatMessage::class;
           }
         }
-        // $models = [
-        //     \App\Models\ChatMessage::class
-        // ];
-        $this->line(json_encode($models));
-        // return;
-        // logi(json_encode($models));
-        // $models[] = \App\Models\ChatMessage::class;
-        // $models[] = \App\Models\ChatUser::class;
-        // $models[] = \App\Models\Chat::class;
-        // $models[] = \App\Models\Friend::class;
-        // $models[] = \App\Models\Genre::class;
-        // $models[] = \App\Models\Hub::class;
-        // $models[] = \App\Models\HubMember::class;
-        // $models[] = \App\Models\Playlist::class;
-        // $models[] = \App\Models\PlaylistTrack::class;
-        // $models[] = \App\Models\Post::class;
-        // $models[] = \App\Models\PrivateMessage::class;
-        // $models[] = \App\Models\Role::class;
-        // $models[] = \App\Models\Setting::class;
-        // $models[] = \App\Models\User::class;
 
-        //logi(json_encode($models));
-        // $options['processors'] = array_merge([new LaravelSwagger($models)], Analysis::processors());
-        // $swagger = \Swagger\scan($directory, $options);
-        //
+        $this->line('Valid models found in path: '. app_path($models_path));
+        $this->line(json_encode($models));
+
         /** @var Swagger\Annotations\Swagger $swagger */
-        $swagger = \Kevupton\LaravelSwagger\scan($directory, compact('models'));
+        $swagger = \Swagger\scan($directory, []);
+        // $swagger = \Kevupton\LaravelSwagger\scan($directory, compact('models'));
 
         $docDir = config('ksoft.swagger.json_path');
         $filename = $docDir.'/'.config('ksoft.swagger.json_name');

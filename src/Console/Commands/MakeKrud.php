@@ -3,6 +3,7 @@
 namespace Ksoft\Klaravel\Console\Commands;
 
 use Illuminate\Console\Command;
+use Ksoft\Klaravel\Console\Helpers\TableFieldsGenerator;
 
 class MakeKrud extends Command
 {
@@ -115,10 +116,11 @@ class MakeKrud extends Command
         $subfolderName     = $this->option('folder') ? '\\'.$this->option('folder') : '';
 
         $replacements = [
+            '%folder%'         => $this->option('folder'),
             '%subfolder%'      => $subfolderName,
             '%model%'          => $this->model_name,
             '%modelSingular%'  => $modelSingularName,
-            '%model_path%'     => $this->model_namespace,
+            '%model_path%'     => $this->namespace_model,
             '%table_name%'     => snake_case($this->model_name),
             '%model_name_url%' => kebab_case($this->model_name),
         ];
@@ -162,26 +164,37 @@ class MakeKrud extends Command
 
     protected function prepareThings()
     {
-        $name = str_singular($this->argument('model'));
-        $path = config('ksoft.models_path');
-        $full_model             = app()->getNamespace().$path.$name;
+        $name       = str_singular($this->argument('model'));
+        $path       = config('ksoft.models_path');
+        $full_model = app()->getNamespace().$path.$name;
 
-        $this->fileManager = app('files');
-        $this->write_paths       = config('ksoft.krud.paths');
-        $this->force       = config('ksoft.krud.force_rewrite');
-        $this->model_namespace       = str_replace('/', '\\', $full_model);
-        $modelParts        = explode('\\', $this->model_namespace);
-        $this->model_name  = array_pop($modelParts);
+        $this->fileManager     = app('files');
+        $this->write_paths     = config('ksoft.krud.paths');
+        $this->force           = config('ksoft.krud.force_rewrite');
+        $this->namespace_model = str_replace('/', '\\', $full_model);
+        $modelParts            = explode('\\', $this->namespace_model);
+        $this->model_name      = array_pop($modelParts);
     }
 
     protected function generateModelFromDb()
     {
 
         // Disabled for now, uncomment and require libraries if yo uwnat to use it....
-        if ($this->force || !class_exists($this->model_namespace)) {
+        logi($this->namespace_model);
+        if ($this->force && !class_exists($this->namespace_model)) {
+            $tableFieldsGenerator = new TableFieldsGenerator(snake_case($this->argument('model')));
+            $tableFieldsGenerator->prepareFieldsFromTable();
+            $tableFieldsGenerator->prepareRelations();
+            $this->fields = $tableFieldsGenerator->fields;
+            //$this->relations = $tableFieldsGenerator->relations;
+            logi('$this->fields');
+            logi(json_encode($this->fields));
+            // logi('$this->relations' );
+            // logi(json_encode($this->relations));
             // $this->call('code:models', ['--table' => snake_case($this->model_name)]);
             // $this->call('infyom:model', ['model' => str_singular($this->model_name), '--fromTable' => 'yes']);
         }
+
     }
 
     /**

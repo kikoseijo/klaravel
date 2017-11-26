@@ -1,0 +1,6 @@
+*     @SWG\Property(
+*          property="first_name",
+*          type="string",
+*          description="%model%'s first name",
+*          example="John"
+*    ),

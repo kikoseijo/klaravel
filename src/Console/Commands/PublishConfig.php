@@ -32,12 +32,12 @@ class PublishConfig extends Command
 
         $optionSelected = $this->choice('What whould you like to publish?', ['all', 'Configuration', 'BaseKrudController'], 0);
 
-        if ($optionSelected == 'all' || $optionSelected == 'config') {
+        if ($optionSelected == 'all' || $optionSelected == 'Configuration') {
             $this->publishConfig();
             $this->info('Publish configuration file: <info>✔</info>');
         }
 
-        if ($optionSelected == 'all' || $optionSelected == 'basekrud') {
+        if ($optionSelected == 'all' || $optionSelected == 'BaseKrudController') {
             $this->publishBaseKrud();
             $this->info('Publish BaseKrudController file: <info>✔</info>');
 

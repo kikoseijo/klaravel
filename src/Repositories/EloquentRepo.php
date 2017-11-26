@@ -3,19 +3,28 @@
 namespace Ksoft\Klaravel\Repositories;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Ksoft\Klaravel\Exceptions\NoEntityDefined;
-use Ksoft\Klaravel\Contracts\EloquentRepo as Contract;
+use Ksoft\Klaravel\Contracts\EloquentRepoContract as Contract;
 
 abstract class EloquentRepo implements Contract
 {
     /**
-     * @var $model
-     */
+    * @var $model
+    */
     protected $model;
+
+
+    /**
+     * This is the only mandatary function you have to implement,
+     * Return your model class here.
+     *
+     * {@inheritdoc}
+     */
+    abstract protected function model();
+
 
     public function __construct()
     {
-        $this->model = $this->resolveEntity();
+        $this->model = app($this->model());
     }
 
     /**
@@ -119,17 +128,5 @@ abstract class EloquentRepo implements Contract
     public function delete($id)
     {
         return $this->find($id)->delete();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function resolveEntity()
-    {
-        if (!method_exists($this, 'model')) {
-            throw new NoEntityDefined();
-        }
-
-        return app($this->model());
     }
 }

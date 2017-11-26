@@ -2,7 +2,7 @@
 
 namespace Ksoft\Klaravel\Contracts;
 
-interface EloquentRepo
+interface EloquentRepoContract
 {
     /**
      * @return array
@@ -31,6 +31,7 @@ interface EloquentRepo
     public function findWhereFirst($column, $value);
 
     /**
+     * 
      * @param string $column
      * @param string|array $value
      * @param number|null $paginate
@@ -39,6 +40,8 @@ interface EloquentRepo
     public function findWhereLike($column, $value, $paginate = 0);
 
     /**
+     * Returns laravel paginated object with records
+     *
      * @param $perPage
      * @return array
      */
@@ -51,12 +54,18 @@ interface EloquentRepo
     public function create(array $properties);
 
     /**
+     * Updates a record.
+     *
      * @param $id
      * @param array $properties
      * @return void
      */
     public function update($id, array $properties);
 
-
+    /**
+     * Delete record of provided id.
+     *
+     * @param $id
+     */
     public function delete($id);
 }

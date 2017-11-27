@@ -75,6 +75,7 @@ trait KrudControllerTrait
   public function destroy($id)
   {
       $this->repo->delete($id);
+      return $this->deletedResponse();
   }
 
   /**
@@ -115,5 +116,6 @@ trait KrudControllerTrait
 
   abstract protected function successResponse($data);
   abstract protected function createdResponse($data);
+  abstract protected function deletedResponse();
 
 }

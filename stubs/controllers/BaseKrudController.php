@@ -32,6 +32,14 @@ class BaseKrudController extends Controller
  *  Adjust to your needs once generated.
  */
 
+ /**
+  * @SWG\Swagger(
+  *   schemes={"http","https"},
+  *   host="sunnyface.com",
+  *   basePath="/v1",
+  *   @SWG\Info(title="Sunnyface.com v1 API", version="1.0", description="Sunnyface.com platform API")
+  *   )
+  */
 
  /**
   *   @SWG\Parameter(parameter="id_in_path", name="id", description="Record's ID", type="integer", required=true,in="path"),
@@ -41,11 +49,6 @@ class BaseKrudController extends Controller
   *   @SWG\Parameter(parameter="page", name="page", default="1", description="Page number to show.", type="integer", required=false, in="query"),
  */
 
-/**
- *  @SWG\Definition(definition="ValidationError",
- *      @SWG\Property(property="field_name", type="array", @SWG\Items(type="string", example="This field its required"))
- *  )
- */
 
 /**
  *   @SWG\Response(
@@ -91,3 +94,25 @@ class BaseKrudController extends Controller
   *      )
   * )
  */
+
+
+
+ /**
+  *  @SWG\Definition(definition="Timestamps",
+  *    @SWG\Property(property="created_at", type="string", format="date-time",
+  *      description="Creation date", example="2018-08-08 00:00:00"
+  *    ),
+  *    @SWG\Property(property="updated_at", type="string", format="date-time",
+  *      description="Last updated", example="2018-08-08 00:00:00"
+  *    )
+  *  ),
+  *  @SWG\Definition(definition="ValidationError",
+  *      @SWG\Property(property="field_name", type="array", @SWG\Items(type="string", example="This field its required"))
+  *  ),
+  *  @SWG\Definition(definition="record_id",
+  *    @SWG\Property(property="id", type="integer", format="int32")
+  *  ),
+  *  @SWG\Definition(definition="slug",
+  *    @SWG\Property(property="slug", type="string")
+  *  )
+  */

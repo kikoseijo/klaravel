@@ -58,7 +58,9 @@ class %model%Controller extends BaseKrudController
  * @SWG\Definition(
  *     definition="%model%",
  *     allOf = {
+ *          { "$ref": "#/definitions/record_id" },
  *          { "$ref": "#/definitions/New%model%" },
+ *          { "$ref": "#/definitions/slug" },
  *          { "$ref": "#/definitions/Timestamps" },
  *          { "required": {"id"} }
  *     }
@@ -119,10 +121,8 @@ class %model%Controller extends BaseKrudController
 *   operationId="show%model%",
 *   produces={"application/json"},
 *   @SWG\Parameter(ref="#/parameters/id_in_path"),
-*   @SWG\Response(response="default", description="requested %model%", ref="$/responses/JsonResponse",
-*       @SWG\Schema(@SWG\Property(property="data", ref="#/definitions/Detail%model%"))
-*   ),
-*   @SWG\Response(response="404", description="%model% not found"),
+*   @SWG\Response(response=200, description="requested %model%", ref="#/definitions/DetailGenre"),
+*   @SWG\Response(response=404, description="%model% not found"),
 * )
 *
 */
@@ -137,10 +137,10 @@ class %model%Controller extends BaseKrudController
 *   produces={"application/json"},
 *   @SWG\Parameter(ref="#/parameters/id_in_path"),
 *   @SWG\Parameter(ref="#/parameters/%model%_in_body"),
-*   @SWG\Response(response="default", description="requested %model%", ref="$/responses/JsonResponse",
+*   @SWG\Response(response=200, description="requested %model%", ref="$/responses/JsonResponse",
 *       @SWG\Schema(@SWG\Property(property="data", ref="#/definitions/%model%"))
 *   ),
-*   @SWG\Response(response="404", description="%model% not found"),
+*   @SWG\Response(response=404, description="%model% not found"),
 *   @SWG\Response(response=422, ref="#/responses/ValidationResponse")
 * )
 */
@@ -151,8 +151,9 @@ class %model%Controller extends BaseKrudController
  * @SWG\Delete(
  *   tags={"%folder%"},
  *   path="/%model_name_url%/{id}",
- *   @SWG\Response(response="404", description="%model% not found"),
- *   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
+ *   @SWG\Parameter(ref="#/parameters/id_in_path"),
+ *   @SWG\Response(response=404, description="%model% not found"),
+ *   @SWG\Response(response=204, description="%model% succesfully deleted")
  * )
  */
 

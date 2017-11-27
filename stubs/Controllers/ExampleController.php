@@ -128,7 +128,7 @@ class %model%Controller extends BaseKrudController
 /**
 * @SWG\Put(
 *   path="/%model_name_url%/{id}",
-*   sumary="Update %model%",
+*   summary="Update %model%",
 *   operationId="update%model%",
 *   tags={"%folder%"},
 *   produces={"application/json"},

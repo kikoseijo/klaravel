@@ -83,9 +83,12 @@ class %model%Controller extends BaseKrudController
 *   @SWG\Parameter(ref="#/parameters/columns"),
 *   @SWG\Parameter(ref="#/parameters/take"),
 *   @SWG\Parameter(ref="#/parameters/page"),
-*   @SWG\Response(response="default", description="requested record", ref="$/responses/JsonResponse",
+*   @SWG\Response(response=200, description="Paginated records (if parameter $take > 0)", ref="$/responses/PaginationResponse",
 *       @SWG\Schema(@SWG\Property(property="data", ref="#/definitions/%model%"))
 *   ),
+*   @SWG\Response(response="default", description="Array of records",
+*       @SWG\Schema(type="array", @SWG\Items(ref="#/definitions/%model%"))
+*   )
 * )
 *
 */
@@ -116,10 +119,10 @@ class %model%Controller extends BaseKrudController
 *   operationId="show%model%",
 *   produces={"application/json"},
 *   @SWG\Parameter(ref="#/parameters/id_in_path"),
-*   @SWG\Response(response="404", description="%model% not found"),
 *   @SWG\Response(response="default", description="requested %model%", ref="$/responses/JsonResponse",
 *       @SWG\Schema(@SWG\Property(property="data", ref="#/definitions/Detail%model%"))
 *   ),
+*   @SWG\Response(response="404", description="%model% not found"),
 * )
 *
 */
@@ -148,6 +151,7 @@ class %model%Controller extends BaseKrudController
  * @SWG\Delete(
  *   tags={"%folder%"},
  *   path="/%model_name_url%/{id}",
+ *   @SWG\Response(response="404", description="%model% not found"),
  *   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
  * )
  */

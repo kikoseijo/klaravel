@@ -105,6 +105,7 @@ class MakeKrud extends Command
      */
     protected function makeKrudItem($key, $stub)
     {
+        // logi('imDoing: '.$key);
         // If its disabled from config
         if (!is_array($this->write_paths) || !array_key_exists($key, $this->write_paths)) {
             return;
@@ -139,6 +140,12 @@ class MakeKrud extends Command
             $this->fileManager->makeDirectory($fileDirectory, 0755, true);
         }
 
+
+        logi('$this->laravel->runningInConsole()');
+        logi($this->laravel->runningInConsole());
+        logi($this->force);
+        logi($this->force);
+
         if (!$this->force && $this->laravel->runningInConsole() && $this->fileManager->exists($filePath)) {
             $response = $this->ask("The [{$fileName}] already exists. Do you want to overwrite it?", 'Yes');
 
@@ -149,7 +156,8 @@ class MakeKrud extends Command
             $this->fileManager->put($filePath, $content);
         } elseif ($this->force) { // No matter what, we going to write it there.
             $this->fileManager->put($filePath, $content);
-        } else {
+        } elseif(!$this->fileManager->exists($filePath)) {
+            $this->fileManager->put($filePath, $content);
             logi('Skipping file overwirte due to configuration value.'.$filePath);
         }
 

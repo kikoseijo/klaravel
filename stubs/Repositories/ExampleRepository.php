@@ -2,8 +2,8 @@
 
 namespace App\Repositories%subfolder%;
 
-use %model_path%;
 use App\Contracts\Repositories%subfolder%\%model%Repository as Contract;
+use %model_path%;
 use Ksoft\Klaravel\Repositories\EloquentRepo;
 use QueryParser\ParserRequestFactory;
 

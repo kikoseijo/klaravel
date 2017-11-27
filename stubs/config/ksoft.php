@@ -38,7 +38,9 @@ return [
       /**
        * Paths to save generated CRUD files
        * Will only generate enabled files here, will skype if does not find-
-       */
+       * TIP: remove what you dont want to be generated.
+       *
+       **/
       'paths' => [
           'controller'         => 'Http/Controllers/',
           'contract'           => 'Contracts/Repositories/',

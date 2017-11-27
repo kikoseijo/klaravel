@@ -25,7 +25,11 @@ class %model%Repository extends EloquentRepo implements Contract
     {
         $search_term = $request->input('q') ?: '';
 
-        $queryParser  = ParserRequestFactory::createParser($request, $this->model);
+        // Eloquent
+        $queryParser  = ParserRequestFactory::createParser($request, $this->model, $this->model);
+        // QueryBuilder
+        // $queryParser  = ParserRequestFactory::createParser($request, $this->model);
+
         $queryBuilder = $queryParser->parser();
 
         return $this->paginateIf($queryBuilder->get());

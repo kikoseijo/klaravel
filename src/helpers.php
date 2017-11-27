@@ -51,3 +51,65 @@ if (!function_exists('dbDump')) {
         }
     }
 }
+
+
+if ( ! function_exists('config_path'))
+{
+    function config_path($path = '')
+    {
+        return app()->basePath() . '/config' . ($path ? '/' . $path : $path);
+    }
+}
+
+if ( ! function_exists('app_path'))
+{
+    function app_path($path = '')
+    {
+        return app()->basePath() . '/app' . ($path ? '/' . $path : $path);
+    }
+}
+
+if ( ! function_exists('public_path'))
+{
+    function public_path($path = '')
+    {
+        return app()->basePath() . '/public' . ($path ? '/' . $path : $path);
+    }
+}
+
+if ( ! function_exists('logi'))
+{
+  function logi($data)
+  {
+
+      \Log::info(transform_log($data));
+  }
+}
+
+if ( ! function_exists('loge'))
+{
+  function loge($data)
+  {
+      \Log::error(transform_log($data));
+  }
+}
+
+if ( ! function_exists('logc'))
+{
+  function logc($data)
+  {
+      \Log::critical(transform_log($data));
+  }
+}
+
+if ( ! function_exists('transform_log'))
+{
+  function transform_log($data)
+  {
+      if (is_array($data)){
+        return json_encode($data);
+      } else {
+        return $data;
+      }
+  }
+}

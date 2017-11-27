@@ -105,7 +105,6 @@ class MakeKrud extends Command
      */
     protected function makeKrudItem($key, $stub)
     {
-        // logi('imDoing: '.$key);
         // If its disabled from config
         if (!is_array($this->write_paths) || !array_key_exists($key, $this->write_paths)) {
             return;
@@ -140,12 +139,6 @@ class MakeKrud extends Command
             $this->fileManager->makeDirectory($fileDirectory, 0755, true);
         }
 
-
-        logi('$this->laravel->runningInConsole()');
-        logi($this->laravel->runningInConsole());
-        logi($this->force);
-        logi($this->force);
-
         if (!$this->force && $this->laravel->runningInConsole() && $this->fileManager->exists($filePath)) {
             $response = $this->ask("The [{$fileName}] already exists. Do you want to overwrite it?", 'Yes');
 
@@ -154,11 +147,11 @@ class MakeKrud extends Command
                 return;
             }
             $this->fileManager->put($filePath, $content);
-        } elseif ($this->force) { // No matter what, we going to write it there.
+        } elseif (!$this->force && !$this->laravel->runningInConsole() && $this->fileManager->exists($filePath)) {
+            // Overwrite its not enabled, we runing in console, file exists.
+            // we do nothing here....
+        } elseif (!$this->fileManager->exists($filePath) || ($this->fileManager->exists($filePath) && $this->force)) {
             $this->fileManager->put($filePath, $content);
-        } elseif(!$this->fileManager->exists($filePath)) {
-            $this->fileManager->put($filePath, $content);
-            logi('Skipping file overwirte due to configuration value.'.$filePath);
         }
 
         if (0 === strpos($this->write_paths[$key], 'Contracts/')) {
@@ -188,17 +181,12 @@ class MakeKrud extends Command
     {
 
         // Disabled for now, uncomment and require libraries if yo uwnat to use it....
-        logi($this->namespace_model);
         if ($this->force && !class_exists($this->namespace_model)) {
             $tableFieldsGenerator = new TableFieldsGenerator(snake_case($this->argument('model')));
             $tableFieldsGenerator->prepareFieldsFromTable();
             $tableFieldsGenerator->prepareRelations();
             $this->fields = $tableFieldsGenerator->fields;
             //$this->relations = $tableFieldsGenerator->relations;
-            logi('$this->fields');
-            logi(json_encode($this->fields));
-            // logi('$this->relations' );
-            // logi(json_encode($this->relations));
             // $this->call('code:models', ['--table' => snake_case($this->model_name)]);
             // $this->call('infyom:model', ['model' => str_singular($this->model_name), '--fromTable' => 'yes']);
         }

@@ -27,6 +27,8 @@ class %model%Controller extends BaseKrudController
     }
 }
 
+// Copy this model parts to yoru model page.
+//  * @SWG\Definition(required={"name"}, definition="New%model%")
 
 /**
  * @SWG\Definition(
@@ -52,51 +54,42 @@ class %model%Controller extends BaseKrudController
   *   summary="Create a new %model%",
   *   tags={"%folder%"},
   *   operationId="create",
-  *   @SWG\Parameter(
-  *   	name="params",
-  *   	description="Parameters to pass (in body)",
-  *   	@SWG\Schema(ref="#/definitions/New%model%"),
-  *   	required=false,
-  *   	in="body"
-  *   ),
+  *   @SWG\Parameter(ref="#/parameters/New%model%_in_body"),
   *   @SWG\Response(response="default", ref="#/definitions/JsonResponse"),
-  *   @SWG\Response(
-  *     response=422,
-  *     description="Validation error",
-  *     @SWG\Schema(ref="#/definitions/ValidationError")
-  *    )
+  *   @SWG\Response(response=422, ref="#/responses/validation_error")
   * )
   *
   */
 
-  /**
-   * @SWG\Get(
-   *   path="/%model_name_url%",
-   *   summary="List all %model%",
-  *   tags={"%folder%"},
-   *   operationId="index",
-   *   produces={"application/json"},
-   *   @SWG\Parameter(name="q", description="Search term", type="string", required=false, in="query"),
-   *   @SWG\Parameter(name="page", description="Page number", type="integer", required=false, in="query"),
-   *   @SWG\Parameter(name="take", description="Number of records per page", type="integer", required=false, in="query"),
-   *   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
-   * )
-   *
-   */
+/**
+* @SWG\Get(
+*   path="/%model_name_url%",
+*   summary="List all %model%",
+*   tags={"%folder%"},
+*   operationId="index",
+*   produces={"application/json"},
+*   @SWG\Parameter(ref="#/parameters/sort"),
+*   @SWG\Parameter(ref="#/parameters/columns"),
+*   @SWG\Parameter(ref="#/parameters/take"),
+*   @SWG\Parameter(ref="#/parameters/page"),
+*   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
+* )
+*
+*/
 
 // Detail- GET
 
-   /**
-    * @SWG\Get(
-    *   path="/%model_name_url%/{id}",
-    *   summary="Get a %model% by its ID",
-    *   tags={"%folder%"},
-    *   operationId="show",
-    *   @SWG\Parameter(name="id", description="%model%'s ID", type="integer", required=true,in="path"),
-    *   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
-    * )
-    *
-    */
+/**
+* @SWG\Get(
+*   path="/%model_name_url%/{id}",
+*   summary="Get a %model% by its ID",
+*   tags={"%folder%"},
+*   operationId="show",
+*   @SWG\Parameter(ref="#/parameters/id_in_path"),
+*   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
+* )
+*
+*/
 
 
 /**
@@ -110,20 +103,8 @@ class %model%Controller extends BaseKrudController
   *   tags={"%folder%"},
 *      description="Update %model%",
 *      produces={"application/json"},
-*      @SWG\Parameter(
-*          name="id",
-*          description="id of %model%",
-*          type="integer",
-*          required=true,
-*          in="path"
-*      ),
-*      @SWG\Parameter(
-*          name="body",
-*          in="body",
-*          description="%model% that should be updated",
-*          required=false,
-*          @SWG\Schema(ref="#/definitions/%model%")
-*      ),
+*      @SWG\Parameter(#/parameters/id_in_path),
+*      @SWG\Parameter(ref="#/parameters/%model%_in_body"),
  *   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
 * )
 */
@@ -136,4 +117,26 @@ class %model%Controller extends BaseKrudController
  *   path="/%model_name_url%/{id}",
  *   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
  * )
+ */
+
+/*
+ *   @SWG\Parameter(
+ *      parameter="New%model%_in_body"
+ *   	name="params",
+ *   	description="Parameters to pass (in body)",
+ *   	@SWG\Schema(ref="#/definitions/New%model%"),
+ *   	required=false,
+ *   	in="body"
+ *   ),
+ */
+
+/*
+ *   @SWG\Parameter(
+ *      parameter="%model%_in_body"
+ *   	name="params",
+ *   	description="Parameters to pass (in body)",
+ *   	@SWG\Schema(ref="#/definitions/New%model%"),
+ *   	required=false,
+ *   	in="body"
+ *   ),
  */

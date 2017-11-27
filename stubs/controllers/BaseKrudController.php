@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Ksoft\Klaravel\Traits\JsonTrait;
+use Ksoft\Klaravel\Traits\ResponsesTrait;
 use Ksoft\Klaravel\Traits\KrudControllerTrait;
 
 class BaseKrudController extends Controller
 {
-    use JsonTrait, KrudControllerTrait;
+    use ResponsesTrait, KrudControllerTrait;
 
     /**
      * @var ModelRespository

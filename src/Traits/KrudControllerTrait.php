@@ -45,7 +45,8 @@ trait KrudControllerTrait
    */
   public function store(Request $request)
   {
-      return $this->interaction($this->createInteraction, [$request->all()]);
+      $record = $this->interaction($this->createInteraction, [$request->all()]);
+      return $this->createdResponse($record);
   }
 
   /**
@@ -60,8 +61,7 @@ trait KrudControllerTrait
   public function update(Request $request, $id)
   {
       $record = $this->interaction($this->updateInteraction, [$id, $request->all()]);
-
-      return response()->json($record, $this->json()->getStatusCode());
+      return $this->successResponse($record);
   }
 
   /**
@@ -112,4 +112,8 @@ trait KrudControllerTrait
 
       return call_user_func_array([app($class), $method], $parameters);
   }
+
+  abstract protected function successResponse($data);
+  abstract protected function createdResponse($data);
+
 }

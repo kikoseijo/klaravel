@@ -5,34 +5,55 @@ namespace Ksoft\Klaravel\Utils;
 /**
  * @SWG\Response(response="JsonResponse"}, description="Basic api response",)
  */
-class JsonResponse {
+class JsonResponse
+{
 
     /**
      * @SWG\Property();
      * @var array
      */
-    private $data = array();
+    private $data = [];
+
 
     /**
      * @SWG\Property();
      * @var array
      */
-    private $errors = array();
+    private $errors = [];
+
+
     /**
      * @SWG\Property();
      * @var string
      */
     private $token = null;
+
+
     /**
      * @SWG\Property(format="int32");
      * @var int
      */
     private $status_code = 200;
+
+
     /**
      * @SWG\Property();
      * @var string
      */
     public $message;
+
+    public function __construct($data = null, $status = null){
+        $this->status_code = $status ?? $this->status_code;
+        if (!is_null($data)) {
+            if (is_array($data)) {
+                return $this->addData('record', $data);
+            } else {
+                $this->data = $data;
+                return $this;
+            }
+        }
+    }
+
 
     /**
      * Sets the error messages of the json request.
@@ -131,6 +152,7 @@ class JsonResponse {
         $data =  [
             'data' => $this->data,
             'errors' => $this->errors,
+            'message' => config('status_codes.'.$this->status_code),
             'success' => $this->isSuccess(),
             'status_code' => $this->status_code
         ];
@@ -154,7 +176,7 @@ class JsonResponse {
      * @return bool
      */
     public function isSuccess() {
-        return count($this->errors) == 0  && $this->status_code == 200;
+        return count($this->errors) == 0  && $this->status_code < 300;
     }
 
     /**

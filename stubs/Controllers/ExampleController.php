@@ -27,8 +27,9 @@ class %model%Controller extends BaseKrudController
     }
 }
 
-// Copy this model parts to yoru model page.
-//  * @SWG\Definition(required={"name"}, definition="New%model%")
+// Move this line above class %model% extends Model....
+// @SWG\Definition(required={"name"}, definition="New%model%")
+// Use
 
 /**
  * @SWG\Definition(
@@ -48,18 +49,18 @@ class %model%Controller extends BaseKrudController
  */
 
 
- /**
-  * @SWG\Post(
-  *   path="/%model_name_url%",
-  *   summary="Create a new %model%",
-  *   tags={"%folder%"},
-  *   operationId="create",
-  *   @SWG\Parameter(ref="#/parameters/New%model%_in_body"),
-  *   @SWG\Response(response="default", ref="#/definitions/JsonResponse"),
-  *   @SWG\Response(response=422, ref="#/responses/validation_error")
-  * )
-  *
-  */
+/**
+* @SWG\Post(
+*   path="/%model_name_url%",
+*   summary="Create a new %model%",
+*   tags={"%folder%"},
+*   operationId="create",
+*   @SWG\Parameter(ref="#/parameters/New%model%_in_body"),
+*   @SWG\Response(response="default", ref="#/definitions/JsonResponse"),
+*   @SWG\Response(response=422, ref="#/responses/validation_error")
+* )
+*
+*/
 
 /**
 * @SWG\Get(
@@ -77,7 +78,6 @@ class %model%Controller extends BaseKrudController
 *
 */
 
-// Detail- GET
 
 /**
 * @SWG\Get(
@@ -98,14 +98,14 @@ class %model%Controller extends BaseKrudController
 * @return Response
 *
 * @SWG\Put(
-*      path="/%model_name_url%/{id}",
-*      summary="Update",
-  *   tags={"%folder%"},
-*      description="Update %model%",
-*      produces={"application/json"},
-*      @SWG\Parameter(#/parameters/id_in_path),
-*      @SWG\Parameter(ref="#/parameters/%model%_in_body"),
- *   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
+*   path="/%model_name_url%/{id}",
+*   summary="Update",
+*   tags={"%folder%"},
+*   description="Update %model%",
+*   produces={"application/json"},
+*   @SWG\Parameter(ref="#/parameters/id_in_path"),
+*   @SWG\Parameter(ref="#/parameters/%model%_in_body"),
+*   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
 * )
 */
 
@@ -119,9 +119,10 @@ class %model%Controller extends BaseKrudController
  * )
  */
 
-/*
+
+/**
  *   @SWG\Parameter(
- *      parameter="New%model%_in_body"
+ *      parameter="New%model%_in_body",
  *   	name="params",
  *   	description="Parameters to pass (in body)",
  *   	@SWG\Schema(ref="#/definitions/New%model%"),
@@ -130,9 +131,10 @@ class %model%Controller extends BaseKrudController
  *   ),
  */
 
-/*
+
+/**
  *   @SWG\Parameter(
- *      parameter="%model%_in_body"
+ *      parameter="%model%_in_body",
  *   	name="params",
  *   	description="Parameters to pass (in body)",
  *   	@SWG\Schema(ref="#/definitions/New%model%"),

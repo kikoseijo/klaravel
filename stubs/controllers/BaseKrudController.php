@@ -32,7 +32,7 @@ class BaseKrudController extends Controller
  *  Adjust to your needs once generated.
  */
 
-/*
+/**
  *   @SWG\Parameter(parameter="id_in_path", name="id", description="Record's ID", type="integer", required=true,in="path"),
  *   @SWG\Parameter(parameter="sort", name="sort", description="To sort desc need to put the character - before the field.", type="string", required=false, in="query"),
  *   @SWG\Parameter(parameter="columns", name="columns", description="To limit columns", type="string", required=false, in="query"),

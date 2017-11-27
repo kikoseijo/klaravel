@@ -39,9 +39,20 @@ class %model%Controller extends BaseKrudController
     }
 }
 
-// Move this line above class %model% extends Model....
-// @SWG\Definition(required={"name"}, definition="New%model%")
-// Use
+/*
+ |--------------------------------------------------
+ |  MODEL DEFINITIONS - (Example) - New%model%
+ |--------------------------------------------------
+ |  /**
+ |   * @SWG\Definition(required={"name"}, definition="New%model%")
+ |   *
+ |  class Genre extends Eloquent
+ |  {
+ |      /**
+ |       * @SWG\Property(example="Electronic")
+ |       *
+ |      public $name;
+ */
 
 /**
  * @SWG\Definition(
@@ -60,69 +71,79 @@ class %model%Controller extends BaseKrudController
  * )
  */
 
-
-/**
-* @SWG\Post(
-*   path="/%model_name_url%",
-*   summary="Create a new %model%",
-*   tags={"%folder%"},
-*   operationId="create",
-*   @SWG\Parameter(ref="#/parameters/New%model%_in_body"),
-*   @SWG\Response(response="default", ref="#/definitions/JsonResponse"),
-*   @SWG\Response(response=422, ref="#/responses/validation_error")
-* )
-*
-*/
-
+// List models.
 /**
 * @SWG\Get(
 *   path="/%model_name_url%",
 *   summary="List all %model%",
 *   tags={"%folder%"},
-*   operationId="index",
+*   operationId="list%model%",
 *   produces={"application/json"},
 *   @SWG\Parameter(ref="#/parameters/sort"),
 *   @SWG\Parameter(ref="#/parameters/columns"),
 *   @SWG\Parameter(ref="#/parameters/take"),
 *   @SWG\Parameter(ref="#/parameters/page"),
-*   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
+*   @SWG\Response(response="default", description="requested record", ref="$/responses/JsonResponse",
+*       @SWG\Schema(@SWG\Property(property="data", ref="#/definitions/%model%"))
+*   ),
+* )
+*
+*/
+
+// Create model
+/**
+* @SWG\Post(
+*   path="/%model_name_url%",
+*   summary="Create a new %model%",
+*   tags={"%folder%"},
+*   operationId="create%model%",
+*   @SWG\Parameter(ref="#/parameters/New%model%_in_body"),
+*   @SWG\Response(response=201, description="New created %model%", ref="$/responses/JsonResponse",
+*       @SWG\Schema(@SWG\Property(property="data", ref="#/definitions/Detail%model%"))
+*   ),
+*   @SWG\Response(response=422, ref="#/responses/ValidationResponse")
 * )
 *
 */
 
 
+// Get model by ID
 /**
 * @SWG\Get(
 *   path="/%model_name_url%/{id}",
 *   summary="Get a %model% by its ID",
 *   tags={"%folder%"},
-*   operationId="show",
+*   operationId="show%model%",
+*   produces={"application/json"},
 *   @SWG\Parameter(ref="#/parameters/id_in_path"),
-*   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
+*   @SWG\Response(response="404", description="%model% not found"),
+*   @SWG\Response(response="default", description="requested %model%", ref="$/responses/JsonResponse",
+*       @SWG\Schema(@SWG\Property(property="data", ref="#/definitions/Detail%model%"))
+*   ),
 * )
 *
 */
 
-
+// Update model
 /**
-* @param int $id
-* @param Request $request
-* @return Response
-*
 * @SWG\Put(
 *   path="/%model_name_url%/{id}",
-*   summary="Update",
+*   sumary="Update %model%",
+*   operationId="update%model%",
 *   tags={"%folder%"},
-*   description="Update %model%",
 *   produces={"application/json"},
 *   @SWG\Parameter(ref="#/parameters/id_in_path"),
 *   @SWG\Parameter(ref="#/parameters/%model%_in_body"),
-*   @SWG\Response(response="default", ref="#/definitions/JsonResponse")
+*   @SWG\Response(response="default", description="requested %model%", ref="$/responses/JsonResponse",
+*       @SWG\Schema(@SWG\Property(property="data", ref="#/definitions/%model%"))
+*   ),
+*   @SWG\Response(response="404", description="%model% not found"),
+*   @SWG\Response(response=422, ref="#/responses/ValidationResponse")
 * )
 */
 
 
-
+// Delete model
 /**
  * @SWG\Delete(
  *   tags={"%folder%"},
@@ -132,6 +153,7 @@ class %model%Controller extends BaseKrudController
  */
 
 
+// Body parameters
 /**
  *   @SWG\Parameter(
  *      parameter="New%model%_in_body",
@@ -141,10 +163,6 @@ class %model%Controller extends BaseKrudController
  *   	required=false,
  *   	in="body"
  *   ),
- */
-
-
-/**
  *   @SWG\Parameter(
  *      parameter="%model%_in_body",
  *   	name="params",

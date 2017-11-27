@@ -25,6 +25,18 @@ class %model%Controller extends BaseKrudController
         $this->updateInteraction    = %model%Update::class;
         $this->repo                 = $repo;
     }
+
+    /**
+     * Return the given record by the $id.
+     * GET|HEAD /records
+     *
+     * @param int $id
+     * @return Model
+     */
+    public function show($id)
+    {
+        return $this->repo->find($id);
+    }
 }
 
 // Move this line above class %model% extends Model....

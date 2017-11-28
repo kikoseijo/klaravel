@@ -19,7 +19,7 @@ class MakeKrud extends Command
      * @var string
      */
     protected $signature = 'ksoft:krud
-                            {model : Model name}
+                            {model : Plural Model name - should match table name}
                             {--R|no-routes : Dont add dynamic rotues to api.php}
                             {--F|folder= : Optional Subfolder}
                             {--P|prefix= : Route prefix}';

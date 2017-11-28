@@ -1,4 +1,1 @@
-/**
- * %modelo% Krud Resource Route
- */
 lumen_resource($router, '%prefixed%%keyname%', '%prefix%%keyname%', '%folder%%modelo%Controller');

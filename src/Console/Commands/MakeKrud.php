@@ -89,7 +89,7 @@ class MakeKrud extends Command
         }
 
         // Print Contract lines in console.
-        $this->error('-------- [CONTRACT] => [INTERACTION] ----------');
+        $this->error('-------- [CONTRACT] => [INTERACTION] AppServiceProvider.php ----------');
         $this->info("// $this->model_name");
         foreach ($this->printableContracts as $line) {
             $this->info($line);
@@ -211,7 +211,7 @@ class MakeKrud extends Command
             '%folder%'   => $folder,
         ];
         $parsedRoutes = str_replace(array_keys($replacements), array_values($replacements), $newRoutes);
-
+        $this->error('-------- [Resource Route] => routes/api.php ----------');
         $this->info($parsedRoutes);
 
         if ($this->option('no-routes')) {

@@ -54,7 +54,6 @@ class BuildSwagger extends Command
 
         /** @var Swagger\Annotations\Swagger $swagger */
         $swagger = \Swagger\scan($directory, []);
-        // $swagger = \Kevupton\LaravelSwagger\scan($directory, compact('models'));
 
         $docDir = config('ksoft.swagger.json_path');
         $filename = $docDir.'/'.config('ksoft.swagger.json_name');

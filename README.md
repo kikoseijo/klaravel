@@ -39,6 +39,30 @@ $app->register(Ksoft\Klaravel\ServiceProvider::class);
 
 You are now ready to go! Go see [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks).
 
+## Initial steps
+
+Should start by publishing the configuration file, otherwise will be harder to setup your own settings.
+
+```
+php artisan ksoft:publish
+```
+
+Will give you diferent options, just start by choosing option `1` Configuration only.
+
+```bash
+Publish config files
+
+ What whould you like to publish? [all]:
+  [0] all
+  [1] Configuration
+  [2] BaseKrudController
+ > 1
+
+Publish configuration file: ✔
+```
+
+Continue visiting the Wiki to find more information about posibilities this package will give you [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki).
+
 
 ## Thanks
 

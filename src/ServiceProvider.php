@@ -36,7 +36,6 @@ class ServiceProvider extends BaseServiceProvider
         $this->mergeConfigFrom($configPath, 'ksoft');
 
         $this->registerServices();
-        $this->registerAliases();
         $this->registerCommands();
     }
 
@@ -54,23 +53,6 @@ class ServiceProvider extends BaseServiceProvider
                 BuildSwagger::class,
                 PublishConfig::class,
             ]);
-        }
-    }
-
-
-    /**
-     * Register aliases.
-     *
-     * @return void
-     */
-    protected function registerAliases()
-    {
-        if (!class_exists('Larapp')) {
-            class_alias('Ksoft\Klaravel\Larapp', 'Larapp');
-        }
-
-        if (!class_exists('Uuid')) {
-            class_alias('Ramsey\Uuid\Uuid', 'Uuid');
         }
     }
 

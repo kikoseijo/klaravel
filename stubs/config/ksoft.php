@@ -56,6 +56,7 @@ return [
        * You can override this value from command line using option --R
        */
       'write_routes' => true,
+      'upgrade_value' => true, // Only for development.
     ]
 
 ];

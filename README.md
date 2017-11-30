@@ -7,20 +7,24 @@ visit the [Wiki](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thank
 
 ## Install instructions
 
+Install using composer.
+
 ```
 composer require ksoft/klaravel
 ```
 
-For version of laravel below 5.5 you might have to enable the service provider on your `app.php` file.
+For version of laravel < 5.5 you will have to enable this package service provider to `config/app.php` file in the service providers section.
 
 ```php
 Ksoft\Klaravel\ServiceProvider::class,
 ```
 
 
-You are now ready to go! Go see [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks).
+You are ready to go! For a full list of functionalities visit [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks).
 
 ### Lumen configuration
+
+If you need all features this package provides you will have to enable the following in your projects `boostrap/app.php` file:
 
 ```php
 $app->withFacades();
@@ -41,7 +45,7 @@ You are now ready to go! Go see [Wiki Index](https://github.com/kikoseijo/kLarav
 
 ## Initial steps
 
-Should start by publishing the configuration file, otherwise will be harder to setup your own settings.
+Start by publishing the configuration file, will allow you to have more control over the functionality.
 
 ```
 php artisan ksoft:publish

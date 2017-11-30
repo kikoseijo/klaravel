@@ -24,9 +24,7 @@
     },
     "require": {
         "doctrine/dbal": "^2.6",
-        "intervention/image": "^2.4",
-        "kevupton/ethereal": "v2.3.9.6",
-        "ramsey/uuid": "^3.7"
+        "kevupton/ethereal": "v2.3.9.6"
     },
     "extra": {
         "laravel": {

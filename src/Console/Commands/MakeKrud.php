@@ -19,9 +19,9 @@ class MakeKrud extends Command
      * @var string
      */
     protected $signature = 'ksoft:krud
-                            {model : Plural Model name - should match table name}
-                            {--R|no-routes : Dont add dynamic rotues to api.php}
-                            {--F|folder= : Optional Subfolder}
+                            {model : table name from where you want CRUD generated}
+                            {--R|no-routes : if this flag is enabled, routes will not be writen to api.php (Only on screen)}
+                            {--F|folder= : Optional, recommended Subfolder to save files to}
                             {--P|prefix= : Route prefix}';
 
     /**
@@ -165,7 +165,7 @@ class MakeKrud extends Command
 
     protected function prepareThings()
     {
-        $name       = str_singular($this->argument('model'));
+        $name       = studly_case(str_singular($this->argument('model')));
         $path       = config('ksoft.models_path');
         $full_model = app()->getNamespace().$path.$name;
 

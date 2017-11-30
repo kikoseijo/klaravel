@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Ksoft\Klaravel\Traits\ResponsesTrait;
+use Ksoft\Klaravel\Traits\LumenResponsesTrait;
 use Ksoft\Klaravel\Traits\KrudControllerTrait;
 
 class BaseKrudController extends Controller
 {
-    use ResponsesTrait, KrudControllerTrait;
+    use LumenResponsesTrait, KrudControllerTrait;
 
     /**
      * @var ModelRespository

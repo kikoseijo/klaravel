@@ -5,7 +5,9 @@ namespace App\Repositories%subfolder%;
 use App\Contracts\Repositories%subfolder%\%model%Repository as Contract;
 use %model_path%;
 use Ksoft\Klaravel\Repositories\EloquentRepo;
-use QueryParser\ParserRequestFactory;
+// https://github.com/rlacerda83/lumen-api-query-parser
+// composer require rlacerda83/query-parser:master
+// use QueryParser\ParserRequestFactory;
 
 class %model%Repository extends EloquentRepo implements Contract
 {
@@ -26,11 +28,12 @@ class %model%Repository extends EloquentRepo implements Contract
         $search_term = $request->input('q') ?: '';
 
         // Eloquent
-        $queryParser  = ParserRequestFactory::createParser($request, $this->model, $this->model);
+        // $queryParser  = ParserRequestFactory::createParser($request, $this->model, $this->model);
         // QueryBuilder
         // $queryParser  = ParserRequestFactory::createParser($request, $this->model);
+        // $queryBuilder = $queryParser->parser();
 
-        $queryBuilder = $queryParser->parser();
+        $queryBuilder = $this->model::where('id','>', 0);
 
         return $this->paginateIf($queryBuilder->get());
 

@@ -66,6 +66,14 @@ Publish configuration file: ✔
 
 Continue visiting the Wiki to find more information about posibilities this package will give you [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki).
 
+### Todo list
+
+- [ ] Generate Model file out of table
+- [ ] Generate Swagger annotations from Model
+- [ ] Make Laravel Responses Trait version
+- [ ] Write wiki for Traits and other important files
+- [ ] Help wanted
+
 
 ## Thanks
 

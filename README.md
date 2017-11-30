@@ -1,9 +1,8 @@
 
-This package provide several commands that will help you develop a large maintainable
-structure from your Laravel + Lumen projects.  
+This package provides functionalities and structures definitions that are able to speed up your development process up to 80%, by generating out of the box several classes and repositories that allows you implement advanced techniques used in the development process of large projects where maintainability its key.  
 
-For a better understanting of the posibilities of this package i recomend you to
-visit the [Wiki](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks), there you will find all posible components.
+For a better understanding of the capabilities of this package you should go and
+visit the [Wiki](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks), where you can find each component specs and examples.
 
 ## Install instructions
 
@@ -13,7 +12,7 @@ Install using composer.
 composer require ksoft/klaravel
 ```
 
-For version of laravel < 5.5 you will have to enable this package service provider to `config/app.php` file in the service providers section.
+For version of Laravel < 5.5 you will have to enable the service provider in your `config/app.php` file on the providers section.
 
 ```php
 Ksoft\Klaravel\ServiceProvider::class,
@@ -24,7 +23,7 @@ You are ready to go! For a full list of functionalities visit [Wiki Index](https
 
 ### Lumen configuration
 
-If you need all features this package provides you will have to enable the following in your projects `boostrap/app.php` file:
+If you need all features this package provides you will have to enable the following on your project `boostrap/app.php` file.
 
 ```php
 $app->withFacades();

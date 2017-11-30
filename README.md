@@ -1,3 +1,4 @@
+# Laravel + Lumen - Speed development
 
 This package provides functionalities and structures definitions that are able to speed up your development process up to 80%, by generating out of the box several classes and repositories that allows you implement advanced techniques used in the development process of large projects where maintainability its key.  
 

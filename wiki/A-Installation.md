@@ -1,14 +1,21 @@
+Install using composer.
 
-Add service provider to configuration in Laravel to be able to run the commands.
+```
+composer require ksoft/klaravel
+```
 
+For version of laravel < 5.5 you will have to enable this package service provider to `config/app.php` file in the service providers section.
 
 ```php
 Ksoft\Klaravel\ServiceProvider::class,
 ```
 
-## Lumen
 
-Enable facades, eloquent, configuration handler and service provider.
+You are ready to go! For a full list of functionalities visit [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks).
+
+### Lumen configuration
+
+If you need all features this package provides you will have to enable the following in your projects `boostrap/app.php` file:
 
 ```php
 $app->withFacades();
@@ -23,15 +30,28 @@ $app->configure('ksoft');
  */
 ...
 $app->register(Ksoft\Klaravel\ServiceProvider::class);
-
 ```
 
+You are now ready to go! Go see [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks).
 
-This package service provider its not necessary on production, there is no need to have call it unless you need any extra functionality that comes with.
+## Initial steps
 
-Call it only when environment its local
+Start by publishing the configuration file, will allow you to have more control over the functionality.
 
-```php
-if ($app->environment() == 'local') {
-  $app->register(Ksoft\Klaravel\ServiceProvider::class);
+```
+php artisan ksoft:publish
+```
+
+Will give you diferent options, just start by choosing option `1` Configuration only.
+
+```bash
+Publish config files
+
+ What whould you like to publish? [all]:
+  [0] all
+  [1] Configuration
+  [2] BaseKrudController
+ > 1
+
+Publish configuration file: ✔
 ```

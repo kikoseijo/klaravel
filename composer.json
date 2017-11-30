@@ -1,6 +1,6 @@
 {
     "name": "ksoft/klaravel",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "A collection of traits and usefull classes and php functions for Laravel",
     "type": "library",
     "license": "MIT",

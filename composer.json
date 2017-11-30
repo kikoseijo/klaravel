@@ -23,7 +23,6 @@
         "sort-packages": true
     },
     "require": {
-        "doctrine/dbal": "^2.6",
         "kevupton/ethereal": "v2.3.9.6"
     },
     "extra": {
@@ -37,6 +36,7 @@
         }
     },
     "require-dev": {
+        "doctrine/dbal": "^2.6",
         "zircote/swagger-php": "^2.0"
     }
 }

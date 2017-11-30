@@ -1,110 +1,62 @@
 
-The main purpose of this package its to generate on the fly several classes inside your projects,
-on a clean an easy way will provide by default with full CRUD with Swagger generation on a clever and simple
-way.
+This package provide several commands that will help you develop a large maintainable
+structure from your Laravel + Lumen projects.  
 
-This are the main functionalities you can find on this package-library.
+For a better understanting of the posibilities of this package i recomend you to
+visit the [Wiki](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks), there you will find all posible components.
 
-- [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks)
+## Install instructions
 
-### Example:
-
-We are going to create a full CRUD for the models *Role* inside a Subfolder
-called *Admin* and route prefix *v1* crud using the console
-
-```bash
-$ php artisan make:krud Roles --folder=Admin --prefix=v1
+```
+composer require ksoft/klaravel
 ```
 
-We could do it even more dynamic adding this to your route file and visiting `/krud`, because will generate it from an array at once.
+For version of laravel below 5.5 you might have to enable the service provider on your `app.php` file.
 
 ```php
-// routes/web.php
-use Illuminate\Support\Facades\Artisan;
-
-$prefix = 'v1';
-$theKruds = [
-  'ChatMessages' => 'User',
-  'ChatUsers' => 'User',
-  'Chats' => 'User',
-  'Settings' => 'User',
-  'Users' => 'User',
-  'PrivateMessages' => 'User',
-  'Roles' => 'Admin',
-];
-
-Route::get('krud', function () use ($theKruds){
-  foreach ($theKruds as $kKey => $kVal){
-    echo "doing KRUD for $kKey<br>\n";
-    Artisan::call('ksoft:krud', [
-      'model' => $kKey, '--folder' => $kVal, '--prefix' => $prefix
-    ]);
-  }
-  echo 'All jobs done done.';
-});
+Ksoft\Klaravel\ServiceProvider::class,
 ```
 
-### What will KRUD produce
 
-Will give you following structure from each given model: replacing 'Example' with your model name.
+You are now ready to go! Go see [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks).
 
-| Functionality | FilePath
-| --- | ---
-| Model Controller | /Controllers/Subfolder/ExampleController.php
-| Controller Contract | /Contracts/Subfolder/ExampleRepository.php
-| Model repository | /Repositories/Subfolder/ExampleRepository.php
-| Update Interaction Contract | /Contracts/Subfolder/ExampleUpdate.php
-| Create Interaction Contract | /Contracts/Subfolder/ExampleCreate.php
-| Update Interaction | /Interactions/Subfolder/ExampleUpdate.php
-| Create Interaction | /Interactions/Subfolder/ExampleCreate.php
-
-This package will add a single line for building a full crud api route, and will save it to `routes\api.php` with the following:
+### Lumen configuration
 
 ```php
-/**
- * Chats Krud Resource Route
+$app->withFacades();
+$app->withEloquent();
+
+$app->configure('ksoft');
+...
+/*
+|--------------------------------------------------------------------------
+| Register Service Providers
+|--------------------------------------------------------------------------
  */
-lumen_resource($router, '/v1/chats', 'v1.chats', 'User\ChatsController');
-
+...
+$app->register(Ksoft\Klaravel\ServiceProvider::class);
 ```
 
-# Full procedure
+You are now ready to go! Go see [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks).
 
 
-The full scope of this start making the models by generating the migrations, spend time on this, so, start by:
+## Thanks
 
-- Creating your Migrations.
-- Make Seeders, its not strictly necesary, but you should...
-- Make your model (*Working* on automate this, follow this guide: [Ethereal](https://github.com/kevupton/ethereal/wiki/ethereal))
-- Generate CRUD: `php artisan ksoft:krud Model`
-- Generate Swagger: `php artisan ksoft:swagger`
+Some packages serve for inspiration, others take off time on development, to all of them: a big thank you!
 
-Thats all, you got full working API, with its Swagger v2 Specks,
-
-So, basicaly, instead of creating each of this configuration, this package does it for you, isnt it handy? will create the files for each model, this command will produce this files, extending all its base functionality from other packages thats provides an extra layer of functionality.
-
-### and now What?
-
-Well, if yo got reading this far all this above might make sense to you, am i right?  
-
-You should concentrate in validation, make custom validations if you need them, if you havent done so when creating the models, othewise just concentrate on giving your app the customized functionality, you can overwrite all functionality thanks to the class this files extends from. Just follow the [thanks section](#thanks) to have a deeper understanting of what all this is about, or checkout dependancies on composer.json-
+[Kevupton Ethereal](https://github.com/kevupton/ethereal) for extending model functionality and inteligence.  
+[Laravel Swagger](https://github.com/kevupton/laravel-swagger) excellent dynamic Swagger generation system.  
+[OzanKurt Repoist](https://github.com/OzanKurt/Repoist) Clean and extended Models functionality.
 
 
-### Notes
+## Credits
 
-Generating model directly from the table database its one of the next features, right now you could have it done with couple packages, them both not enabled right now.
+Special thanks to supporters and clients that provide me with enough time to work on contributing to develop this packages for the WWW.
 
-```php
-\\ Ksoft\Klaravel\Console\Commands\MakeKrud
-protected function setupModelName()
-{
-    $model           = $this->appNamespace.$this->argument('model');
-    $this->model     = str_replace('/', '\\', $model);
-    $modelParts      = explode('\\', $this->model);
-    $this->modelName = array_pop($modelParts);
-    if ($this->force || !class_exists($this->model)) {
-        // $this->call('code:models', ['--table' => snake_case($this->modelName)]);
-        // $this->call('infyom:model', ['model' => str_singular($this->modelName), '--fromTable' => 'yes']);
-    }
-}
-```
+[DevOps](https://sunnyface.com "Programador ios málaga Marbella") Web development  
+[AppDev](https://gestorapp.com "Gestor de aplicaciones moviles en málaga, mijas, marbella") Mobile aplications  
+[SocialApp](https://sosvecinos.com "Plataforma móvil para la gestion de comunidades") Residents mobile application  
+[KikoSeijo.com](https://kikoseijo.com "Programador freelance movil y Laravel") Freelance senior programmer
+
+---
+<div dir=rtl markdown=1>Created by <b>Kiko Seijo</b></div>

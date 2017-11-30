@@ -57,8 +57,8 @@ class BuildSwagger extends Command
 
         $docDir = config('ksoft.swagger.json_path');
 
-        if (!$this->fileManager->exists($docDir)) {
-            $this->fileManager->makeDirectory($docDir, 0755, true);
+        if (!app('files')->exists($docDir)) {
+            app('files')->makeDirectory($docDir, 0755, true);
         }
 
         $filename = $docDir.'/'.config('ksoft.swagger.json_name');

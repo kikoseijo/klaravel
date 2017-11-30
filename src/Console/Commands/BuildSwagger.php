@@ -56,9 +56,13 @@ class BuildSwagger extends Command
         $swagger = \Swagger\scan($directory, []);
 
         $docDir = config('ksoft.swagger.json_path');
+
+        if (!$this->fileManager->exists($docDir)) {
+            $this->fileManager->makeDirectory($docDir, 0755, true);
+        }
+
         $filename = $docDir.'/'.config('ksoft.swagger.json_name');
         $swagger->saveAs($filename);
-
         // logi($swagger);
         // logi(json_encode($options));
 

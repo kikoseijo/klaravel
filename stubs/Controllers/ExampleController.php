@@ -121,7 +121,7 @@ class %model%Controller extends BaseKrudController
 *   operationId="show%model%",
 *   produces={"application/json"},
 *   @SWG\Parameter(ref="#/parameters/id_in_path"),
-*   @SWG\Response(response=200, description="requested %model%", ref="#/definitions/DetailGenre"),
+*   @SWG\Response(response=200, description="requested %model%", ref="#/definitions/Detail%model%"),
 *   @SWG\Response(response=404, description="%model% not found"),
 * )
 *

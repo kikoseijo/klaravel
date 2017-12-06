@@ -45,10 +45,11 @@ interface EloquentRepoContract
      * Returns paginated object with records if $request->limit > 0
      *
      * @param Illuminate\Support\Collection $records
+     * @param integer $per_page Manually set pagination option.
      * @return Illuminate\Support\Collection
      * @return Illuminate\Pagination\LengthAwarePaginator
      */
-    public function paginateIf($records);
+    public function paginateIf($records, $per_page = 0);
 
     /**
      * @param array $properties

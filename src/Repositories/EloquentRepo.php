@@ -115,9 +115,14 @@ abstract class EloquentRepo implements Contract
     /**
      * {@inheritdoc}
      */
-    public function paginateIf($records)
+    public function paginateIf($records, $per_page = 0)
     {
-        $per_page = $this->request->input('take') > 0 ? $this->request->input('take') : 0;
+        if ($per_page == 0) {
+            $per_page = $this->request->input('take') > 0 ?
+                        $this->request->input('take') :
+                        $this->request->input('limit') > 0 ?
+                        $this->request->input('limit') : 0;
+        }
 
         if ($per_page > 0) {
 

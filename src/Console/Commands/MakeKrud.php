@@ -22,7 +22,8 @@ class MakeKrud extends Command
                             {model : table name from where you want CRUD generated}
                             {--R|no-routes : if this flag is enabled, routes will not be writen to api.php (Only on screen)}
                             {--F|folder= : Optional, recommended Subfolder to save files to}
-                            {--P|prefix= : Route prefix}';
+                            {--N|name= : Optional, customize the name for the file prefix, defaults to model name}
+                            {--P|prefix= : provide an optional route prefix}';
 
     /**
      * The console command description.
@@ -53,10 +54,6 @@ class MakeKrud extends Command
      */
     protected $write_paths;
 
-    /**
-     * @var mixed
-     */
-    protected $model;
     /**
      * @var mixed
      */
@@ -235,7 +232,10 @@ class MakeKrud extends Command
     {
         $arr  = explode('/', $filePath);
         $name = end($arr);
-        return str_replace('Example', $this->model_name, $name);
+
+        $fileName = $this->option('name') ?? $this->model_name;
+
+        return str_replace('Example', $fileName, $name);
     }
 
     protected function isLumen()

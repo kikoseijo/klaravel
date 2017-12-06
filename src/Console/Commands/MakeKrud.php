@@ -115,7 +115,7 @@ class MakeKrud extends Command
         $replacements = [
             '%folder%'         => $this->option('folder'),
             '%subfolder%'      => $subfolderName,
-            '%model%'          => $this->model_name,
+            '%model%'          => $this->option('name') ?? $this->model_name,
             '%modelSingular%'  => $modelSingularName,
             '%model_path%'     => $this->namespace_model,
             '%table_name%'     => snake_case($this->model_name),

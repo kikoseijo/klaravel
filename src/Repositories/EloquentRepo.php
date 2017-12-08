@@ -130,7 +130,7 @@ abstract class EloquentRepo implements Contract
             $offset = ($page * $per_page) - $per_page;
 
             return new LengthAwarePaginator(
-                array_slice($records->toArray(), $offset, $per_page, true),
+                array_slice($records->toArray(), $offset, $per_page),
                 count($records),
                 $per_page,
                 $page,

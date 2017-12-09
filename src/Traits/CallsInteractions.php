@@ -35,4 +35,21 @@ trait CallsInteractions
 
         return call_user_func_array([app($class), $method], $parameters);
     }
+
+    /**
+     * Execute the given interaction.
+     *
+     * This performs the common validate and handle methods for common interactions.
+     *
+     * @param  string  $interaction
+     * @param  array  $parameters
+     * @return mixed
+     */
+    public static function interaction($interaction, array $parameters)
+    {
+        static::interact($interaction.'@validator', $parameters)->validate();
+
+        return static::interact($interaction, $parameters);
+    }
+
 }

@@ -9,6 +9,7 @@ When you create a new Model you might want to have a full working API CRUD out o
 - [Swagger](#swagger)
 - [Advanced example](#advanced-example)
 - [Batch creation](#batch-creation)
+- [Troubleshooting](#troubleshooting)
 
 ## Your 1st CRUD
 
@@ -171,5 +172,27 @@ Will give you following structure from each given model: replacing 'Example' wit
 
 Isn´t this Cool?
 
+# Troubleshooting
+
+### Responses customisation
+
+You can safely remove LumenResponsesTrait and implement your own responses, this can be done easy by implement the following functions:
+
+```php
+protected function successResponse($data)
+{
+    return $data
+}
+
+protected function createdResponse($data)
+{
+    return $data
+}
+
+protected function deletedResponse()
+{
+    return return response()->json(['status' => 200], 200);
+}
+```
 
 Checkout [swagger section|#swagger] for next steps.

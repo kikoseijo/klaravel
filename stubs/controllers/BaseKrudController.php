@@ -37,8 +37,14 @@ class BaseKrudController extends Controller
   *   schemes={"http","https"},
   *   host="sunnyface.com",
   *   basePath="/v1",
-  *   @SWG\Info(title="Sunnyface.com v1 API", version="1.0", description="Sunnyface.com platform API")
+  *   @SWG\Info(title="Sunnyface.com v1 API", version="1.0", description="Sunnyface.com platform API"),
+  *   @SWG\SecurityScheme(
+  *     securityDefinition="default",
+  *     type="apiKey",
+  *     in="header",
+  *     name="Authorization"
   *   )
+  * )
   */
 
  /**

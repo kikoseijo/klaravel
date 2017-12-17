@@ -79,6 +79,7 @@ class %model%Controller extends BaseKrudController
 *   path="/%model_name_url%",
 *   summary="List all %model%",
 *   tags={"%folder%"},
+*   security={{"default": {}}},
 *   operationId="list%model%",
 *   produces={"application/json"},
 *   @SWG\Parameter(ref="#/parameters/sort"),

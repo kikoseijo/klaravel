@@ -1,6 +1,6 @@
 # Laravel + Lumen - CRUD Generator and more...
 
-This package provides functionalities and structures definitions that are able to speed up your development process up to 80%, by generating out of the box several classes and repositories that allows you implement advanced techniques used in the development process of large projects where maintainability its key.  
+This package provides functionalities and structures definitions that are able to speed up your development process up to 80%, by generating out of the box several classes and repositories that allows you implement advanced techniques used in the development process of large projects where maintainability its key.
 
 For a better understanding of the capabilities of this package you should go and
 visit the [Wiki](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks), where you can find each component specs and examples.
@@ -18,7 +18,6 @@ For version of Laravel < 5.5 you will have to enable the service provider in you
 ```php
 Ksoft\Klaravel\ServiceProvider::class,
 ```
-
 
 You are ready to go! For a full list of functionalities visit [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks).
 
@@ -69,12 +68,11 @@ Continue visiting the Wiki to find more information about posibilities this pack
 
 ### Todo list
 
-- [ ] Generate Model file out of table
-- [ ] Generate Swagger annotations from Model
-- [ ] Make Laravel Responses Trait version
-- [ ] Write wiki for Traits and other important files
-- [ ] Help wanted
-
+* [ ] Generate Model file out of table
+* [ ] Generate Swagger annotations from Model
+* [ ] Make Laravel Responses Trait version
+* [x] Write wiki for Traits and other important files
+* [x] Help wanted
 
 ## Thanks
 
@@ -84,15 +82,15 @@ Some packages serve for inspiration, others take off time on development, to all
 [Laravel Swagger](https://github.com/kevupton/laravel-swagger) excellent dynamic Swagger generation system.  
 [OzanKurt Repoist](https://github.com/OzanKurt/Repoist) Clean and extended Models functionality.
 
-
 ## Credits
 
 Special thanks to supporters and clients that provide me with enough time to work on contributing to develop this packages for the WWW.
 
-[DevOps](https://sunnyface.com "Programador ios málaga Marbella") Web development  
-[AppDev](https://gestorapp.com "Gestor de aplicaciones moviles en málaga, mijas, marbella") Mobile aplications  
-[SocialApp](https://sosvecinos.com "Plataforma móvil para la gestion de comunidades") Residents mobile application  
-[KikoSeijo.com](https://kikoseijo.com "Programador freelance movil y Laravel") Freelance senior programmer
+[DevOps](https://sunnyface.com 'Programador ios málaga Marbella') Web development  
+[AppDev](https://gestorapp.com 'Gestor de aplicaciones moviles en málaga, mijas, marbella') Mobile aplications  
+[SocialApp](https://sosvecinos.com 'Plataforma móvil para la gestion de comunidades') Residents mobile application  
+[KikoSeijo.com](https://kikoseijo.com 'Programador freelance movil y Laravel') Freelance senior programmer
 
 ---
+
 <div dir=rtl markdown=1>Created by <b>Kiko Seijo</b></div>

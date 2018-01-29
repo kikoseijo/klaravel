@@ -19,7 +19,7 @@ class PublishConfig extends Command
      *
      * @var string
      */
-    protected $description = 'Will pubish usefull files, like BaseKrudController and configuration';
+    protected $description = 'Publish required files: Controllers/BaseKrudController + Config';
 
     /**
      * Execute the console command.

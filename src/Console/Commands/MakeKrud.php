@@ -21,6 +21,7 @@ class MakeKrud extends Command
     protected $signature = 'ksoft:krud
                             {model : table name from where you want CRUD generated}
                             {--R|no-routes : if this flag is enabled, routes will not be writen to api.php (Only on screen)}
+                            {--W|swagger= : Optional, Without swagger annotations}
                             {--F|folder= : Optional, recommended Subfolder to save files to}
                             {--N|name= : Optional, customize the name for the file prefix, defaults to model name}
                             {--P|prefix= : provide an optional route prefix}';

@@ -1,44 +1,41 @@
 {
-    "name": "ksoft/klaravel",
-    "version": "1.0.13",
-    "description": "Development helper to speed up development generating classes and repositories with extended functionality used in large projects.",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Kiko Seijo",
-            "email": "kiko@sunnyface.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Ksoft\\Klaravel\\": "src/"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
-    },
-    "minimum-stability": "stable",
-    "config": {
-        "sort-packages": true
-    },
-    "require": {
-        "doctrine/dbal": "^2.6",
-        "kevupton/ethereal": "v2.3.9.6",
-        "zircote/swagger-php": "^2.0"
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Ksoft\\Klaravel\\ServiceProvider"
-            ],
-            "aliases": {
-                "Larapp": "Ksoft\\Klaravel\\Facade"
-            }
-        }
-    },
-    "require-dev": {
-        "laravel/laravel": "^5.5",
-        "laravel/lumen": "^5.5"
+  "name": "ksoft/klaravel",
+  "version": "1.0.13",
+  "description":
+    "Development helper to speed up development generating classes and repositories with extended functionality used in large projects.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kiko Seijo",
+      "email": "kiko@sunnyface.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ksoft\\Klaravel\\": "src/"
+    },
+    "files": ["src/helpers.php"]
+  },
+  "minimum-stability": "stable",
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "doctrine/dbal": "^2.6",
+    "kevupton/ethereal": "v2.4.7",
+    "zircote/swagger-php": "^2.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": ["Ksoft\\Klaravel\\ServiceProvider"],
+      "aliases": {
+        "Larapp": "Ksoft\\Klaravel\\Facade"
+      }
+    }
+  },
+  "require-dev": {
+    "laravel/laravel": "^5.5",
+    "laravel/lumen": "^5.5"
+  }
 }

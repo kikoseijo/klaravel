@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Ksoft\Klaravel\Traits\LumenResponsesTrait;
 use Ksoft\Klaravel\Traits\KrudControllerTrait;
 

@@ -100,15 +100,17 @@ You can make use of any of this views, use the publish command to take full cont
 
 ## Traits available
 
-├── ActiveScope.php // on models ->active('active') will return only enabled items.  
-├── CallsInteractions.php  
-├── HasLogs.php // Ads spatie laravel-logs traits to any model.  
-├── JsonTrait.php // for responses-  
-├── KrudControllerTrait.php // Its a copy of the published on a clean version for lumen.  
-├── LumenResponsesTrait.php // Lumen for Responses-  
-├── RepoQueryFiltersTrait.php // Ad it to your repository to have several query methods for more complex filters.  
-├── UserModelOptions.php  
+```
+├── ActiveScope.php // on models ->active('active') will return only enabled items.
+├── CallsInteractions.php
+├── HasLogs.php // Ads spatie laravel-logs traits to any model.
+├── JsonTrait.php // for responses-
+├── KrudControllerTrait.php // Its a copy of the published on a clean version for lumen.
+├── LumenResponsesTrait.php // Lumen for Responses-
+├── RepoQueryFiltersTrait.php // Ad it to your repository to have several query methods for more complex filters.
+├── UserModelOptions.php
 └── ValidateInteraction.php
+```
 
 ## Traits available
 

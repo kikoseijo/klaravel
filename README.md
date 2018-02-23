@@ -68,9 +68,8 @@ Publish configuration file: ✔
 
 You can make use of any of this views, use the publish command to take full control or simply `@include('klaravel::ui.card-deck-media')` the views and components as you require.
 
-```
-.
-├── admin
+```tree
++── admin
 │   ├── activitylog-table.blade.php
 │   ├── activitylog.blade.php
 │   ├── backups-table.blade.php

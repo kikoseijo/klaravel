@@ -27,7 +27,7 @@
 
         </ul>
 
-        {!! Former::open()->method('GET')->route($model_name'.index')->class('form-inline my-2 my-lg-0')->role('search')  !!}
+        {!! Former::open()->method('GET')->route($model_name.'.index')->class('form-inline my-2 my-lg-0')->role('search')  !!}
             <div class="input-group">
                 <input type="text" class="form-control" name="q" placeholder="Search..." value="{{ request('q') }}">
                 <div class="input-group-append">

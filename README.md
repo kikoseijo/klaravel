@@ -66,6 +66,9 @@ Publish configuration file: ✔
 
 ## Views available (Bootstrap4)
 
+You can make use of any of this views, use the publish command to take full control or simply `@include('klaravel::ui.card-deck-media')` the views and components as you require.
+
+```
 .
 ├── admin
 │   ├── activitylog-table.blade.php
@@ -95,9 +98,11 @@ Publish configuration file: ✔
 ├── booble.blade.php // simple on - off / green - red indicator for booleans.
 ├── count.blade.php // records found total and currently viewing.
 └── pagination.blade.php // Bootstrap4 pagination renderer, add params to merge on links using config file.
+```
 
 ## Traits available
 
+```
 ├── ActiveScope.php // on models ->active('active') will return only enabled items.
 ├── CallsInteractions.php
 ├── HasLogs.php // Ads spatie laravel-logs traits to any model.
@@ -107,26 +112,11 @@ Publish configuration file: ✔
 ├── RepoQueryFiltersTrait.php // Ad it to your repository to have several query methods for more complex filters.
 ├── UserModelOptions.php
 └── ValidateInteraction.php
+```
 
 ## Traits available
 
-Continue visiting the Wiki to find more information about posibilities this package will give you [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki).
-
-### Todo list
-
-* [ ] Generate Model file out of table
-* [ ] Generate Swagger annotations from Model
-* [ ] Make Laravel Responses Trait version
-* [x] Write wiki for Traits and other important files
-* [x] Help wanted
-
-## Thanks
-
-Some packages serve for inspiration, others take off time on development, to all of them: a big thank you!
-
-[Kevupton Ethereal](https://github.com/kevupton/ethereal) for extending model functionality and inteligence.  
-[Laravel Swagger](https://github.com/kevupton/laravel-swagger) excellent dynamic Swagger generation system.  
-[OzanKurt Repoist](https://github.com/OzanKurt/Repoist) Clean and extended Models functionality.
+Continue visiting the Wiki to find more information about possibilities this package will give you [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki).
 
 ## Credits
 

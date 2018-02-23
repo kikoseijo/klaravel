@@ -4,9 +4,11 @@ namespace Ksoft\Klaravel;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Route;
 use Ksoft\Klaravel\Console\Commands\MakeKrud;
 use Ksoft\Klaravel\Console\Commands\BuildSwagger;
 use Ksoft\Klaravel\Console\Commands\PublishConfig;
+use Illuminate\Support\Facades\Blade;
 
 class ServiceProvider extends BaseServiceProvider
 {
@@ -18,7 +20,11 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        //
+        $this->defineRoutes();
+
+
+
+        Blade::component('klaravel::ui.card', 'card');
     }
 
     /**
@@ -37,6 +43,29 @@ class ServiceProvider extends BaseServiceProvider
 
         $this->registerServices();
         $this->registerCommands();
+    }
+
+    protected function defineRoutes()
+    {
+        // If the routes have not been cached, we will include them in a route group
+        // so that all of the routes will be conveniently registered to the given
+        // controller namespace. After that we will load the route file.
+        if (! $this->app->routesAreCached()) {
+            Route::group([
+                'namespace' => 'Ksoft\Klaravel\Http\Controllers'],
+                function ($router) {
+                    require __DIR__.'/Http/routes.php';
+                }
+            );
+        }
+    }
+
+    protected function registerViews()
+    {
+        $this->loadViewsFrom(__DIR__.'/../resources', 'klaravel');
+        $this->publishes([
+            __DIR__.'/../resources' => resource_path('views/vendor/klaravel'),
+        ]);
     }
 
 

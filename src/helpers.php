@@ -1,4 +1,26 @@
 <?php
+
+use Carbon\Carbon;
+use Jenssegers\Date\Date as JenssDate;
+
+if (!function_exists('diff_date_for_humans')) {
+    function diff_date_for_humans(Carbon $date): string
+    {
+        return (new JenssDate($date->timestamp))->ago();
+    }
+}
+
+if (!function_exists('diff_string_for_humans')) {
+    function diff_string_for_humans($stringDate, $format = 'Y-m-d H:i:s'): string
+    {
+        if (!$stringDate) {
+            return '';
+        }
+        $date = JenssDate::createFromFormat($format, $stringDate);
+        return (new JenssDate($date))->ago();
+    }
+}
+
 if (!function_exists('resource')) {
     /**
      * Create a rest resource route
@@ -12,23 +34,37 @@ if (!function_exists('resource')) {
     {
         global $app;
         if (!(in_array('index', $exclude))) {
-            $app->get($path, ['as' => $name.'.index', 'uses' => $controller.'@index']);
+            $app->get($path, ['as' => $name . '.index', 'uses' => $controller . '@index']);
         }
         if (!(in_array('show', $exclude))) {
-            $app->get($path.'/{id}', ['as' => $name.'.show', 'uses' => $controller.'@show']);
+            $app->get($path . '/{id}', ['as' => $name . '.show', 'uses' => $controller . '@show']);
         }
         if (!(in_array('store', $exclude))) {
-            $app->post($path, ['as' => $name.'.store', 'uses' => $controller.'@store']);
+            $app->post($path, ['as' => $name . '.store', 'uses' => $controller . '@store']);
         }
         if (!(in_array('update', $exclude))) {
-            $app->put($path.'/{id}', ['as' => $name.'.update', 'uses' => $controller.'@update']);
+            $app->put($path . '/{id}', ['as' => $name . '.update', 'uses' => $controller . '@update']);
         }
         if (!(in_array('destroy', $exclude))) {
-            $app->delete($path.'/{id}', ['as' => $name.'.destroy', 'uses' => $controller.'@destroy']);
+            $app->delete($path . '/{id}', ['as' => $name . '.destroy', 'uses' => $controller . '@destroy']);
         }
     }
 } else {
     trigger_error('resource function already exists', E_USER_WARNING);
+}
+
+if (!function_exists('humanReadableSize')) {
+    function humanReadableSize($bites): string
+    {
+        return Spatie\Backup\Helpers\Format::humanReadableSize($bites);
+    }
+}
+
+if (!function_exists('createFromTimestamp')) {
+    function createFromTimestamp($timestamp): string
+    {
+        return Carbon::createFromTimestamp($timestamp);
+    }
 }
 
 if (!function_exists('dbDump')) {
@@ -39,7 +75,7 @@ if (!function_exists('dbDump')) {
     function dbDump($simple = true)
     {
         if ($simple) {
-            \DB::listen(function($sql) {
+            \DB::listen(function ($sql) {
                 var_dump($sql);
             });
         } else {
@@ -52,66 +88,58 @@ if (!function_exists('dbDump')) {
     }
 }
 
-
-if ( ! function_exists('config_path'))
-{
+if (!function_exists('config_path')) {
     function config_path($path = '')
     {
         return app()->basePath() . '/config' . ($path ? '/' . $path : $path);
     }
 }
 
-if ( ! function_exists('app_path'))
-{
+if (!function_exists('app_path')) {
     function app_path($path = '')
     {
         return app()->basePath() . '/app' . ($path ? '/' . $path : $path);
     }
 }
 
-if ( ! function_exists('public_path'))
-{
+if (!function_exists('public_path')) {
     function public_path($path = '')
     {
         return app()->basePath() . '/public' . ($path ? '/' . $path : $path);
     }
 }
 
-if ( ! function_exists('logi'))
-{
-  function logi($data)
-  {
+if (!function_exists('logi')) {
+    function logi($data)
+    {
 
-      \Log::info(transform_log($data));
-  }
+        \Log::info(transform_log($data));
+    }
 }
 
-if ( ! function_exists('loge'))
-{
-  function loge($data)
-  {
-      \Log::error(transform_log($data));
-  }
+if (!function_exists('loge')) {
+    function loge($data)
+    {
+        \Log::error(transform_log($data));
+    }
 }
 
-if ( ! function_exists('logc'))
-{
-  function logc($data)
-  {
-      \Log::critical(transform_log($data));
-  }
+if (!function_exists('logc')) {
+    function logc($data)
+    {
+        \Log::critical(transform_log($data));
+    }
 }
 
-if ( ! function_exists('transform_log'))
-{
-  function transform_log($data)
-  {
-      if (is_array($data)){
-        return json_encode($data);
-      } else {
-        return $data;
-      }
-  }
+if (!function_exists('transform_log')) {
+    function transform_log($data)
+    {
+        if (is_array($data)) {
+            return json_encode($data);
+        } else {
+            return $data;
+        }
+    }
 }
 
 if (!function_exists('lumen_resource')) {
@@ -126,18 +154,22 @@ if (!function_exists('lumen_resource')) {
      * @param array $except the list of resources not to use
      * @param bool $require_id
      */
-    function lumen_resource($app, $prefix, $group, $controller, array $list = [], array $except = [], $require_id = true) {
-        $id = $require_id? '{id}': '';
+    function lumen_resource($app, $prefix, $group, $controller, array $list = [], array $except = [], $require_id = true)
+    {
+        $id = $require_id ? '{id}' : '';
         $available = array(
             'index' => ['get', ''],
             'create' => ['get', 'create'],
             'store' => ['post', ''],
             'show' => ['get', $id],
-            'edit' => ['get', $id . (!$require_id? "": "/") . "edit"],
+            'edit' => ['get', $id . (!$require_id ? "" : "/") . "edit"],
             'update' => ['put', $id],
-            'destroy' => ['delete', '{id}']
+            'destroy' => ['delete', '{id}'],
         );
-        if (empty($list)) $list = array_keys($available);
+        if (empty($list)) {
+            $list = array_keys($available);
+        }
+
         foreach ($except as &$val) {
             $val = strtolower($val);
         }
@@ -145,18 +177,20 @@ if (!function_exists('lumen_resource')) {
         foreach ($list as $item) {
             $func = null;
             if (is_array($item)) {
-                $val =  $item[0];
+                $val = $item[0];
                 $func = $item[1];
-                $uri =  $item[2];
+                $uri = $item[2];
             } else {
                 $val = strtolower($item);
-                if (in_array($val,$keys) && !in_array($val, $except)) {
+                if (in_array($val, $keys) && !in_array($val, $except)) {
                     $func = $available[$val][0];
                     $uri = $available[$val][1];
                 }
             }
-            if (!is_null($func))
+            if (!is_null($func)) {
                 $app->$func("$prefix/$uri", ['as' => "$group.$val", 'uses' => "$controller@$val"]);
+            }
+
         }
     }
 }

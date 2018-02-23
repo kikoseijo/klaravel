@@ -1,7 +1,9 @@
 <?php
 
 namespace Ksoft\Klaravel\Traits;
+
 use Ksoft\Klaravel\Utils\JsonResponse;
+
 /**
  * Trait ResponsesTrait.
  */

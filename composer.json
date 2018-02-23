@@ -1,6 +1,6 @@
 {
   "name": "ksoft/klaravel",
-  "version": "1.0.13",
+  "version": "1.1.1",
   "description":
     "Development helper to speed up development, backups, logs, crud, swagger, repository, graphql...",
   "type": "library",

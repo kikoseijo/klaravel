@@ -17,27 +17,23 @@ class BaseKrudController extends Controller
 
     public function index(Request $request)
     {
-        $perPage = $request->take ?? session(PER_PAGE, 10);
+        $perPageKey = config('ksoft.CONSTANTS.take', 'PER_PAGE');
+        $perPage = $request->take ?? session($perPageKey, 10);
         $records = $this->repo->withPagination($perPage, $request);
 
         $res = array_merge($this->loadCrudStyles(), [
             'records'=> $records,
-            'model_name' => $this->path,
-            'viewsBasePath' => $viewsBasePath,
-            'crudWrapperClass' => $crudWrapperClass
+            'model_name' => $this->path
           ]);
 
-        $viewsBasePath = config('ksoft.modules.crud.views_base_path', '');
-        $crudWrapperClass = config('ksoft.style.crud_container_wrapper','container -body-block pb-5');
-
-        return view($res['viewsBasePath'].$this->path.'.index', $res);
+        return view('klaravel::crud.index', $res);
     }
 
     public function create()
     {
         $res = array_merge($this->loadCrudStyles(), ['model_name' => $this->path]);
 
-        return view($res['viewsBasePath'].$this->path.'.create', $res);
+        return view('klaravel::crud.create', $res);
     }
 
     public function store(Request $request)
@@ -63,7 +59,7 @@ class BaseKrudController extends Controller
             'model_name' => $this->path,
         ]);
 
-        return view($res['viewsBasePath'].$this->path.'.edit', $res);
+        return view('klaravel::crud.edit', $res);
     }
 
     public function update(Request $request, $id)

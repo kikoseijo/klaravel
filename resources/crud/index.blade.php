@@ -7,6 +7,7 @@
             @if ($records->total()>0)
               @includeIf('klaravel::ui.tables.pagination')
               @includeIf($viewsBasePath.$model_name.'.table')
+              {{$viewsBasePath.$model_name.'.table'}}
               @includeIf('klaravel::ui.tables.count')
             @endif
         @endcard

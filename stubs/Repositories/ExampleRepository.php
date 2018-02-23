@@ -5,21 +5,34 @@ namespace App\Repositories%subfolder%;
 use App\Contracts\Repositories%subfolder%\%model%Repository as Contract;
 use %model_path%;
 use Ksoft\Klaravel\Repositories\EloquentRepo;
-// https://github.com/rlacerda83/lumen-api-query-parser
-// composer require rlacerda83/query-parser:master
-// use QueryParser\ParserRequestFactory;
+use Ksoft\Klaravel\Traits\QueryFiltersTrait;
 
 class %model%Repository extends EloquentRepo implements Contract
 {
+    // use QueryFiltersTrait; // helpfull methods to search many fields.
+    protected $query;
+    protected $attrsFilter = ['email'];
+
     public function model()
     {
         return %modelSingular%::class;
     }
 
+    public function withPagination($perPage, $request)
+    {
+        $query = $this->model::orderBy('id', 'desc');
+        $qTerm = $request->filled('q') ? $request->get('q') : null;
+
+        if ($qTerm) {
+            $query->where('name', 'like', '%' . $qTerm . '%');
+            foreach ($attrsFilter as $key) {
+                $query->orWhere($key, 'like', '%' . $qTerm . '%');
+            }
+        }
+        return $query->with('logs')->paginate($perPage);
+    }
+
     /**
-     * Listing page records.
-     * https://github.com/rlacerda83/lumen-api-query-parser/wiki/Usage
-     *
      * @param  Illuminate\Http\Request $request
      * @return Pagination|Collection|Array
      */
@@ -27,16 +40,12 @@ class %model%Repository extends EloquentRepo implements Contract
     {
         $search_term = $request->input('q') ?: '';
 
-        // Eloquent
-        // $queryParser  = ParserRequestFactory::createParser($request, $this->model, $this->model);
-        // QueryBuilder
-        // $queryParser  = ParserRequestFactory::createParser($request, $this->model);
-        // $queryBuilder = $queryParser->parser();
-
         $queryBuilder = $this->model::where('id','>', 0);
 
         return $this->paginateIf($queryBuilder->get());
 
     }
+
+
 
 }

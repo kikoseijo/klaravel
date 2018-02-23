@@ -52,8 +52,8 @@ trait QueryFiltersTrait
     // this is a range comming from VUE element-ui
     protected function applyDateSessionFilter($request, $attr = 'created_at')
     {
-        $session_name_from = config('klaravel.modules.crud.session_range_from');
-        $session_name_to = config('klaravel.modules.crud.session_range_from');
+        $session_name_from = config('ksoft.modules.crud.session_range_from');
+        $session_name_to = config('ksoft.modules.crud.session_range_from');
 
         if ($request->has('d')){
             $desde = $request->get('d');

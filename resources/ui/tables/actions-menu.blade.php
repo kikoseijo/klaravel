@@ -13,11 +13,11 @@
 
             <li class="nav-item dropdown mr-3">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <i class="fal fa-table" aria-hidden="true"></i> {{session(config('klaravel.CONSTANTS.take', 'PER_PAGE'))}}
+                    <i class="fal fa-table" aria-hidden="true"></i> {{session(config('ksoft.CONSTANTS.take', 'PER_PAGE'))}}
                 </a>
                 <div class="dropdown-menu">
                     @foreach ([5, 10, 20, 50] as $perPage )
-                        <a class="dropdown-item{{ session(config('klaravel.CONSTANTS.take', 'PER_PAGE')) == $perPage ? ' active' : ''}}"
+                        <a class="dropdown-item{{ session(config('ksoft.CONSTANTS.take', 'PER_PAGE')) == $perPage ? ' active' : ''}}"
                             href="{{route('swap-per-page')}}?perPage={{$perPage}}">
                             {{$perPage}}
                         </a>

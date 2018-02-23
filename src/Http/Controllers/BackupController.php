@@ -25,13 +25,13 @@ class BackupController extends Controller
         }
         // reverse the backups, so the newest one would be on top
         $backups = array_reverse($backups);
-        $routeName = config('klaravel.modules.backup.route_name', 'backup');
+        $routeName = config('ksoft.modules.backup.route_name', 'backup');
         return view("klaravel::admin.backups")->with(compact('backups', 'routeName'));
     }
     public function create()
     {
         try {
-            Artisan::call('backup:run', config('klaravel.modules.backup.extra_arguments', ['--only-db' => 'true']));
+            Artisan::call('backup:run', config('ksoft.modules.backup.extra_arguments', ['--only-db' => 'true']));
             return back()->with('flash_success', 'Backup created succesfully');
         } catch (Exception $e) {
             return back()->with('flash_error', $e->getMessage());

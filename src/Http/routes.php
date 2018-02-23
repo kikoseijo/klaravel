@@ -4,12 +4,11 @@ $router->group(['middleware' => 'web'], function ($router) {
     $router->get('swap-page-limit', 'CrudController@swapPerPage')->name('swap-per-page');
 });
 
-if (config('klaravel.modules.backup.enabled'))
+if (config('ksoft.modules.backup.enabled'))
 {
-    $backupPath = config('klaravel.modules.backup.route_name', 'backup');
-    $backupWare = config('klaravel.modules.backup.middleware');
-
+    $backupWare = config('ksoft.modules.backup.middleware');
     $router->group(['middleware' => $backupWare], function ($router) {
+        $backupPath = config('ksoft.modules.backup.route_name', 'backup');
         $router->get($backupPath, 'BackupController@index');
         $router->get($backupPath.'/create', 'BackupController@create');
         $router->get($backupPath.'/download/{file_name}', 'BackupController@download');
@@ -17,12 +16,11 @@ if (config('klaravel.modules.backup.enabled'))
     });
 }
 
-if (config('klaravel.modules.activity_log.enabled'))
+if (config('ksoft.modules.activity_log.enabled'))
 {
-    $aLogsPath = config('klaravel.modules.activity_log.route_name', 'activity-logs');
-    $aLogsWare = config('klaravel.modules.activity_log.middleware');
-
+    $aLogsWare = config('ksoft.modules.activity_log.middleware');
     $router->group(['middleware' => $aLogsWare], function ($router) {
+        $aLogsPath = config('ksoft.modules.activity_log.route_name', 'activity-logs');
         $router->get($aLogsPath, 'ActivitylogController@index');
     });
 }

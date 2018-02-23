@@ -18,6 +18,6 @@ class ActivitylogController extends Controller
     {
         return Activity::with('causer')
             ->orderBy('created_at', 'DESC')
-            ->paginate(session(config('klaravel.CONSTANTS.take', 'PER_PAGE'), 25));
+            ->paginate(session(config('ksoft.CONSTANTS.take', 'PER_PAGE'), 25));
     }
 }

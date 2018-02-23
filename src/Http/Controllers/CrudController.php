@@ -9,7 +9,7 @@ class CrudController extends Controller
 
     public function swapPerPage(Request $request)
     {
-        $perPageKey = config('klaravel.CONSTANTS.take', 'PER_PAGE');
+        $perPageKey = config('ksoft.CONSTANTS.take', 'PER_PAGE');
         session([$perPageKey => $request->get('perPage')]);
 
         if ($request->filled('redirect')) {

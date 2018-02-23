@@ -9,20 +9,83 @@ class BaseKrudController extends Controller
 {
     use LumenResponsesTrait, KrudControllerTrait;
 
-    /**
-     * @var ModelRespository
-     */
     protected $repo;
-
-    /**
-     * @var ModelCreateIteracion
-     */
+    protected $path;
     protected $createInteraction;
-
-    /**
-     * @var ModelUpdateInteraction
-     */
     protected $updateInteraction;
+
+    public function index(Request $request)
+    {
+        $perPage = $request->take ?? session(PER_PAGE, 10);
+        $records = $this->repo->withPagination($perPage, $request);
+
+        $res = array_merge($this->loadCrudStyles(), [
+            'records'=> $records,
+            'model_name' => $this->path,
+            'viewsBasePath' => $viewsBasePath,
+            'crudWrapperClass' => $crudWrapperClass
+          ]);
+
+        $viewsBasePath = config('ksoft.modules.crud.views_base_path', '');
+        $crudWrapperClass = config('ksoft.style.crud_container_wrapper','container -body-block pb-5');
+
+        return view($res['viewsBasePath'].$this->path.'.index', $res);
+    }
+
+    public function create()
+    {
+        $res = array_merge($this->loadCrudStyles(), ['model_name' => $this->path]);
+
+        return view($res['viewsBasePath'].$this->path.'.create', $res);
+    }
+
+    public function store(Request $request)
+    {
+        $record = $this->interaction($this->createInteraction, [$request->all()]);
+        return redirect($this->path)->with('flash_message', 'El registro ha sido añadido');
+        // return $this->createdResponse($record);
+    }
+
+    public function show($id)
+    {
+        // $record = $this->repo->find($id);
+        return redirect($this->path);
+        // return view($viewsBasePath.$this->path.'.show', [$this->singular => $record]);
+    }
+
+    public function edit($id)
+    {
+        $record = $this->repo->find($id);
+
+        $res = array_merge($this->loadCrudStyles(), [
+            'record' => $record,
+            'model_name' => $this->path,
+        ]);
+
+        return view($res['viewsBasePath'].$this->path.'.edit', $res);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $record = $this->interaction($this->updateInteraction, [$id, $request->all()]);
+        return redirect($this->path)->with('flash_message', 'El registro ha sido actualizado');
+    }
+
+    public function destroy($id)
+    {
+        $this->repo->delete($id);
+        return redirect($this->path)->with('flash_message', 'Registro borrado');
+    }
+
+    protected function loadCrudStyles()
+    {
+        $viewsBasePath = config('ksoft.modules.crud.views_base_path', '');
+        $crudWrapperClass = config('ksoft.style.crud_container_wrapper','container -body-block pb-5');
+        return [
+            'viewsBasePath' => $viewsBasePath,
+            'crudWrapperClass' => $crudWrapperClass
+        ];
+    }
 
 }
 

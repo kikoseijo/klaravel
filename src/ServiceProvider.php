@@ -10,6 +10,7 @@ use Ksoft\Klaravel\Console\Commands\BuildSwagger;
 use Ksoft\Klaravel\Console\Commands\PublishConfig;
 use Illuminate\Support\Facades\Blade;
 
+
 class ServiceProvider extends BaseServiceProvider
 {
 
@@ -21,10 +22,8 @@ class ServiceProvider extends BaseServiceProvider
     public function boot()
     {
         $this->defineRoutes();
-
-
-
-        Blade::component('klaravel::ui.card', 'card');
+        $this->registerViews();
+        $this->registerComponents();
     }
 
     /**
@@ -66,6 +65,17 @@ class ServiceProvider extends BaseServiceProvider
         $this->publishes([
             __DIR__.'/../resources' => resource_path('views/vendor/klaravel'),
         ]);
+        $this->publishes([
+            __DIR__.'/../stubs/config/ksoft.php' => config_path('ksoft.php'),
+        ], 'config');
+    }
+
+    protected function registerComponents()
+    {
+        if (!Larapp::isLumen()) {
+
+            Blade::component('klaravel::ui.card', 'card');
+        }
     }
 
 

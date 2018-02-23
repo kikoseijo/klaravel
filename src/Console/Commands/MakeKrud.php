@@ -129,6 +129,15 @@ class MakeKrud extends Command
             '%model_name_url%' => kebab_case($this->model_name),
         ];
 
+        if (!config('ksoft.krud.use_contracts')) {
+            $removeContracts = [
+                'use App\Contracts\Interactions%subfolder%\%model%Create as Contract;' => '',
+                'App\Contracts' => 'App',
+                'implements Contract' => ''
+            ];
+            $replacements = array_merge($removeContracts, $replacements);
+        }
+
         $content = str_replace(array_keys($replacements), array_values($replacements), $content);
 
         $subFolder = $this->option('folder') ? $this->option('folder').'/' : '';

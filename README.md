@@ -74,7 +74,7 @@ You can make use of any of this views, use the publish command to take full cont
 │   ├── activitylog.blade.php
 │   ├── backups-table.blade.php
 │   └── backups.blade.php
-├── crud // create your `form.blade.php` & `table.blade.php`, to have it working.
+├── crud # create your `form.blade.php` & `table.blade.php`, to have it working.
 │   ├── create.blade.php
 │   ├── edit.blade.php
 │   └── index.blade.php

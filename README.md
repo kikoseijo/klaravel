@@ -68,35 +68,36 @@ Publish configuration file: ✔
 
 You can make use of any of this views, use the publish command to take full control or simply `@include('klaravel::ui.card-deck-media')` the views and components as you require.
 
-/  
-├── admin  
-│   ├── activitylog-table.blade.php  
-│   ├── activitylog.blade.php  
-│   ├── backups-table.blade.php  
-│   └── backups.blade.php  
-├── crud create your `form.blade.php` & `table.blade.php`, to have it working.  
-│   ├── create.blade.php  
-│   ├── edit.blade.php  
-│   └── index.blade.php  
-├── layouts // create a `parts/header.blade.php` & `parts/footer.blade.php`  
-│   └── crud.blade.php  
-└── ui // laravel components for bootstrap.  
-├── card-deck-media.blade.php  
-├── card.blade.php  
-├── dropdown.blade.php  
-├── errors.blade.php  
-├── forms // single fields components to reuse.  
-│   ├── buttons.blade.php  
-│   ├── radios.blade.php  
-│   └── textarea.blade.php  
-├── menu-nav.blade.php  
-├── modal.blade.php  
-└── tables // to help you complete your table views.  
-├── actions-menu.blade.php // i use it to add filters and search.  
-├── actions.blade.php // table buttons (edit + delete) Fontawesome needed.  
-├── booble.blade.php // simple on - off / green - red indicator for booleans.  
-├── count.blade.php // records found total and currently viewing.  
+```
+├── admin
+│   ├── activitylog-table.blade.php
+│   ├── activitylog.blade.php
+│   ├── backups-table.blade.php
+│   └── backups.blade.php
+├── crud // create your `form.blade.php` & `table.blade.php`, to have it working.
+│   ├── create.blade.php
+│   ├── edit.blade.php
+│   └── index.blade.php
+├── layouts // create a `parts/header.blade.php` & `parts/footer.blade.php`
+│   └── crud.blade.php
+└── ui // laravel components for bootstrap.
+├── card-deck-media.blade.php
+├── card.blade.php
+├── dropdown.blade.php
+├── errors.blade.php
+├── forms // single fields components to reuse.
+│   ├── buttons.blade.php
+│   ├── radios.blade.php
+│   └── textarea.blade.php
+├── menu-nav.blade.php
+├── modal.blade.php
+└── tables // to help you complete your table views.
+├── actions-menu.blade.php // i use it to add filters and search.
+├── actions.blade.php // table buttons (edit + delete) Fontawesome needed.
+├── booble.blade.php // simple on - off / green - red indicator for booleans.
+├── count.blade.php // records found total and currently viewing.
 └── pagination.blade.php // Bootstrap4 pagination renderer, add params to merge on links using config file.
+```
 
 ## Traits available
 

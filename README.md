@@ -113,7 +113,7 @@ You can make use of any of this views, use the publish command to take full cont
 └── ValidateInteraction.php
 ```
 
-## Traits available
+## Need more?
 
 Continue visiting the Wiki to find more information about possibilities this package will give you [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki).
 

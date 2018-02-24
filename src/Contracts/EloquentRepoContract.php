@@ -12,12 +12,12 @@ interface EloquentRepoContract
     /**
      * Finds a record by its primary key
      * @param $id
-     * @return record
+     * @return Model
      */
     public function find($id);
 
     /**
-     * @param $column
+     * @param string $column
      * @param $value
      * @return Illuminate\Support\Collection |
      *          Illuminate\Pagination\LengthAwarePaginator
@@ -25,9 +25,9 @@ interface EloquentRepoContract
     public function findWhere($column, $value);
 
     /**
-     * @param $column
+     * @param string $column
      * @param $value
-     * @return record
+     * @return Model
      */
     public function findWhereFirst($column, $value);
 
@@ -53,7 +53,7 @@ interface EloquentRepoContract
 
     /**
      * @param array $properties
-     * @return record
+     * @return Model
      */
     public function create(array $properties);
 

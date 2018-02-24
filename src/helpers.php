@@ -3,6 +3,20 @@
 use Carbon\Carbon;
 use Jenssegers\Date\Date as JenssDate;
 
+if (!function_exists('normalizeString')) {
+    function normalizeString($text, $limit): string
+    {
+        if (!$text) {
+            return '';
+        }
+        $res = '';
+        if ($limit>0) {
+            $res = str_limit($text, $limit);
+        }
+        return ucfirst(strtolower($res));
+    }
+}
+
 if (!function_exists('diff_date_for_humans')) {
     function diff_date_for_humans(Carbon $date): string
     {

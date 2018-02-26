@@ -3,6 +3,20 @@
 use Carbon\Carbon;
 use Jenssegers\Date\Date as JenssDate;
 
+if (!function_exists('normalizeString')) {
+    function normalizeString($text, $limit): string
+    {
+        if (!$text) {
+            return '';
+        }
+        $res = '';
+        if ($limit>0) {
+            $res = str_limit($text, $limit);
+        }
+        return ucfirst(strtolower($res));
+    }
+}
+
 if (!function_exists('diff_date_for_humans')) {
     function diff_date_for_humans(Carbon $date): string
     {
@@ -76,13 +90,13 @@ if (!function_exists('dbDump')) {
     {
         if ($simple) {
             \DB::listen(function ($sql) {
-                var_dump($sql);
+                logi($sql);
             });
         } else {
             \DB::listen(function ($sql, $bindings, $time) {
-                var_dump($sql);
-                var_dump($bindings);
-                var_dump($time);
+                logi($sql);
+                logi($bindings);
+                logi($time);
             });
         }
     }

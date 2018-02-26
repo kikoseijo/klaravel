@@ -194,7 +194,7 @@ class FormerBootstrap4 extends Framework implements FrameworkInterface
 			if ($viewport) {
 				$labelWidthClass .= " col-$viewports[$viewport]-$columns";
 				$fieldWidthClass .= " col-$viewports[$viewport]-".(12 - $columns);
-				$fieldOffsetClass .= " col-$viewports[$viewport]-offset-$columns";
+				$fieldOffsetClass .= " offset-$viewports[$viewport]-$columns";
 			}
 		}
 
@@ -264,11 +264,11 @@ class FormerBootstrap4 extends Framework implements FrameworkInterface
 	public function getLabelClasses()
 	{
 		if ($this->app['former.form']->isOfType('horizontal')) {
-			return array('col-form-label', $this->labelWidth);
+			return array('form-control-label', $this->labelWidth);
 		} elseif ($this->app['former.form']->isOfType('inline')) {
 			return array('sr-only');
 		} else {
-			return array('col-form-label');
+			return array('form-control-label');
 		}
 	}
 

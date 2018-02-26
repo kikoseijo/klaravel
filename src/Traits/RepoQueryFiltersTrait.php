@@ -16,6 +16,19 @@ trait QueryFiltersTrait
         }
     }
 
+    protected function applyEqualTypeFilter($request, $itemsArray, $multiple = true)
+    {
+        foreach ($itemsArray as $key => $value) {
+            if ($request->filled($value)) {
+                if ($key != 0 && $multiple) {
+                    $this->query->orWhere($value, $request->get($value));
+                } else {
+                    $this->query->where($value, $request->get($value));
+                }
+            }
+        }
+    }
+
     protected function removeSingleAttrFilter(array $filtro)
     {
         if (count($filtro)>0) {

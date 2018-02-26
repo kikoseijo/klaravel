@@ -70,13 +70,8 @@ class DirectivesProvider extends ServiceProvider
     private function debugDirectives()
     {
         /*
-         * Usage: @json($object)
          * Usage: @log($value)
          */
-        Blade::directive('json', function ($expression) {
-            return "<?php echo json_encode(with{$expression}); ?>";
-        });
-
         Blade::directive('log', function ($expression) {
             return "<?php logi(with{$expression}); ?>";
         });

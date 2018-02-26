@@ -90,13 +90,13 @@ if (!function_exists('dbDump')) {
     {
         if ($simple) {
             \DB::listen(function ($sql) {
-                var_dump($sql);
+                logi($sql);
             });
         } else {
             \DB::listen(function ($sql, $bindings, $time) {
-                var_dump($sql);
-                var_dump($bindings);
-                var_dump($time);
+                logi($sql);
+                logi($bindings);
+                logi($time);
             });
         }
     }

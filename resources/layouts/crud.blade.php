@@ -17,12 +17,12 @@
 </head>
 <body>
     <div id="app" class="crud-wrapper">
-        @includeIf('parts.header')
+        @includeIf(config('ksoft.modules.crud.header', 'parts.header'))
         <div class="album py-5 bg-light">
-            @includeIf('ui.errors')
+            @includeIf(config('ksoft.modules.crud.errors', 'parts.errors'))
             @yield('content')
         </div>
-        @includeIf('parts.footer')
+        @includeIf(config('ksoft.modules.crud.footer', 'parts.footer'))
         @stack('modals')
     </div>
     <!-- Scripts -->

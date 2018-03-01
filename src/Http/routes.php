@@ -24,3 +24,26 @@ if (config('ksoft.modules.activity_log.enabled'))
         $router->get($aLogsPath, 'ActivitylogController@index');
     });
 }
+
+
+// Session logs
+if (config('ksoft.modules.sessions.enabled'))
+{
+    $aLogsWare = config('ksoft.modules.sessions.middleware');
+    $router->group(['middleware' => $aLogsWare], function ($router) {
+        $aLogsPath = config('ksoft.modules.sessions.route_name', 'sessions');
+        $router->get($aLogsPath, 'SessionController@index')->name('kSessions');
+        $router->get($aLogsPath.'/{session}', 'SessionController@delete')->name('kSessions.delete');
+    });
+}
+
+// Cache logs
+if (config('ksoft.modules.caches.enabled'))
+{
+    $aLogsWare = config('ksoft.modules.caches.middleware');
+    $router->group(['middleware' => $aLogsWare], function ($router) {
+        $aLogsPath = config('ksoft.modules.caches.route_name', 'cache');
+        $router->get($aLogsPath, 'CacheController@index')->name('kCache');
+        $router->get($aLogsPath.'/{cache}', 'CacheController@delete')->name('kCache.delete');
+    });
+}

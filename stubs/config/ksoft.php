@@ -49,6 +49,16 @@ return [
             'route_name' => 'activity-logs',
             'middleware' => ['web','auth'],
         ],
+        'sessions' => [ // Laravel sessions when stored on Database-
+            'enabled' => true,
+            'route_name' => 'sessions',
+            'middleware' => ['web','auth'],
+        ],
+        'caches' => [ // Laravel sessions when stored on Database-
+            'enabled' => true,
+            'route_name' => 'caches',
+            'middleware' => ['web','auth'],
+        ],
         'crud' => [
             'enabled' => true,
             // @includeIf() views to include from your proyect

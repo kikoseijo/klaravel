@@ -18,7 +18,7 @@
                         {{ date('d/M/Y, g:ia', strtotime($backup['last_modified'])) }}
                     </td>
                     <td>
-                        {{ diff_string_for_humans($backup['last_modified']) }}
+                        {{ $backup['last_modified'] }}
                     </td>
                     <td class="text-right">
                         <a class="btn btn-primary" href="{{ url( $routeName . '/download/'.$backup['file_name']) }}">

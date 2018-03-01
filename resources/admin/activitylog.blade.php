@@ -4,7 +4,7 @@
     <div class="container -body-block pb-5">
         @card(['title' => 'Activity logs (all)'])
             {!! $logItems->render() !!}
-            @includeIf('klaravel::activitylog-table', ['iLogs' => $logItems])
+            @includeIf('klaravel::admin.activitylog-table', ['iLogs' => $logItems])
             {!! $logItems->render() !!}
         @endcard
     </div>

@@ -7,8 +7,11 @@
             @if ($records->total()>0)
               @includeIf('klaravel::ui.tables.pagination')
               @includeIf($viewsBasePath.$model_name.'.table')
-              {{$viewsBasePath.$model_name.'.table'}}
               @includeIf('klaravel::ui.tables.count')
+          @else
+              <div class="text-center py-5">
+                  <h3 class="text-muted">No records found</h3>
+              </div>
             @endif
         @endcard
     </div>

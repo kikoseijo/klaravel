@@ -29,7 +29,10 @@ class %model%Repository extends EloquentRepo implements Contract
                 $query->orWhere($key, 'like', '%' . $qTerm . '%');
             }
         }
-        return $query->with('logs')->paginate($perPage);
+
+        // logi($query->toSql());
+
+        return $query->paginate($perPage);
     }
 
     /**

@@ -24,7 +24,7 @@ class %model%Update implements Contract
      */
     public function handle($id, array $data)
     {
-        $data['slug'] = str_slug(array_get($data, 'name'));
+        // $data['slug'] = str_slug(array_get($data, 'name'));
 
         return Larapp::interact(
             %model%Repository::class.'@update',

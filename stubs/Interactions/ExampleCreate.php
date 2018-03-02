@@ -23,7 +23,7 @@ class %model%Create implements Contract
      */
     public function handle(array $data)
     {
-        $data['slug'] = str_slug(array_get($data, 'name'));
+        // $data['slug'] = str_slug(array_get($data, 'name'));
 
         return Larapp::interact(
             %model%Repository::class.'@create',

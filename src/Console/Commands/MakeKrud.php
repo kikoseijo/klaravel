@@ -87,13 +87,24 @@ class MakeKrud extends Command
         }
 
         // Print Contract lines in console.
-        $this->error('-------- [CONTRACT] => [INTERACTION] AppServiceProvider.php ----------');
-        $this->info("// $this->model_name");
-        foreach ($this->printableContracts as $line) {
-            $this->info($line);
+        if (config('ksoft.krud.use_contracts')) {
+            $this->info("");
+            $this->info("######################################");
+            $this->info("############# CONTRACTS ##############");
+            $this->info("######################################");
+            $this->info("");
+            $this->error('-------- [CONTRACT] => [INTERACTION] AppServiceProvider.php ----------');
+            $this->info("");
+            $this->info("// $this->model_name");
+            foreach ($this->printableContracts as $line) {
+                $this->info($line);
+            }
+            $this->info("");
         }
 
+
         // Print + Write? Routes.
+        $this->provideKrudViews();
         $this->writeRoutes();
 
     }
@@ -167,6 +178,8 @@ class MakeKrud extends Command
             $this->fileManager->put($filePath, $content);
         }
 
+
+
         if (0 === strpos($this->write_paths[$key], 'Contracts/')) {
             $shortName                  = str_replace('.php', '', $fileName);
             $contract                   = str_replace('/', '\\', $this->write_paths[$key].$subFolder.$shortName);
@@ -206,11 +219,50 @@ class MakeKrud extends Command
 
     }
 
+    protected function provideKrudViews()
+    {
+        $crudViews = ['form', 'table']; // We only need this 2 to make it all work.
+
+        $this->info("");
+        $this->info("######################################");
+        $this->info("############ KRUD VIEWS ##############");
+        $this->info("######################################");
+        $this->info("");
+
+        $viewDir = kebab_case($this->model_name);
+        $fileDirectory = app()->basePath().'/resources/views/'.$viewDir;
+        if (!$this->fileManager->exists($fileDirectory)) {
+            $this->fileManager->makeDirectory($fileDirectory, 0755, true);
+            foreach ($crudViews as $stub) {
+                $finalPath = $fileDirectory.'/'.$stub.'.blade.php';
+                $content  = $this->fileManager->get(KLARAVEL_PATH.'/stubs/krud/'.$stub.'.blade.php');
+                $content = str_replace('%model_name_url%', $viewDir, $content);
+                $this->fileManager->put($finalPath, $content);
+                $this->info($stub . ' saved succesfully to ' . $finalPath);
+            }
+        } else {
+            $this->error('Views folder exists, command failed:');
+            foreach ($crudViews as $stub) {
+                $file = KLARAVEL_PATH.'/stubs/krud/'.$stub.'.blade.php';
+                $this->info('cp ' . $file .' ./resources/views/'.$viewDir);
+
+            }
+        }
+
+        $this->info("");
+    }
+
     /**
      * @return null
      */
     protected function writeRoutes()
     {
+        $this->info("");
+        $this->info("######################################");
+        $this->info("############### ROUTES ###############");
+        $this->info("######################################");
+        $this->info("");
+
         $prefix = $this->option('prefix') ? $this->option('prefix') : '';
         $folder = $this->option('folder') ? $this->option('folder').'\\' : '';
 
@@ -223,8 +275,14 @@ class MakeKrud extends Command
             '%prefixed%' => '/'.($prefix ? $prefix.'/' : ''),
             '%folder%'   => $folder,
         ];
+        $this->error('-------- [Laravel resource route] => routes/web.php ----------');
+        $this->info("");
+        $lararoute = "Route::resource('".kebab_case($this->model_name)."', '".$this->model_name."Controller');";
+        $this->info($lararoute);
+
+        $this->error('-------- [Lumen resource route] => routes/api.php ----------');
+        $this->info("");
         $parsedRoutes = str_replace(array_keys($replacements), array_values($replacements), $newRoutes);
-        $this->error('-------- [Resource Route] => routes/api.php ----------');
         $this->info($parsedRoutes);
 
         if ($this->option('no-routes')) {
@@ -238,6 +296,8 @@ class MakeKrud extends Command
             file_put_contents($routes_path, $routeContents);
             $this->info('Route for model '.$this->model_name.' created in /routes/api.php');
         }
+
+        $this->info("");
 
     }
 

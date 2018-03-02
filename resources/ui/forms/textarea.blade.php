@@ -1,1 +1,1 @@
-{!! Former::textarea($name)->label($label)->rows(4) !!}
+{!! Former::textarea($name)->label($label)->rows(isset($rows) ? $rows : 4) !!}

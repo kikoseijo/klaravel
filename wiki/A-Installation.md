@@ -1,6 +1,6 @@
 Install using composer.
 
-```
+```bash
 composer require ksoft/klaravel
 ```
 
@@ -9,7 +9,6 @@ For version of laravel < 5.5 you will have to enable this package service provid
 ```php
 Ksoft\Klaravel\ServiceProvider::class,
 ```
-
 
 You are ready to go! For a full list of functionalities visit [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks).
 

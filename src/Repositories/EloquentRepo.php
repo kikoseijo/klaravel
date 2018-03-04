@@ -82,6 +82,7 @@ abstract class EloquentRepo implements Contract
         $record = $this->model->where($column, $value)->first();
 
         if (!$record) {
+            logi($this->model->where($column, $value)->toSql());
             throw (new ModelNotFoundException)->setModel(
                 get_class($this->model->getModel())
             );

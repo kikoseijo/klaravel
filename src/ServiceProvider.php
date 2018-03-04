@@ -74,7 +74,6 @@ class ServiceProvider extends BaseServiceProvider
     {
         if (!Larapp::isLumen()) {
             Blade::component('klaravel::ui.card', 'card');
-            
         }
     }
 

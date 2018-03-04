@@ -8,7 +8,7 @@
                 href="#{{$tabsKey}}"
                 data-toggle="tab"
                 role="tab"
-                aria-controls="{{$tabsKey}}"
+                aria-controls="{{$tabsKey}}-tab"
                 aria-selected="{{$i==0?'true':'false'}}">{!! $tabsVal !!}</a>
         </li>
         @php($i++)

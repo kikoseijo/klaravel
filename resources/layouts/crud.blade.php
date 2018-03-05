@@ -8,11 +8,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Klaravel, by Sunnyface.com') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @stack('stylesheets')
     <script>
         window.Larapp = {!! json_encode([
             'csrfToken' => csrf_token(),
             'state' => ['user' => Auth::user()],
         ]) !!};
+        @stack('js')
     </script>
 </head>
 <body>

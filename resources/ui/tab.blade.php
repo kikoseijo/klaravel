@@ -1,6 +1,4 @@
-
-
-<ul class="nav nav-tabs bg-light  {{$class or ''}}" role="tablist">
+<ul class="nav nav-tabs {{$class or ''}}" role="tablist">
     @php($i = 0)
     @foreach ($tabs as $tabsKey => $tabsVal)
         <li class="nav-item">
@@ -14,6 +12,6 @@
         @php($i++)
     @endforeach
 </ul>
-<div class="tab-content p-3 bg-white border border-top-0">
+<div class="tab-content p-3">
     {{ $slot }}
 </div>

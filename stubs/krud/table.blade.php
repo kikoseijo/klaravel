@@ -12,7 +12,7 @@
         <tr>
             <th scope="row">{{ $item->id }}</th>
             <td><i class="fas fa-circle text-{{ $item->active ? 'success' : 'danger' }}"></i></td>
-            <td><a href="{{route('%model_name_url%.edit', $item->id)}}">{{ $item->name }}</a></td>
+            <td><a href="{{route($model_name.'.edit', $item->id)}}">{{ $item->name }}</a></td>
             @include('klaravel::ui.tables.actions')
         </tr>
     @endforeach

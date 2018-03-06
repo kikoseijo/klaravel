@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-3">
-    {!! Former::text('name')->required()->label('Nombre') !!}
+    {!! Former::text('name')->required()->label('Name') !!}
   </div>
   <div class="col-sm-3">
     {!! Former::email('email')->required()->label('Email') !!}
@@ -12,8 +12,8 @@
       @include('klaravel::ui.forms.radios',[
           'items' => ['1' => 'Yes', '0' => 'No'],
           'label' => 'Online',
-          'name' => 'active',
-          'value' => isset($record) ? $record->active : '',
+          'name' => 'online',
+          'value' => isset($record) ? $record->online : '',
       ])
   </div>
 </div>

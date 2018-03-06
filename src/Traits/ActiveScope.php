@@ -12,11 +12,16 @@ trait ActiveScope
      * defaults to 'active' attr name.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param mixed $type
+     * @param string | array $type
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeActive($query, $type = 'active')
     {
-        return $query->where($type, 1);
+        if (is_array($type)) {
+            foreach ($type as $key) {
+                $query->where($key, 1);
+            }
+        }
+        return $query;
     }
 }

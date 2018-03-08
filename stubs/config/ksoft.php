@@ -64,7 +64,7 @@ return [
             // @includeIf() views to include from your proyect
             'header' => 'parts.header',
             'footer' => 'parts.footer',
-            'errors' => 'ksoft::ui.errors',
+            'errors' => 'klaravel::ui.errors',
             // the "." should be included at the end of the path. as a join the model name "folder"
             'views_base_path' => 'back.',
             // will append this params in pagination links. merge on url.-

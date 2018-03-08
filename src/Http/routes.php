@@ -4,6 +4,12 @@ $router->group(['middleware' => 'web'], function ($router) {
     $router->get('swap-page-limit', 'CrudController@swapPerPage')->name('swap-per-page');
 });
 
+$router->group(['middleware' => ['web','auth']], function ($router) {
+    $router->get('ksoft/plugins', 'PluginsController@index')->name('ksoft.plugins.index');
+    $router->get('ksoft/plugin-install/{plugin_name}', 'PluginsController@installPlugin')->name('ksoft.plugins.install');
+    $router->get('ksoft/plugin-uninstall/{plugin_name}', 'PluginsController@uninstallPlugin')->name('ksoft.plugins.uninstall');
+});
+
 if (config('ksoft.modules.backup.enabled'))
 {
     $backupWare = config('ksoft.modules.backup.middleware');

@@ -1,4 +1,4 @@
-<div class="card {{$class or ''}}">
+<div class="card {{$class or ''}}"{!! isset($style)? ' style="'.$style.'"':'' !!}>
     @isset($title)
         <div class="card-header">{{$title}}</div>
     @endisset

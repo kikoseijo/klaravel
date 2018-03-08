@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Ksoft\Klaravel\Console\Commands\MakeKrud;
 use Ksoft\Klaravel\Console\Commands\BuildSwagger;
 use Ksoft\Klaravel\Console\Commands\PublishConfig;
+use Ksoft\Klaravel\Console\Commands\InstallPlugin;
 use Illuminate\Support\Facades\Blade;
 
 
@@ -90,6 +91,7 @@ class ServiceProvider extends BaseServiceProvider
                 MakeKrud::class,
                 BuildSwagger::class,
                 PublishConfig::class,
+                InstallPlugin::class,
             ]);
         }
     }

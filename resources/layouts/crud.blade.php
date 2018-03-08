@@ -21,7 +21,7 @@
     <div id="app" class="crud-wrapper">
         @includeIf(config('ksoft.modules.crud.header', 'parts.header'))
         <div class="album py-5 bg-light">
-            @includeIf(config('ksoft.modules.crud.errors', 'ksoft::ui.errors'))
+            @includeIf(config('ksoft.modules.crud.errors', 'klaravel::ui.errors'))
             @yield('content')
         </div>
         @includeIf(config('ksoft.modules.crud.footer', 'parts.footer'))

@@ -25,7 +25,7 @@ class %model%Repository extends EloquentRepo implements Contract
 
         if ($qTerm) {
             $query->where('name', 'like', '%' . $qTerm . '%');
-            foreach ($attrsFilter as $key) {
+            foreach ($this->attrsFilter as $key) {
                 $query->orWhere($key, 'like', '%' . $qTerm . '%');
             }
         }

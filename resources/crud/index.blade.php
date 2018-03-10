@@ -11,9 +11,7 @@
               </div>
               @includeIf('klaravel::ui.tables.count')
           @else
-              <div class="text-center py-5">
-                  <h3 class="text-muted">No records found</h3>
-              </div>
+              @includeif('klaravel::_parts.no-records')
             @endif
         @endcard
     </div>

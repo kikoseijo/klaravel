@@ -26,20 +26,20 @@ class BaseKrudController extends Controller
             'model_name' => $this->path
           ]);
 
-        return view('klaravel::crud.index', $res);
+        return $this->returnCustomView($res);
     }
 
     public function create()
     {
         $res = array_merge($this->loadCrudStyles(), ['model_name' => $this->path]);
 
-        return view('klaravel::crud.create', $res);
+        return $this->returnCustomView($res, 'create');
     }
 
     public function store(Request $request)
     {
         $record = $this->interaction($this->createInteraction, [$request->all()]);
-        return redirect($this->path)->with('flash_message', 'El registro ha sido añadido');
+        return redirect($this->path)->with('flash_message', 'Record added succesfully');
         // return $this->createdResponse($record);
     }
 
@@ -59,19 +59,19 @@ class BaseKrudController extends Controller
             'model_name' => $this->path,
         ]);
 
-        return view('klaravel::crud.edit', $res);
+        return $this->returnCustomView($res, 'edit');
     }
 
     public function update(Request $request, $id)
     {
         $record = $this->interaction($this->updateInteraction, [$id, $request->all()]);
-        return redirect($this->path)->with('flash_message', 'El registro ha sido actualizado');
+        return redirect($this->path)->with('flash_message', 'Record updated succesfully');
     }
 
     public function destroy($id)
     {
         $this->repo->delete($id);
-        return redirect($this->path)->with('flash_message', 'Registro borrado');
+        return redirect($this->path)->with('flash_message', 'Record deleted succesfully');
     }
 
     protected function loadCrudStyles()
@@ -82,6 +82,15 @@ class BaseKrudController extends Controller
             'viewsBasePath' => $viewsBasePath,
             'crudWrapperClass' => $crudWrapperClass
         ];
+    }
+
+    protected function returnCustomView($data, $key='index')
+    {
+        $view = $data['viewsBasePath'] . $data['model_name'] . '.' .$key;
+        if(view()->exists($view)){
+            return view($view, $data);
+        }
+        return view('klaravel::crud.' . $key, $data);
     }
 
 }

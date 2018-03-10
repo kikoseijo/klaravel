@@ -26,6 +26,10 @@
 */
 
 Vue.component(
+  'klaravel-element-range',
+  require('./components/ElementRange.vue')
+);
+Vue.component(
   'klaravel-element-upload',
   require('./components/ElementUpload.vue')
 );

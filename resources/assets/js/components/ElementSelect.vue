@@ -4,6 +4,7 @@
         :multiple="multiple"
         @change="selectChanged"
         :collapse-tags="collapseTags"
+        :filterable="searchable"
         :clearable="clearable"
         :placeholder="placeHolder">
           <el-option
@@ -13,7 +14,7 @@
             :value="item.value">
           </el-option>
       </el-select>
-      <input type="hidden" :name="name" :value="hiddenValue">
+      <input type="hidden" :name="name" :id="name" :value="hiddenValue">
     </div>
 </template>
 
@@ -42,6 +43,7 @@ export default {
     'name',
     'options',
     'placeholder',
+    'searchable',
     'multiple',
     'clearable',
     'collapseTags'
@@ -51,7 +53,7 @@ export default {
       placeHolder: this.placeholder ? this.placeholder : 'Select option',
       selectOptions: this.options,
       defaultValue: [],
-      hiddenValue: null
+      hiddenValue: []
     };
   },
   mounted() {

@@ -1,6 +1,13 @@
 @extends('klaravel::layouts.crud')
 
 @section('content')
+
+    @component('klaravel::ui.alert', [
+        'type' => 'warning',
+    ])
+        This part of the package its under development. Stuck at installing with composer, help welcome.
+    @endcomponent()
+
     <div class="container -body-block pb-5">
         @foreach ($plugins as $key => $plugin)
             @card([

@@ -33,18 +33,20 @@
                 @endcomponent
             @endisset
             @component('klaravel::ui.dropdown', ['title' => '<i class="fas fa-user-circle"></i> ' . auth()->user()->name ])
+
+                <a href="{{ route('ksoft.plugins.index') }}" class="dropdown-item{{ $currrent_route_name == 'ksoft.plugins.index' ? ' active' : '' }}">Install plugin</a>
                 @if (auth()->user()->admin)
                     @if (config('ksoft.modules.activity_log.enabled'))
-                        <a href="{{ route('kLogs') }}" class="dropdown-item{{ $currrent_route_name == 'klogs' ? ' active' : '' }}">Activity Logs</a>
+                        <a href="{{ route('kLogs') }}" class="dropdown-item{{ $currrent_route_name == 'kLogs' ? ' active' : '' }}">Activity Logs</a>
                     @endif
                     @if (config('ksoft.modules.sessions.enabled'))
-                        <a href="{{ route('kSessions') }}" class="dropdown-item{{ $currrent_route_name == 'sessions' ? ' active' : '' }}">DB Sessions</a>
+                        <a href="{{ route('kSessions') }}" class="dropdown-item{{ $currrent_route_name == 'kSessions' ? ' active' : '' }}">DB Sessions</a>
                     @endif
                     @if (config('ksoft.modules.caches.enabled'))
-                        <a href="{{ route('kCache') }}" class="dropdown-item{{ $currrent_route_name == 'caches' ? ' active' : '' }}">DB Cache</a>
+                        <a href="{{ route('kCache') }}" class="dropdown-item{{ $currrent_route_name == 'kCache' ? ' active' : '' }}">DB Cache</a>
                     @endif
                     @if (config('ksoft.modules.backup.enabled'))
-                        <a href="{{ route('kBackup') }}" class="dropdown-item{{ $currrent_route_name == 'backup' ? ' active' : '' }}">Backups</a>
+                        <a href="{{ route('kBackup') }}" class="dropdown-item{{ $currrent_route_name == 'kBackup' ? ' active' : '' }}">Backups</a>
                     @endif
                     <div class="dropdown-divider"></div>
                 @endif

@@ -2,11 +2,13 @@
 
 @section('content')
 
-    @component('klaravel::ui.alert', [
-        'type' => 'warning',
-    ])
-        This part of the package its under development. Stuck at installing with composer, help welcome.
-    @endcomponent()
+    <div class="container">
+        @component('klaravel::ui.alert', [
+            'type' => 'warning',
+        ])
+            This part of the package its under development.<br />Composser its the key to succeed.
+        @endcomponent
+    </div>
 
     <div class="container -body-block pb-5">
         @foreach ($plugins as $key => $plugin)

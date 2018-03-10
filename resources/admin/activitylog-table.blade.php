@@ -24,8 +24,6 @@
           </tbody>
         </table>
     @else
-        <div class="text-center py-5">
-            <h4 class="text-muted">No records found.</h4>
-        </div>
+        @includeif('klaravel::_parts.no-records', ['recrods_name' => 'Activity logs'])
     @endif
 @endisset

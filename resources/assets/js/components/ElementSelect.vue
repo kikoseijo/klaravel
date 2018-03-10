@@ -50,9 +50,13 @@ export default {
     return {
       placeHolder: this.placeholder ? this.placeholder : 'Select option',
       selectOptions: this.options,
-      defaultValue: this.value ? this.value : null,
+      defaultValue: [],
       hiddenValue: null
     };
+  },
+  mounted() {
+    this.defaultValue = this.value;
+    this.hiddenValue = this.value;
   },
   methods: {
     selectChanged(newValue) {

@@ -57,8 +57,6 @@
           Ver todos los logs de actividad
         </a> --}}
     @else
-        <div class="text-center py-5">
-            <h1 class="text-muted">No backups found</h1>
-        </div>
+        @includeif('klaravel::_parts.no-records', ['records_name' => 'Sessions'])
     @endif
 @endisset

@@ -33,7 +33,5 @@
         </tbody>
     </table>
 @else
-    <div class="text-center py-5">
-        <h1 class="text-muted">No backups found</h1>
-    </div>
+    @includeif('klaravel::_parts.no-records', ['recrods_name' => 'backups'])
 @endif

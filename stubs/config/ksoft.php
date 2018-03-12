@@ -3,7 +3,7 @@
 return [
     'runtime_console' => true, // true: enables commands being runned by php.
     'models_path' => 'Models/', // defaults "Models/"
-
+    'backend_dashboard_route_name' => '',
     /**
      * Swagger Builder configuration
      */

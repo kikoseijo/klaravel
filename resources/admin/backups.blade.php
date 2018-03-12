@@ -11,7 +11,9 @@
                 </li>
             @endcomponent
             <div class="py-4"></div>
-            @includeIf('klaravel::admin.backups-table')
+            <div class="table-responsive">
+                @includeIf('klaravel::admin.backups-table')
+            </div>
             <div class="py-3"></div>
         @endcard
     </div>

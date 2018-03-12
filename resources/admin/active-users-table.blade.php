@@ -6,6 +6,7 @@
                   <th></th>
                   <th>Last active</th>
                   <th>IP</th>
+                  <th>Referer</th>
                   <th>Last visited page</th>
                   <th>Logged user</th>
                   <th></th>
@@ -16,6 +17,7 @@
                     @php
                         $payload = unserialize(base64_decode($session->payload));
                         $ante = array_get($payload,'_previous');
+                        $referer = array_get($payload,'referer');
                         $currentUrl = isset($ante) ? $ante['url'] : '';
                     @endphp
                     <tr>
@@ -28,6 +30,11 @@
                         <td>
                             <a href="http://geoiptool.com/en/?ip={{$session->ip_address}}" target="_blank">
                                 {!! $session->ip_address !!}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{ $referer}}" data-toggle="tooltip" data-placement="right" title="{{$referer}}" target="_blank">
+                                <i class="fal fa-external-link-square-alt"></i> /{{last(explode('/', $referer))}}
                             </a>
                         </td>
                         <td>

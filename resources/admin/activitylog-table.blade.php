@@ -1,8 +1,11 @@
 @isset($iLogs)
     @if(count($iLogs))
-        <table class="{{config('ksoft.style.table_style')}}">
+        <table class="{{config('ksoft.style.table_style')}} table-sm">
           <thead class="{{config('ksoft.style.thead')}}">
             <tr>
+              <th></th>
+              <th>Type</th>
+              <th>Model</th>
               <th>Date</th>
               <th>Activity</th>
               <th>User</th>
@@ -11,7 +14,13 @@
           <tbody>
             @foreach($iLogs as $logItem)
               <tr>
-                {{-- <td>{{ diff_date_for_humans($logItem->created_at) }}</td> --}}
+                  <td>
+                      <a href="#ghogo" onclick="$('#table-row-{{$loop->index}}').toggle();">
+                          <i class="fas fa-chevron-right"></i>
+                      </a>
+                  </td>
+                <td>{!! $logItem->log_name !!}</td>
+                <td>{!! class_basename($logItem->subject_type) !!}</td>
                 <td>{{ $logItem->created_at->diffForHumans() }}</td>
                 <td>{!! $logItem->description !!}</td>
                 <td>
@@ -19,6 +28,11 @@
                       {{ $logItem->causer->name }}
                   @endif
                 </td>
+              </tr>
+              <tr id="table-row-{{$loop->index}}" style="display:none">
+                  <td colspan="6">
+                      <code>@json($logItem)</code>
+                  </td>
               </tr>
             @endforeach
           </tbody>

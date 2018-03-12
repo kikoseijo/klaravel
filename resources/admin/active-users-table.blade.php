@@ -33,20 +33,24 @@
                             </a>
                         </td>
                         <td>
-                            <a href="{{ $referer}}" data-toggle="tooltip" data-placement="right" title="{{$referer}}" target="_blank">
-                                <i class="fal fa-external-link-square-alt"></i> /{{last(explode('/', $referer))}}
-                            </a>
+                            @if ($referer)
+                                <a href="{{ $referer}}" data-toggle="tooltip" data-placement="right" title="{{$referer}}" target="_blank">
+                                    <i class="fal fa-external-link-square-alt"></i> {{str_limit(last(explode('/', $referer)),34)}}
+                                </a>
+                            @endif
                         </td>
                         <td>
-                            <a href="{{ $currentUrl}}" data-toggle="tooltip" data-placement="right" title="{{$currentUrl}}" target="_blank">
-                                <i class="fal fa-external-link-square-alt"></i> /{{last(explode('/', $currentUrl))}}
-                            </a>
+                            @if ($currentUrl)
+                                <a href="{{ $currentUrl}}" data-toggle="tooltip" data-placement="right" title="{{$currentUrl}}" target="_blank">
+                                    <i class="fal fa-external-link-square-alt"></i> /{{str_limit(last(explode('/', $currentUrl)),32)}}
+                                </a>
+                            @endif
                         </td>
                         <td>
                           @if($session->user_id)
-                            {{-- <a href="{{ action('UserController@edit', $session->user_id) }}"> --}}
                               {{ $session->visitor->name }}
-                            {{-- </a> --}}
+                          @else
+                              Invitado
                           @endif
                         </td>
                         <td style="width:60px;" class="text-center">
@@ -56,7 +60,7 @@
                         </td>
                     </tr>
                     <tr id="table-row-{{$loop->index}}" style="display:none">
-                        <td class="text-muted" colspan="6">
+                        <td class="text-muted" colspan="7">
                             {!! $session->user_agent !!}
                             <hr>
                             <code>{!! json_encode($payload) !!}</code>

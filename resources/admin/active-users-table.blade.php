@@ -16,6 +16,7 @@
                     @php
                         $payload = unserialize(base64_decode($session->payload));
                         $ante = array_get($payload,'_previous');
+                        $currentUrl = isset($ante) ? $ante['url'] : '';
                     @endphp
                     <tr>
                         <td>
@@ -29,7 +30,11 @@
                                 {!! $session->ip_address !!}
                             </a>
                         </td>
-                        <td>{{ isset($ante) ? $ante['url'] : ''}}</td>
+                        <td>
+                            <a href="{{ $currentUrl}}" data-toggle="tooltip" data-placement="right" title="{{$currentUrl}}" target="_blank">
+                                <i class="fal fa-external-link-square-alt"></i> /{{last(explode('/', $currentUrl))}}
+                            </a>
+                        </td>
                         <td>
                           @if($session->user_id)
                             {{-- <a href="{{ action('UserController@edit', $session->user_id) }}"> --}}

@@ -8,7 +8,7 @@
                   <th>IP</th>
                   <th>Referer</th>
                   <th>Last visited page</th>
-                  <th>Logged user</th>
+                  <th></th>
                   <th></th>
                 </tr>
             </thead>

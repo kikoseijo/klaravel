@@ -11,9 +11,11 @@
       <span class="navbar-toggler-icon" />
     </button>
     @include('klaravel::_parts.header_menu', [
+        'croute' => Route::currentRouteName(),
         'admin_menu' => config('puntocero.menu.back'),
-        'settings_menu' => config('puntocero.menu.settings'),
-        'croute' => Route::currentRouteName()
+        'settings_menu' => [
+            '<i class="fas fa-cog"></i>' => config('puntocero.menu.settings'),
+        ],
     ])
   </div>
 </nav>

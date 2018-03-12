@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse" id="navbarHeader">
 
     <!-- Left Side Of Navbar -->
-    <ul class="mr-auto navbar-nav">
+    <ul class="mr-auto navbar-nav top-left-menu">
         @auth
             @foreach ($admin_menu as $menuRoute => $menuLabel)
                 @if (is_array($menuLabel))
@@ -23,17 +23,19 @@
     </ul>
 
     <!-- Right Side Of Navbar -->
-    <ul class="ml-auto navbar-nav">
+    <ul class="ml-auto navbar-nav top-right-menu">
         @guest
             <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
             <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
         @else
             @isset($settings_menu)
-                @component('klaravel::ui.dropdown', ['title' => '<i class="fas fa-cog"></i>' ])
-                    @foreach ($settings_menu as $setUrl => $setLabel)
-                        <a href="{{ route($setUrl) }}" class="dropdown-item{{ $croute == $setUrl?' active':''}}">{{ $setLabel }}</a>
-                    @endforeach
-                @endcomponent
+                @foreach ($settings_menu as $menuTitle => $menuItems)
+                    @component('klaravel::ui.dropdown', ['title' => $menuTitle ])
+                        @foreach ($menuItems as $setUrl => $setLabel)
+                            <a href="{{ route($setUrl) }}" class="dropdown-item{{ $croute == $setUrl?' active':''}}">{{ $setLabel }}</a>
+                        @endforeach
+                    @endcomponent
+                @endforeach
             @endisset
             @component('klaravel::ui.dropdown', ['title' => '<i class="fas fa-user-circle"></i> ' . auth()->user()->name ])
 

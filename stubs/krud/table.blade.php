@@ -2,8 +2,11 @@
     <thead class="thead-dark">
         <tr>
             <th>#</th>
-            <th>Status</th>
-            <th>Name</th>
+            <th class="btn-actions"></th>
+            <th class="text-center">
+                Name
+                @include('klaravel::ui.tables.order', ['att' => 'active'])
+            </th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -11,9 +14,13 @@
     @foreach($records as $item)
         <tr>
             <th scope="row">{{ $item->id }}</th>
-            <td><i class="fas fa-circle text-{{ $item->active ? 'success' : 'danger' }}"></i></td>
+            <td class="text-center">
+                <a href="{{route($model_name.'.status_change',[$item->id,'active', $item->active ? '0' : '1'])}}">
+                    <i class="{{ $item->active ? 'fas fa-eye text-success' : 'fal fa-eye-slash text-danger' }}"></i>
+                </a>
+            </td>
             <td><a href="{{route($model_name.'.edit', $item->id)}}">{{ $item->name }}</a></td>
-            @include('klaravel::ui.tables.actions')
+            @include('klaravel::ui.tables.actions', ['size' => 'sm'])
         </tr>
     @endforeach
     </tbody>

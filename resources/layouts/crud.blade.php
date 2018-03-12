@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Klaravel, by Sunnyface.com') }}</title>
+    <title>
+        @isset($model_name)
+            {{ title_case(str_plural($model_name)) }} |
+        @endisset
+        {{ config('app.name', 'Klaravel, by Sunnyface.com') }} | Admin area</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @stack('stylesheets')
     <script>
@@ -26,6 +30,7 @@
         </div>
         @includeIf(config('ksoft.modules.crud.footer', 'parts.footer'))
         @stack('modals')
+        <notifications></notifications>
     </div>
     <!-- Scripts -->
     @if (app()->isLocal())

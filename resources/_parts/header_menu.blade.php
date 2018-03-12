@@ -7,12 +7,15 @@
                 @if (is_array($menuLabel))
                     @component('klaravel::ui.dropdown', ['title' => title_case($menuRoute) ])
                         @foreach ($menuLabel as $subKey => $subValue)
-                            <a href="{{ route($menuRoute.'.index', $subKey) }}" class="dropdown-item{{ starts_with($currrent_route_name, $subKey.'.')?' active':''}}">{{$subValue}}</a>
+                            @php($selected = $menuRoute == $croute && request()->route('config_name') == $subKey ? ' active': '')
+                            <a href="{{ route($menuRoute, $subKey) }}" class="dropdown-item{{ $selected}}">
+                                {{$subValue}}
+                            </a>
                         @endforeach
                     @endcomponent
                 @else
                     <li class="nav-item" role="presentation">
-                        <a href="{{ route($menuRoute . '.index') }}" class="nav-link{{ starts_with($currrent_route_name, $menuRoute.'.')?' active':''}}">{{ $menuLabel }}</a>
+                        <a href="{{ route($menuRoute) }}" class="nav-link{{ $croute == $menuRoute ? ' active':''}}">{{ $menuLabel }}</a>
                     </li>
                 @endif
             @endforeach
@@ -26,27 +29,27 @@
             <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
         @else
             @isset($settings_menu)
-                @component('klaravel::ui.dropdown', ['title' => '<i class="fas fa-cogs"></i>' ])
+                @component('klaravel::ui.dropdown', ['title' => '<i class="fas fa-cog"></i>' ])
                     @foreach ($settings_menu as $setUrl => $setLabel)
-                        <a href="{{ url($setUrl) }}" class="dropdown-item{{ $currrent_route_name == $setUrl?' active':''}}">{{ $setLabel }}</a>
+                        <a href="{{ route($setUrl) }}" class="dropdown-item{{ $croute == $setUrl?' active':''}}">{{ $setLabel }}</a>
                     @endforeach
                 @endcomponent
             @endisset
             @component('klaravel::ui.dropdown', ['title' => '<i class="fas fa-user-circle"></i> ' . auth()->user()->name ])
 
-                <a href="{{ route('ksoft.plugins.index') }}" class="dropdown-item{{ $currrent_route_name == 'ksoft.plugins.index' ? ' active' : '' }}">Install plugin</a>
+                <a href="{{ route('ksoft.plugins.index') }}" class="dropdown-item{{ $croute == 'ksoft.plugins.index' ? ' active' : '' }}">Install plugin</a>
                 @if (auth()->user()->admin)
                     @if (config('ksoft.modules.activity_log.enabled'))
-                        <a href="{{ route('kLogs') }}" class="dropdown-item{{ $currrent_route_name == 'kLogs' ? ' active' : '' }}">Activity Logs</a>
+                        <a href="{{ route('kLogs') }}" class="dropdown-item{{ $croute == 'kLogs' ? ' active' : '' }}">Activity Logs</a>
                     @endif
                     @if (config('ksoft.modules.sessions.enabled'))
-                        <a href="{{ route('kSessions') }}" class="dropdown-item{{ $currrent_route_name == 'kSessions' ? ' active' : '' }}">DB Sessions</a>
+                        <a href="{{ route('kSessions') }}" class="dropdown-item{{ $croute == 'kSessions' ? ' active' : '' }}">DB Sessions</a>
                     @endif
                     @if (config('ksoft.modules.caches.enabled'))
-                        <a href="{{ route('kCache') }}" class="dropdown-item{{ $currrent_route_name == 'kCache' ? ' active' : '' }}">DB Cache</a>
+                        <a href="{{ route('kCache') }}" class="dropdown-item{{ $croute == 'kCache' ? ' active' : '' }}">DB Cache</a>
                     @endif
                     @if (config('ksoft.modules.backup.enabled'))
-                        <a href="{{ route('kBackup') }}" class="dropdown-item{{ $currrent_route_name == 'kBackup' ? ' active' : '' }}">Backups</a>
+                        <a href="{{ route('kBackup') }}" class="dropdown-item{{ $croute == 'kBackup' ? ' active' : '' }}">Backups</a>
                     @endif
                     <div class="dropdown-divider"></div>
                 @endif

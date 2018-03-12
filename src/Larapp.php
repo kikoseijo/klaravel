@@ -2,6 +2,9 @@
 
 namespace Ksoft\Klaravel;
 
+use Ksoft\Klaravel\Traits\CallsInteractions;
+use Ksoft\Klaravel\Traits\UserModelOptions;
+
 /**
 * Larapp is an static class for providing calls interactions
 *
@@ -28,8 +31,7 @@ namespace Ksoft\Klaravel;
 */
 class Larapp
 {
-    use Traits\CallsInteractions,
-        Traits\UserModelOptions;
+    use CallsInteractions, UserModelOptions;
 
     /**
      * The Klaravel version.

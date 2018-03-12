@@ -9,7 +9,7 @@
     @include('klaravel::_parts.header_menu', [
         'admin_menu' => config('aplication.menu.back'),
         'settings_menu' => config('aplication.menu.settings'),
-        'currrent_route_name' => Route::currentRouteName()
+        'croute' => Route::currentRouteName()
     ])
   </div>
 </nav>

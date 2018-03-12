@@ -3,7 +3,7 @@
 @section('content')
     <div class="{{$crudWrapperClass}}">
         @card(['title' => 'New ' . title_case($model_name)])
-            {!! Former::open()->route($model_name.'.store') !!}
+            {!! Former::open_for_files()->route($model_name.'.store') !!}
             @includeIf($viewsBasePath.$model_name.'.form')
             {!! Former::close() !!}
         @endcard

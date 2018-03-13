@@ -6,7 +6,7 @@
             @includeIf('klaravel::ui.tables.actions-menu')
             @if ($records->total()>0)
               @includeIf('klaravel::ui.tables.pagination',['class'=> 'py-2 mt-2'])
-              <div class="table-responsive">
+              <div class="table-responsive-lg">
                   @includeIf($viewsBasePath.$model_name.'.table')
               </div>
               @includeIf('klaravel::ui.tables.count')

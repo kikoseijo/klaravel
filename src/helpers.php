@@ -17,6 +17,13 @@ if (!function_exists('normalizeString')) {
     }
 }
 
+if (!function_exists('pretty_print_array')) {
+    function pretty_print_array(array $array_data)
+    {
+        print("<pre>".print_r($array_data,true)."</pre>");;
+    }
+}
+
 if (!function_exists('diff_date_for_humans')) {
     function diff_date_for_humans(Carbon $date): string
     {

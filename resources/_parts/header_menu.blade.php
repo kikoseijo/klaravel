@@ -1,3 +1,6 @@
+@php
+    $preroute = array_first(explode('.', $croute));
+@endphp
 <div class="collapse navbar-collapse" id="navbarHeader">
 
     <!-- Left Side Of Navbar -->
@@ -5,7 +8,10 @@
         @auth
             @foreach ($admin_menu as $menuRoute => $menuLabel)
                 @if (is_array($menuLabel))
-                    @component('klaravel::ui.dropdown', ['title' => title_case($menuRoute) ])
+                    @component('klaravel::ui.dropdown', [
+                        'title' => title_case($menuRoute),
+                        'active' => array_key_exists($croute, array_keys($menuLabel))
+                     ])
                         @foreach ($menuLabel as $subKey => $subValue)
                             @php($selected = $menuRoute == $croute && request()->route('config_name') == $subKey ? ' active': '')
                             <a href="{{ route($menuRoute, $subKey) }}" class="dropdown-item{{ $selected}}">
@@ -15,7 +21,8 @@
                     @endcomponent
                 @else
                     <li class="nav-item" role="presentation">
-                        <a href="{{ route($menuRoute) }}" class="nav-link{{ $croute == $menuRoute ? ' active':''}}">{{ $menuLabel }}</a>
+                        <a href="{{ route($menuRoute) }}" class="nav-link{{ $croute == $menuRoute || str_contains($menuRoute, $preroute) ? ' active':''}}">{{ $menuLabel }}</a>
+
                     </li>
                 @endif
             @endforeach
@@ -30,14 +37,21 @@
         @else
             @isset($settings_menu)
                 @foreach ($settings_menu as $menuTitle => $menuItems)
-                    @component('klaravel::ui.dropdown', ['title' => $menuTitle ])
+                    @component('klaravel::ui.dropdown', [
+                        'title' => $menuTitle,
+                        'active' => array_key_exists($croute, $menuItems)
+                    ])
+                    {{-- {{ dd($menuItems, $croute) }} --}}
                         @foreach ($menuItems as $setUrl => $setLabel)
                             <a href="{{ route($setUrl) }}" class="dropdown-item{{ $croute == $setUrl?' active':''}}">{{ $setLabel }}</a>
                         @endforeach
                     @endcomponent
                 @endforeach
             @endisset
-            @component('klaravel::ui.dropdown', ['title' => '<i class="far fa-user-circle"></i> ' . auth()->user()->name ])
+            @component('klaravel::ui.dropdown', [
+                'title' => '<i class="far fa-user-circle"></i> ' . auth()->user()->name,
+                'active' => 'ksoft' == $preroute || in_array($croute, ['kSessions', 'kLogs', 'kCache', 'kBackup'])
+            ])
 
                 <a href="{{ route('ksoft.plugins.index') }}" class="dropdown-item{{ $croute == 'ksoft.plugins.index' ? ' active' : '' }}">Install plugin</a>
                 @if (auth()->user()->admin)

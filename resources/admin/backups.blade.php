@@ -1,7 +1,7 @@
 @extends('klaravel::layouts.crud')
 
 @section('content')
-    <div class="container -body-block pb-5">
+    <div class="{{config('ksoft.style.crud_container_wrapper','container -body-block pb-5')}}">
         @card(['title' => 'Backups'])
             @component('klaravel::ui.menu-nav')
                 <li class="nav-item active mr-3">
@@ -10,11 +10,9 @@
                     </a>
                 </li>
             @endcomponent
-            <div class="py-4"></div>
-            <div class="table-responsive">
+            <div class="table-responsive my-4">
                 @includeIf('klaravel::admin.backups-table')
             </div>
-            <div class="py-3"></div>
         @endcard
     </div>
 @endsection

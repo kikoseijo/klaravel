@@ -1,5 +1,5 @@
 @if (count($backups))
-    <table class="table table-striped table-bordered">
+    <table class="{{config('ksoft.style.table_style')}}">
         <thead class="thead-dark">
             <tr>
                 <th>File</th>
@@ -21,12 +21,15 @@
                         {{ $backup['last_modified'] }}
                     </td>
                     <td class="text-right">
-                        <a class="btn btn-primary" href="{{ url( $routeName . '/download/'.$backup['file_name']) }}">
-                            <i class="far fa-cloud-download"></i> Download</a>
-                        <a class="btn btn-xs btn-danger" data-button-type="delete" href="{{ url($routeName . '/delete/'.$backup['file_name']) }}">
-                            <i class="far fa-trash"></i>
-                            Delete
-                        </a>
+                        <div class="btn-group btn-group-sm" role="group" aria-label="name-id">
+                            <a class="btn btn-primary" href="{{ url( $routeName . '/download/'.$backup['file_name']) }}">
+                                <i class="far fa-cloud-download"></i> Download
+                            </a>
+                            <a class="btn btn-danger" data-button-type="delete" href="{{ url($routeName . '/delete/'.$backup['file_name']) }}">
+                                <i class="far fa-trash"></i>
+                                Delete
+                            </a>
+                        </div>
                     </td>
                 </tr>
             @endforeach

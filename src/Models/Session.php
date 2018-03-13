@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Session extends Model
 {
+    protected $dates = [
+        'last_activity',
+    ];
+
     protected $casts = [
         'id'    => 'string',
     ];

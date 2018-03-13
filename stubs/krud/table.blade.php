@@ -1,5 +1,5 @@
 <table class="{{config('ksoft.style.table_style')}}">
-    <caption>@includeIf('klaravel::ui.tables.count')</caption>
+    <caption class="text-right">@includeIf('klaravel::ui.tables.count')</caption>
     <thead class="thead-dark">
         <tr>
             <th>#</th>

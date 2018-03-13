@@ -10,7 +10,7 @@
         @endcomponent
     </div>
 
-    <div class="container -body-block pb-5">
+    <div class="{{config('ksoft.style.crud_container_wrapper','container -body-block pb-5')}}">
         @foreach ($plugins as $key => $plugin)
             @card([
                 'title' => $plugin['name'],

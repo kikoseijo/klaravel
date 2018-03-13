@@ -16,7 +16,7 @@
             <div class="card-footer">
                 @isset($remove_url)
                     <a href="{{$remove_url.'/'.$mediaItem->id}}" style="color:tomato;" class="text-right">
-                        <i class="fas fa-trash"></i>
+                        <i class="far fa-trash"></i>
                     </a>
                 @endisset
                 <small class="text-muted">

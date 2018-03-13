@@ -14,7 +14,7 @@
         'croute' => Route::currentRouteName(),
         'admin_menu' => config('puntocero.menu.back'),
         'settings_menu' => [
-            '<i class="fas fa-cog"></i>' => config('puntocero.menu.settings'),
+            '<i class="far fa-cog"></i>' => config('puntocero.menu.settings'),
         ],
     ])
   </div>

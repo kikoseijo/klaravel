@@ -9,7 +9,7 @@
               <div class="table-responsive-lg">
                   @includeIf($viewsBasePath.$model_name.'.table')
               </div>
-              @includeIf('klaravel::ui.tables.count')
+              
           @else
               @includeif('klaravel::_parts.no-records')
             @endif

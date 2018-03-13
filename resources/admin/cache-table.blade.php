@@ -19,7 +19,7 @@
           <tr>
               <td>
                   <a href="#ghogo" onclick="$('#table-row-{{$loop->index}}').toggle();">
-                      <i class="fas fa-chevron-right"></i>
+                      <i class="far fa-chevron-right"></i>
                   </a>
               </td>
             <td>{{ date('d M H:i', $record->expiration) }}</td>
@@ -29,7 +29,7 @@
 
             <td style="width:60px;" class="text-center">
                 <a href="{{ route('kCache.delete', $record->key) }}" class="btn btn-danger btn-sm">
-                  <i class="fas fa-trash"></i>
+                  <i class="far fa-trash"></i>
                 </a>
             </td>
           </tr>

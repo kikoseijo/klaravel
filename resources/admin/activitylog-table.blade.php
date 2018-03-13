@@ -16,7 +16,7 @@
               <tr>
                   <td>
                       <a href="#ghogo" onclick="$('#table-row-{{$loop->index}}').toggle();">
-                          <i class="fas fa-chevron-right"></i>
+                          <i class="far fa-chevron-right"></i>
                       </a>
                   </td>
                 <td>{!! $logItem->log_name !!}</td>

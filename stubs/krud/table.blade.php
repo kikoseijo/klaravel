@@ -1,4 +1,5 @@
 <table class="{{config('ksoft.style.table_style')}}">
+    <caption>@includeIf('klaravel::ui.tables.count')</caption>
     <thead class="thead-dark">
         <tr>
             <th>#</th>
@@ -16,7 +17,7 @@
             <th scope="row">{{ $item->id }}</th>
             <td class="text-center">
                 <a href="{{route($model_name.'.status_change',[$item->id,'active', $item->active ? '0' : '1'])}}">
-                    <i class="{{ $item->active ? 'fas fa-eye text-success' : 'fal fa-eye-slash text-danger' }}"></i>
+                    <i class="{{ $item->active ? 'far fa-eye text-success' : 'far fa-eye-slash text-danger' }}"></i>
                 </a>
             </td>
             <td><a href="{{route($model_name.'.edit', $item->id)}}">{{ $item->name }}</a></td>

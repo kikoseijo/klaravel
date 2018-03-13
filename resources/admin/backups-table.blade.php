@@ -22,9 +22,9 @@
                     </td>
                     <td class="text-right">
                         <a class="btn btn-primary" href="{{ url( $routeName . '/download/'.$backup['file_name']) }}">
-                            <i class="fas fa-cloud-download"></i> Download</a>
+                            <i class="far fa-cloud-download"></i> Download</a>
                         <a class="btn btn-xs btn-danger" data-button-type="delete" href="{{ url($routeName . '/delete/'.$backup['file_name']) }}">
-                            <i class="fal fa-trash"></i>
+                            <i class="far fa-trash"></i>
                             Delete
                         </a>
                     </td>

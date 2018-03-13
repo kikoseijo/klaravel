@@ -1,7 +1,7 @@
 <footer class="text-muted">
     <div class="container">
         <p class="float-right">
-            <a href="#">Go Top <i class="fas fa-level-up"></i></a>
+            <a href="#">Go Top <i class="far fa-level-up"></i></a>
         </p>
         <p>
             <a href="https://github.com/kikoseijo/klaravel" target="sunnyface">

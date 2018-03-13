@@ -37,7 +37,7 @@
                     @endcomponent
                 @endforeach
             @endisset
-            @component('klaravel::ui.dropdown', ['title' => '<i class="fas fa-user-circle"></i> ' . auth()->user()->name ])
+            @component('klaravel::ui.dropdown', ['title' => '<i class="far fa-user-circle"></i> ' . auth()->user()->name ])
 
                 <a href="{{ route('ksoft.plugins.index') }}" class="dropdown-item{{ $croute == 'ksoft.plugins.index' ? ' active' : '' }}">Install plugin</a>
                 @if (auth()->user()->admin)
@@ -57,7 +57,7 @@
                 @endif
                 <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Logout&nbsp;&nbsp;&nbsp;<span class="text-danger"><i class="fas fa-sign-out-alt"></i></span>
+                    Logout&nbsp;&nbsp;&nbsp;<span class="text-danger"><i class="far fa-sign-out-alt"></i></span>
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf

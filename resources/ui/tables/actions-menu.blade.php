@@ -13,7 +13,7 @@
 
             <li class="nav-item dropdown mr-3">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <i class="fal fa-table" aria-hidden="true"></i> {{session(config('ksoft.CONSTANTS.take', 'PER_PAGE'))}}
+                    <i class="far fa-table" aria-hidden="true"></i> {{session(config('ksoft.CONSTANTS.take', 'PER_PAGE'))}}
                 </a>
                 <div class="dropdown-menu">
                     @foreach ([5, 10, 20, 50] as $perPage )
@@ -32,7 +32,7 @@
                 <input type="text" class="form-control" name="q" placeholder="Search..." value="{{ request('q') }}">
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="submit">
-                    <i class="fas fa-search"></i>
+                    <i class="far fa-search"></i>
                   </button>
                 </div>
             </div>

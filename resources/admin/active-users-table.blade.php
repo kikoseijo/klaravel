@@ -23,7 +23,7 @@
                     <tr>
                         <td>
                             <a href="#ghogo" onclick="$('#table-row-{{$loop->index}}').toggle();">
-                                <i class="fas fa-chevron-right"></i>
+                                <i class="far fa-chevron-right"></i>
                             </a>
                         </td>
                         <td>{{ date('d M H:i', $session->last_activity) }}</td>
@@ -35,14 +35,14 @@
                         <td>
                             @if ($referer)
                                 <a href="{{ $referer}}" data-toggle="tooltip" data-placement="right" title="{{$referer}}" target="_blank">
-                                    <i class="fal fa-external-link-square-alt"></i> {{str_limit(last(explode('/', $referer)),34)}}
+                                    <i class="far fa-external-link-square-alt"></i> {{str_limit(last(explode('/', $referer)),34)}}
                                 </a>
                             @endif
                         </td>
                         <td>
                             @if ($currentUrl)
                                 <a href="{{ $currentUrl}}" data-toggle="tooltip" data-placement="right" title="{{$currentUrl}}" target="_blank">
-                                    <i class="fal fa-external-link-square-alt"></i> /{{str_limit(last(explode('/', $currentUrl)),32)}}
+                                    <i class="far fa-external-link-square-alt"></i> /{{str_limit(last(explode('/', $currentUrl)),32)}}
                                 </a>
                             @endif
                         </td>
@@ -55,7 +55,7 @@
                         </td>
                         <td style="width:60px;" class="text-center">
                             <a href="{{ route('kSessions.delete', $session->id) }}" class="btn btn-danger btn-sm">
-                              <i class="fas fa-trash"></i>
+                              <i class="far fa-trash"></i>
                             </a>
                         </td>
                     </tr>

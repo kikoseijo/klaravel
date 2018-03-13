@@ -20,7 +20,7 @@ use Spatie\MediaLibrary\Media;
  * BLADE
  * ----------------
  * <a href="{{route($model_name.'.status_change',[$item->id,'active', $item->active ? '0' : '1'])}}">
- *  <i class="fas fa-circle text-{{ $item->active ? 'success' : 'danger' }}"></i>
+ *  <i class="far fa-circle text-{{ $item->active ? 'success' : 'danger' }}"></i>
  * </a>
  */
 trait CanChangeStatuses

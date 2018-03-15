@@ -5,14 +5,18 @@
   <div class="collapse navbar-collapse" id="table-menu">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-            <li class="nav-item active mr-3">
-                <a href="{{ route($model_name.'.create') }}" class="nav-link text-primary" title="Add New">
-                    <i class="far fa-plus" aria-hidden="true"></i> Add new
-                </a>
-            </li>
+            @if (!isset($hide_add_menu))
+                <li class="nav-item active mr-3">
+                    <a href="{{ route($model_name.'.create') }}" data-toggle="tooltip" class="nav-link text-primary" title="Add New record">
+                        <i class="far fa-plus" aria-hidden="true"></i> Add new
+                    </a>
+                </li>
+            @endif
+
+            {{$slot or ''}}
 
             <li class="nav-item dropdown mr-3">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" title="Num. records per page" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <i class="far fa-table" aria-hidden="true"></i> {{session(config('ksoft.CONSTANTS.take', 'PER_PAGE'))}}
                 </a>
                 <div class="dropdown-menu">
@@ -24,6 +28,8 @@
                     @endforeach
                 </div>
             </li>
+
+
 
         </ul>
 

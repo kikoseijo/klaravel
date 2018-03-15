@@ -72,6 +72,9 @@ return [
             // special Vue component that will persist using the session.
             'session_range_from' => 'FROM_DATE',
             'session_range_to' => 'TO_DATE',
+            'assets' => [
+                // 'css/font-awesome.css',
+            ]
         ],
     ],
     /**

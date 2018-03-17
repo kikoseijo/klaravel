@@ -17,6 +17,16 @@ if (!function_exists('normalizeString')) {
     }
 }
 
+if (!function_exists('model_title')) {
+    function model_title($modelName): string
+    {
+        if (str_contains($modelName,'\\')) {
+            $modelName = last(explode('\\', $modelName));
+        }
+        return title_case(implode(' ', explode('_', snake_case($modelName))));
+    }
+}
+
 if (!function_exists('pretty_print_array')) {
     function pretty_print_array(array $array_data)
     {

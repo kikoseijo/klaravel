@@ -1,6 +1,13 @@
 <div class="card {{$class or ''}}"{!! isset($style)? ' style="'.$style.'"':'' !!}>
     @isset($title)
-        <div class="card-header">{{$title}}</div>
+        <div class="card-header">
+            @if(!isset($hide_reload_btn))
+                <a href="{{request()->fullUrl()}}"  data-toggle="tooltip" title="Reload current page" class="btn btn-sm d-inline-block btn-outline-primary float-right">
+                    <i class="far fa-sync-alt"></i>
+                </a>
+            @endisset
+            {{$title}}
+        </div>
     @endisset
     @isset($tabs)
         <div class="card-header">

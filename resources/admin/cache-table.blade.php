@@ -4,7 +4,6 @@
             <caption class="text-right">@includeIf('klaravel::ui.tables.count')</caption>
             <thead class="{{config('ksoft.style.thead')}}">
                 <tr>
-                    <th></th>
                     <th>Expire</th>
                     <th>Key</th>
                     <th></th>
@@ -17,23 +16,20 @@
                     $ante = array_get($payload,'_previous');
                 @endphp --}}
                 <tr data-toggle="collapse" data-target="#collapse-{{$loop->index}}">
-                    <td>
-                        <a href="#ghogo" onclick="$('#table-row-{{$loop->index}}').toggle();">
-                            <i class="far fa-chevron-right"></i>
-                        </a>
-                    </td>
-                    <td>{{ date('Y/m/d H:i', $record->expiration) }}</td>
+
+                    {{-- <td>{{ date('Y/m/d H:i', $record->expiration) }}</td> --}}
+                    <td>{{ diff_date_for_humans(($record->expiration)) }}</td>
 
                     <td>{{ $record->key }}</td>
 
                     <td style="width:60px;" class="text-center">
                         <a href="{{ route('kCache.delete', $record->key) }}" class="btn btn-danger btn-sm">
-                            <i class="far fa-trash"></i>
+                            <i class="far fa-trash-alt"></i>
                         </a>
                     </td>
                 </tr>
                 <tr id="collapse-{{$loop->index}}" class="row-fluid collapse in table-light">
-                    <td class="text-muted py-5 px-5" colspan="4">
+                    <td class="text-muted py-4 px-5" colspan="4">
                         <code>{!! json_encode(cache()->get($record->key)) !!}</code>
                     </td>
                 </tr>

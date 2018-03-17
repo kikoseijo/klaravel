@@ -41,6 +41,10 @@ class DirectivesProvider extends ServiceProvider
             return "<?php echo ucfirst(mb_strtolower($res)); ?>";
         });
 
+        Blade::directive('modelTitle', function ($expression) {
+            return "<?php echo model_title($expression); ?>";
+        });
+
     }
 
     private function mathsDirectives()

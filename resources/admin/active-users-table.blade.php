@@ -58,7 +58,7 @@
                         </td>
                         <td style="width:60px;" class="text-center align-middle">
                             <a href="{{ route('kSessions.delete', $session->id) }}" class="btn btn-danger btn-sm">
-                                <i class="far fa-trash"></i>
+                                <i class="far fa-trash-alt"></i>
                             </a>
                         </td>
                     </tr>

@@ -28,6 +28,7 @@ class BackupController extends Controller
         $routeName = config('ksoft.modules.backup.route_name', 'backup');
         return view("klaravel::admin.backups")->with(compact('backups', 'routeName'));
     }
+
     public function create()
     {
         try {
@@ -37,6 +38,17 @@ class BackupController extends Controller
             return back()->with('flash_error', $e->getMessage());
         }
     }
+
+    public function dbBackup()
+    {
+        try {
+            Artisan::call('backup:run', ['--only-db' => 'true']);
+            return back()->with('flash_success', 'DB Backup created succesfully');
+        } catch (Exception $e) {
+            return back()->with('flash_error', $e->getMessage());
+        }
+    }
+
     /**
      * Downloads a backup zip file.
      *

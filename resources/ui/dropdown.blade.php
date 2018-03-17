@@ -1,5 +1,5 @@
 <?php $curMenuId = 'drop-down-'.rand(10000,1111222); ?>
-<li class="nav-item dropdown{{ isset($active) && $active ? ' active' : '' }}">
+<li class="nav-item dropdown{{ isset($active) && $active ? ' active' : '' }}{{$class or ''}}">
     <a
     class="nav-link dropdown-toggle"
     href="#"

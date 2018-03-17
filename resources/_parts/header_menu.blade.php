@@ -22,7 +22,6 @@
                 @else
                     <li class="nav-item" role="presentation">
                         <a href="{{ route($menuRoute) }}" class="nav-link{{ $croute == $menuRoute || str_contains($menuRoute, $preroute) ? ' active':''}}">{{ $menuLabel }}</a>
-
                     </li>
                 @endif
             @endforeach
@@ -53,19 +52,19 @@
                 'active' => 'ksoft' == $preroute || in_array($croute, ['kSessions', 'kLogs', 'kCache', 'kBackup'])
             ])
 
-                <a href="{{ route('ksoft.plugins.index') }}" class="dropdown-item{{ $croute == 'ksoft.plugins.index' ? ' active' : '' }}">Install plugin</a>
+                <a href="{{ route('ksoft.plugins.index') }}" class="dropdown-item{{ str_contains($croute, 'ksoft.plugins.index') ? ' active' : '' }}">Install plugin</a>
                 @if (auth()->user()->admin)
                     @if (config('ksoft.modules.activity_log.enabled'))
-                        <a href="{{ route('kLogs') }}" class="dropdown-item{{ $croute == 'kLogs' ? ' active' : '' }}">Activity Logs</a>
+                        <a href="{{ route('kLogs.index') }}" class="dropdown-item{{ str_contains($croute, 'kLogs') ? ' active' : '' }}">Activity Logs</a>
                     @endif
                     @if (config('ksoft.modules.sessions.enabled'))
-                        <a href="{{ route('kSessions') }}" class="dropdown-item{{ $croute == 'kSessions' ? ' active' : '' }}">DB Sessions</a>
+                        <a href="{{ route('kSessions.index') }}" class="dropdown-item{{ str_contains($croute, 'kSessions') ? ' active' : '' }}">DB Sessions</a>
                     @endif
                     @if (config('ksoft.modules.caches.enabled'))
-                        <a href="{{ route('kCache') }}" class="dropdown-item{{ $croute == 'kCache' ? ' active' : '' }}">DB Cache</a>
+                        <a href="{{ route('kCache.index') }}" class="dropdown-item{{ str_contains($croute, 'kCache') ? ' active' : '' }}">DB Cache</a>
                     @endif
                     @if (config('ksoft.modules.backup.enabled'))
-                        <a href="{{ route('kBackup') }}" class="dropdown-item{{ $croute == 'kBackup' ? ' active' : '' }}">Backups</a>
+                        <a href="{{ route('kBackup.index') }}" class="dropdown-item{{ str_contains($croute, 'kBackup') ? ' active' : '' }}">Backups</a>
                     @endif
                     <div class="dropdown-divider"></div>
                 @endif

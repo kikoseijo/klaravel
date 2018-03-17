@@ -39,6 +39,7 @@ return [
         'backup' => [ // https://github.com/spatie/laravel-backup
             'enabled' => true,
             'route_name' => 'backup',
+            // 'can_see_full_backups' => true, // activate only when got paid by client..
             'middleware' => ['web','auth'],
             'extra_arguments' => [
                 '--only-db' => 'true',

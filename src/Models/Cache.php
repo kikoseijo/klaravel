@@ -13,4 +13,9 @@ class Cache extends Model
         'value'    => 'array',
     ];
 
+    protected $dates = [
+       'expiration',
+   ];
+   
+
 }

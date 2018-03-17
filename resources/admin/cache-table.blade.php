@@ -7,7 +7,6 @@
                     <th></th>
                     <th>Expire</th>
                     <th>Key</th>
-                    <th>Value</th>
                     <th></th>
                 </tr>
             </thead>
@@ -17,16 +16,15 @@
                     $payload = unserialize(base64_decode($session->payload));
                     $ante = array_get($payload,'_previous');
                 @endphp --}}
-                <tr>
+                <tr data-toggle="collapse" data-target="#collapse-{{$loop->index}}">
                     <td>
                         <a href="#ghogo" onclick="$('#table-row-{{$loop->index}}').toggle();">
                             <i class="far fa-chevron-right"></i>
                         </a>
                     </td>
-                    <td>{{ date('d M H:i', $record->expiration) }}</td>
+                    <td>{{ date('Y/m/d H:i', $record->expiration) }}</td>
 
                     <td>{{ $record->key }}</td>
-                    <td>{{ $record->value }}</td>
 
                     <td style="width:60px;" class="text-center">
                         <a href="{{ route('kCache.delete', $record->key) }}" class="btn btn-danger btn-sm">
@@ -34,9 +32,9 @@
                         </a>
                     </td>
                 </tr>
-                <tr id="table-row-{{$loop->index}}" style="display:none">
-                    <td class="text-muted" colspan="4">
-                        <code>{!! $record->value !!}</code>
+                <tr id="collapse-{{$loop->index}}" class="row-fluid collapse in table-light">
+                    <td class="text-muted py-5 px-5" colspan="4">
+                        <code>{!! json_encode(cache()->get($record->key)) !!}</code>
                     </td>
                 </tr>
             @endforeach

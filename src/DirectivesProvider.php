@@ -50,10 +50,18 @@ class DirectivesProvider extends ServiceProvider
          * Usage: @decimals($value)
          */
         Blade::directive('number', function ($expression) {
-            return "<?php echo number_format(floatval($expression), 0); ?>";
+            if (app()->getLocale() == 'es') {
+                return $this->formatNumber($expression,0,',','.');
+            } else {
+                return $this->formatNumber($expression);
+            }
         });
         Blade::directive('decimals', function ($expression) {
-            return "<?php echo number_format(floatval($expression), 2); ?>";
+            if (app()->getLocale() == 'es') {
+                return $this->formatNumber($expression,2,',','.');
+            } else {
+                return $this->formatNumber($expression,2);
+            }
         });
     }
 
@@ -63,7 +71,7 @@ class DirectivesProvider extends ServiceProvider
          * Usage: @datetime(Carbon $date)
          */
         Blade::directive('datetime', function ($expression) {
-            return "<?php echo ($expression)->format('m/d/Y H:i'); ?>";
+            return "<?php echo ($expression)->format('Y/m/d H:i'); ?>"; // table orderable
         });
     }
 
@@ -95,6 +103,11 @@ class DirectivesProvider extends ServiceProvider
             return "<?php echo implode({$delimiter}, {$array}); ?>";
         });
 
+    }
+
+    private function formatNumber( $number , int $decimals = 0 , string $dec_point = "." , string $thousands_sep = "," )
+    {
+        return "<?php echo number_format(floatval($number), {$decimals}, '{$dec_point}', '{$thousands_sep}'); ?>";
     }
 
     /**

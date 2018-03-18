@@ -33,16 +33,18 @@
 
         </ul>
 
-        {!! Former::open()->method('GET')->route($model_name.'.index')->class('form-inline my-2 my-lg-0')->role('search')  !!}
-            <div class="input-group">
-                <input type="text" class="form-control" name="q" placeholder="Search..." value="{{ request('q') }}">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary" type="submit">
-                    <i class="far fa-search"></i>
-                  </button>
+        @if (!isset($hide_search))
+            {!! Former::open()->method('GET')->route($model_name.'.index')->class('form-inline my-2 my-lg-0')->role('search')  !!}
+                <div class="input-group">
+                    <input type="text" class="form-control" name="q" placeholder="Search..." value="{{ request('q') }}">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="submit">
+                        <i class="far fa-search"></i>
+                      </button>
+                    </div>
                 </div>
-            </div>
-        {!! Former::close() !!}
+            {!! Former::close() !!}
+        @endif
 
   </div>
 </nav>

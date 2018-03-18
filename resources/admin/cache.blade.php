@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="{{config('ksoft.style.crud_container_wrapper','container -body-block pb-5')}}">
-        @card(['title' => 'Cache table'])
+        @card(['title' => 'Cache table', 'reload_btn' => true])
         <nav class="text-center align-middle">
             {!! $records->render() !!}
         </nav>

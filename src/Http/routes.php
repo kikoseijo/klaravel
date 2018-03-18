@@ -23,6 +23,29 @@ if (config('ksoft.modules.backup.enabled'))
     });
 }
 
+if (config('ksoft.klaravel.enabled'))
+{
+    $klWare = config('ksoft.klaravel.middleware', ['web', 'auth']);
+    $router->group(['middleware' => $klWare], function ($router) {
+        $klPath = config('ksoft.klaravel.route_name', 'klaravel');
+        $router->get($klPath, 'KlaravelController@index')->name('kLara.index');
+
+
+        $router->get($klPath . '/settings-clean', 'UtilsController@cleanSettings')->name('kLara.settings.clean');
+        $router->get($klPath . '/clean-test-data', 'UtilsController@purgeTests')->name('kLara.purge.tests');
+        $router->get($klPath . '/multiuse', 'UtilsController@multiuse')->name('kLara.multiuse');
+        $router->get($klPath . '/testBugsnag', 'UtilsController@testBugsnag')->name('kLara.bugsnag.test');
+        $router->get($klPath . '/cache-flush', 'UtilsController@flushCache')->name('kLara.cache.flush');
+        $router->get($klPath . '/schedule-info', 'UtilsController@getScheduleCommands')->name('kLara.schedule.info');
+
+        // $router->get($klPath.'/create-db', 'BackupController@dbBackup')->name('kBackup.create_db');
+        // $router->get($klPath.'/create-full', 'BackupController@create')->name('kBackup.create_full');
+        // $router->get($klPath.'/download/{file_name}', 'BackupController@download');
+        // $router->get($klPath.'/delete/{file_name}', 'BackupController@delete');
+
+    });
+}
+
 if (config('ksoft.modules.activity_log.enabled'))
 {
     $aLogsWare = config('ksoft.modules.activity_log.middleware');
@@ -30,6 +53,7 @@ if (config('ksoft.modules.activity_log.enabled'))
         $aLogsPath = config('ksoft.modules.activity_log.route_name', 'activity-logs');
         $router->get($aLogsPath, 'ActivitylogController@index')->name('kLogs.index');
         $router->get($aLogsPath.'/delete/{activity}', 'ActivitylogController@destroy')->name('kLogs.delete');
+        $router->post($aLogsPath.'/mass-delete', 'ActivitylogController@massDestroy')->name('kLogs.mass_delete');
     });
 }
 

@@ -27,7 +27,7 @@
 <body>
     <div id="app" class="crud-wrapper">
         @includeIf(config('ksoft.modules.crud.header', 'parts.header'))
-        <div class="album py-5 bg-light">
+        <div class="album py-5 bg-light position-relative overflow-hidden">
             @includeIf(config('ksoft.modules.crud.errors', 'klaravel::ui.errors'))
             @yield('content')
         </div>

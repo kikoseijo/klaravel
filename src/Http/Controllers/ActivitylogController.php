@@ -25,6 +25,38 @@ class ActivitylogController extends Controller
         return back()->with('flash_message', 'Activity log delete succesfully');
     }
 
+    public function massDestroy(Request $request)
+    {
+        $res = '';
+
+        if ($request->filled('clean_all') && $request->get('clean_all') == 'yes') {
+            $allRecords = Activity::where('id','>',0)->delete();
+            return back()->with('flash_message', 'Succesfully deleted <strong>'.$allRecords.'</strong> record/s.');
+        }
+
+        if ($request->filled('del_tag') && $request->filled('del_subject')) {
+            $query = Activity::where('log_name', $request->del_tag);
+            if ($request->query_type == 'OR') {
+                $tags = $query->orWhere('subject_type', $request->del_subject)->delete();
+            } else {
+                $tags = $query->where('subject_type', $request->del_subject)->delete();
+            }
+            $res .= ' Deleted <strong>'.$tags.'</strong> logs by matching query.';
+        } else {
+            if ($request->filled('del_tag')) {
+                $tags = Activity::where('log_name', $request->get('del_tag'))->delete();
+                $res .= ' Deleted <strong>'.$tags.'</strong> logs by TAG.';
+            }
+
+            if ($request->filled('del_subject')) {
+                $subjects = Activity::where('subject_type', $request->get('del_subject'))->delete();
+                $res .= ' Deleted <strong>'.$subjects.'</strong> logs by Subject...';
+            }
+        }
+
+        return back()->with('flash_message', 'Mass deletion succesfull.'.$res);
+    }
+
     protected function getPaginatedActivityLogItems($request): Paginator
     {
         $query = Activity::with('causer')->orderBy('created_at', 'DESC');

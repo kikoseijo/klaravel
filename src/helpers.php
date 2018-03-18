@@ -3,6 +3,8 @@
 use Carbon\Carbon;
 use Jenssegers\Date\Date as JenssDate;
 
+define('SESSION_TIME_LIMIT_CACHE', 'ks_session_limit');
+
 if (!function_exists('normalizeString')) {
     function normalizeString($text, $limit): string
     {

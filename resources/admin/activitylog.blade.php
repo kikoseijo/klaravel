@@ -46,7 +46,7 @@
                 @endcomponent
 
                 <li class="nav-item active mr-3">
-                    <a href="#mass-delete" onclick="massDeleteHandler()" data-toggle="tooltip" class="nav-link text-primary" title="Open mass purge dialog">
+                    <a href="#mass-delete" data-toggle="modal" data-target="#klaravel-logs-mass-delete" class="nav-link text-primary" title="Open mass purge dialog">
                         <i class="far fa-trash-alt mr-1" aria-hidden="true"></i> Mass purge
                     </a>
                 </li>
@@ -62,36 +62,42 @@
     </div>
 @endsection
 
+@push('modals')
+    @component('klaravel::ui.modal', [
+        'title' => 'Delete logs found using this filters query',
+        'modalId' => 'klaravel-logs-mass-delete',
+        'size' => 'lg'
+    ])
+        {!! Former::open()->route('kLogs.mass_delete')->id('klravel-logs-mass-destroy-modal-form') !!}
 
-@push('scripts')
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="text/javascript">
-        function massDeleteHandler(){
-            swal("A wild Pikachu appeared! What do you want to do?", {
-              buttons: {
-                cancel: "Run away!",
-                catch: {
-                  text: "Throw Pokéball!",
-                  value: "catch",
-                },
-                defeat: true,
-              },
-            })
-            .then((value) => {
-              switch (value) {
-
-                case "defeat":
-                  swal("Pikachu fainted! You gained 500 XP!");
-                  break;
-
-                case "catch":
-                  swal("Gotcha!", "Pikachu was caught!", "success");
-                  break;
-
-                default:
-                  swal("Got away safely!");
-              }
-            });
-        }
-    </script>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-5">
+                        {!! Former::select('del_tag')->options($logsTags->toArray(), null, true)->label('Tags')->placeholder('Select by tags') !!}
+                    </div>
+                    @if ($logSubjects)
+                        <div class="col-sm-2">
+                            {!! Former::select('query_type')
+                                ->options(['AND', 'OR'])
+                                ->label('&nbsp;')
+                            !!}
+                        </div>
+                        <div class="col-sm-5">
+                            {!! Former::select('del_subject')->options($logSubjects->toArray(), null, true)->label('Subject')->placeholder('Select by subject') !!}
+                        </div>
+                    @endif
+                </div>
+                <div class="form-check my-4">
+                    <input type="checkbox" class="form-check-input" id="clean_all" name="clean_all" value="yes">
+                    <label class="form-check-label" for="clean_all">Delete all records from table</label>
+                 </div>
+            </div>
+            <div class="modal-footer justify-content-center py-4">
+                <button type="submit" class="btn btn-lg btn-danger">
+                    <i class="far fa-exclamation-triangle mr-2"></i>
+                     Yes, delete. &nbsp;<small> (Procceed to precaution!)</small>
+                </button>
+            </div>
+        {!! Former::close() !!}
+    @endcomponent
 @endpush

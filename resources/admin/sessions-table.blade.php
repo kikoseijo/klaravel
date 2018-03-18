@@ -23,7 +23,7 @@
                     <tr data-toggle="collapse" data-target="#collapse-{{$loop->index}}">
 
                         <td>
-                            {{ diff_date_for_humans($session->last_activity) }}
+                            {{ $session->last_activity->diffForHumans() }}
                         </td>
                         <td>
                             <a href="http://geoiptool.com/en/?ip={{$session->ip_address}}" data-toggle="tooltip" title="Ver el origen de la IP"  target="_blank">
@@ -63,7 +63,7 @@
                         </td>
                     </tr>
                     <tr id="collapse-{{$loop->index}}" class="row-fluid collapse in table-light">
-                        <td class="text-muted excerpt py-5 px-5"  colspan="6">
+                        <td class="text-muted excerpt py-4 px-5"  colspan="6">
                             {!! $session->user_agent !!}
                             <hr>
                             <code>

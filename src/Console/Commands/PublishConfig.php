@@ -12,7 +12,9 @@ class PublishConfig extends Command
      *
      * @var string
      */
-    protected $name = 'ksoft:publish';
+    protected $signature = 'ksoft:publish
+                        {--k|base-krud : Will publish BaseKrudController to App/Http/Controllers}
+                        {--c|config : Will publish config to config/ksoft.php}';
 
     /**
      * The console command description.
@@ -30,6 +32,15 @@ class PublishConfig extends Command
     {
         $this->info('Publish config files');
 
+        if ($this->option('base-krud') || $this->option('config')) {
+            $this->withoutUserInteraction();
+        } else {
+            $this->withUserInteraction();
+        }
+    }
+
+    protected function withUserInteraction()
+    {
         $optionSelected = $this->choice('What whould you like to publish?', ['all', 'Configuration', 'BaseKrudController'], 0);
 
         if ($optionSelected == 'all' || $optionSelected == 'Configuration') {
@@ -40,7 +51,19 @@ class PublishConfig extends Command
         if ($optionSelected == 'all' || $optionSelected == 'BaseKrudController') {
             $this->publishBaseKrud();
             $this->info('Publish BaseKrudController file: <info>✔</info>');
+        }
+    }
 
+    protected function withoutUserInteraction()
+    {
+        if ($this->option('config')) {
+            $this->publishConfig();
+            $this->info('Publish configuration file: <info>✔</info>');
+        }
+
+        if ($this->option('base-krud')) {
+            $this->publishBaseKrud();
+            $this->info('Publish BaseKrudController file: <info>✔</info>');
         }
     }
 

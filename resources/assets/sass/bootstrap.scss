@@ -2,10 +2,12 @@ $rojo: #bf021b;
 @import '../../../node_modules/bootstrap/scss/functions';
 @import '../../../node_modules/bootstrap/scss/variables';
 @import '../../../node_modules/bootstrap/scss/mixins';
-@import 'stars';
-@import 'footer';
-@import 'heart';
-@import 'tables';
+@import './markdown';
+@import './stars';
+@import './footer';
+@import './heart';
+@import './tables';
+@import './klara';
 
 nav.navbar {
   display: block;
@@ -14,6 +16,10 @@ nav.navbar {
   transition: all 0.3s ease-out;
   // padding-top: 26px;
   // padding-bottom: 26px;
+}
+
+p {
+  color:#666;
 }
 
 .vue-notifyjs .alert {

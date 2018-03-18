@@ -16,7 +16,7 @@ set the configuration as per your need, but the default should work well.
 
 
 return [
-    'runtime_console' => true, // true: enables commands being runned by php.
+
     'models_path' => 'Models/', // defaults "Models/"
 
     /**
@@ -42,7 +42,6 @@ return [
         'Notification', 'TokenGuard'
       ],
     ],
-
 ```
 
 ### Json Generation

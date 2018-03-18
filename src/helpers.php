@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Jenssegers\Date\Date as JenssDate;
+use League\CommonMark\CommonMarkConverter;
 
 define('SESSION_TIME_LIMIT_CACHE', 'ks_session_limit');
 
@@ -16,6 +17,15 @@ if (!function_exists('normalizeString')) {
             $res = str_limit($text, $limit);
         }
         return ucfirst(strtolower($res));
+    }
+}
+
+
+if (!function_exists('do_markdown')) {
+    function do_markdown($markdown): string
+    {
+        $converter = new CommonMarkConverter();
+        return '<div class="markdown-wrapper">'.$converter->convertToHtml($markdown).'</div>';
     }
 }
 

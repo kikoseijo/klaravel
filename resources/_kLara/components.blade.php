@@ -2,11 +2,8 @@
 
 @section('content')
     <div class="container pb-4 mb-5">
-        <div style="color:rgba(0,0,0,0.09);">
-            <h1 class="display-4">Welcome {{ auth()->user()->name }},</h1>
-        </div>
-        @card(['title' => 'Klaravel control center', 'class' => 'mb-4'])
-            {{-- @include('klaravel::_klara.panels.dashboard') --}}
+        @card(['title' => 'Components reference', 'class' => 'mb-4'])
+            @include('klaravel::_klara.panels.components')
         @endcard
     </div>
 @endsection

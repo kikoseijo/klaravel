@@ -14,12 +14,7 @@
             <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
         @else
             @include('klaravel::_parts.menu.settings')
-
-            <li>
-                <a class="nav-link" href="{{ route('kLara.index') }}">
-                    <i class="far fa-microchip text-success rm-3"></i>
-                </a>
-            </li>
+            @include('klaravel::_parts.menu.klara')
             @include('klaravel::_parts.menu.user_dropdown')
         @endguest
     </ul>

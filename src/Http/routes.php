@@ -28,9 +28,16 @@ if (config('ksoft.klaravel.enabled'))
     $klWare = config('ksoft.klaravel.middleware', ['web', 'auth']);
     $router->group(['middleware' => $klWare], function ($router) {
         $klPath = config('ksoft.klaravel.route_name', 'klaravel');
+        // Dashboard
         $router->get($klPath, 'KlaravelController@index')->name('kLara.index');
-
-
+        // Krud
+        $router->get($klPath.'/krud', 'KlaravelController@krud')->name('kLara.krud');
+        $router->post($klPath . '/krud-make', 'KlaravelController@makeKrud')->name('kLara.krud.gen');
+        // Components
+        $router->get($klPath.'/components', 'KlaravelController@components')->name('kLara.components');
+        // Config
+        $router->get($klPath . '/publish-config', 'KlaravelController@publishConfig')->name('kLara.config.publish');
+        // Utils
         $router->get($klPath . '/settings-clean', 'UtilsController@cleanSettings')->name('kLara.settings.clean');
         $router->get($klPath . '/clean-test-data', 'UtilsController@purgeTests')->name('kLara.purge.tests');
         $router->get($klPath . '/multiuse', 'UtilsController@multiuse')->name('kLara.multiuse');

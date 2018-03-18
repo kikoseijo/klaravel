@@ -1,7 +1,7 @@
 {
   "name": "ksoft/klaravel",
   "description":
-    "Development helper to speed up development, backups, logs, crud, swagger, repository, graphql...",
+    "Laravel control panel for developers, comes with integrated Scaffold generator, backups, logs, and built in instructions.",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -22,6 +22,7 @@
   "require": {
     "anahkiasen/former": "^4.1",
     "doctrine/dbal": "^2.6",
+    "league/commonmark": "^0.16",
     "spatie/laravel-activitylog": "^2.5",
     "spatie/laravel-backup": "^5.2",
     "zircote/swagger-php": "^2.0"
@@ -38,7 +39,7 @@
       }
     },
     "branch-alias": {
-      "dev-master": "1.1-dev"
+      "dev-master": "2.0-dev"
     }
   },
   "minimum-stability": "dev"

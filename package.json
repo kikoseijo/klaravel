@@ -4,7 +4,9 @@
   "description": "Tools for developers of laravel",
   "main": "index.js",
   "scripts": {
-    "sass": "sass resources/assets/sass/bootstrap.scss resources/assets/sass/output.css"
+    "watch":
+      "sass --style compact --watch resources/assets/sass/bootstrap.scss",
+    "build": "sass --style compact resources/assets/sass/bootstrap.scss"
   },
   "repository": {
     "type": "git",

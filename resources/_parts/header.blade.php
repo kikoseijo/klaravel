@@ -4,7 +4,7 @@
 @endphp
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark box-shadow">
   <div class="d-flex justify-content-between container">
-    <a href="{!!$dashboard_url!!}" class="m-auto brand-margin navbar-brand">
+    <a href="{!!$dashboard_url!!}" class="my-auto mr-4 brand-margin navbar-brand">
       <span>{{ config('app.name', 'Klaravel by Sunnyface.com')}}</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="true" aria-label="Toggle navigation">

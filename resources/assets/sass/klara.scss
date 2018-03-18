@@ -1,0 +1,33 @@
+.klara-content {
+  .card-header{
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .nav-item:has(.nav-link.active) {
+    background: #cc9988 !important;
+    &::after {
+      display: block;
+      float: left;
+      margin-right: -0.25em;
+      margin-left: -0.25em;
+      padding: 0 0.5em;
+      color: #e14a0c;
+      // margin-right: 0.25em;
+      font-family: 'Font Awesome 5 Free';
+      color: rgba(#000, 80%);
+      content: '\f0da';
+    }
+  }
+  .nav-link {
+    border-left: 5px solid #fff;
+    &.active {
+      background: #fff;
+      border-left: 5px solid #cc0000;
+    }
+
+    &:hover {
+      background: #fff;
+      // border-left: 5px solid #cc0000;
+    }
+  }
+}

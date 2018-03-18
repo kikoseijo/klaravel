@@ -63,7 +63,7 @@ class UtilsController extends Controller
 
     public function testBugsnag()
     {
-        Bugsnag::notifyException(new RuntimeException("Testing {config('app.url')} error"));
+        Bugsnag::notifyException(new \RuntimeException("Testing {config('app.url')} error"));
 
         return back()->with('flash_message', 'Notificación Bugsnag enviada.');
     }

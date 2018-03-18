@@ -1,4 +1,4 @@
-@extends('klaravel::layouts.crud')
+@extends('klaravel::layouts.app')
 
 @section('content')
     <div class="container pb-4 mb-5">

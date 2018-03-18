@@ -1,0 +1,112 @@
+$rojo: #bf021b;
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+@import 'stars';
+@import 'footer';
+@import 'heart';
+@import 'tables';
+
+nav.navbar {
+  display: block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  background: #fff;
+  transition: all 0.3s ease-out;
+  // padding-top: 26px;
+  // padding-bottom: 26px;
+}
+
+.vue-notifyjs .alert {
+  z-index: 1030;
+}
+
+#navbarHeader li a.nav-link,
+.thead-dark th,
+.thead-dark td {
+  text-transform: uppercase;
+
+  font-weight: normal;
+}
+
+.thead-dark th,
+.thead-dark td {
+  // text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  @include make-container();
+}
+
+.nav-tabs.formtab {
+  border-bottom: none;
+}
+.nav-tabs.formtab .nav-link.active {
+  background-color: #fff;
+}
+#navbarHeader li a.nav-link {
+  font-size: 0.9em;
+  line-height: 1.5em;
+}
+
+.icon-logo {
+  margin-right: 6px;
+}
+
+:root {
+  --jumbotron-padding-y: 3rem;
+}
+
+body {
+  // line-height: 1.72rem;
+  background-color: #fff;
+}
+
+.jumbotron {
+  padding-top: var(--jumbotron-padding-y);
+  padding-bottom: var(--jumbotron-padding-y);
+  margin-bottom: 0;
+  background-color: #fff;
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: calc(var(--jumbotron-padding-y) * 2);
+    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+  }
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+.section {
+  padding-top: 3.2rem;
+  padding-bottom: 4.2rem;
+}
+
+.box-shadow {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+ul.top-right-menu {
+  li.nav-item.dropdown {
+    margin-left: 8px;
+    i {
+      font-size: 1.2rem;
+      margin-right: 4px;
+    }
+  }
+}
+ul.top-left-menu {
+  li.nav-item {
+    margin-right: 4px;
+  }
+}

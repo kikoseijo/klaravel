@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'version' => '2.0.0',
     'runtime_console' => true, // true: enables commands being runned by php.
     'models_path' => 'Models/', // defaults "Models/"
     'backend_dashboard_route_name' => '',
@@ -8,7 +9,7 @@ return [
         'enabled' => true,
         'route_name' => 'klaravel',
         'middleware' => ['web','auth'],
-        
+
     ],
     /**
      * Swagger Builder configuration

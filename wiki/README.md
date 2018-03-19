@@ -1,4 +1,8 @@
 
+# WIKI
+
+> All documentation its embedded inside your application.
+
 This library its just a wrapper, real work its done on the libraries necessary to make this to
 work, for the forgotten ones: BIG THANK YOU, for making our lives easier.
 

@@ -11,7 +11,7 @@
             {{ title_case(str_plural($model_name)) }} |
         @endisset
         {{ config('app.name', 'Klaravel, by Sunnyface.com') }} | Admin area</title>
-        @foreach (config('ksoft.modules.crud.assets') as $useAssets)
+        @foreach (config('ksoft.modules.crud.assets', []) as $useAssets)
            <link href="{{ asset($useAssets) }}" rel="stylesheet">
         @endforeach
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

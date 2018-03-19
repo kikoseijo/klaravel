@@ -4,9 +4,9 @@
 
     <div class="container">
         @component('klaravel::ui.alert', [
-            'type' => 'warning',
+            'type' => 'danger',
         ])
-            This part of the package its under development.<br />Composser its the key to succeed.
+            This section its not working right now, check back soon...
         @endcomponent
     </div>
 

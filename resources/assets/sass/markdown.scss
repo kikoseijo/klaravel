@@ -3,10 +3,12 @@
   h1 {
     margin-bottom: 1.5rem;
   }
-  h4 {
+  h4, h5 {
     font-size: 1.4rem;
-    text-transform: uppercase;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
+  }
+  h4 {
+    text-transform: uppercase;
   }
 }

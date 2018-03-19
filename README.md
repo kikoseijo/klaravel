@@ -1,19 +1,23 @@
-# Klaravel - developer control panel
+# Klaravel - for lazy developers
 
-This package provides functionalities and structures definitions that are able to speed up your development process up to 80%, by generating out of the box several classes and repositories that allows you implement advanced techniques used in the development process of large projects where maintainability its key.
+This library provides you with some key tools to structure Laravel applications, Scaffold CRUD control panels fast.
 
-For a better understanding of the capabilities of this package you should go and
-visit the [Wiki](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks), where you can find each component specs and examples.
-
-## Install instructions
-
-Install using composer.
+> Not tested with Laravel < 5.6
 
 ```
 composer require ksoft/klaravel
 ```
 
-For version of Laravel prior to 5.5 you will have to enable the service provider in your `config/app.php` file on the providers section.
+Navigate to `/klaravel`, enjoy.
+
+![Scaffold Control Panel](/imgs/v2-logs.png?raw=true "Klaravel Scaffold Control Panel")
+
+
+
+## Laravel version < 5.5 (not recomended)
+
+
+Enable the service provider in your `config/app.php` file on the providers section.
 
 ```php
 Ksoft\Klaravel\ServiceProvider::class,
@@ -31,20 +35,30 @@ $app->withEloquent();
 
 $app->configure('ksoft');
 ...
-/*
-|--------------------------------------------------------------------------
-| Register Service Providers
-|--------------------------------------------------------------------------
- */
-...
 $app->register(Ksoft\Klaravel\ServiceProvider::class);
 ```
 
-You are now ready to go! Go see [Wiki Index](https://github.com/kikoseijo/kLaravel/wiki/Wiki-Credits-&-thanks).
+> New 2.0 version not tested in Lumen, report any errors on the issues section.
 
-## Initial steps
+#### Scaffold - C.R.U.D generator
 
-Visit the embed documentation included in the library by visiting the `/klaravel` url on your application.
+Pim, pam, pum, makes your views, your repository, controller and interactions. *Easy peasy*
+
+![Scaffold - crud generator](/imgs/v2-scaffold.png?raw=true "Scaffold - crud generator")
+
+#### Components
+
+Tired of looking for everyday components, want to save some typings, this are here for you.
+
+![Blade components](/imgs/v2-components.png?raw=true "Blade components")
+
+#### Traits
+
+Them make our life easier. Dont you think?
+
+![Available traits](/imgs/v2-traits.png?raw=true "Available traits")
+
+
 
 ## Credits
 

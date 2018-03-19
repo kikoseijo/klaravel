@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container pb-4 mb-5">
-        @card(['title' => 'Components reference', 'class' => 'mb-4'])
-            @include('klaravel::_klara.panels.components')
+        @card(['title' => 'Wiki ' . title_case($section), 'class' => 'mb-4'])
+            @include('klaravel::_klara.panels.'.$section)
         @endcard
     </div>
 @endsection

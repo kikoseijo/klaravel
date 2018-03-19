@@ -16,14 +16,14 @@ class KlaravelController extends Controller
         return view('klaravel::_kLara.dashboard');
     }
 
-    public function krud()
+    public function menues()
     {
-        return view('klaravel::_kLara.krud');
+        return view('klaravel::_kLara.comming-soon');
     }
-    
-    public function components()
+
+    public function wiki($section)
     {
-        return view('klaravel::_kLara.components');
+        return view('klaravel::_kLara.wiki', compact('section'));
     }
 
     public function makeKrud(Request $request)
@@ -31,13 +31,16 @@ class KlaravelController extends Controller
         if (!$request->filled('model_name')) {
 
             return back()
-                    ->with('flash_error', 'Error, required field model not provided')
+                    ->with(
+                        'flash_error',
+                        'Error, required field model not provided'
+                    )
                     ->withInput();
         }
 
-        if ($request->filled('publish_base_krud') && $request->publish_base_krud == 'yes' ) {
-            Artisan::call('ksoft:publish', ['--base-krud' => 'true']);
-        }
+        // if ($request->filled('publish_base_krud') && $request->publish_base_krud == 'yes' ) {
+        //     Artisan::call('ksoft:publish', ['--base-krud' => 'true']);
+        // }
 
         $params = [
             'model' => $request->model_name,
@@ -54,12 +57,16 @@ class KlaravelController extends Controller
 
     public function publishConfig(Request $request)
     {
-        Artisan::call('ksoft:publish', ['--config' => 'true']);
+        if ($request->file == 'config') {
+            Artisan::call('ksoft:publish', ['--config' => 'true']);
+        } elseif ($request->file == 'base_controller') {
+            Artisan::call('ksoft:publish', ['--base-krud' => 'true']);
+        }
 
-        return back()->with('flash_message', '<strong>Congrats</strong>, Configuration file
-                            published succesfully,<br />
-                            If you are updating form previous version rename old before runing again,<br />
-                            <em class="text-muted">this command its not overwritable</em>.');
+        return back()->with(
+            'flash_message',
+            '<strong>Congrats</strong>, File published succesfully.'
+        );
     }
 
 }

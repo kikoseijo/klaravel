@@ -22,7 +22,7 @@
   "require": {
     "anahkiasen/former": "^4.1",
     "doctrine/dbal": "^2.6",
-    "league/commonmark": "^0.16",
+    "league/commonmark": "^0.17.1",
     "spatie/laravel-activitylog": "^2.5",
     "spatie/laravel-backup": "^5.2",
     "zircote/swagger-php": "^2.0"
@@ -42,5 +42,5 @@
       "dev-master": "2.0-dev"
     }
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "stable"
 }

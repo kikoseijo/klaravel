@@ -31,10 +31,10 @@ if (config('ksoft.klaravel.enabled'))
         // Dashboard
         $router->get($klPath, 'KlaravelController@index')->name('kLara.index');
         // Krud
-        $router->get($klPath.'/krud', 'KlaravelController@krud')->name('kLara.krud');
+        $router->get($klPath.'/wiki/{section}', 'KlaravelController@wiki')->name('kLara.wiki');
         $router->post($klPath . '/krud-make', 'KlaravelController@makeKrud')->name('kLara.krud.gen');
-        // Components
-        $router->get($klPath.'/components', 'KlaravelController@components')->name('kLara.components');
+        // Menu manager
+        $router->get($klPath.'/menu-manager', 'KlaravelController@menues')->name('kLara.menu');
         // Config
         $router->get($klPath . '/publish-config', 'KlaravelController@publishConfig')->name('kLara.config.publish');
         // Utils

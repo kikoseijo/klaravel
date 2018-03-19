@@ -1,0 +1,6 @@
+// sass --style compressed resources/assets/sass/bt4.scss resources/assets/sass/bt4.css
+$enable-rounded: true;
+$enable-shadows: true;
+$enable-gradients: true;
+$enable-caret: false;
+@import "../../../node_modules/bootstrap/scss/bootstrap";

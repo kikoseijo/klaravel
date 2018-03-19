@@ -2,7 +2,7 @@
     $d_route = config('ksoft.backend_dashboard_route_name');
     $dashboard_url = $d_route != '' ? route($d_route) : url('/').'" target="_blank';
 @endphp
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark box-shadow">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark box-shadow">
   <div class="d-flex justify-content-between container">
     <a href="{!!$dashboard_url!!}" class="my-auto mr-4 brand-margin navbar-brand">
       <span>{{ config('app.name', 'Klaravel by Sunnyface.com')}}</span>

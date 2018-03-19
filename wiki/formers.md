@@ -3,31 +3,65 @@
 &nbsp;  
 For more detailed info visit [Formers Github](https://github.com/formers/former/wiki/)
 
-#### Create record
+#### Configuration
+
+Publish the configuration file:
+
+```bash
+php artisan vendor:publish --provider="Former\FormerServiceProvider"
+```
+
+Adjust configuration file `config/former.php` with the following information: **this is due to bootstrap4 not being a framework available right now** i got yo covered...
 
 ```
-{!! Former::open_for_files()->route($model_name.'.store') !!}
-    {!! Former::text('name')->required()->label('Name') !!}
-    @include('klaravel::ui.forms.textarea',[
-        'name' => 'excerpt',
-        'label' => 'Short description',
-        'rows' => 2
-    ])
-    @include('klaravel::ui.forms.buttons')
+...
+// The framework to be used by Former
+'framework' => 'Ksoft\Klaravel\Utils\FormerBootstrap4',
+...
+// Width of labels for horizontal forms expressed as viewport => grid columns
+'labelWidths' => array(
+  'large' => 2,
+  'small' => 10,
+),
+...
+```
+
+Checkboxes and radios having issues with alignments, use the components or by hand...
+
+#### Create record
+
+```php
+{!! Former::open_for_files()
+  ->route($model_name.'.store')
+!!}
+  ...
+  {!! Former::text('name')->required()->label('Name') !!}
+  @include('klaravel::ui.forms.textarea',[
+    'name' => 'excerpt',
+    'label' => 'Short description',
+    'rows' => 2
+  ])
+  ...
+  @include('klaravel::ui.forms.buttons')
 {!! Former::close() !!}
 ```
 
 #### Update record
 
 ```php
-{!! Former::open_for_files()->route($model_name.'.store') !!}s
-    {!! Former::text('name')->required()->label('Name') !!}
-    @include('klaravel::ui.forms.textarea',[
-        'name' => 'excerpt',
-        'label' => 'Short description',
-        'rows' => 2
-    ])
-    @include('klaravel::ui.forms.buttons')
+{!! Former::open_for_files()
+    ->route($model_name . '.update', $record->id  )
+    ->populate( $record )
+!!}
+  ...
+  {!! Former::text('name')->required()->label('Name') !!}
+  @include('klaravel::ui.forms.textarea',[
+    'name' => 'excerpt',
+    'label' => 'Short description',
+    'rows' => 2
+  ])
+  ...
+  @include('klaravel::ui.forms.buttons', ['submitButtonText' => 'Update record'])
 {!! Former::close() !!}
 ```
 
@@ -52,7 +86,7 @@ For more detailed info visit [Formers Github](https://github.com/formers/former/
 !!}
 ```
 
-```
+```php
 {!! Former::select('rating')
     ->options(array_combine(range(1,5),range(1,5)))
     ->label('Rating')

@@ -4,12 +4,20 @@
         'active' => str_contains($croute, ['kLara'])
     ])
 
-        <a href="{{ route('kLara.krud') }}"
-        class="dropdown-item{{ $croute== 'kLara.krud' ? ' active' : '' }}">
-            Krud
+        <a href="{{ route('kLara.index') }}"
+        class="dropdown-item{{ $croute== 'kLara.index' ? ' active' : '' }}">
+            Dashboard
         </a>
-        <a href="{{ route('kLara.components') }}"
-        class="dropdown-item{{ $croute== 'kLara.components' ? ' active' : '' }}">
+        <a href="{{ route('kLara.wiki', 'scaffold') }}"
+        class="dropdown-item{{ request('section') == 'scaffold' ? ' active' : '' }}">
+            Scaffold Generator
+        </a>
+        <a href="{{ route('kLara.wiki', 'traits') }}"
+        class="dropdown-item{{ request('section') == 'traits' ? ' active' : '' }}">
+            Traits
+        </a>
+        <a href="{{ route('kLara.wiki', 'components') }}"
+        class="dropdown-item{{ request('section') == 'components' ? ' active' : '' }}">
             Components
         </a>
 

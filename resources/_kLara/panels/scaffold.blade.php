@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3 mb-5">
         <ul class="nav flex-column px-0  border-right h-100" id="klara-tabs" role="tablist">
           <li class="nav-item">
             <a class="nav-link py-2 active" id="krud-tab" data-toggle="tab" href="#krud">Krud generator</a>
@@ -8,16 +8,16 @@
               <a class="nav-link py-2" id="krud-help-tab" data-toggle="tab" href="#krud-help">Krud user guide</a>
           </li>
           <li class="nav-item border-top">
-              <a class="nav-link py-2" id="krud-repo-tab" data-toggle="tab" href="#krud-repo">Repository (Eloquent)</a>
+              <a class="nav-link py-2" id="krud-repo-tab" data-toggle="tab" href="#krud-repo">Repository <small>(Eloquent)</small></a>
           </li>
           <li class="nav-item border-top">
-              <a class="nav-link py-2" id="krud-repo-filters-tab" data-toggle="tab" href="#krud-repo-filters">Repository (Query filters)</a>
+              <a class="nav-link py-2" id="krud-repo-filters-tab" data-toggle="tab" href="#krud-repo-filters">Repository <small>(Query filters)</small></a>
           </li>
           <li class="nav-item border-top">
               <a class="nav-link py-2" id="krud-views-tab" data-toggle="tab" href="#krud-views">Krud Reusable views</a>
           </li>
           <li class="nav-item border-top">
-            <a class="nav-link py-2" id="krud-layout-tab" data-toggle="tab" href="#krud-layout">Krud layout</a>
+            <a class="nav-link py-2" id="krud-layout-tab" data-toggle="tab" href="#krud-layout">Krud layout <small>(reference)</small></a>
           </li>
           <li class="nav-item border-top border-bottom">
             <a class="nav-link py-2" id="former-tab" data-toggle="tab" href="#former">Formers quick refrence</a>
@@ -30,10 +30,10 @@
                 @include('klaravel::_kLara.modules.krud')
             </div>
             <div class="tab-pane fade" id="krud-help" role="tabpanel" aria-labelledby="krud-help-tab">
-                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/stubs/klara/krud-help.md')) !!}
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/krud-help.md')) !!}
             </div>
             <div class="tab-pane fade" id="krud-views" role="tabpanel" aria-labelledby="krud-views-tab">
-                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/stubs/klara/krud.md')) !!}
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/krud-views.md')) !!}
             </div>
             <div class="tab-pane fade" id="krud-repo" role="tabpanel" aria-labelledby="krud-repo-tab">
                 <h3>Eloquent Repository</h3>
@@ -44,9 +44,10 @@
             <div class="tab-pane fade" id="krud-repo-filters" role="tabpanel" aria-labelledby="krud-repo-filters-tab">
                 <h3>Query Filters Trait</h3>
                 <p class="mt-3">
-                    Powers up EloquentRepository for complex queries on your models.
+                    Powers up EloquentRepository for complex queries.
                 </p>
                 <pre><code>use Ksoft\Klaravel\Traits\QueryFiltersTrait;</code></pre>
+                <p>More information and example use in <a href="{{route('kLara.wiki','traits')}}">wiki-traits</a></p>
                 {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/src/Traits/Repositories/RepoQueryFiltersTrait.php').'```') !!}
             </div>
             <div class="tab-pane fade" id="krud-layout" role="tabpanel" aria-labelledby="krud-layout-tab">
@@ -62,7 +63,7 @@
                 {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/resources/layouts/crud.blade.php').'```') !!}
             </div>
             <div class="tab-pane fade" id="former" role="tabpanel" aria-labelledby="former-tab">
-                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/stubs/klara/formers.md')) !!}
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/formers.md')) !!}
             </div>
         </div>
     </div>

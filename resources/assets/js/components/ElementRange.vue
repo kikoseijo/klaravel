@@ -3,7 +3,7 @@
       <el-slider
       v-model="defaultValue"
       @change="selectChanged"
-      range
+      :range="range"
       :max="max"
       :min="min">
     </el-slider>
@@ -13,10 +13,10 @@
 
 <script>
 /*
-<klaravel-element-range min="" max="" name="" value=""></klaravel-element-range>
+<klaravel-element-range min="" range="true" max="" name="" value=""></klaravel-element-range>
 */
 export default {
-  props: ['value', 'name', 'min', 'max'],
+  props: ['value', 'name', 'min', 'max', 'range'],
   data() {
     return {
       defaultValue: [],

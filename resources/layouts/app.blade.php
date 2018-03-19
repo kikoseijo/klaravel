@@ -8,7 +8,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Klaravel, by Sunnyface.com</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     @stack('stylesheets')
     @include('klaravel::_klara._parts._styles')
     <script>
@@ -25,12 +24,14 @@
         @include('klaravel::_parts.header')
         <div class="album py-5 bg-light klara-content">
             @includeIf(config('ksoft.modules.crud.errors', 'klaravel::ui.errors'))
-            
+
             @yield('content')
         </div>
         @include('klaravel::_parts.footer')
         {{-- @includeIf(config('ksoft.modules.crud.footer', 'klaravel::_parts.footer')) --}}
         @stack('modals')
+        <notifications></notifications>
+        
     </div>
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

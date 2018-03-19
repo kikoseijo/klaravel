@@ -4,17 +4,17 @@ return [
     'version' => '2.0.0',
     'models_path' => 'Models/', // defaults "Models/"
     'backend_dashboard_route_name' => '',
+    // Krud generator
     'klaravel' => [
         'enabled' => true,
         'route_name' => 'klaravel',
         'middleware' => ['web','auth'],
-
     ],
     /**
      * Swagger Builder configuration
      */
     'swagger' => [
-        'enabled' => true,
+        'enabled' => false,
         'constants' => [ // Dynamic constants implementations.
             'API_HOST' => env('APP_URL', 'http://example.dev'),
         ],
@@ -69,8 +69,8 @@ return [
         'crud' => [
             'enabled' => true,
             // @includeIf() views to include from your proyect
-            'header' => 'parts.header',
-            'footer' => 'parts.footer',
+            'header' => 'klaravel::_parts.header',
+            'footer' => 'klaravel::_parts.footer',
             'errors' => 'klaravel::ui.errors',
             // the "." should be included at the end of the path. as a join the model name "folder"
             'views_base_path' => 'back.',
@@ -97,8 +97,8 @@ return [
      *
      */
     'krud' => [
-        'force_rewrite' => false, // watch out!! wont ask you or warn....
-        'use_contracts' => false, // when enabled uncomment contracts paths bellow.
+        'force_rewrite' => false, // got git?... commit.
+        'use_contracts' => false, // facades, when enabled uncomment contracts paths bellow.
 
         /**
          * Paths to save generated CRUD files

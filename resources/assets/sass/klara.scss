@@ -3,6 +3,10 @@
     text-transform: uppercase;
     font-weight: 600;
   }
+  h3{
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
   .nav-item:has(.nav-link.active) {
     background: #cc9988 !important;
     &::after {

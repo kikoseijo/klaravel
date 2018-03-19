@@ -1,5 +1,7 @@
 .klara-content {
   .card-header{
+    color: #fff;
+    background: lighten(#343a40, 10);
     text-transform: uppercase;
     font-weight: 600;
   }
@@ -18,7 +20,7 @@
       color: #e14a0c;
       // margin-right: 0.25em;
       font-family: 'Font Awesome 5 Free';
-      color: rgba(#000, 80%);
+      color: rgba(#000, 80);
       content: '\f0da';
     }
   }

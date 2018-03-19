@@ -5,11 +5,12 @@ return [
     'models_path' => 'Models/', // defaults "Models/"
     'backend_dashboard_route_name' => '',
     // Krud generator
-    'klaravel' => [
-        'enabled' => true,
-        'route_name' => 'klaravel',
-        'middleware' => ['web','auth'],
-    ],
+
+    'klaravel_enabled' => true,
+    'klaravel_visible_for' => [4], // show menu only to user id`s in this array-
+    'klaravel_route_name' => 'klaravel',
+    'klaravel_middleware' => ['web','auth'],
+
     /**
      * Swagger Builder configuration
      */

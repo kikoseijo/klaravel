@@ -24,7 +24,7 @@ footer a { color: #6f6d70; }
 
 .badge-counter { min-width: 52px; }
 
-.klara-content .card-header { text-transform: uppercase; font-weight: 600; }
+.klara-content .card-header { color: #fff; background: #4b545c; text-transform: uppercase; font-weight: 600; }
 .klara-content h3 { margin-top: 1rem; margin-bottom: 1.5rem; }
 .klara-content .nav-item:has(.nav-link.active) { background: #cc9988 !important; }
 .klara-content .nav-item:has(.nav-link.active)::after { display: block; float: left; margin-right: -0.25em; margin-left: -0.25em; padding: 0 0.5em; color: #e14a0c; font-family: 'Font Awesome 5 Free'; color: black; content: '\f0da'; }

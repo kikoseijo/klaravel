@@ -23,34 +23,41 @@ if (config('ksoft.modules.backup.enabled'))
     });
 }
 
-if (config('ksoft.klaravel.enabled'))
+if (config('ksoft.klaravel_enabled'))
 {
-    $klWare = config('ksoft.klaravel.middleware', ['web', 'auth']);
-    $router->group(['middleware' => $klWare], function ($router) {
-        $klPath = config('ksoft.klaravel.route_name', 'klaravel');
-        // Dashboard
-        $router->get($klPath, 'KlaravelController@index')->name('kLara.index');
-        // Krud
-        $router->get($klPath.'/wiki/{section}', 'KlaravelController@wiki')->name('kLara.wiki');
-        $router->post($klPath . '/krud-make', 'KlaravelController@makeKrud')->name('kLara.krud.gen');
-        // Menu manager
-        $router->get($klPath.'/menu-manager', 'KlaravelController@menues')->name('kLara.menu');
-        // Config
-        $router->get($klPath . '/publish-config', 'KlaravelController@publishConfig')->name('kLara.config.publish');
-        // Utils
-        $router->get($klPath . '/settings-clean', 'UtilsController@cleanSettings')->name('kLara.settings.clean');
-        $router->get($klPath . '/clean-test-data', 'UtilsController@purgeTests')->name('kLara.purge.tests');
-        $router->get($klPath . '/multiuse', 'UtilsController@multiuse')->name('kLara.multiuse');
-        $router->get($klPath . '/testBugsnag', 'UtilsController@testBugsnag')->name('kLara.bugsnag.test');
-        $router->get($klPath . '/cache-flush', 'UtilsController@flushCache')->name('kLara.cache.flush');
-        $router->get($klPath . '/schedule-info', 'UtilsController@getScheduleCommands')->name('kLara.schedule.info');
+    $adminsAllowed = config('ksoft.klaravel_visible_for');
+    logi(config('ksoft.klaravel_visible_for'));
+    logi('$adminsAllowed');
+    logi($adminsAllowed);
+    logi(auth()->id());
+    if (!is_array($adminsAllowed) || count($adminsAllowed) == 0 || (count($adminsAllowed) > 0 && in_array(auth()->id(), $adminsAllowed))) {
+        $klWare = config('ksoft.klaravel_middleware', ['web', 'auth']);
+        $router->group(['middleware' => $klWare], function ($router) {
+            $klPath = config('ksoft.klaravel_route_name', 'klaravel');
+            // Dashboard
+            $router->get($klPath, 'KlaravelController@index')->name('kLara.index');
+            // Krud
+            $router->get($klPath.'/wiki/{section}', 'KlaravelController@wiki')->name('kLara.wiki');
+            $router->post($klPath . '/krud-make', 'KlaravelController@makeKrud')->name('kLara.krud.gen');
+            // Menu manager
+            $router->get($klPath.'/menu-manager', 'KlaravelController@menues')->name('kLara.menu');
+            // Config
+            $router->get($klPath . '/publish-config', 'KlaravelController@publishConfig')->name('kLara.config.publish');
+            // Utils
+            $router->get($klPath . '/settings-clean', 'UtilsController@cleanSettings')->name('kLara.settings.clean');
+            $router->get($klPath . '/clean-test-data', 'UtilsController@purgeTests')->name('kLara.purge.tests');
+            $router->get($klPath . '/multiuse', 'UtilsController@multiuse')->name('kLara.multiuse');
+            $router->get($klPath . '/testBugsnag', 'UtilsController@testBugsnag')->name('kLara.bugsnag.test');
+            $router->get($klPath . '/cache-flush', 'UtilsController@flushCache')->name('kLara.cache.flush');
+            $router->get($klPath . '/schedule-info', 'UtilsController@getScheduleCommands')->name('kLara.schedule.info');
 
-        // $router->get($klPath.'/create-db', 'BackupController@dbBackup')->name('kBackup.create_db');
-        // $router->get($klPath.'/create-full', 'BackupController@create')->name('kBackup.create_full');
-        // $router->get($klPath.'/download/{file_name}', 'BackupController@download');
-        // $router->get($klPath.'/delete/{file_name}', 'BackupController@delete');
+            // $router->get($klPath.'/create-db', 'BackupController@dbBackup')->name('kBackup.create_db');
+            // $router->get($klPath.'/create-full', 'BackupController@create')->name('kBackup.create_full');
+            // $router->get($klPath.'/download/{file_name}', 'BackupController@download');
+            // $router->get($klPath.'/delete/{file_name}', 'BackupController@delete');
 
-    });
+        });
+    }
 }
 
 if (config('ksoft.modules.activity_log.enabled'))

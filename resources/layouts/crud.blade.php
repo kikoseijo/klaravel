@@ -29,7 +29,7 @@
 <body>
     <div id="app" class="crud-wrapper">
         @includeIf(config('ksoft.modules.crud.header', 'parts.header'))
-        <div class="album py-5 bg-light">
+        <div class="album py-5 bg-light klara-content">
             @includeIf(config('ksoft.modules.crud.errors', 'klaravel::ui.errors'))
             @yield('content')
         </div>

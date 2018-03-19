@@ -2,19 +2,26 @@
 
 This library provides you with some key tools to structure Laravel applications, Scaffold CRUD control panels fast.
 
-> Not tested with Laravel < 5.6
+*Documentation its embedded* right on your control panel, isn't this cool?
+
+
+> Not tested with Laravel prior to 5.6 (Should work just fine)
+
+
 
 ```
 composer require ksoft/klaravel
 ```
 
-Navigate to `/klaravel`, enjoy.
+Navigate to `[/klaravel](http://localhost:8000/klaravel)`,  
+
+enjoy.
 
 ![Scaffold Control Panel](/imgs/v2-logs.png?raw=true "Klaravel Scaffold Control Panel")
 
 
 
-## Laravel version < 5.5 (not recomended)
+##### Laravel version < 5.5 (not recomended)
 
 
 Enable the service provider in your `config/app.php` file on the providers section.
@@ -25,7 +32,7 @@ Ksoft\Klaravel\ServiceProvider::class,
 
 Now open http://localhost:8000/klaravel and start building great applications.
 
-### Lumen configuration
+##### Lumen configuration
 
 If you need all features this package provides you will have to enable the following on your project `boostrap/app.php` file.
 
@@ -40,19 +47,19 @@ $app->register(Ksoft\Klaravel\ServiceProvider::class);
 
 > New 2.0 version not tested in Lumen, report any errors on the issues section.
 
-#### Scaffold - C.R.U.D generator
+## Scaffold - C.R.U.D generator
 
 Pim, pam, pum, makes your views, your repository, controller and interactions. *Easy peasy*
 
 ![Scaffold - crud generator](/imgs/v2-scaffold.png?raw=true "Scaffold - crud generator")
 
-#### Components
+## Components
 
 Tired of looking for everyday components, want to save some typings, this are here for you.
 
 ![Blade components](/imgs/v2-components.png?raw=true "Blade components")
 
-#### Traits
+## Traits
 
 Them make our life easier. Dont you think?
 

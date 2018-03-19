@@ -4,12 +4,20 @@ return [
     'version' => '2.0.0',
     'models_path' => 'Models/', // defaults "Models/"
     'backend_dashboard_route_name' => '',
-    // Krud generator
 
+    // Klaravel user guide + scaffold
     'klaravel_enabled' => true,
-    'klaravel_visible_for' => [4], // show menu only to user id`s in this array-
+    'klaravel_visible_for' => [], // show menu only to user id`s in this array-
     'klaravel_route_name' => 'klaravel',
     'klaravel_middleware' => ['web','auth'],
+
+    'menu_settings_config_location' => '', // key value settings.
+    'menu_admin_config_location' => 'ksoft.admin_menu',
+
+    'admin_menu' => [
+        'kLara.index' => 'Scaffold',
+        'ksoft.plugins.index' => 'Plugins'
+    ],
 
     /**
      * Swagger Builder configuration

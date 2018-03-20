@@ -13,7 +13,7 @@
         {{ config('app.name', 'Klaravel, by Sunnyface.com') }} | Admin area
     </title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
-    @foreach (config('ksoft.modules.crud.assets', []) as $useAssets)
+    @foreach (config('ksoft.module.crud.assets', []) as $useAssets)
        <link href="{{ asset($useAssets) }}" rel="stylesheet">
     @endforeach
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -26,14 +26,14 @@
         @stack('js')
     </script>
 </head>
-<body>
+<body class=" bg-white">
     <div id="app" class="crud-wrapper">
-        @includeIf(config('ksoft.modules.crud.header', 'parts.header'))
+        @includeIf(config('ksoft.module.crud.header', 'klaravel::_parts.header'))
         <div class="album py-5 bg-light klara-content">
-            @includeIf(config('ksoft.modules.crud.errors', 'klaravel::ui.errors'))
+            @includeIf(config('ksoft.module.crud.errors', 'klaravel::ui.errors'))
             @yield('content')
         </div>
-        @includeIf(config('ksoft.modules.crud.footer', 'parts.footer'))
+        @includeIf(config('ksoft.module.crud.footer', 'klaravel::_parts.footer'))
         @stack('modals')
         <notifications></notifications>
     </div>

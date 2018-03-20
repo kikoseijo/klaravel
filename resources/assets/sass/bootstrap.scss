@@ -1,7 +1,7 @@
 $rojo: #bf021b;
-@import '../../../node_modules/bootstrap/scss/functions';
-@import '../../../node_modules/bootstrap/scss/variables';
-@import '../../../node_modules/bootstrap/scss/mixins';
+// @import '../../../node_modules/bootstrap/scss/functions';
+// @import '../../../node_modules/bootstrap/scss/variables';
+// @import '../../../node_modules/bootstrap/scss/mixins';
 @import './markdown';
 @import './stars';
 @import './footer';
@@ -26,11 +26,10 @@ p {
   z-index: 1030;
 }
 
-#navbarHeader li a.nav-link,
+// #navbarHeader li a.nav-link,
 .thead-dark th,
 .thead-dark td {
   text-transform: uppercase;
-
   font-weight: normal;
 }
 
@@ -39,10 +38,10 @@ p {
   // text-align: center;
 }
 
-.container {
-  max-width: 1200px;
-  @include make-container();
-}
+// .container {
+//   max-width: 1200px;
+//   @include make-container();
+// }
 
 .nav-tabs.formtab {
   border-bottom: none;
@@ -50,10 +49,10 @@ p {
 .nav-tabs.formtab .nav-link.active {
   background-color: #fff;
 }
-#navbarHeader li a.nav-link {
-  font-size: 0.9em;
-  line-height: 1.5em;
-}
+// #navbarHeader li a.nav-link {
+//   font-size: 0.9em;
+//   line-height: 1.6em;
+// }
 
 .icon-logo {
   margin-right: 6px;

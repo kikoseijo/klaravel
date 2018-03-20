@@ -38,15 +38,11 @@ p { color: #666; }
 
 .vue-notifyjs .alert { z-index: 1030; }
 
-#navbarHeader li a.nav-link, .thead-dark th, .thead-dark td { text-transform: uppercase; font-weight: normal; }
-
-.container { max-width: 1200px; width: 100%; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; }
+.thead-dark th, .thead-dark td { text-transform: uppercase; font-weight: normal; }
 
 .nav-tabs.formtab { border-bottom: none; }
 
 .nav-tabs.formtab .nav-link.active { background-color: #fff; }
-
-#navbarHeader li a.nav-link { font-size: 0.9em; line-height: 1.5em; }
 
 .icon-logo { margin-right: 6px; }
 

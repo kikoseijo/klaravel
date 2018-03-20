@@ -29,3 +29,14 @@
     ])
   </div>
 </nav>
+{{-- {{ dd(config('ksoft.module.activity_log.enabled')) }} --}}
+@if (count(config('ksoft.CONSTANTS')) == 0)
+    @component('klaravel::ui.alert', [
+        'title' => 'Alert title',
+        'type' => 'warning',
+        'class' => 'my-3 container',
+    ])
+        Some files are missing , action required:
+        <a href="{{route('kLara.config.publish')}}?file=initial" class="btn btn-primary btn-sm ml-4">Publish initial configuration </a>
+    @endcomponent
+@endif

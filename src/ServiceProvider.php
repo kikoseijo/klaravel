@@ -41,6 +41,9 @@ class ServiceProvider extends BaseServiceProvider
         $configPath = KLARAVEL_PATH.'/stubs/config/ksoft.php';
         $this->mergeConfigFrom($configPath, 'ksoft');
 
+        $defaultSettings = config('ksoft.menu_settings_config_location', config('settings.primary_config_file'));
+        config(['settings.primary_config_file' => $defaultSettings]); // runtime overwrite.
+
         $this->registerServices();
         $this->registerCommands();
     }

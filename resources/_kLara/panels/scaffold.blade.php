@@ -36,13 +36,13 @@
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/krud-views.md')) !!}
             </div>
             <div class="tab-pane fade" id="krud-repo" role="tabpanel" aria-labelledby="krud-repo-tab">
-                <h3>Eloquent Repository</h3>
+                <h1>Eloquent Repository</h1>
                 <p class="mt-3">This class powers up your Repository, as it where your class extends from.</p>
                 <p>Use it as a reference to avoid writing repeated code.</p>
                 {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/src/Contracts/EloquentRepoContract.php').'```') !!}
             </div>
             <div class="tab-pane fade" id="krud-repo-filters" role="tabpanel" aria-labelledby="krud-repo-filters-tab">
-                <h3>Query Filters Trait</h3>
+                <h1>Query Filters Trait</h1>
                 <p class="mt-3">
                     Powers up EloquentRepository for complex queries.
                 </p>
@@ -51,7 +51,7 @@
                 {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/src/Traits/Repositories/RepoQueryFiltersTrait.php').'```') !!}
             </div>
             <div class="tab-pane fade" id="krud-layout" role="tabpanel" aria-labelledby="krud-layout-tab">
-                <h3>Krud base layout</h3>
+                <h1>Krud base layout</h1>
                 <p class="mt-3">Extend your blade views or copy paste to your project folder</p>
                 <pre class="mb-0 pb-0">
                     <code>&#64;extends('klaravel::layouts.crud')</code>
@@ -63,6 +63,10 @@
                 {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/resources/layouts/crud.blade.php').'```') !!}
             </div>
             <div class="tab-pane fade" id="former" role="tabpanel" aria-labelledby="former-tab">
+                <h1>Formers quick reference</h1>
+                @if (config('former.framework') != 'Ksoft\Klaravel\Utils\FormerBootstrap4')
+                    <a href="{{route('kLara.config.publish')}}?file=formers" class="btn my-3 btn-primary">Publish configuration file</a>
+                @endif
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/formers.md')) !!}
             </div>
         </div>

@@ -1,29 +1,19 @@
-# Formers quick reference
 
-&nbsp;  
 For more detailed info visit [Formers Github](https://github.com/formers/former/wiki/)
 
 #### Configuration
 
-Publish the configuration file:
-
-```bash
-php artisan vendor:publish --provider="Former\FormerServiceProvider"
-```
-
 Adjust configuration file `config/former.php` with the following information: **this is due to bootstrap4 not being a framework available right now** i got yo covered...
 
 ```
-...
 // The framework to be used by Former
 'framework' => 'Ksoft\Klaravel\Utils\FormerBootstrap4',
-...
-// Width of labels for horizontal forms expressed as viewport => grid columns
-'labelWidths' => array(
-  'large' => 2,
-  'small' => 10,
-),
-...
+'FormerBootstrap4' => array(
+  // Width of labels for horizontal forms expressed as viewport => grid columns
+  'labelWidths' => array(
+    'large' => 2,
+    'small' => 10,
+  ),
 ```
 
 Checkboxes and radios having issues with alignments, use the components or by hand...

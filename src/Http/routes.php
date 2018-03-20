@@ -10,11 +10,11 @@ $router->group(['middleware' => ['web','auth']], function ($router) {
     $router->get('ksoft/plugin-uninstall/{plugin_name}', 'PluginsController@uninstallPlugin')->name('ksoft.plugins.uninstall');
 });
 
-if (config('ksoft.modules.backup.enabled'))
+if (config('ksoft.module.backup.enabled'))
 {
-    $backupWare = config('ksoft.modules.backup.middleware');
+    $backupWare = config('ksoft.module.backup.middleware');
     $router->group(['middleware' => $backupWare], function ($router) {
-        $backupPath = config('ksoft.modules.backup.route_name', 'backup');
+        $backupPath = config('ksoft.module.backup.route_name', 'backup');
         $router->get($backupPath, 'BackupController@index')->name('kBackup.index');
         $router->get($backupPath.'/create-db', 'BackupController@dbBackup')->name('kBackup.create_db');
         $router->get($backupPath.'/create-full', 'BackupController@create')->name('kBackup.create_full');
@@ -54,11 +54,11 @@ if (config('ksoft.klaravel_enabled'))
 
 }
 
-if (config('ksoft.modules.activity_log.enabled'))
+if (config('ksoft.module.activity_log.enabled'))
 {
-    $aLogsWare = config('ksoft.modules.activity_log.middleware');
+    $aLogsWare = config('ksoft.module.activity_log.middleware');
     $router->group(['middleware' => $aLogsWare], function ($router) {
-        $aLogsPath = config('ksoft.modules.activity_log.route_name', 'activity-logs');
+        $aLogsPath = config('ksoft.module.activity_log.route_name', 'activity-logs');
         $router->get($aLogsPath, 'ActivitylogController@index')->name('kLogs.index');
         $router->get($aLogsPath.'/delete/{activity}', 'ActivitylogController@destroy')->name('kLogs.delete');
         $router->post($aLogsPath.'/mass-delete', 'ActivitylogController@massDestroy')->name('kLogs.mass_delete');
@@ -67,22 +67,22 @@ if (config('ksoft.modules.activity_log.enabled'))
 
 
 // Session logs
-if (config('ksoft.modules.sessions.enabled'))
+if (config('ksoft.module.sessions.enabled'))
 {
-    $aLogsWare = config('ksoft.modules.sessions.middleware');
+    $aLogsWare = config('ksoft.module.sessions.middleware');
     $router->group(['middleware' => $aLogsWare], function ($router) {
-        $aLogsPath = config('ksoft.modules.sessions.route_name', 'sessions');
+        $aLogsPath = config('ksoft.module.sessions.route_name', 'sessions');
         $router->get($aLogsPath, 'SessionController@index')->name('kSessions.index');
         $router->get($aLogsPath.'/{session}', 'SessionController@delete')->name('kSessions.delete');
     });
 }
 
 // Cache logs
-if (config('ksoft.modules.caches.enabled'))
+if (config('ksoft.module.caches.enabled'))
 {
-    $aLogsWare = config('ksoft.modules.caches.middleware');
+    $aLogsWare = config('ksoft.module.caches.middleware');
     $router->group(['middleware' => $aLogsWare], function ($router) {
-        $aLogsPath = config('ksoft.modules.caches.route_name', 'cache');
+        $aLogsPath = config('ksoft.module.caches.route_name', 'cache');
         $router->get($aLogsPath, 'CacheController@index')->name('kCache.index');
         $router->get($aLogsPath.'/{cache}', 'CacheController@delete')->name('kCache.delete');
     });

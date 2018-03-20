@@ -76,7 +76,7 @@ class BaseKrudController extends Controller
 
     protected function loadCrudStyles()
     {
-        $viewsBasePath = config('ksoft.modules.crud.views_base_path', '');
+        $viewsBasePath = config('ksoft.module.crud.views_base_path', '');
         $crudWrapperClass = config('ksoft.style.crud_container_wrapper','container -body-block pb-5');
         return [
             'viewsBasePath' => $viewsBasePath,

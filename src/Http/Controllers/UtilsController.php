@@ -1,9 +1,8 @@
 <?php
 namespace Ksoft\Klaravel\Http\Controllers;
 
-use Ksoft\Klaravel\Models\Cache;
 use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
-
+use Ksoft\Klaravel\Models\Cache;
 
 class UtilsController extends Controller
 {
@@ -30,14 +29,12 @@ class UtilsController extends Controller
                 return [
                     'command' => $event->command,
                     'expression' => $event->expression,
-                    'next-execution' => $expression->getNextRunDate()
+                    'next-execution' => $expression->getNextRunDate(),
                 ];
             });
 
-        return back()->with('flash_message', 'Settings '.$scheduledCommands.' flushed succesfully');
+        return back()->with('flash_message', 'Settings ' . $scheduledCommands . ' flushed succesfully');
     }
-
-
 
     public function cleanSettings()
     {
@@ -47,11 +44,10 @@ class UtilsController extends Controller
         return back()->with('flash_message', 'Settings cleaned succesfully');
     }
 
-
     public function flushCache($key = '')
     {
         cache()->flush($key);
-        return back()->with('flash_message', 'Cache <strong>'.$key.'</strong> flushed succesfully');
+        return back()->with('flash_message', 'Cache <strong>' . $key . '</strong> flushed succesfully');
     }
 
     public function multiuse()

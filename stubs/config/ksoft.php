@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'version' => '2.0.0',
+    'version' => '2.0.2',
     'models_path' => 'Models/', // defaults "Models/"
     'backend_dashboard_route_name' => '',
 
@@ -11,9 +11,16 @@ return [
     'klaravel_route_name' => 'klaravel',
     'klaravel_middleware' => ['web','auth'],
 
-    'menu_settings_config_location' => '', // key value settings.
-    'menu_admin_config_location' => 'ksoft.admin_menu',
+    /**
+     * Simple way to have key value items using config files as default values
+     * But persists on database using https://github.com/oriceon/laravel-settings
+     */
+    'menu_settings_config_location' => 'klara.settings', // key value settings. (folder in config containing simple)
 
+    /**
+     * Main menu in admin panel, must follow the pattern: 'route_name' => 'Menu label'
+     */
+    'menu_admin_config_location' => 'ksoft.admin_menu', // it defaults to the item bellow
     'admin_menu' => [
         'kLara.index' => 'Scaffold',
         'ksoft.plugins.index' => 'Plugins'
@@ -50,7 +57,7 @@ return [
         'thead' => 'thead-dark',
     ],
 
-    'modules' => [
+    'module' => [
         'backup' => [ // https://github.com/spatie/laravel-backup
             'enabled' => true,
             'route_name' => 'backup',

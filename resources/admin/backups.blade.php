@@ -9,7 +9,7 @@
                         <i class="far fa-database mr-1" aria-hidden="true"></i> Database backup
                     </a>
                 </li>
-                @if (config('ksoft.modules.backup.can_see_full_backups'))
+                @if (config('ksoft.module.backup.can_see_full_backups'))
                     <li class="nav-item active mr-3">
                         <a href="{{ route('kBackup.create_full') }}" data-toggle="tooltip" class="nav-link text-primary" title="New full backup using configuration file">
                             <i class="far fa-folder mr-1" aria-hidden="true"></i> Full backup

@@ -2,11 +2,7 @@
 namespace Ksoft\Klaravel\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Artisan;
-
-use Ksoft\Klaravel\Console\Helpers\Publisher;
-
 
 class KlaravelController extends Controller
 {
@@ -31,11 +27,11 @@ class KlaravelController extends Controller
         if (!$request->filled('model_name')) {
 
             return back()
-                    ->with(
-                        'flash_error',
-                        'Error, required field model not provided'
-                    )
-                    ->withInput();
+                ->with(
+                    'flash_error',
+                    'Error, required field model not provided'
+                )
+                ->withInput();
         }
 
         // if ($request->filled('publish_base_krud') && $request->publish_base_krud == 'yes' ) {
@@ -57,7 +53,45 @@ class KlaravelController extends Controller
 
     public function publishConfig(Request $request)
     {
-        if ($request->file == 'config') {
+        if ($request->file == 'table') { // --force
+            if ($request->table=='session') {
+                $route = route('kSessions.index');
+            } elseif ($request->table=='cache') {
+                $route = route('kCache.index');
+            } else {
+                return back()->with('flash_error', 'Sorry wrong parameters.');
+            }
+
+            Artisan::call($request->table.':table');
+            Artisan::call('migrate');
+
+            return redirect($route)->with(
+                'flash_message',
+                'Database table created succesfully, update your settings to make sure tables being used.'
+            );
+
+        } elseif ($request->file == 'settings') {
+            Artisan::call('vendor:publish', [
+                '--provider' => 'Oriceon\Settings\SettingsServiceProvider',
+                '--tag' => 'migrations'
+            ]);
+            Artisan::call('migrate');
+        } elseif ($request->file == 'formers') {
+            Artisan::call('vendor:publish', [
+                '--provider' => 'Former\FormerServiceProvider',
+            ]);
+        } elseif ($request->file == 'activity_log') {
+            // php artisan vendor:publish --provider="Spatie\Activitylog\ActivitylogServiceProvider" --tag="migrations"
+            Artisan::call('vendor:publish', [
+                '--provider' => 'Spatie\Activitylog\ActivitylogServiceProvider',
+                '--tag' => 'migrations'
+            ]);
+            Artisan::call('migrate');
+            return redirect( route('kLogs.index'))->with(
+                'flash_message',
+                'Activity log table created succesfully, update your settings'
+            );
+        } elseif ($request->file == 'base_controller') {
             Artisan::call('ksoft:publish', ['--config' => 'true']);
         } elseif ($request->file == 'base_controller') {
             Artisan::call('ksoft:publish', ['--base-krud' => 'true']);

@@ -20,15 +20,13 @@
 </head>
 <body>
     <div id="app" class="klara-wrapper">
-        {{-- @includeIf(config('ksoft.modules.crud.header', 'klaravel::_parts.header')) --}}
-        @include('klaravel::_parts.header')
+        @includeIf(config('ksoft.module.crud.header', 'klaravel::_parts.header'))
         <div class="album py-5 bg-light klara-content">
-            @includeIf(config('ksoft.modules.crud.errors', 'klaravel::ui.errors'))
+            @includeIf(config('ksoft.module.crud.errors', 'klaravel::ui.errors'))
 
             @yield('content')
         </div>
-        @include('klaravel::_parts.footer')
-        {{-- @includeIf(config('ksoft.modules.crud.footer', 'klaravel::_parts.footer')) --}}
+        @includeIf(config('ksoft.module.crud.footer', 'klaravel::_parts.footer'))
         @stack('modals')
         <notifications></notifications>
 

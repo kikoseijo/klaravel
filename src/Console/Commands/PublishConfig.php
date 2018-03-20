@@ -32,7 +32,7 @@ class PublishConfig extends Command
     {
         $this->info('Publish config files');
 
-        if ($this->option('base-krud') || $this->option('config')) {
+        if ($this->option('base-krud') || $this->option('config') || $this->option('settings')) {
             $this->withoutUserInteraction();
         } else {
             $this->withUserInteraction();
@@ -56,6 +56,11 @@ class PublishConfig extends Command
 
     protected function withoutUserInteraction()
     {
+        if ($this->option('settings')) {
+            $this->publishSettings();
+            $this->info('Publish configuration file: <info>✔</info>');
+        }
+
         if ($this->option('config')) {
             $this->publishConfig();
             $this->info('Publish configuration file: <info>✔</info>');
@@ -72,6 +77,13 @@ class PublishConfig extends Command
           KLARAVEL_PATH.'/stubs/config/ksoft.php',
           base_path('config'),
           'ksoft.php'
+      );
+    }
+
+    protected function publishSettings(){
+      (new Publisher($this))->publishDirectory(
+          KLARAVEL_PATH.'/stubs/config/settings',
+          base_path('config/klara')
       );
     }
 

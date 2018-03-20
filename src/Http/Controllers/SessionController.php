@@ -1,17 +1,21 @@
 <?php
 namespace Ksoft\Klaravel\Http\Controllers;
 
-use Ksoft\Klaravel\Models\Session;
-
 use Illuminate\Http\Request;
-
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Schema;
+use Ksoft\Klaravel\Models\Session;
 
 class SessionController extends Controller
 {
 
     public function index(Request $request)
     {
+        if (!Schema::hasTable('sessions')) {
+            $installUrl = route('kLara.config.publish') . '?file=table&table=session';
+            $installBtn = '<a href="'.$installUrl.'" class="btn btn-primary btn-sm ml-3">Create Sessions table</a>';
+            return back()->with('flash_error', 'Sorry, <strong>sessions</strong> table does not exists.'.$installBtn);
+        }
+
         $query = $this->filterDates($request);
 
         $sessions = $query->paginate(session(config('ksoft.CONSTANTS.take', 'PER_PAGE'), 50));
@@ -47,7 +51,7 @@ class SessionController extends Controller
 
         $tLAr = explode('-', $tlimit);
 
-        switch (array_get($tLAr,1)) {
+        switch (array_get($tLAr, 1)) {
             case 'm':
                 return $query->where('last_activity', '>', now()->subMinutes($tLAr[0])->timestamp);
                 break;

@@ -88,7 +88,7 @@ As a component its mandatory to pass down the `$record` reference and the `model
 
 #### Pagination
 
-The pagination element will look into `config('ksoft.modules.crud.pagination_query_params')` to append
+The pagination element will look into `config('ksoft.module.crud.pagination_query_params')` to append
 any existing query params found on actual request to the pagination links.
 
 ```

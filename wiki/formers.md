@@ -1,4 +1,4 @@
-## Formers quick reference
+# Formers quick reference
 
 &nbsp;  
 For more detailed info visit [Formers Github](https://github.com/formers/former/wiki/)

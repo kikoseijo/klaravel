@@ -1,0 +1,1 @@
+# SEO reference guide

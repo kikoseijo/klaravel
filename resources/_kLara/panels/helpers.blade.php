@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-sm-3 mb-5">
+        <ul class="nav flex-column px-0  border-right h-100" id="klara-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link py-2 active" id="helpers-seeds-tab" data-toggle="tab" href="#helpers-seeds">Seeds</a>
+          </li>
+          <li class="nav-item border-top">
+            <a class="nav-link py-2" id="helpers-seo-tab" data-toggle="tab" href="#helpers-seo">SEO</a>
+          </li>
+          <li class="nav-item border-top">
+            <a class="nav-link py-2" id="helpers-config-tab" data-toggle="tab" href="#helpers-config">DB Config</a>
+          </li>
+          <li class="nav-item border-top">
+            <a class="nav-link py-2" id="helpers-mailables-tab" data-toggle="tab" href="#helpers-mailables">Mailables</a>
+          </li>
+          <li class="nav-item border-top">
+            <a class="nav-link py-2" id="helpers-translate-tab" data-toggle="tab" href="#helpers-translate">Translate</a>
+          </li>
+          <li class="nav-item border-top">
+            <a class="nav-link py-2" id="helpers-functions-tab" data-toggle="tab" href="#helpers-functions">Helper functions</a>
+          </li>
+
+
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <div class="tab-content" id="klara-tabs">
+            <div class="tab-pane fade show active" id="helpers-seeds" role="tabpanel" aria-labelledby="helpers-seeds-tab">
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-seeds.md')) !!}
+            </div>
+            <div class="tab-pane fade" id="helpers-seo" role="tabpanel" aria-labelledby="helpers-seo-tab">
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-seo.md')) !!}
+            </div>
+            <div class="tab-pane fade" id="helpers-config" role="tabpanel" aria-labelledby="helpers-config-tab">
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-config.md')) !!}
+            </div>
+            <div class="tab-pane fade" id="helpers-mailables" role="tabpanel" aria-labelledby="helpers-mailables-tab">
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-mailables.md')) !!}
+            </div>
+            <div class="tab-pane fade" id="helpers-translate" role="tabpanel" aria-labelledby="helpers-translate-tab">
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-translate.md')) !!}
+            </div>
+            <div class="tab-pane fade" id="helpers-functions" role="tabpanel" aria-labelledby="helpers-functions-tab">
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-functions.md')) !!}
+            </div>
+        </div>
+    </div>
+</div>

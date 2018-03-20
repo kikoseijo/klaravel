@@ -1,4 +1,4 @@
-### Krud base layouts
+# Krud base layouts
 
 This are reusable layouts for the krud component, them here for you if you need to overwrite them, just copy and paste
 inside you component folder and the BaseKrudController will defaults to your files if found.

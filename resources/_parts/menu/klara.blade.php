@@ -19,6 +19,9 @@
             <a href="{{ route('kLara.wiki', 'components') }}" class="dropdown-item{{ request('section') == 'components' ? ' active' : '' }}">
                 Components
             </a>
+            <a href="{{ route('kLara.wiki', 'helpers') }}" class="dropdown-item{{ request('section') == 'helpers' ? ' active' : '' }}">
+                Miscelaneous
+            </a>
 
         @endcomponent
 

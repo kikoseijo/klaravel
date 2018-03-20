@@ -1,4 +1,4 @@
-### Scaffold procedure
+# Scaffold procedure
 
 At this point its recommended to have the Model and preferably some fake data populated. Its not provided by this
 library, right now.

@@ -14,6 +14,7 @@ class PublishConfig extends Command
      */
     protected $signature = 'ksoft:publish
                         {--k|base-krud : Will publish BaseKrudController to App/Http/Controllers}
+                        {--z|settings : Will publish base settings to config/settings/***.php}
                         {--c|config : Will publish config to config/ksoft.php}';
 
     /**

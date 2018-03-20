@@ -14,7 +14,7 @@ if (config('ksoft.module.backup.enabled'))
 {
     $backupWare = config('ksoft.module.backup.middleware');
     $router->group(['middleware' => $backupWare], function ($router) {
-        $backupPath = config('ksoft.module.backup.route_name', 'backup');
+        $backupPath = config('ksoft.module.backup.route_name', 'web-backup');
         $router->get($backupPath, 'BackupController@index')->name('kBackup.index');
         $router->get($backupPath.'/create-db', 'BackupController@dbBackup')->name('kBackup.create_db');
         $router->get($backupPath.'/create-full', 'BackupController@create')->name('kBackup.create_full');
@@ -58,7 +58,7 @@ if (config('ksoft.module.activity_log.enabled'))
 {
     $aLogsWare = config('ksoft.module.activity_log.middleware');
     $router->group(['middleware' => $aLogsWare], function ($router) {
-        $aLogsPath = config('ksoft.module.activity_log.route_name', 'activity-logs');
+        $aLogsPath = config('ksoft.module.activity_log.route_name', 'db-activity-logs');
         $router->get($aLogsPath, 'ActivitylogController@index')->name('kLogs.index');
         $router->get($aLogsPath.'/delete/{activity}', 'ActivitylogController@destroy')->name('kLogs.delete');
         $router->post($aLogsPath.'/mass-delete', 'ActivitylogController@massDestroy')->name('kLogs.mass_delete');
@@ -71,7 +71,7 @@ if (config('ksoft.module.sessions.enabled'))
 {
     $aLogsWare = config('ksoft.module.sessions.middleware');
     $router->group(['middleware' => $aLogsWare], function ($router) {
-        $aLogsPath = config('ksoft.module.sessions.route_name', 'sessions');
+        $aLogsPath = config('ksoft.module.sessions.route_name', 'db-sessions');
         $router->get($aLogsPath, 'SessionController@index')->name('kSessions.index');
         $router->get($aLogsPath.'/{session}', 'SessionController@delete')->name('kSessions.delete');
     });
@@ -82,7 +82,7 @@ if (config('ksoft.module.caches.enabled'))
 {
     $aLogsWare = config('ksoft.module.caches.middleware');
     $router->group(['middleware' => $aLogsWare], function ($router) {
-        $aLogsPath = config('ksoft.module.caches.route_name', 'cache');
+        $aLogsPath = config('ksoft.module.caches.route_name', 'db-cache');
         $router->get($aLogsPath, 'CacheController@index')->name('kCache.index');
         $router->get($aLogsPath.'/{cache}', 'CacheController@delete')->name('kCache.delete');
     });

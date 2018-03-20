@@ -91,7 +91,7 @@ class KlaravelController extends Controller
                 'flash_message',
                 'Activity log table created succesfully, update your settings'
             );
-        } elseif ($request->file == 'base_controller') {
+        } elseif ($request->file == 'config') {
             Artisan::call('ksoft:publish', ['--config' => 'true']);
         } elseif ($request->file == 'base_controller') {
             Artisan::call('ksoft:publish', ['--base-krud' => 'true']);

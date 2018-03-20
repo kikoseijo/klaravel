@@ -11,7 +11,10 @@
                 </li>
                 @if (config('ksoft.module.backup.can_see_full_backups'))
                     <li class="nav-item active mr-3">
-                        <a href="{{ route('kBackup.create_full') }}" data-toggle="tooltip" class="nav-link text-primary" title="New full backup using configuration file">
+                        <a href="{{ route('kBackup.create_full') }}"
+                            data-toggle="tooltip"
+                            class="nav-link text-primary"
+                            title="New full backup using config(ksoft.modules.backup.extra_arguments) configuration">
                             <i class="far fa-folder mr-1" aria-hidden="true"></i> Full backup
                         </a>
                     </li>

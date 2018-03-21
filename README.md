@@ -1,4 +1,6 @@
-# Klaravel - for lazy developers
+<p align="center" style="margin-bottom:3rem;"><img src="https://sunnfyace.com/images/klaravel.svg" height="62"></p>
+
+## Klaravel - for lazy developers
 
 This library provides you with some key tools to structure Laravel applications, Scaffold CRUD control panels fast.
 
@@ -10,9 +12,7 @@ _Documentation its embedded_ right on your control panel, isn't this cool?
 composer require ksoft/klaravel
 ```
 
-Navigate to `[/klaravel](http://localhost:8000/klaravel)`,
-
-enjoy.
+Navigate to [/klaravel](http://localhost:8000/klaravel), and enjoy.
 
 ![Developer Dashboard](/imgs/v2-dashboard.png?raw=true 'Klaravel Developer dashboard')
 
@@ -41,32 +41,32 @@ $app->register(Ksoft\Klaravel\ServiceProvider::class);
 
 > New 2.0 version not tested in Lumen, report any errors on the issues section.
 
-## Scaffold - C.R.U.D generator
+### Scaffold - C.R.U.D generator
 
 Pim, pam, pum, makes your views, your repository, controller and interactions. _Easy peasy_
 
 ![Scaffold - crud generator](/imgs/v2-scaffold.png?raw=true 'Scaffold - crud generator')
 
-## Components
+### Components
 
 Tired of looking for everyday components, want to save some typings, this are here for you.
 
 ![Blade components](/imgs/v2-components.png?raw=true 'Blade components')
 
-## Traits
+### Traits
 
 Them make our life easier. Dont you think?
 
 ![Available traits](/imgs/v2-traits.png?raw=true 'Available traits')
 
-## Prebuilt functionalities
+### Prebuilt functionalities
 
 Database session, Database cache, Database Logs, Backups ready, all this features are ready to use,
 from installation.
 
 ![Scaffold Control Panel](/imgs/v2-logs.png?raw=true 'Klaravel Scaffold Control Panel')
 
-## Credits
+### Credits
 
 Special thanks to supporters and clients that provide me with enough time to work on contributing to develop this packages for the WWW.
 

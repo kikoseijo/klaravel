@@ -1,4 +1,6 @@
-<p align="center" style="margin-bottom:3rem;"><img src="https://sunnyface.com/images/klaravel.svg" height="62"></p>
+<p align="center" style="margin-bottom:3rem; height:62px;">
+![Klaravel logo](/imgs/klaravel.svg?raw=true 'Klaravel logo')
+</p>
 
 ## Klaravel - for lazy developers
 

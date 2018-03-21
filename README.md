@@ -1,6 +1,6 @@
 <p align="center" style="margin-bottom:3rem;"><img src="https://sunnyface.com/images/klaravel.svg" height="62"></p>
 
-## Klaravel - for lazy developers
+## Klaravel (for lazy artisans)
 
 This library provides you with some key tools to structure Laravel applications, Scaffold CRUD control panels fast.
 

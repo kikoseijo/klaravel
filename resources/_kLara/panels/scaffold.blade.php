@@ -48,7 +48,7 @@
                 </p>
                 <pre><code>use Ksoft\Klaravel\Traits\QueryFiltersTrait;</code></pre>
                 <p>More information and example use in <a href="{{route('kLara.wiki','traits')}}">wiki-traits</a></p>
-                {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/src/Traits/Repositories/RepoQueryFiltersTrait.php').'```') !!}
+                {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/src/Traits/Repositories/QueryFiltersTrait.php').'```') !!}
             </div>
             <div class="tab-pane fade" id="krud-layout" role="tabpanel" aria-labelledby="krud-layout-tab">
                 <h1>Krud base layout</h1>
@@ -65,7 +65,7 @@
             <div class="tab-pane fade" id="former" role="tabpanel" aria-labelledby="former-tab">
                 <h1>Formers quick reference</h1>
                 @if (config('former.framework') != 'Ksoft\Klaravel\Utils\FormerBootstrap4')
-                    <a href="{{route('kLara.config.publish')}}?file=formers" class="btn my-3 btn-primary">Publish configuration file</a>
+                    <a href="{{route('kLara.publish')}}?file=formers" class="btn my-3 btn-primary">Publish configuration file</a>
                 @endif
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/formers.md')) !!}
             </div>

@@ -16,7 +16,6 @@
     @foreach (config('ksoft.module.crud.assets', []) as $useAssets)
        <link href="{{ asset($useAssets) }}" rel="stylesheet">
     @endforeach
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @stack('stylesheets')
     <script>
         window.Larapp = {!! json_encode([

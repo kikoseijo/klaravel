@@ -13,7 +13,7 @@ class ActivitylogController extends Controller
     public function index(Request $request)
     {
         if (!Schema::hasTable('activity_log')) {
-            $installUrl = route('kLara.config.publish') . '?file=activity_log';
+            $installUrl = route('kLara.publish') . '?file=activity_log';
             $installBtn = '<a href="'.$installUrl.'" class="btn btn-primary btn-sm ml-3">Create activity logs table</a>';
             return back()->with('flash_error', 'Sorry, <strong>activity_log</strong> table does not exists.' .$installBtn);
         }

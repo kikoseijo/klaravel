@@ -13,7 +13,7 @@ class UtilsController extends Controller
             \Settings::clean(['flush' => true]);
         }
 
-        return back()->with('flash_message', 'Settings flushed succesfully');
+        return back()->with('flash_message', 'Settings succesfully flushed.');
     }
 
     public function getScheduleCommands()
@@ -33,7 +33,7 @@ class UtilsController extends Controller
                 ];
             });
 
-        return back()->with('flash_message', 'Settings ' . $scheduledCommands . ' flushed succesfully');
+        return back()->with('flash_message', 'Settings ' . $scheduledCommands . ' succesfully flushed.');
     }
 
     public function cleanSettings()
@@ -41,26 +41,20 @@ class UtilsController extends Controller
         if (auth()->id() == 1) {
             \Settings::clean();
         }
-        return back()->with('flash_message', 'Settings cleaned succesfully');
+        return back()->with('flash_message', 'Settings succesfully cleared.');
     }
 
     public function flushCache($key = '')
     {
         cache()->flush($key);
-        return back()->with('flash_message', 'Cache <strong>' . $key . '</strong> flushed succesfully');
+        return back()->with('flash_message', 'Cache <strong>' . $key . '</strong> succesfully flushed.');
     }
 
-    public function multiuse()
-    {
-        auth()->user()->notify(new AdminNotification('Test email subjet.'));
-
-        return back()->with('flash_message', 'Trabajo hecho.');
-    }
 
     public function testBugsnag()
     {
         Bugsnag::notifyException(new \RuntimeException("Testing {config('app.url')} error"));
 
-        return back()->with('flash_message', 'Notificación Bugsnag enviada.');
+        return back()->with('flash_message', 'Bugsnag Error notifiaction succesfully sent.');
     }
 }

@@ -29,13 +29,13 @@
     you will loose any changes made to them if you overwrite them.
 </p>
 
-<a href="{{route('kLara.config.publish')}}?file=config"
+<a href="{{route('kLara.publish')}}?file=config"
     onclick="javascript:return confirm('Are you sure?, Will overwrite existing configuration.')"
     class="btn btn-secondary p-3 mr-3">
     Configuration
 </a>
 
-<a href="{{route('kLara.config.publish')}}?file=base_controller"
+<a href="{{route('kLara.publish')}}?file=base_controller"
     onclick="javascript:return confirm('Are you sure?, Will overwrite existing configuration.')"
     class="btn btn-secondary p-3">
     BaseKrudController

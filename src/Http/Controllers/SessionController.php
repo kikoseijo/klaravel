@@ -11,7 +11,7 @@ class SessionController extends Controller
     public function index(Request $request)
     {
         if (!Schema::hasTable('sessions')) {
-            $installUrl = route('kLara.config.publish') . '?file=table&table=session';
+            $installUrl = route('kLara.publish') . '?file=table&table=session';
             $installBtn = '<a href="'.$installUrl.'" class="btn btn-primary btn-sm ml-3">Create Sessions table</a>';
             return back()->with('flash_error', 'Sorry, <strong>sessions</strong> table does not exists.'.$installBtn);
         }

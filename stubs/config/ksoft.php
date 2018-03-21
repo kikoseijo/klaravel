@@ -1,29 +1,37 @@
 <?php
 
 return [
+
     'version' => '2.0.5',
     'models_path' => 'Models/', // defaults "Models/"
     'backend_dashboard_route_name' => '',
 
-    // Klaravel user guide + scaffold
+    /*
+     |  Klaravel user guide + scaffold generator
+     |
+     |  visit /klaravel/wiki/scaffold for documentation
+     |  _______________________________________
+     */
     'klaravel_enabled' => true,
-    'klaravel_visible_for' => [], // show menu only to user id`s in this array-
+    'klaravel_visible_for' => [], // show menu only to users id`s (all by default)
     'klaravel_route_name' => 'klaravel',
     'klaravel_middleware' => ['web','auth'],
+    'show_integration_hints' => true, // points to wiki links.
 
-    /**
-     * Simple way to have key value items using config files as default values
-     * But persists on database using https://github.com/oriceon/laravel-settings
-     */
-    'menu_settings_config_location' => 'klara.settings', // key value settings. (folder in config containing simple)
+    'enable_plugins_menu' => false, // if you think you can help on this,,, give me a shout!
 
-    /**
-     * Main menu in admin panel, must follow the pattern: 'route_name' => 'Menu label'
+    /*
+     |  Header menu customization
+     |
+     |  visit /klaravel/wiki/layouts for documentation
+     |  _______________________________________
      */
-    'menu_admin_config_location' => 'ksoft.admin_menu', // it defaults to the item bellow
+    'menu_settings_config_location' => 'klara.settings', // info url /klaravel/wiki/layouts
+    'menu_admin_config_location' => 'ksoft.admin_menu', // info url /klaravel/wiki/layouts
     'admin_menu' => [
-        'kLara.index' => 'Scaffold',
-        'ksoft.plugins.index' => 'Plugins'
+        'kLara.index' => 'Dev. Dashboard',
+        'kLara.wiki' => 'Scaffold',
+        // 'ksoft.plugins.index' => 'Plugins'
     ],
 
     /**
@@ -84,19 +92,15 @@ return [
         ],
         'crud' => [
             'enabled' => true,
-            // @includeIf() views to include from your proyect
-            'header' => 'klaravel::_parts.header',
+            'header' => 'klaravel::_parts.header', // @includeIf()
             'footer' => 'klaravel::_parts.footer',
             'errors' => 'klaravel::ui.errors',
-            // the "." should be included at the end of the path. as a join the model name "folder"
-            'views_base_path' => 'back.',
-            // will append this params in pagination links. merge on url.-
-            'pagination_query_params' => ['q', 'query', 'search'],
-            // special Vue component that will persist using the session.
-            'session_range_from' => 'FROM_DATE',
+            'views_base_path' => 'back.', // might need the . at the end.
+            'pagination_query_params' => ['q', 'query', 'search'], // append to pagination loop.
+            'session_range_from' => 'FROM_DATE', // remembering last filter using session.
             'session_range_to' => 'TO_DATE',
             'assets' => [
-                // 'css/font-awesome.css',
+                'css/app.css', // laravel defaults works, (using Bootstrap4)
             ]
         ],
     ],

@@ -4,11 +4,6 @@ $router->group(['middleware' => 'web'], function ($router) {
     $router->get('swap-page-limit', 'CrudController@swapPerPage')->name('swap-per-page');
 });
 
-$router->group(['middleware' => ['web','auth']], function ($router) {
-    $router->get('ksoft/plugins', 'PluginsController@index')->name('ksoft.plugins.index');
-    $router->get('ksoft/plugin-install/{plugin_name}', 'PluginsController@installPlugin')->name('ksoft.plugins.install');
-    $router->get('ksoft/plugin-uninstall/{plugin_name}', 'PluginsController@uninstallPlugin')->name('ksoft.plugins.uninstall');
-});
 
 if (config('ksoft.module.backup.enabled'))
 {
@@ -31,16 +26,15 @@ if (config('ksoft.klaravel_enabled'))
         // Dashboard
         $router->get($klPath, 'KlaravelController@index')->name('kLara.index');
         // Krud
-        $router->get($klPath.'/wiki/{section}', 'KlaravelController@wiki')->name('kLara.wiki');
+        $router->get($klPath.'/wiki/{section?}', 'KlaravelController@wiki')->name('kLara.wiki');
         $router->post($klPath . '/krud-make', 'KlaravelController@makeKrud')->name('kLara.krud.gen');
         // Menu manager
         $router->get($klPath.'/menu-manager', 'KlaravelController@menues')->name('kLara.menu');
         // Config
-        $router->get($klPath . '/publish-config', 'KlaravelController@publishConfig')->name('kLara.config.publish');
+        $router->get($klPath . '/publish', 'KlaravelController@publishConfig')->name('kLara.publish');
         // Utils
         $router->get($klPath . '/settings-clean', 'UtilsController@cleanSettings')->name('kLara.settings.clean');
         $router->get($klPath . '/clean-test-data', 'UtilsController@purgeTests')->name('kLara.purge.tests');
-        $router->get($klPath . '/multiuse', 'UtilsController@multiuse')->name('kLara.multiuse');
         $router->get($klPath . '/testBugsnag', 'UtilsController@testBugsnag')->name('kLara.bugsnag.test');
         $router->get($klPath . '/cache-flush', 'UtilsController@flushCache')->name('kLara.cache.flush');
         $router->get($klPath . '/schedule-info', 'UtilsController@getScheduleCommands')->name('kLara.schedule.info');
@@ -49,6 +43,13 @@ if (config('ksoft.klaravel_enabled'))
         // $router->get($klPath.'/create-full', 'BackupController@create')->name('kBackup.create_full');
         // $router->get($klPath.'/download/{file_name}', 'BackupController@download');
         // $router->get($klPath.'/delete/{file_name}', 'BackupController@delete');
+
+        if (config('ksoft.enable_plugins_menu'))
+        {
+            $router->get($klPath .'/plugins', 'PluginsController@index')->name('ksoft.plugins.index');
+            $router->get($klPath .'/plugin-install/{plugin_name}', 'PluginsController@installPlugin')->name('ksoft.plugins.install');
+            $router->get($klPath .'/plugin-uninstall/{plugin_name}', 'PluginsController@uninstallPlugin')->name('ksoft.plugins.uninstall');
+        }
 
     });
 

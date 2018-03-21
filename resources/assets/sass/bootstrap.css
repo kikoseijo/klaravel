@@ -7,7 +7,12 @@
 
 footer { color: #6f6d70; font-size: 0.9em; }
 footer a { color: #6f6d70; }
+footer .footer__version { float: left; text-align: left; }
+footer .footer__credits { float: right; text-align: center; }
+footer .footer__brand { width: 2.3em; margin-right: 12px; height: auto; vertical-align: middle; }
 
+@media (max-width: 640px) { .footer__version { float: none; }
+  .footer__credits { float: none; } }
 .pulse { color: #bf021b; animation-name: pulse_animation; animation-duration: 4000ms; transform-origin: 50% 100%; animation-iteration-count: infinite; animation-timing-function: linear; }
 
 @keyframes pulse_animation { 0% { transform: scale(1); }

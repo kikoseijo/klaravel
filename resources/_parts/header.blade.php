@@ -37,6 +37,6 @@
         'class' => 'my-3 container',
     ])
         Some files are missing , action required:
-        <a href="{{route('kLara.config.publish')}}?file=initial" class="btn btn-primary btn-sm ml-4">Publish initial configuration </a>
+        <a href="{{route('kLara.publish')}}?file=initial" class="btn btn-primary btn-sm ml-4">Publish initial configuration </a>
     @endcomponent
 @endif

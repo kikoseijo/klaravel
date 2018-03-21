@@ -17,7 +17,7 @@ class KlaravelController extends Controller
         return view('klaravel::_kLara.comming-soon');
     }
 
-    public function wiki($section)
+    public function wiki($section='scaffold')
     {
         return view('klaravel::_kLara.wiki', compact('section'));
     }

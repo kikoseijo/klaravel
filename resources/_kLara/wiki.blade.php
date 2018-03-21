@@ -1,9 +1,26 @@
 @extends('klaravel::layouts.app')
-
+@php
+    if ($section == 'layouts') {
+        $mdMenu = [
+            'header' => 'The Header',
+            'footer' => 'The Footer',
+            'menu' => 'Main menu',
+            'settings' => 'Settings menu',
+        ];
+    }
+@endphp
 @section('content')
     <div class="container pb-4 mb-5">
         @card(['title' => 'Wiki - ' . title_case($section), 'class' => 'mb-4'])
-            @include('klaravel::_klara.panels.'.$section)
+            @if (isset($mdMenu))
+                @include('klaravel::_kLara._parts.wiki-tabs',[
+                    'section' => $section,
+                    'mdActiveKey' => 'header',
+                    'mdMenu' => $mdMenu,
+                ])
+            @else
+                @include('klaravel::_klara.panels.'.$section)
+            @endif
         @endcard
     </div>
 @endsection

@@ -2,8 +2,9 @@
     'title' => '<i class="far fa-user-circle"></i> ' . auth()->user()->name,
     'active' => 'ksoft' == $preroute || str_contains($croute, ['kSessions', 'kLogs', 'kCache', 'kBackup'])
 ])
-
-    <a href="{{ route('ksoft.plugins.index') }}" class="dropdown-item{{ str_contains($croute, 'ksoft.plugins.index') ? ' active' : '' }}">Install plugin</a>
+    @if (config('ksoft.enable_plugins_menu'))
+        <a href="{{ route('ksoft.plugins.index') }}" class="dropdown-item{{ str_contains($croute, 'ksoft.plugins.index') ? ' active' : '' }}">Install plugin</a>
+    @endif
     @if (config('ksoft.module.activity_log.enabled'))
         <a href="{{ route('kLogs.index') }}" class="dropdown-item{{ str_contains($croute, 'kLogs') ? ' active' : '' }}">Activity Logs</a>
     @endif

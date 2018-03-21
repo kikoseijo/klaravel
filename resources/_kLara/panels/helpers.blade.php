@@ -5,6 +5,9 @@
             <a class="nav-link py-2 active" id="helpers-seeds-tab" data-toggle="tab" href="#helpers-seeds">Seeds</a>
           </li>
           <li class="nav-item border-top">
+            <a class="nav-link py-2" id="helpers-passport-tab" data-toggle="tab" href="#helpers-passport">Laravel Passport</a>
+          </li>
+          <li class="nav-item border-top">
             <a class="nav-link py-2" id="helpers-seo-tab" data-toggle="tab" href="#helpers-seo">SEO</a>
           </li>
           <li class="nav-item border-top">
@@ -30,6 +33,9 @@
             </div>
             <div class="tab-pane fade" id="helpers-seo" role="tabpanel" aria-labelledby="helpers-seo-tab">
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-seo.md')) !!}
+            </div>
+            <div class="tab-pane fade" id="helpers-passport" role="tabpanel" aria-labelledby="helpers-passport-tab">
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-passport.md')) !!}
             </div>
             <div class="tab-pane fade" id="helpers-config" role="tabpanel" aria-labelledby="helpers-config-tab">
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-config.md')) !!}

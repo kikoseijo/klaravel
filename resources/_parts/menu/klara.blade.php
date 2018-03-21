@@ -1,30 +1,10 @@
 @if (config('ksoft.klaravel_enabled'))
     @php($kAdmins = config('ksoft.klaravel_visible_for'))
     @if (!is_array($kAdmins) || count($kAdmins) == 0 || (count($kAdmins) > 0 && in_array(auth()->id(), $kAdmins)))
-        @component('klaravel::ui.dropdown', [
-            'title' => '<i class="fab fa-kickstarter text-primary"></i> ' ,
-            'active' => str_contains($croute, ['kLara'])
-        ])
-
-            <a href="{{ route('kLara.index') }}"
-            class="dropdown-item{{ $croute== 'kLara.index' ? ' active' : '' }}">
-                Dashboard
+        <li>
+            <a class="nav-link" href="{{ route('kLara.index') }}">
+                <img src="//sunnyface.com/images/klaravel.svg" width="24" alt="Dev. dashboard">
             </a>
-            <a href="{{ route('kLara.wiki', 'scaffold') }}" class="dropdown-item{{ request('section') == 'scaffold' ? ' active' : '' }}">
-                Scaffold Generator
-            </a>
-            <a href="{{ route('kLara.wiki', 'traits') }}" class="dropdown-item{{ request('section') == 'traits' ? ' active' : '' }}">
-                Traits
-            </a>
-            <a href="{{ route('kLara.wiki', 'components') }}" class="dropdown-item{{ request('section') == 'components' ? ' active' : '' }}">
-                Components
-            </a>
-            <a href="{{ route('kLara.wiki', 'helpers') }}" class="dropdown-item{{ request('section') == 'helpers' ? ' active' : '' }}">
-                Miscelaneous
-            </a>
-
-        @endcomponent
-
+        </li>
     @endif
-
 @endif

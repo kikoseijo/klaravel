@@ -1,17 +1,16 @@
-# Repositories traits
-
-
-##### QueryFiltersTrait
+# QueryFiltersTrait
 
 Extend eloquent queries of your repository, helps you search more in less time by defining some
 groups of arrays.
 
+Include the Trait in your repository
 
 ```
 use Ksoft\Klaravel\Traits\QueryFiltersTrait;
 ```
 
-Example usage, on your repository class.
+Declare the `$this->query` on your class and couple arrays to be the searchable fields. You should group
+them by field type, for example strings and booleans.
 
 ```
 ...
@@ -20,7 +19,11 @@ $this->attrsFilter = [
   'name', 'text', 'description', // as per your needs-...
 ];
 ...
+```
 
+Now, on the method you are recieving the request, you could make a setup like this:
+
+```
 public function withPagination($perPage, $request)
 {
   $this->prepareQueryOrder($request);
@@ -42,8 +45,11 @@ public function withPagination($perPage, $request)
 
   return $this->query->paginate($perPage);
 }
+```
 
+Filter records from request, adjust to your convenience.
 
+```
 public function prepareQueryOrder($request)
 {
   $savedOrder = session('order', 'newest');

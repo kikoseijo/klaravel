@@ -1,4 +1,4 @@
-<?php $curMenuId = 'drop-down-'.rand(10000,1111222); ?>
+<?php $curMenuId = isset($curMenuId) ? $curMenuId : 'drop-down-'.rand(10000,1111222); ?>
 <li class="nav-item dropdown{{$class or ''}}{{ isset($active) && $active ? ' active' : '' }}">
     <a
     class="nav-link dropdown-toggle"

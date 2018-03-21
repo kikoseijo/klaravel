@@ -11,7 +11,7 @@
             <a class="nav-link py-2" id="trait-eloquent-tab" data-toggle="tab" href="#trait-eloquent">EloquentRepository</a>
           </li>
           <li class="nav-item border-top">
-            <a class="nav-link py-2" id="trait-repositories-tab" data-toggle="tab" href="#trait-repositories">Repositories</a>
+            <a class="nav-link py-2" id="trait-repositories-tab" data-toggle="tab" href="#trait-repositories">QueryFiltersTrait</a>
           </li>
           <li class="nav-item border-top">
             <a class="nav-link py-2" id="trait-responses-tab" data-toggle="tab" href="#trait-responses">Responses</a>
@@ -29,16 +29,37 @@
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/trait-models.md')) !!}
             </div>
             <div class="tab-pane fade" id="trait-repositories" role="tabpanel" aria-labelledby="trait-repositories-tab">
-                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/trait-repositories.md')) !!}
+                @component('klaravel::ui.tab', [
+                  'tabs' => [
+                    'repo-help' => '<i class="far fa-info mr-1"></i> Usage information',
+                    'repo-trait' => '<span class="text-warning"><i class="far fa-code mr-1"></i> Source code</span>'
+                  ]
+                ])
+                    <div id="repo-help" class="tab-pane fade active show" role="tabpanel" aria-labelledby="repo-help-tab">
+                        {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/trait-repositories.md')) !!}
+                    </div>
+                    <div class="tab-pane fade" id="repo-trait" role="tabpanel" aria-labelledby="repo-trait-tab">
+                        {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/src/Traits/Repositories/QueryFiltersTrait.php').'```') !!}
+                    </div>
+                @endcomponent
             </div>
             <div class="tab-pane fade" id="trait-responses" role="tabpanel" aria-labelledby="trait-responses-tab">
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/trait-responses.md')) !!}
             </div>
             <div class="tab-pane fade" id="trait-eloquent" role="tabpanel" aria-labelledby="trait-eloquent-tab">
-                <h1>EloquentRepository</h1>
-                <p class="mt-3">This class powers up your Repository, as it where your class extends from.</p>
-                <p>Use it as a reference to avoid writing repeated code.</p>
-                {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/src/Contracts/EloquentRepoContract.php').'```') !!}
+                @component('klaravel::ui.tab', [
+                  'tabs' => [
+                    'elo-help' => '<i class="far fa-info mr-1"></i> Usage information',
+                    'elo-trait' => '<span class="text-warning"><i class="far fa-code mr-1"></i> Source code</span>'
+                  ]
+                ])
+                    <div id="elo-help" class="tab-pane fade active show" role="tabpanel" aria-labelledby="elo-help-tab">
+                        {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/trait-eloquent.md')) !!}
+                    </div>
+                    <div class="tab-pane fade" id="elo-trait" role="tabpanel" aria-labelledby="elo-trait-tab">
+                        {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/src/Repositories/EloquentRepo.php').'```') !!}
+                    </div>
+                @endcomponent
             </div>
         </div>
     </div>

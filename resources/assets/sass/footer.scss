@@ -4,4 +4,27 @@ footer {
   a {
     color: #6f6d70;
   }
+  .footer__version {
+    float: left;
+    text-align: left;
+  }
+  .footer__credits {
+    float: right;
+    text-align: center;
+  }
+  .footer__brand {
+    width: 2.3em;
+    margin-right: 12px;
+    height: auto;
+    vertical-align: middle;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer__version {
+    float: none;
+  }
+  .footer__credits {
+    float: none;
+  }
 }

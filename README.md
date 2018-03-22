@@ -51,7 +51,7 @@ Bootstrap4 based components, as a component or simple includes, use what you nee
 
 &nbsp;
 
-![Blade components](/imgs/v2-components.png?raw=true 'Blade components')
+![Blade components](/imgs/v2-component.png?raw=true 'Blade components')
 
 &nbsp;
 &nbsp;

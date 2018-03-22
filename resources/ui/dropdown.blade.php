@@ -12,6 +12,6 @@
     {!! $title !!}
 </a>
 <div class="dropdown-menu" aria-labelledby="{!! $curMenuId !!}">
-    {{ $slot }}
+    {{ $slot or '' }}
 </div>
 </li>

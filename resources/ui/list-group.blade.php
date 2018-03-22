@@ -5,5 +5,5 @@
         @endforeach
     @endisset
 
-    {{ $slot }}
+    {{ $slot or ''}}
 </ul>

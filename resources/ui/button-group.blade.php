@@ -2,5 +2,5 @@
     class="btn-group {{ $class or '' }}"
     role="group"
 >
-    {{ $slot }}
+    {{ $slot or '' }}
 </div>

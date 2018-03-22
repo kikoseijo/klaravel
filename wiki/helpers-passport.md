@@ -34,9 +34,12 @@ use Laravel\Passport\HasApiTokens;
 On service provider **boot method**
 
 ```
+use Laravel\Passport\Passport;
+...
 Passport::routes();
 // Passport::tokensExpireIn(now()->addDays(15));
 // Passport::refreshTokensExpireIn(now()->addDays(30));
+Passport::ignoreMigrations(); // register method
 ```
 
 on `config/auth.php` api driver to passport

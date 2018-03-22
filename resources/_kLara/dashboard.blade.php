@@ -8,6 +8,12 @@ $dashMenu = [
      "link" => route('kLara.wiki', 'scaffold'),
    ],
    [
+       "img" => "https://dummyimage.com/348x160/343a40/fff.png?text=Route::List",
+       "title" => "List routes",
+       "Text" => "A searchable list of all your defined routes.",
+       "link" => route('kLara.routes.index'),
+   ],
+   [
        "img" => "https://dummyimage.com/348x160/343a40/fff.png?text=Laravel+and+Co.",
        "title" => "Laravel & more",
        "Text" => "Configure DB, mailables, Passport, SEO, Localization, Seeds,..",

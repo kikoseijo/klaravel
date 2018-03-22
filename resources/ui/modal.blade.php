@@ -10,7 +10,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      {{$slot}}
+      {{$slot or ''}}
     </div>
   </div>
 </div>

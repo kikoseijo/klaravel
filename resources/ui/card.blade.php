@@ -28,6 +28,6 @@
         </div>
     @endisset
     <div class="card-body">
-        {{ $slot }}
+        {{ $slot or '' }}
     </div>
 </div>

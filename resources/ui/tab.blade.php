@@ -13,5 +13,5 @@
     @endforeach
 </ul>
 <div class="tab-content p-3">
-    {{ $slot }}
+    {{ $slot or '' }}
 </div>

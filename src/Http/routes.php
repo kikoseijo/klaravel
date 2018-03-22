@@ -38,6 +38,7 @@ if (config('ksoft.klaravel_enabled'))
         $router->get($klPath . '/testBugsnag', 'UtilsController@testBugsnag')->name('kLara.bugsnag.test');
         $router->get($klPath . '/cache-flush', 'UtilsController@flushCache')->name('kLara.cache.flush');
         $router->get($klPath . '/schedule-info', 'UtilsController@getScheduleCommands')->name('kLara.schedule.info');
+        $router->get($klPath . '/routes', 'UtilsController@listRoutes')->name('kLara.routes.index');
 
         // $router->get($klPath.'/create-db', 'BackupController@dbBackup')->name('kBackup.create_db');
         // $router->get($klPath.'/create-full', 'BackupController@create')->name('kBackup.create_full');

@@ -6,7 +6,6 @@
 php artisan make:seeder UsersTableSeeder
 ```
 
-
 ```
 if (! DB::table('users')->where('email', 'user@example.com')->first()) {
   DB::table('users')->insert([
@@ -28,7 +27,6 @@ use Faker\Provider\es_ES\Payment;
 
 $faker = Factory::create('es_ES');
 ```
-
 
 #### Faker most used
 
@@ -54,5 +52,10 @@ $faker = Factory::create('es_ES');
 // not sure if this is faker or spatie seeder.-
 'estado_id' => $faker->numberBetween(0,4),
 'delivery_at' => $faker->dateTimeBetween('-30 days', '-2 days'),
+```
 
+#### Map Morph types
+
+```
+Relation::morphMap(config('app.post_types'));
 ```

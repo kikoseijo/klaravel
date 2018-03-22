@@ -22,7 +22,7 @@
             @endforeach
         @endisset
 
-        {{ $slot }}
+        {{ $slot or '' }}
     </div>
 
     @if($controls)

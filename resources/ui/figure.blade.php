@@ -1,5 +1,5 @@
 <figure class="figure {{ $class or '' }}">
-    {{ $slot }}
+    {{ $slot or '' }}
 
     @isset($caption)
         <figcaption class="figure-caption">{!! $caption !!}</figcaption>

@@ -1,4 +1,4 @@
-<p align="center" style="margin-bottom:3rem;"><img src="https://sunnyface.com/images/klaravel.svg" height="62"></p>
+<p align="center" style="margin-bottom:3rem;"><img src="/imgs/klaravel.png?raw=true" height="62"></p>
 
 ## Klaravel (for lazy artisans)
 

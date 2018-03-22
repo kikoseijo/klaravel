@@ -84,17 +84,17 @@ from installation.
 
 ## Special thanks
 
-[anahkiasen/former](https://github.com/formers/former)
-[spatie/laravel-activitylog](https://github.com/spatie/laravel-activitylog)
-[spatie/laravel-backup](https://github.com/spatie/laravel-backup)
-[jenssegers/date](jenssegers/date)
-[doctrine/dbal](https://github.com/doctrine/dbal)
-[league/commonmark](https://commonmark.thephpleague.com)
-[zircote/swagger-php](http://zircote.com/swagger-php/)
+[anahkiasen/former](https://github.com/formers/former) Easy form build and style.
+[spatie/laravel-activitylog](https://github.com/spatie/laravel-activitylog) Activity logs made easy.
+[spatie/laravel-backup](https://github.com/spatie/laravel-backup) Backups made easy.
+[jenssegers/date](jenssegers/date) Fast and efficient, the right choice.
+[doctrine/dbal](https://github.com/doctrine/dbal) Cant live without them..
+[league/commonmark](https://commonmark.thephpleague.com) Easy to use, great results, documentation made easy.
+[zircote/swagger-php](http://zircote.com/swagger-php/) Swagger for API documentation and more.
 
 Comming Soon..
 
-[oriceon/laravel-settings](https://github.com/oriceon/laravel-settings)
+[oriceon/laravel-settings](https://github.com/oriceon/laravel-settings) Persist configuration files with cache.
 
 &nbsp;
 &nbsp;

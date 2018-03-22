@@ -49,6 +49,8 @@ Includes [Formers-former](https://github.com/formers/former) for quick and easy 
 
 Bootstrap4 based components, as a component or simple includes, use what you need, them there for you.
 
+&nbsp;
+
 ![Blade components](/imgs/v2-components.png?raw=true 'Blade components')
 
 &nbsp;
@@ -58,6 +60,8 @@ Bootstrap4 based components, as a component or simple includes, use what you nee
 
 Easy way to list your routes, searching and listing the right way.
 
+&nbsp;
+
 ![List and filter your Laravel routes](/imgs/v2-routes.png?raw=true 'List and filter your Laravel routes')
 
 &nbsp;
@@ -66,6 +70,8 @@ Easy way to list your routes, searching and listing the right way.
 ## Traits
 
 Them make our life easier. Dont you think?
+
+&nbsp;
 
 ![Available traits](/imgs/v2-traits.png?raw=true 'Available traits')
 
@@ -77,6 +83,8 @@ Them make our life easier. Dont you think?
 Views to manage and view your db session, db cache, db Logs (thanks to [spatie](https://github.com/spatie/laravel-activitylog)), Backups [spatie-again](https://github.com/spatie/laravel-backup), all this features are ready to use,
 from installation.
 
+&nbsp;
+
 ![Scaffold Control Panel](/imgs/v2-logs.png?raw=true 'Klaravel Scaffold Control Panel')
 
 &nbsp;
@@ -84,15 +92,18 @@ from installation.
 
 ## Special thanks
 
-[anahkiasen/former](https://github.com/formers/former) Easy form build and style.
-[spatie/laravel-activitylog](https://github.com/spatie/laravel-activitylog) Activity logs made easy.
-[spatie/laravel-backup](https://github.com/spatie/laravel-backup) Backups made easy.
-[jenssegers/date](jenssegers/date) Fast and efficient, the right choice.
-[doctrine/dbal](https://github.com/doctrine/dbal) Cant live without them..
-[league/commonmark](https://commonmark.thephpleague.com) Easy to use, great results, documentation made easy.
+[Laravel #1 PHP framework](https://laravel.com/ 'Best php framework ever for ever, Laravel') Tylor Owen, you are the \*\*\*\* Boss!  
+[Bootstrap4](https://getbootstrap.com/) Flex layouts the right way, most commonly used CSS framework.  
+[Font Awesome](https://fontawesome.com) Font Icons with an excellent v5 collection.  
+[anahkiasen/former](https://github.com/formers/former) Easy form build and style.  
+[spatie/laravel-activitylog](https://github.com/spatie/laravel-activitylog) Activity logs made easy.  
+[spatie/laravel-backup](https://github.com/spatie/laravel-backup) Backups made easy.  
+[jenssegers/date](jenssegers/date) Fast and efficient, the right choice.  
+[doctrine/dbal](https://github.com/doctrine/dbal) Db, eloquent, and much more.  
+[league/commonmark](https://commonmark.thephpleague.com) Easy to use, great results, documentation made easy.  
 [zircote/swagger-php](http://zircote.com/swagger-php/) Swagger for API documentation and more.
 
-Comming Soon..
+Coming soon...>
 
 [oriceon/laravel-settings](https://github.com/oriceon/laravel-settings) Persist configuration files with cache.
 
@@ -101,7 +112,7 @@ Comming Soon..
 
 ## Credits
 
-[Spatie](https://spatie.be/en/ 'Spatie webdesign, Antwerp – websites and webapps in Laravel') Big thanks you to this Belgium people
+[Spatie](https://spatie.be/en/ 'Spatie webdesign, Antwerp – websites and webapps in Laravel') Big thanks you to this Belgium people  
 [DevOps](https://sunnyface.com 'Programador ios málaga Marbella') Web development  
 [AppDev](https://gestorapp.com 'Gestor de aplicaciones moviles en málaga, mijas, marbella') Mobile aplications  
 [SocialApp](https://sosvecinos.com 'Plataforma móvil para la gestion de comunidades') Residents mobile application  

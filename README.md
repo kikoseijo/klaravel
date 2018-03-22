@@ -1,12 +1,8 @@
-<p align="center" style="margin-bottom:3rem;"><img src="/imgs/klaravel.png?raw=true" height="62"></p>
+<p align="center" style="margin-bottom:3rem;"><img src="/imgs/klaravel.png?raw=true"></p>
 
 ## Klaravel (for lazy artisans)
 
-This library provides you with some key tools to structure Laravel applications, Scaffold CRUD control panels fast.
-
-_Documentation its embedded_ right on your control panel, isn't this cool?
-
-> Not tested with Laravel prior to 5.6 (Should work just fine)
+A flexible developers control panel to help us build faster Laravel´s applications, a recommended versions of **Laravel 5.5+** and **PHP7.1+** its required.
 
 ```
 composer require ksoft/klaravel
@@ -14,44 +10,37 @@ composer require ksoft/klaravel
 
 Navigate to [/klaravel](http://localhost:8000/klaravel), and enjoy.
 
+&nbsp;
+&nbsp;
+
+## Dashboard screenshots
+
+Activate the developer dashboard to be able to access documentation, tools and information regarding
+Laravel´s ecosystem with a selection of best flavored and commonly used patterns, pre maid components, etc...
+
 ![Developer Dashboard](/imgs/v2-dashboard.png?raw=true 'Klaravel Developer dashboard')
-
-##### Laravel version < 5.5 (not recomended)
-
-Enable the service provider in your `config/app.php` file on the providers section.
-
-```php
-Ksoft\Klaravel\ServiceProvider::class,
-```
-
-Now open http://localhost:8000/klaravel and start building great applications.
-
-##### Lumen configuration
-
-If you need all features this package provides you will have to enable the following on your project `boostrap/app.php` file.
-
-```php
-$app->withFacades();
-$app->withEloquent();
-
-$app->configure('ksoft');
-...
-$app->register(Ksoft\Klaravel\ServiceProvider::class);
-```
-
-> New 2.0 version not tested in Lumen, report any errors on the issues section.
 
 ### Scaffold - C.R.U.D generator
 
-Pim, pam, pum, makes your views, your repository, controller and interactions. _Easy peasy_
+**Imagine you could build a full CRUD with just 2 views?**, a table view layout and the form layout. Scaffold any model to a working resource with 2 views, dedicated eloquent repository, dedicated controller and 2 interactions to abstract the update and creation logic to an isolated location.
+
+> _Easy peasy_
+
+Includes [Formers-former](https://github.com/formers/former) for quick and easy form creation.
 
 ![Scaffold - crud generator](/imgs/v2-scaffold.png?raw=true 'Scaffold - crud generator')
 
 ### Components
 
-Tired of looking for everyday components, want to save some typings, this are here for you.
+Bootstrap4 based components, as a component or simple includes, use what you need, them there for you.
 
 ![Blade components](/imgs/v2-components.png?raw=true 'Blade components')
+
+### Listing routes
+
+Easy way to list your routes, searching and listing the right way.
+
+![List and filter your Laravel routes](/imgs/v2-routes.png?raw=true 'List and filter your Laravel routes')
 
 ### Traits
 
@@ -59,16 +48,30 @@ Them make our life easier. Dont you think?
 
 ![Available traits](/imgs/v2-traits.png?raw=true 'Available traits')
 
-### Prebuilt functionalities
+### Extra tools
 
-Database session, Database cache, Database Logs, Backups ready, all this features are ready to use,
+Views to manage and view your db session, db cache, db Logs (thanks to [spatie](https://github.com/spatie/laravel-activitylog)), Backups [spatie-again](https://github.com/spatie/laravel-backup), all this features are ready to use,
 from installation.
 
 ![Scaffold Control Panel](/imgs/v2-logs.png?raw=true 'Klaravel Scaffold Control Panel')
 
-### Credits
+## Special thanks
 
-Special thanks to supporters and clients that provide me with enough time to work on contributing to develop this packages for the WWW.
+[anahkiasen/former](https://github.com/formers/former)
+[spatie/laravel-activitylog](https://github.com/spatie/laravel-activitylog)
+[spatie/laravel-backup](https://github.com/spatie/laravel-backup)
+[jenssegers/date](jenssegers/date)
+[doctrine/dbal](https://github.com/doctrine/dbal)
+[league/commonmark](https://commonmark.thephpleague.com)
+[zircote/swagger-php](http://zircote.com/swagger-php/)
+
+Comming Soon..
+
+[oriceon/laravel-settings](https://github.com/oriceon/laravel-settings)
+
+## Credits
+
+[Spatie](https://spatie.be/en/ 'Spatie webdesign, Antwerp – websites and webapps in Laravel') They work it out so well.
 
 [DevOps](https://sunnyface.com 'Programador ios málaga Marbella') Web development  
 [AppDev](https://gestorapp.com 'Gestor de aplicaciones moviles en málaga, mijas, marbella') Mobile aplications  

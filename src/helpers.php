@@ -119,7 +119,7 @@ if (!function_exists('dbDump')) {
     {
         if ($simple) {
             \DB::listen(function ($sql) {
-                logi($sql);
+                logi(json_encode($sql));
             });
         } else {
             \DB::listen(function ($sql, $bindings, $time) {

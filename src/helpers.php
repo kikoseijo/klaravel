@@ -7,7 +7,7 @@ use League\CommonMark\CommonMarkConverter;
 define('SESSION_TIME_LIMIT_CACHE', 'ks_session_limit');
 
 if (!function_exists('normalizeString')) {
-    function normalizeString($text, $limit): string
+    function normalizeString($text, $limit=0): string
     {
         if (!$text) {
             return '';
@@ -15,8 +15,10 @@ if (!function_exists('normalizeString')) {
         $res = '';
         if ($limit>0) {
             $res = str_limit($text, $limit);
+        } else {
+            $res = $text;
         }
-        return ucfirst(strtolower($res));
+        return ucfirst(mb_strtolower($res));
     }
 }
 

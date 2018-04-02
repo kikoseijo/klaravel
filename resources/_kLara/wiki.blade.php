@@ -19,7 +19,7 @@
                     'mdMenu' => $mdMenu,
                 ])
             @else
-                @include('klaravel::_klara.panels.'.$section)
+                @include('klaravel::_kLara.panels.'.$section)
             @endif
         @endcard
     </div>

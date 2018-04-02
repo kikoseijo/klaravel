@@ -1,7 +1,7 @@
 <td style="{{$style or ''}}" class="align-middle text-center">
   <div class="btn-group{{isset($size)?' btn-group-'. $size:''}} klara-bt-group" role="group">
     <a href="{{ route($model_name.'.edit', $item->id) }}" data-toggle="tooltip" title="Edit record" class="btn btn-primary">
-      <i class="far fa-file-edit" aria-hidden="true"></i>
+      <i class="far fa-edit" aria-hidden="true"></i>
     </a>
     {{$slot or ''}}
     <a class="btn btn-danger" data-toggle="tooltip" title="Delete record"

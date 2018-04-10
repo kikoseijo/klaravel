@@ -50,10 +50,13 @@ class ServiceProvider extends BaseServiceProvider
 
     protected function defineRoutes()
     {
+        if (Larapp::isLumen()){
+            return;
+        }
         // If the routes have not been cached, we will include them in a route group
         // so that all of the routes will be conveniently registered to the given
         // controller namespace. After that we will load the route file.
-        if (! $this->app->routesAreCached()) {
+        if (!$this->app->routesAreCached()) {
             Route::group([
                 'namespace' => 'Ksoft\Klaravel\Http\Controllers'],
                 function ($router) {

@@ -5,10 +5,14 @@
 |
 |  Local URL: http://localhost:8000/klaravel/wiki/scaffold
 |  Local Markdown: open vendor/ksoft/klaravel/wiki
+|
 |  Online Markdown: https://github.com/kikoseijo/klaravel/tree/master/wiki
 |  _______________________________________
 */
 return [
+
+
+
 
     'version' => '2.0.8',
     'models_path' => 'Models/', // defaults "Models/...."

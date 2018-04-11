@@ -1,33 +1,38 @@
 <?php
 
+/*
+|  Klaravel user guide + scaffold generator
+|
+|  Local URL: http://localhost:8000/klaravel/wiki/scaffold
+|  Local Markdown: open vendor/ksoft/klaravel/wiki
+|  Online Markdown: https://github.com/kikoseijo/klaravel/tree/master/wiki
+|  _______________________________________
+*/
 return [
 
-    'version' => '2.0.5',
+    'version' => '2.0.6',
     'models_path' => 'Models/', // defaults "Models/"
     'backend_dashboard_route_name' => '',
-
-    /*
-     |  Klaravel user guide + scaffold generator
-     |
-     |  visit /klaravel/wiki/scaffold for documentation
-     |  _______________________________________
-     */
-    'klaravel_enabled' => true,
+    'klaravel_enabled' => true, // klaravel section
     'klaravel_visible_for' => [], // show menu only to users id`s (all by default)
     'klaravel_route_name' => 'klaravel',
     'klaravel_middleware' => ['web','auth'],
     'show_integration_hints' => true, // points to wiki links.
-
-    'enable_plugins_menu' => false, // if you think you can help on this,,, give me a shout!
+    'enable_plugins_menu' => false, // TODO: find a way to install plugins from UI.
 
     /*
      |  Header menu customization
      |
-     |  visit /klaravel/wiki/layouts for documentation
+     |  url: /klaravel/wiki/layouts for documentation
+     |  Markdown: vendor/ksoft/klaravel/wiki/layouts-header.md
+     |
+     |  kLaravel menus structure 'route.name' => 'Menu title'
+     |      Laravel: ->name('route.name')
+     |      Lumen: ['as' => 'route.name', 'use' => 'Controller@method']
      |  _______________________________________
      */
-    'menu_settings_config_location' => 'klara.settings', // info url /klaravel/wiki/layouts
-    'menu_admin_config_location' => 'ksoft.admin_menu', // info url /klaravel/wiki/layouts
+    'menu_settings_config_location' => 'kapp.settings',
+    'menu_admin_config_location' => 'ksoft.admin_menu',
     'admin_menu' => [
         'kLara.index' => 'Dev. Dashboard',
         'kLara.wiki' => 'Scaffold',
@@ -36,6 +41,7 @@ return [
 
     /**
      * Swagger Builder configuration
+     * DEPRECATED---> in favor of GraphQL
      */
     'swagger' => [
         'enabled' => false,
@@ -58,13 +64,13 @@ return [
             'Notification', 'TokenGuard',
         ],
     ],
-
+    // Styles for base crud layouts.
     'style' => [
         'crud_container_wrapper' => 'container -body-block pb-5',
         'table_style' => 'table table-hover table-striped table-bordered table-sm',
         'thead' => 'thead-dark',
     ],
-
+    // Custom modules configuration
     'module' => [
         'backup' => [ // https://github.com/spatie/laravel-backup
             'enabled' => true,
@@ -80,12 +86,12 @@ return [
             'route_name' => 'activity-logs',
             'middleware' => ['web','auth'],
         ],
-        'sessions' => [ // Laravel sessions when stored on Database-
+        'sessions' => [ // Laravel sessions when Database used-
             'enabled' => true,
             'route_name' => 'sessions',
             'middleware' => ['web','auth'],
         ],
-        'caches' => [ // Laravel sessions when stored on Database-
+        'caches' => [ // Laravel sessions when Database used-
             'enabled' => true,
             'route_name' => 'caches',
             'middleware' => ['web','auth'],
@@ -97,7 +103,7 @@ return [
             'errors' => 'klaravel::ui.errors',
             'views_base_path' => 'back.', // might need the . at the end.
             'pagination_query_params' => ['q', 'query', 'search'], // append to pagination loop.
-            'session_range_from' => 'FROM_DATE', // remembering last filter using session.
+            'session_range_from' => 'FROM_DATE', // persisted filter using session.
             'session_range_to' => 'TO_DATE',
             'assets' => [
                 'css/app.css', // laravel defaults works, (using Bootstrap4)

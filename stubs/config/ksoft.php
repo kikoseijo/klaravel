@@ -11,7 +11,7 @@
 return [
 
     'version' => '2.0.8',
-    'models_path' => 'Models/', // defaults "Models/"
+    'models_path' => 'Models/', // defaults "Models/...."
     'backend_dashboard_route_name' => '',
     'klaravel_enabled' => true, // klaravel section
     'klaravel_visible_for' => [], // show menu only to users id`s (all by default)

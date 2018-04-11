@@ -1,4 +1,6 @@
 @isset($admin_menu)
+    <!-- klaravel::_parts.menu.custom -->
+
     @foreach ($admin_menu as $menuRoute => $menuLabel)
         @if (is_array($menuLabel))
             @component('klaravel::ui.dropdown', [

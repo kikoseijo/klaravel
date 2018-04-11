@@ -1,3 +1,4 @@
+<!-- klaravel::ui.list-group -->
 <ul class="list-group {{ $class or '' }}">
     @isset($items)
         @foreach($items as $item)

@@ -1,3 +1,4 @@
+<!-- klaravel::ui.tables.actions -->
 <td style="{{$style or ''}}" class="align-middle text-center">
   <div class="btn-group{{isset($size)?' btn-group-'. $size:''}} klara-bt-group" role="group">
     <a href="{{ route($model_name.'.edit', $item->id) }}" data-toggle="tooltip" title="Edit record" class="btn btn-primary">

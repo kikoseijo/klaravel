@@ -1,3 +1,4 @@
+<!-- klaravel::ui.tables.count -->
 
 @if ($records->total()>0)
     <div class="{{$class or ''}}">

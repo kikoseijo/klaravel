@@ -1,3 +1,4 @@
+<!-- klaravel::ui.tables.pagination -->
 <nav aria-label="Page navigation" class="{{ $class or '' }}">
     <?php $arrBase = config('ksoft.module.crud.pagination_query_params'); ?>
     {!! $records

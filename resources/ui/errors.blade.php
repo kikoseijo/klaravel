@@ -1,3 +1,4 @@
+<!-- klaravel::ui.errors -->
 @if ($errors->any())
   <div class="container">
     <div class="alert alert-warning alert-dismissible fade show" role="alert">

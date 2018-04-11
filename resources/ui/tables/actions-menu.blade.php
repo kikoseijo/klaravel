@@ -1,3 +1,4 @@
+<!-- klaravel::ui.tables.actions-menu -->
 <nav class="navbar navbar-expand-md navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#table-menu" aria-controls="table-menu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -14,7 +15,7 @@
             @endif
 
             {{$slot or ''}}
-            
+
             @if (!isset($hide_per_page))
                 <li class="nav-item dropdown mr-3">
                     <a class="nav-link dropdown-toggle" title="Num. records per page" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">

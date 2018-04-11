@@ -1,3 +1,4 @@
+<!-- klaravel::ui.dropdown -->
 <?php $curMenuId = isset($curMenuId) ? $curMenuId : 'drop-down-'.rand(10000,1111222); ?>
 <li class="nav-item dropdown{{$class or ''}}{{ isset($active) && $active ? ' active' : '' }}">
     <a

@@ -1,3 +1,4 @@
+<!-- klaravel::ui.modal -->
 <?php $curModalId = isset($modalId) ? $modalId : 'modal-klara-'.rand(10000,1111222); ?>
 <div class="modal fade" id="{{$curModalId}}" tabindex="-1" role="dialog" aria-labelledby="{{$curModalId}}Label" aria-hidden="true">
   <div class="modal-dialog modal-{{isset($size)?$size:'sm'}}" role="document">

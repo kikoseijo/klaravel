@@ -1,3 +1,4 @@
+<!-- klaravel::ui.tab -->
 <ul class="nav nav-tabs {{$class or ''}}" role="tablist">
     @php($i = 0)
     @foreach ($tabs as $tabsKey => $tabsVal)

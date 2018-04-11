@@ -1,3 +1,4 @@
+<!-- klaravel::ui.carousel -->
 <div
     id="{{ $id or 'carousel' }}"
     class="carousel slide {{ $class or '' }}"

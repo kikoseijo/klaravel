@@ -1,3 +1,4 @@
+<!-- klaravel::_parts.header -->
 @php
     $d_route = config('ksoft.backend_dashboard_route_name');
     $dashboard_url = $d_route != '' ? route($d_route) : url('/').'" target="_blank';

@@ -1,3 +1,4 @@
+<!-- klaravel::ui.figure -->
 <figure class="figure {{ $class or '' }}">
     {{ $slot or '' }}
 

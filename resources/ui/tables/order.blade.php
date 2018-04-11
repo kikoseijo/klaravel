@@ -1,3 +1,4 @@
+<!-- klaravel::ui.tables.order -->
 <div class="careta">
     <div class="kflecha">
         <a href="{{route($model_name.'.index')}}?order={{$att}}&direction=asc"

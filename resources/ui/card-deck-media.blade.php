@@ -1,3 +1,4 @@
+<!-- klaravel::ui.card-deck-media -->
 <div class="card-columns">
     @foreach ($medias as $mediaItem)
         <div class="card">

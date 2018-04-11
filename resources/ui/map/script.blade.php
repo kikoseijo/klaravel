@@ -1,3 +1,4 @@
+<!-- klaravel::ui.map.script -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{$key or ''}}&callback=klaramap"></script>
 <script type="text/javascript">
     // google.maps.event.addDomListener(window, 'load', googlemapinit);

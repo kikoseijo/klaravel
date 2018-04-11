@@ -1,3 +1,4 @@
+<!-- klaravel::crud.create -->
 @extends('klaravel::layouts.crud')
 
 @section('content')

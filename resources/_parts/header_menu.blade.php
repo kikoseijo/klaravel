@@ -1,3 +1,4 @@
+<!-- klaravel::_parts.header_menu -->
 @php
     $preroute = array_first(explode('.', $croute));
 @endphp

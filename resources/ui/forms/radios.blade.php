@@ -1,3 +1,4 @@
+<!-- klaravel::ui.forms.radios -->
 <div class="form-group">
   <label class="col-form-label">{!! $label !!}</label>
   <div>

@@ -1,7 +1,8 @@
+<!-- klaravel::_parts.footer -->
 <footer class="py-5 mb-3">
     <div class="container">
         <div class="footer__version">
-            <img src="//sunnyface.com/images/klaravel.svg" class="footer__brand" alt="Klaravel by Sunnyface.com">
+            <img src="//sunnyface.com/images/klaravel.svg" style="width: 2.3em; margin-right: 12px; height: auto; vertical-align: middle;" alt="Klaravel by Sunnyface.com">
             <a href="https://github.com/kikoseijo/klaravel" data-toggle="tooltip" title="Laravel v{{ app()->version() }}" target="sunnyface">
                 {{ config('app.name', 'Sunnyface.com Klaravel') }}
                 <span>

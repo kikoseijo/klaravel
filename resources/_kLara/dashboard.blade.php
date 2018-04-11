@@ -14,8 +14,8 @@ $dashMenu = [
        "link" => route('kLara.routes.index'),
    ],
    [
-       "img" => "https://dummyimage.com/348x160/343a40/fff.png?text=Laravel+and+Co.",
-       "title" => "Laravel & more",
+       "img" => "https://dummyimage.com/348x160/343a40/fff.png?text=How+to+-+Wiki",
+       "title" => "Laravel Wiki & more",
        "Text" => "Configure DB, mailables, Passport, SEO, Localization, Seeds,..",
        "link" => route('kLara.wiki', 'helpers'),
    ],

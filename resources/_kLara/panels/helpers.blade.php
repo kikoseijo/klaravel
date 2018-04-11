@@ -11,7 +11,7 @@
             <a class="nav-link py-2" id="helpers-seo-tab" data-toggle="tab" href="#helpers-seo">SEO</a>
           </li>
           <li class="nav-item border-top">
-            <a class="nav-link py-2" id="helpers-config-tab" data-toggle="tab" href="#helpers-config">DB Config</a>
+            <a class="nav-link py-2" id="helpers-config-tab" data-toggle="tab" href="#helpers-config">DB Settings (config)</a>
           </li>
           <li class="nav-item border-top">
             <a class="nav-link py-2" id="helpers-mailables-tab" data-toggle="tab" href="#helpers-mailables">Mailables</a>

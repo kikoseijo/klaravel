@@ -41,8 +41,8 @@ class ServiceProvider extends BaseServiceProvider
         $configPath = KLARAVEL_PATH.'/stubs/config/ksoft.php';
         $this->mergeConfigFrom($configPath, 'ksoft');
 
-        $defaultSettings = config('ksoft.menu_settings_config_location', config('settings.primary_config_file'));
-        config(['settings.primary_config_file' => $defaultSettings]); // runtime overwrite.
+        // $defaultSettings = config('ksoft.menu_settings_config_location', config('settings.primary_config_file'));
+        // config(['settings.primary_config_file' => $defaultSettings]); // runtime overwrite.
 
         $this->registerServices();
         $this->registerCommands();
@@ -51,11 +51,10 @@ class ServiceProvider extends BaseServiceProvider
     protected function defineRoutes()
     {
         if (Larapp::isLumen()){
+            // TODO: have some Lumen endpoints built in for auth,,, etc...
             return;
         }
-        // If the routes have not been cached, we will include them in a route group
-        // so that all of the routes will be conveniently registered to the given
-        // controller namespace. After that we will load the route file.
+
         if (!$this->app->routesAreCached()) {
             Route::group([
                 'namespace' => 'Ksoft\Klaravel\Http\Controllers'],

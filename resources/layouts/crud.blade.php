@@ -46,5 +46,6 @@
       <script src="{{ mix('js/app.js') }}"></script>
     @endif
     @stack('scripts')
+    @include('klaravel::_kLara._parts._scripts')
 </body>
 </html>

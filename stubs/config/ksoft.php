@@ -10,7 +10,11 @@
 */
 return [
 
+<<<<<<< HEAD
     'version' => '2.0.8',
+=======
+    'version' => '2.0.6',
+>>>>>>> b2beae1aadceafc7f7befc6c52ad41a74b9b38ec
     'models_path' => 'Models/', // defaults "Models/"
     'backend_dashboard_route_name' => '',
     'klaravel_enabled' => true, // klaravel section

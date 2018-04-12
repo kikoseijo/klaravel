@@ -23,6 +23,11 @@
                 <small class="text-muted">
                     {{ diff_date_for_humans($mediaItem->created_at) }}
                 </small>
+                @isset($make_default_url)
+                    <a href="{{$make_default_url.'/'.$mediaItem->id}}" style="color:orange;" class="text-right pull-right">
+                        <i class="fas fa-filter"></i> {{$mediaItem->order_column}}
+                    </a>
+                @endisset
             </div>
         </div>
     @endforeach

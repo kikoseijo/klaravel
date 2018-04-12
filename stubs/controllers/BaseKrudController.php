@@ -39,14 +39,14 @@ class BaseKrudController extends Controller
     public function store(Request $request)
     {
         $record = $this->interaction($this->createInteraction, [$request->all()]);
-        return redirect($this->path)->with('flash_message', 'Record added succesfully');
+        return redirect(route($this->path.'.index'))->with('flash_message', 'Record added succesfully');
         // return $this->createdResponse($record);
     }
 
     public function show($id)
     {
         // $record = $this->repo->find($id);
-        return redirect($this->path);
+        return redirect(route($this->path.'.index'));
         // return view($viewsBasePath.$this->path.'.show', [$this->singular => $record]);
     }
 
@@ -65,13 +65,13 @@ class BaseKrudController extends Controller
     public function update(Request $request, $id)
     {
         $record = $this->interaction($this->updateInteraction, [$id, $request->all()]);
-        return redirect($this->path)->with('flash_message', 'Record updated succesfully');
+        return redirect(route($this->path.'.index'))->with('flash_message', 'Record updated succesfully');
     }
 
     public function destroy($id)
     {
         $this->repo->delete($id);
-        return redirect($this->path)->with('flash_message', 'Record deleted succesfully');
+        return redirect(route($this->path.'.index'))->with('flash_message', 'Record deleted succesfully');
     }
 
     protected function loadCrudStyles()

@@ -44,26 +44,38 @@ php artisan migrate
 php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="config"
 ```
 
-On your controller
+Add Trait to controller
 
 ```
 use Ksoft\Klaravel\Traits\CanUploadMedia;
 ```
 
-On your routes
+Add the routes
 
 ```
 Route::post('MODEL_PATH/{id}/media-upload', 'MODELController@upload')->name('MODEL_PATH.media.upload');
 Route::get('MODEL_PATH/{id}/remove-media/{media?}', 'MODELController@remove')->name('MODEL_PATH.media.remove');
+Route::get('MODEL_PATH/{id}/make-default-media/{media?}', 'MODELController@mediaDefault')->name('MODEL_PATH.media.makedefault');
 ```
 
-On your forms (views)
+On your blade, using components.
 
 ```
-<klaravel-element-upload
-  :fotos="[]"
-  :is-multiple="true"
-  base-url="{{route($model_name.'.media.upload', $record->id)}}"
-  record-id="{{$record->id}}">
-</klaravel-element-upload>
+<div class="row">
+    <div class="col-sm-4">
+        <klaravel-element-upload
+            :fotos="[]"
+            help="Recommended image size 1100x400 pixels"
+            :is-multiple="true"
+            base-url="{{route($model_name.'.media.upload', $record->id)}}"
+            record-id="{{$record->id}}">
+        </klaravel-element-upload>
+    </div>
+    <div class="col-sm-8">
+        @include('klaravel::ui.card-deck-media', [
+            'remove_url' => route($model_name.'.media.remove', $record->id),
+            'make_default_url' => route($model_name.'.media.makedefault', $record->id)
+        ])
+    </div>
+</div>
 ```

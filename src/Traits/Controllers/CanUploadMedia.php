@@ -36,4 +36,16 @@ trait CanUploadMedia
         $media->delete();
         return redirect(route($this->path.'.edit', $id).'#fotos')->with('flash_message', 'Media removed succesfully.');
     }
+
+    public function mediaDefault($id, Media $media)
+    {
+        // $record = $this->repo->find($id);
+        // $medias = $record->media()->get()->puck('id');
+
+        $media->order_column = 1;
+        $media->save();
+
+
+        return redirect(route($this->path.'.edit', $id).'#fotos')->with('flash_message', 'Media updated succesfully.');
+    }
 }

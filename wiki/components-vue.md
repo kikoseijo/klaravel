@@ -25,18 +25,18 @@ To be able to use this components you must do a little configuration on your web
 After configure, webpack should be able to resolve the component, `require('klaravel');` should
 give you no errors if everything its fine.
 
-
-```
+```js
 import ElementUI from 'element-ui';
 import locale from 'element-ui/lib/locale/lang/es';
 Vue.use(ElementUI, { locale });
 
+import Notify from 'vue-notifyjs';
+Vue.use(Notify, { type: 'danger', timeout: 2000 });
+
+
 require('klaravel');  \\ <----------This is the line you need add.
 import '~/../sass/element_variables.scss';
 ```
-
-
-
 
 #### Media upload
 
@@ -78,17 +78,7 @@ Example use:
 </div>
 ```
 
-`props: [
-  'value',
-  'name',
-  'options',
-  'placeholder',
-  'searchable',
-  'multiple',
-  'clearable',
-  'collapseTags'
-],`
-
+`props: [ 'value', 'name', 'options', 'placeholder', 'searchable', 'multiple', 'clearable', 'collapseTags' ],`
 
 #### Slider - Range slider
 

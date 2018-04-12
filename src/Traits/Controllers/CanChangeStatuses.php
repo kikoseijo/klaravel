@@ -9,7 +9,7 @@ use Spatie\MediaLibrary\Media;
  * CONTROLLER
  * ----------------
  * protected $changeableStatus = [
- *           'active' => 'bool', // for booleans you can send true, on, 1
+ *           'active' => 'bool', // for booleans you can send 'true', 'on' or '1'
  *           'status' => ['A','B','C'] // for enums, must exist in array.
  *       ];
  * ----------------

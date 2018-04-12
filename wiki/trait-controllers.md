@@ -8,7 +8,7 @@ On your controller
 use Ksoft\Klaravel\Traits\CanChangeStatuses;
 // You must specify the field/s name and its changeable options
 protected $changeableStatus = [
-  'active' => 'bool', // for booleans you can send true, on, 1
+  'active' => 'bool', // for booleans you can send 'true', 'on' or '1'
   'status' => ['A','B','C'] // for enums, must exist in array.
 ];
 ```

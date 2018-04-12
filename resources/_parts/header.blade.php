@@ -14,8 +14,8 @@
 @endphp
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark box-shadow">
   <div class="d-flex justify-content-between container">
-    <a href="{!!$dashboard_url!!}" class="my-auto mr-4 brand-margin navbar-brand">
-      <span>{{ config('app.name', 'Klaravel by Sunnyface.com')}}</span>
+    <a href="{!! $dashboard_url !!}" class="my-auto mr-4 brand-margin navbar-brand">
+      <span>{!! config('app.name', 'kLaravel') !!}</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="true" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" />
@@ -30,7 +30,7 @@
     ])
   </div>
 </nav>
-{{-- {{ dd(config('ksoft.module.activity_log.enabled')) }} --}}
+
 @if (count(config('ksoft.CONSTANTS')) == 0)
     @component('klaravel::ui.alert', [
         'title' => 'Alert title',

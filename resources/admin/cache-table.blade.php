@@ -30,7 +30,7 @@
                 </tr>
                 <tr id="collapse-{{$loop->index}}" class="row-fluid collapse in table-light">
                     <td class="text-muted py-4 px-5" colspan="4">
-                        <code>{!! json_encode(cache()->get($record->key)) !!}</code>
+                        <code>{!! json_encode(cache($record->key)) !!}</code>
                     </td>
                 </tr>
             @endforeach

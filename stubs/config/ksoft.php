@@ -14,7 +14,7 @@ return [
     'version' => '2.0.13',
     'models_path' => 'Models/', // defaults "Models/...."
     'backend_dashboard_route_name' => '',
-    'klaravel_enabled' => true, // klaravel section
+    'klaravel_enabled' => true, // klaravel section route('kLara.index') + route('kLara.wiki')
     'klaravel_visible_for' => [], // show menu only to users id`s (all by default)
     'klaravel_route_name' => 'klaravel',
     'klaravel_middleware' => ['web','auth'],
@@ -73,7 +73,7 @@ return [
     ],
     // Custom modules configuration
     'module' => [
-        'backup' => [ // https://github.com/spatie/laravel-backup
+        'backup' => [ // https://github.com/spatie/laravel-backup route('kBackup.index')
             'enabled' => true,
             'route_name' => 'backup',
             // 'can_see_full_backups' => true, // activate only when got paid by client..
@@ -82,22 +82,22 @@ return [
                 '--only-db' => 'true',
             ],
         ],
-        'activity_log' => [ // https://github.com/spatie/laravel-activitylog
+        'activity_log' => [ // https://github.com/spatie/laravel-activitylog route('kLogs.index')
             'enabled' => true,
             'route_name' => 'activity-logs',
             'middleware' => ['web','auth'],
         ],
-        'sessions' => [ // Laravel sessions when Database used-
+        'sessions' => [ // Laravel sessions when Database used- route('kSessions.index')
             'enabled' => true,
             'route_name' => 'sessions',
             'middleware' => ['web','auth'],
         ],
-        'caches' => [ // Laravel sessions when Database used-
+        'caches' => [ // Laravel sessions when Database used- route('kCache.index')
             'enabled' => true,
             'route_name' => 'caches',
             'middleware' => ['web','auth'],
         ],
-        'crud' => [
+        'crud' => [ // Scaffold generator route('kLara.krud.gen')
             'enabled' => true,
             'header' => 'klaravel::_parts.header', // @includeIf()
             'footer' => 'klaravel::_parts.footer',

@@ -90,7 +90,7 @@ class PublishConfig extends Command
 
     protected function publishBaseKrud(){
       (new Publisher($this))->publishFile(
-          KLARAVEL_PATH.'/stubs/controllers/BaseKrudController.php',
+          KLARAVEL_PATH.'/stubs/Controllers/BaseKrudController.php',
           base_path('app/Http/Controllers'),
           'BaseKrudController.php'
       );

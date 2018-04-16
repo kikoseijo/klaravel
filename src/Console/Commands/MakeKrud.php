@@ -39,7 +39,7 @@ class MakeKrud extends Command
      * @var array
      */
     protected $stubs = [
-        'controller'         => '/controllers/ExampleController.php',
+        'controller'         => '/Controllers/ExampleController.php',
         'contract'           => '/Contracts/ExampleRepository.php',
         'repo'               => '/Repositories/ExampleRepository.php',
         'update_contract'    => '/Contracts/ExampleUpdate.php',
@@ -143,6 +143,8 @@ class MakeKrud extends Command
         if (!config('ksoft.krud.use_contracts')) {
             $removeContracts = [
                 'use App\Contracts\Interactions%subfolder%\%model%Create as Contract;' => '',
+                'use App\Interactions%subfolder%\%model%Create as Contract;' => '',
+                'use App\Repositories%subfolder%\%model%Repository as Contract;' => '',
                 'App\Contracts' => 'App',
                 'implements Contract' => ''
             ];

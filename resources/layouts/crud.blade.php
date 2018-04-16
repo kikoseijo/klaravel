@@ -13,7 +13,7 @@
         @endisset
         {{ config('app.name', 'Klaravel, by Sunnyface.com') }} | Admin area
     </title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     @foreach (config('ksoft.module.crud.assets', []) as $useAssets)
        <link href="{{ asset($useAssets) }}" rel="stylesheet">
     @endforeach

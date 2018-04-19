@@ -8,7 +8,6 @@ components thanks to Laravel´s blade engine.
 This component its build on top of [Boostrap4 Navbar](https://getbootstrap.com/docs/4.0/components/navbar/), add
 more items using the slot component or plain with a single import.
 
-
 ```
 @include('klaravel::ui.tables.actions-menu')
 ```
@@ -33,10 +32,8 @@ As a component, only `model_name` its mandatory due to components scope to enabl
   </li>
 
   @component('klaravel::ui.dropdown', [
-      'title' => '<i class="far fa-filter mr-1"></i> '
-              . (request()->filled('tag') != ''
-              ? model_title(request('tag'))
-              : 'Filter by Type'),
+      'title' => '<i class="far fa-filter mr-1"></i> Title',
+      'titleClass' => 'text-primary',
       'class' => '  mr-3'
    ])
       @foreach ($logsTags as $logsTag)
@@ -54,7 +51,6 @@ As a component, only `model_name` its mandatory due to components scope to enabl
   </li>
 @endcomponent
 ```
-
 
 #### Table actions buttons
 
@@ -84,7 +80,6 @@ As a component its mandatory to pass down the `$record` reference and the `model
     </a>
 @endcomponent
 ```
-
 
 #### Pagination
 

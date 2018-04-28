@@ -38,10 +38,6 @@
       "aliases": {
         "Larapp": "Ksoft\\Klaravel\\Facade"
       }
-    },
-    "branch-alias": {
-      "dev-master": "2.0-dev"
     }
-  },
-  "minimum-stability": "stable"
+  }
 }

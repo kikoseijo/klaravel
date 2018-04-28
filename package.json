@@ -1,27 +1,17 @@
 {
   "name": "klaravel",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "description": "Tools for developers of laravel",
   "main": "index.js",
   "scripts": {
-    "watch":
-      "sass --style compact --watch resources/assets/sass/bootstrap.scss",
+    "watch": "sass --style compact --watch resources/assets/sass/bootstrap.scss",
     "build": "sass --style compact resources/assets/sass/bootstrap.scss"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kikoseijo/kLaravel.git"
   },
-  "keywords": [
-    "laravel",
-    "klaravel",
-    "crud",
-    "scaffold",
-    "control",
-    "panel",
-    "admin",
-    "panel"
-  ],
+  "keywords": ["laravel", "klaravel", "crud", "scaffold", "control", "panel", "admin", "panel"],
   "author": "Kiko Seijo",
   "license": "MIT",
   "bugs": {

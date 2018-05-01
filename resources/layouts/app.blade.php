@@ -10,6 +10,9 @@
     <title>Klaravel, by Sunnyface.com</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
     @include('klaravel::_kLara._parts._styles')
+    @foreach (config('ksoft.module.crud.assets', []) as $useAssets)
+       <link href="{{ asset($useAssets) }}" rel="stylesheet">
+    @endforeach
     @stack('stylesheets')
     <script>
         window.Larapp = {!! json_encode([

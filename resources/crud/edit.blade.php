@@ -8,6 +8,7 @@
                 ->route($model_name . '.update', $record->id  )
                 ->populate( $record )
             !!}
+            <!-- {{$viewsBasePath.$model_name.'.form'}} -->
             @includeIf($viewsBasePath.$model_name.'.form', ['submitButtonText' => 'Update'])
             {!! Former::close() !!}
         @endcard

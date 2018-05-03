@@ -1,6 +1,6 @@
 <!-- klaravel::_parts.menu.user_dropdown -->
 @component('klaravel::ui.dropdown', [
-    'title' => '<i class="far fa-user-circle"></i> ' . auth()->user()->name,
+    'title' => '<i class="far fa-user-circle"></i> ',
     'active' => 'ksoft' == $preroute || str_contains($croute, ['kSessions', 'kLogs', 'kCache', 'kBackup'])
 ])
     @if (config('ksoft.enable_plugins_menu'))

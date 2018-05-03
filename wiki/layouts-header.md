@@ -38,7 +38,7 @@ to a location of your choice, the default parameter its `ksoft.module.krud.heade
         'admin_menu' => $admin_menu ?: [],
         'settings_menu_enabled' => isset($settings_menu) && count($settings_menu)>0,
         'settings_menu' => [
-            '<i class="far fa-cog"></i>' => $settings_menu ?? [],
+            '<i class="fas fa-cog"></i>' => $settings_menu ?? [],
         ],
     ])
   </div>

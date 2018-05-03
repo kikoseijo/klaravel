@@ -33,9 +33,15 @@ Vue.use(ElementUI, { locale });
 import Notify from 'vue-notifyjs';
 Vue.use(Notify, { type: 'danger', timeout: 2000 });
 
-
-require('klaravel');  \\ <----------This is the line you need add.
+require('klaravel'); // <----------This is the line you need add.
 import '~/../sass/element_variables.scss';
+```
+
+```scss
+/* element_variables.scss */
+/* icon font path, required */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+@import '~element-ui/packages/theme-chalk/src/index';
 ```
 
 #### Media upload

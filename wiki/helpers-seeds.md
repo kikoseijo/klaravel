@@ -12,6 +12,8 @@ if (! DB::table('users')->where('email', 'user@example.com')->first()) {
     'name'     => 'Kiko Seijo',
     'email'    => 'user@example.com',
     'password' => app('hash')->make('secret'),
+    'created_at' => now(),
+    'updated_at' => now(),
     // 'admin' => 1,
   ]);
 }

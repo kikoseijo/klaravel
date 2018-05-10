@@ -74,7 +74,6 @@ The `table.blade.php` provides you the starting point to have a basic table, you
 The `form.blade.php` its your view for creating and editing records, you only have to concentrate in adding the fields
 on a nice layout of your choice using [Bootstrap4](https://getbootstrap.com/docs/4.0/layout/overview/) layout helpers.
 
-
 #### Final tips
 
 Every time you create a new Krud you will be working in the same main areas: your repository, your Interactions and the table + form view, this is where you concentrate all work, rest its magically done for you.
@@ -84,3 +83,24 @@ To have filters and advanced queries on models for your tables, concentrate work
 For modules that require a high level of customization you might end up having the 3 hidden base views overwritten, this is complete normal, you might use this library for backend and build the front using build tools like Vue.js or React.
 
 For more advanced examples you can explore the additional modules in this library like backups, sessions or activity logs, then you will be able to see a working example on how complex task are made easy.
+
+### Webpack
+
+For the full scaffold using the production, you must extract vendors from js.
+
+```
+mix
+  .js('resources/assets/js/app.js', 'public/js')
+  .extract([
+    'vue',
+    'axios',
+    'moment',
+    'bootstrap',
+    'element-ui',
+    'jquery',
+    'lodash',
+    'popper.js',
+    'vue-notifyjs'
+  ])
+  .sourceMaps();
+```

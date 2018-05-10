@@ -1,7 +1,9 @@
 @if (config('ksoft.klaravel_enabled'))
     <!-- klaravel::_parts.menu.klara -->
 
-    @php($kAdmins = config('ksoft.klaravel_visible_for'))
+    @php
+        $kAdmins = config('ksoft.klaravel_visible_for');
+    @endphp
     @if (!is_array($kAdmins) || count($kAdmins) == 0 || (count($kAdmins) > 0 && in_array(auth()->id(), $kAdmins)))
         <li>
             <a class="nav-link" href="{{ route('kLara.index') }}">

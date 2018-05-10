@@ -13,7 +13,9 @@
     @isset($tabs)
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs" role="tablist">
-                @php($i = 0)
+                @php
+                    $i = 0;
+                @endphp
                 @foreach ($tabs as $tabId => $tabLabel)
                     <li class="nav-item">
                         <a class="nav-link {{$i==0?' active':''}}"
@@ -23,7 +25,9 @@
                             aria-controls="{{$tabId}}"
                             aria-selected="{{$i==0?'true':'false'}}">{{$tabLabel}}</a>
                     </li>
-                    @php($i++)
+                    @php
+                        $i++;
+                    @endphp
                 @endforeach
             </ul>
         </div>

@@ -23,7 +23,9 @@
                     'class' => '  mr-3'
                  ])
                     @foreach ($logsTags as $logsTag)
-                        @php($selected = request('tag') == $logsTag ? ' active': '')
+                        @php
+                            $selected = request('tag') == $logsTag ? ' active': '';
+                        @endphp
                         <a href="{{ route('kLogs.index') }}?tag={{$logsTag}}" class="dropdown-item{{ $selected}}">
                             {{$logsTag}}
                         </a>
@@ -38,7 +40,9 @@
                     'class' => '  mr-3'
                  ])
                     @foreach ($logSubjects as $logSubject)
-                        @php($selected = request('subject') == $logSubject ? ' active': '')
+                        @php
+                            $selected = request('subject') == $logSubject ? ' active': '';
+                        @endphp
                         <a href="{{ route('kLogs.index') }}?subject={{$logSubject}}" class="dropdown-item{{ $selected}}">
                             {{$logSubject or '-'}}
                         </a>

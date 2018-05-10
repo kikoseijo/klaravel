@@ -8,7 +8,9 @@
                 'active' => array_key_exists($croute, array_keys($menuLabel))
             ])
                 @foreach ($menuLabel as $subKey => $subValue)
-                    @php($selected = $menuRoute == $croute && request()->route('config_name') == $subKey ? ' active': '')
+                    @php
+                        $selected = $menuRoute == $croute && request()->route('config_name') == $subKey ? ' active': '';
+                    @endphp
                     <a href="{{ route($menuRoute, $subKey) }}" class="dropdown-item{{ $selected}}">
                         {{$subValue}}
                     </a>

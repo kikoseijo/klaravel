@@ -37,7 +37,9 @@ As a component, only `model_name` its mandatory due to components scope to enabl
       'class' => '  mr-3'
    ])
       @foreach ($logsTags as $logsTag)
-          @php($selected = request('tag') == $logsTag ? ' active': '')
+          @php
+            $selected = request('tag') == $logsTag ? ' active': '';
+          @endphp
           <a href="{{ route('kLogs.index') }}?tag={{$logsTag}}" class="dropdown-item{{ $selected}}">
               {{$logsTag}}
           </a>

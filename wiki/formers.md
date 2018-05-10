@@ -1,4 +1,3 @@
-
 For more detailed info visit [Formers Github](https://github.com/formers/former/wiki/)
 
 #### Configuration
@@ -6,6 +5,8 @@ For more detailed info visit [Formers Github](https://github.com/formers/former/
 Adjust configuration file `config/former.php` with the following information: **this is due to bootstrap4 not being a framework available right now** i got yo covered...
 
 ```
+// The default form type
+'default_form_type'       => 'vertical',
 // The framework to be used by Former
 'framework' => 'Ksoft\Klaravel\Utils\FormerBootstrap4',
 'FormerBootstrap4' => array(

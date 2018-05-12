@@ -1,6 +1,6 @@
 <!-- klaravel::ui.forms.radios -->
 <div class="form-group">
-  <label class="col-form-label">{!! $label !!}</label>
+  <label class="form-control-label">{!! $label !!}</label>
   <div>
     @foreach ($items as $itemKey => $itemLabel)
       <?php $iLabel = $itemLabel ??  $itemKey;?>

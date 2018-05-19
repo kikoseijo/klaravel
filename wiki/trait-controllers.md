@@ -73,6 +73,7 @@ On your blade, using components.
     </div>
     <div class="col-sm-8">
         @include('klaravel::ui.card-deck-media', [
+            'medias' => $record->media,
             'remove_url' => route($model_name.'.media.remove', $record->id),
             'make_default_url' => route($model_name.'.media.makedefault', $record->id)
         ])

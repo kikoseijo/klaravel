@@ -3,42 +3,9 @@
 This are reusable layouts for the krud component, them here for you if you need to overwrite them, just copy and paste
 inside you component folder and the BaseKrudController will defaults to your files if found.
 
-#### create.blade.php
+#### Table view
 
-```
-@extends('klaravel::layouts.crud')
-
-@section('content')
-    <div class="{{$crudWrapperClass}}">
-        @card(['title' => 'New ' . title_case($model_name)])
-            {!! Former::open_for_files()->route($model_name.'.store') !!}
-            @includeIf($viewsBasePath.$model_name.'.form')
-            {!! Former::close() !!}
-        @endcard
-    </div>
-@endsection
-```
-
-#### edit.blade.php
-
-```
-@extends('klaravel::layouts.crud')
-
-@section('content')
-    <div class="{{$crudWrapperClass}}">
-        @card()
-            {!! Former::open_for_files()
-                ->route($model_name . '.update', $record->id  )
-                ->populate( $record )
-            !!}
-            @includeIf($viewsBasePath.$model_name.'.form', ['submitButtonText' => 'Update'])
-            {!! Former::close() !!}
-        @endcard
-    </div>
-@endsection
-```
-
-#### index.blade.php
+`index.blade.php`
 
 ```
 @extends('klaravel::layouts.crud')
@@ -60,7 +27,46 @@ inside you component folder and the BaseKrudController will defaults to your fil
 @endsection
 ```
 
-#### Tips
+#### Create view
+
+`create.blade.php`
+
+```
+@extends('klaravel::layouts.crud')
+
+@section('content')
+    <div class="{{$crudWrapperClass}}">
+        @card(['title' => 'New ' . title_case($model_name)])
+            {!! Former::open_for_files()->route($model_name.'.store') !!}
+            @includeIf($viewsBasePath.$model_name.'.form')
+            {!! Former::close() !!}
+        @endcard
+    </div>
+@endsection
+```
+
+#### Edit
+
+`edit.blade.php`
+
+```
+@extends('klaravel::layouts.crud')
+
+@section('content')
+    <div class="{{$crudWrapperClass}}">
+        @card()
+            {!! Former::open_for_files()
+                ->route($model_name . '.update', $record->id  )
+                ->populate( $record )
+            !!}
+            @includeIf($viewsBasePath.$model_name.'.form', ['submitButtonText' => 'Update'])
+            {!! Former::close() !!}
+        @endcard
+    </div>
+@endsection
+```
+
+#### Additional tips
 
 When you overwrite the views to customize to your needs you get extra capabilities, by using the Laravel Blade power engine
 you can push pieces of code to your header and footer. Check out the Layout to see all possibilities.

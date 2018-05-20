@@ -3,7 +3,7 @@
 This components provide an homogeneous style and additional functionality by extending reusable
 components thanks to Laravel´s blade engine.
 
-#### Table actions menu
+#### Table actions navigation bar
 
 This component its build on top of [Boostrap4 Navbar](https://getbootstrap.com/docs/4.0/components/navbar/), add
 more items using the slot component or plain with a single import.
@@ -54,17 +54,38 @@ As a component, only `model_name` its mandatory due to components scope to enabl
 @endcomponent
 ```
 
-#### Table actions buttons
+#### Table Row actions
 
-With a simple include, you can still pass addional vars.
+With a simple include, you can still pass additional vars.
 
 ```
 @include('klaravel::ui.tables.actions')
 ```
 
+```php
+<!-- klaravel::ui.tables.actions -->
+<td style="{{$style or ''}}" class="align-middle text-center">
+  <div class="btn-group{{isset($size)?' btn-group-'. $size:''}} klara-bt-group" role="group">
+    <a href="{{ route($model_name.'.edit', $item->id) }}" data-toggle="tooltip" title="Edit record" class="btn btn-primary">
+      <i class="far fa-edit" aria-hidden="true"></i>
+    </a>
+    {{$slot or ''}}
+    <a class="btn btn-danger" data-toggle="tooltip" title="Delete record"
+        onclick="event.preventDefault(); if (confirm('Confirm delete?')){ document.getElementById('delete-item-{{$item->id}}').submit();}"
+        href="{{ route($model_name.'.index') }}">
+      <i class="far fa-trash-alt" aria-hidden="true"></i>
+    </a>
+  </div>
+  <form id="delete-item-{{$item->id}}" action="{{ route($model_name.'.destroy', $item->id) }}" method="POST" style="display: none;">
+      @csrf
+      <input type="hidden" name="_method" value="delete" />
+  </form>
+</td>
+```
+
 As a component its mandatory to pass down the `$record` reference and the `model_name`.
 
-```
+```php
 @component('klaravel::ui.tables.actions', [
         'size' => 'sm',
         'style' => 'width:220px;', // tr style
@@ -90,4 +111,15 @@ any existing query params found on actual request to the pagination links.
 
 ```
 @includeIf('klaravel::ui.tables.pagination',['class'=> 'py-2 mt-2'])
+```
+
+```php
+<!-- klaravel::ui.tables.pagination -->
+<nav aria-label="Page navigation" class="{{ $class or '' }}">
+    <?php $arrBase = config('ksoft.module.crud.pagination_query_params'); ?>
+    {!! $records
+        ->appends(array_combine($arrBase, array_map('request', $arrBase)))
+        ->links()
+    !!}
+</nav>
 ```

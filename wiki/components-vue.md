@@ -50,7 +50,7 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 <klaravel-element-upload
   :fotos="[]"
   :is-multiple="true"
-  base-url="{{route($model_name.'.media.upload', $record->id)}}"
+  base-url="{{route_has($model_name.'.media.upload', $record->id)}}"
   record-id="{{$record->id}}">
 </klaravel-element-upload>
 // this.uploadUrl = this.baseUrl + '?_token=' + Larapp.csrfToken;

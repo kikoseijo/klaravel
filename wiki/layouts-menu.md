@@ -47,14 +47,14 @@ using the label from the array key.
           @php
             $selected = $menuRoute == $croute && request()->route('config_name') == $subKey ? ' active': '';
           @endphp
-          <a href="{{ route($menuRoute, $subKey) }}" class="dropdown-item{{ $selected}}">
+          <a href="{{ route_has($menuRoute, $subKey) }}" class="dropdown-item{{ $selected}}">
             {{$subValue}}
           </a>
         @endforeach
       @endcomponent
     @else
       <li class="nav-item" role="presentation">
-        <a href="{{ route($menuRoute) }}" class="nav-link{{ $croute == $menuRoute || str_contains($menuRoute, $preroute) ? ' active':''}}">{{ $menuLabel }}</a>
+        <a href="{{ route_has($menuRoute) }}" class="nav-link{{ $croute == $menuRoute || str_contains($menuRoute, $preroute) ? ' active':''}}">{{ $menuLabel }}</a>
       </li>
     @endif
   @endforeach

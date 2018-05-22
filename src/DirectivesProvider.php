@@ -67,6 +67,13 @@ class DirectivesProvider extends ServiceProvider
                 return $this->formatNumber($expression,2);
             }
         });
+        Blade::directive('money', function ($expression) {
+            try {
+                return "<?php echo number($expression).'<sup>€</sup>'; ?>";
+            } catch (\Exception $e) {
+                return "<?php echo {$e->getMessage()}; ?>";
+            }
+        });
     }
 
     private function datesDirectives()

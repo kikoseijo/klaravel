@@ -16,7 +16,7 @@
         <tr>
             <th scope="row">{{ $item->id }}</th>
             <td class="text-center">
-                <a href="{{route($model_name.'.status_change',[$item->id,'active', $item->active ? '0' : '1'])}}">
+                <a href="{{route_has($model_name.'.status_change',[$item->id,'active', $item->active ? '0' : '1'])}}">
                     <i class="{{ $item->active ? 'far fa-eye text-success' : 'far fa-eye-slash text-danger' }}"></i>
                 </a>
             </td>

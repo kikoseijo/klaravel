@@ -25,7 +25,7 @@ if (!function_exists('normalizeString')) {
 }
 
 if (!function_exists('route_has')) {
-    function route_has($route_name, $params, $absolute=true): string
+    function route_has($route_name, $params=[], $absolute=true): string
     {
         if (!Route::has($route_name)) {
             return '#mustdefine:route:>>'.$route_name;

@@ -3,22 +3,43 @@
 
     @foreach ($admin_menu as $menuRoute => $menuLabel)
         @if (is_array($menuLabel))
-            @component('klaravel::ui.dropdown', [
-                'title' => title_case($menuRoute),
-                'active' => array_key_exists($croute, array_keys($menuLabel))
-            ])
-                @foreach ($menuLabel as $subKey => $subValue)
-                    @php
-                        $selected = $menuRoute == $croute && request()->route('config_name') == $subKey ? ' active': '';
-                    @endphp
-                    <a href="{{ route($menuRoute, $subKey) }}" class="dropdown-item{{ $selected}}">
-                        {{$subValue}}
+
+            @if (count($menuLabel) == 1)
+                @php
+                    $mLabel = collect($menuLabel)->keys()->first();
+                    $singleLabel = str_contains($mLabel, 'fa-') ? '<i class="fa-fw '.$mLabel.'"></i>' : $mLabel;
+                @endphp
+                <li class="nav-item" role="presentation">
+                    <a href="{{ route_has($menuRoute) }}"
+                        class="nav-link{{ $croute == $menuRoute || str_contains($menuRoute, $preroute) ? ' active':''}}"
+                        data-toggle="tooltip" title="{!! array_first($menuLabel) !!}">
+
+                        {!! $singleLabel !!}
                     </a>
-                @endforeach
-            @endcomponent
+                </li>
+            @else
+
+                @component('klaravel::ui.dropdown', [
+                    'title' => $menuRoute,
+                    'class' => ' mx-2 ',
+                    'active' => array_key_exists($croute, array_keys($menuLabel))
+                ])
+                    @foreach ($menuLabel as $subKey => $subValue)
+                        @php
+                        $selected = $menuRoute == $croute && request()->route('config_name') == $subKey ? ' active': '';
+                        @endphp
+                        <a href="{{ route_has($subKey) }}" class="dropdown-item{{ $selected}}">
+                            {{$subValue}}
+                        </a>
+                    @endforeach
+                @endcomponent
+
+            @endif
         @else
             <li class="nav-item" role="presentation">
-                <a href="{{ route($menuRoute) }}" class="nav-link{{ $croute == $menuRoute || str_contains($menuRoute, $preroute) ? ' active':''}}">{{ $menuLabel }}</a>
+                <a href="{{ route_has($menuRoute) }}" class="nav-link{{ $croute == $menuRoute || str_contains($menuRoute, $preroute) ? ' active':''}}">
+                    {!! $menuLabel !!}
+                </a>
             </li>
         @endif
     @endforeach

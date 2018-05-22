@@ -23,7 +23,7 @@ On your blades, for example, a table column clickable icon:
 
 ```
 <td>
-  <a href="{{route($model_name.'.status_change',[$item->id,'active', $item->active ? '0' : '1'])}}">
+  <a href="{{route_has($model_name.'.status_change',[$item->id,'active', $item->active ? '0' : '1'])}}">
       <i class="fas fa-circle text-{{ $item->active ? 'success' : 'danger' }}"></i>
   </a>
 </td>
@@ -67,15 +67,15 @@ On your blade, using components.
             :fotos="[]"
             help="Recommended image size 1100x400 pixels"
             :is-multiple="true"
-            base-url="{{route($model_name.'.media.upload', $record->id)}}"
+            base-url="{{route_has($model_name.'.media.upload', $record->id)}}"
             record-id="{{$record->id}}">
         </klaravel-element-upload>
     </div>
     <div class="col-sm-8">
         @include('klaravel::ui.card-deck-media', [
             'medias' => $record->media,
-            'remove_url' => route($model_name.'.media.remove', $record->id),
-            'make_default_url' => route($model_name.'.media.makedefault', $record->id)
+            'remove_url' => route_has($model_name.'.media.remove', $record->id),
+            'make_default_url' => route_has($model_name.'.media.makedefault', $record->id)
         ])
     </div>
 </div>

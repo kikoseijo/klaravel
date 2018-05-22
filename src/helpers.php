@@ -3,17 +3,19 @@
 use Carbon\Carbon;
 use Jenssegers\Date\Date as JenssDate;
 use League\CommonMark\CommonMarkConverter;
+use Spatie\Image\Image;
+use Illuminate\Support\Facades\Route;
 
 define('SESSION_TIME_LIMIT_CACHE', 'ks_session_limit');
 
 if (!function_exists('normalizeString')) {
-    function normalizeString($text, $limit=0): string
+    function normalizeString($text, $limit = 0): string
     {
         if (!$text) {
             return '';
         }
         $res = '';
-        if ($limit>0) {
+        if ($limit > 0) {
             $res = str_limit($text, $limit);
         } else {
             $res = $text;
@@ -22,19 +24,58 @@ if (!function_exists('normalizeString')) {
     }
 }
 
+if (!function_exists('route_has')) {
+    function route_has($route_name, $params, $absolute=true): string
+    {
+        if (!Route::has($route_name)) {
+            return '#mustdefine:route:>>'.$route_name;
+        }
+
+
+        return route($route_name, $params, $absolute);
+    }
+}
+
+if (!function_exists('get_img_sizes')) {
+    function get_img_sizes($image): array
+    {
+        $res = [0, 0];
+        try {
+            $spatiImage = Image::load($image);
+            $res[0] = $spatiImage->getWidth();
+            $res[1] = $spatiImage->getHeight();
+        } catch (\Exception $e) {
+
+        }
+        return $res;
+
+    }
+}
+
+if (!function_exists('number')) {
+    function number($number): string
+    {
+        if (app()->getLocale() == 'es') {
+            return number_format(floatval($number), 0, ',', '.');
+        } else {
+            return number_format(floatval($number), 0, '.', ',');
+        }
+
+    }
+}
 
 if (!function_exists('do_markdown')) {
     function do_markdown($markdown): string
     {
         $converter = new CommonMarkConverter();
-        return '<div class="markdown-wrapper">'.$converter->convertToHtml($markdown).'</div>';
+        return '<div class="markdown-wrapper">' . $converter->convertToHtml($markdown) . '</div>';
     }
 }
 
 if (!function_exists('model_title')) {
     function model_title($modelName): string
     {
-        if (str_contains($modelName,'\\')) {
+        if (str_contains($modelName, '\\')) {
             $modelName = last(explode('\\', $modelName));
         }
         return title_case(implode(' ', explode('_', snake_case($modelName))));
@@ -44,7 +85,7 @@ if (!function_exists('model_title')) {
 if (!function_exists('pretty_print_array')) {
     function pretty_print_array(array $array_data)
     {
-        print("<pre>".print_r($array_data,true)."</pre>");;
+        print("<pre>" . print_r($array_data, true) . "</pre>");
     }
 }
 

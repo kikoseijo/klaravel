@@ -8,7 +8,7 @@
 
             @if (!isset($hide_add_menu))
                 <li class="nav-item active mr-3">
-                    <a href="{{ route($model_name.'.create') }}" data-toggle="tooltip" class="nav-link text-primary" title="Add New record">
+                    <a href="{{ route_has($model_name.'.create') }}" data-toggle="tooltip" class="nav-link text-primary" title="Add New record">
                         <i class="far fa-plus" aria-hidden="true"></i> Add new
                     </a>
                 </li>
@@ -24,7 +24,7 @@
                     <div class="dropdown-menu">
                         @foreach ([5, 10, 20, 50] as $perPage )
                             <a class="dropdown-item{{ session(config('ksoft.CONSTANTS.take', 'PER_PAGE')) == $perPage ? ' active' : ''}}"
-                                href="{{route('swap-per-page')}}?perPage={{$perPage}}">
+                                href="{{route_has('swap-per-page')}}?perPage={{$perPage}}">
                                 {{$perPage}}
                             </a>
                         @endforeach

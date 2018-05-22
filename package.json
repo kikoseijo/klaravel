@@ -1,6 +1,6 @@
 {
   "name": "klaravel",
-  "version": "v2.0.22",
+  "version": "v2.0.23",
   "description": "Tools for developers of laravel",
   "main": "index.js",
   "scripts": {

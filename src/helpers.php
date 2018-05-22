@@ -27,10 +27,13 @@ if (!function_exists('normalizeString')) {
 if (!function_exists('route_has')) {
     function route_has($route_name, $params=[], $absolute=true): string
     {
-        if (!Route::has($route_name)) {
-            return '#mustdefine:route:>>'.$route_name;
+        if (str_contains($route_name, '@')) {
+            return action($route_name, $params);
         }
 
+        if (!Route::has($route_name)) {
+            return url($route_name);
+        }
 
         return route($route_name, $params, $absolute);
     }

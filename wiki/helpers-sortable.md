@@ -1,10 +1,22 @@
 # Sortable
 
-`composer require spatie/eloquent-sortable`
+Add the pacakage to your composer by running `composer require spatie/eloquent-sortable`
 
-[https://github.com/spatie/eloquent-sortable](https://github.com/spatie/eloquent-sortable)
+[Additional documentation](https://github.com/spatie/eloquent-sortable), cheers Spatie.
 
-#### On the Model
+#### Route
+
+```
+Route::get('MODEL_PATH_NAME/sort/{id}/{action?}', 'MODELController@moveTag')->name('MODEL_PATH_NAME.sort');
+```
+
+#### Controller
+
+```
+use Ksoft\Klaravel\Traits\CanSortRecords;
+```
+
+#### Model
 
 ```php
 use Spatie\EloquentSortable\Sortable;
@@ -15,7 +27,7 @@ class MyModel extends Eloquent implements Sortable
 {
 
     use SortableTrait;
-
+    // IMPORTANT: next line to trigger table action buttons.
     public $sortable = [
         'order_column_name' => 'order_column',
         'sort_when_creating' => true,

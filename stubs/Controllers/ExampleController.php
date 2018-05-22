@@ -6,9 +6,10 @@ use App\Contracts\Interactions%subfolder%\%model%Create;
 use App\Contracts\Interactions%subfolder%\%model%Update;
 use App\Contracts\Repositories%subfolder%\%model%Repository;
 use App\Http\Controllers\BaseKrudController;
-// Additionals
+// Helpers
 // use Ksoft\Klaravel\Traits\CanUploadMedia;
 // use Ksoft\Klaravel\Traits\CanChangeStatuses;
+// use Ksoft\Klaravel\Traits\CanSortRecords;
 
 
 /**
@@ -17,15 +18,13 @@ use App\Http\Controllers\BaseKrudController;
  */
 class %model%Controller extends BaseKrudController
 {
-    // use CanUploadMedia, CanChangeStatuses;
-    /**
-     * Used to change status with a single click in table rows attrs.
-     * field => values
-     */
+    // use CanUploadMedia, CanChangeStatuses, CanSortRecords;
+
     // protected $changeableStatus = [
     //     'active' => 'bool',
     //     'status' => ['State1', 'State2', 'State3'], // enums
     // ];
+
     /**
      * Enable middleware here or in your routes.
      * @param %model%Repository $repo
@@ -42,11 +41,7 @@ class %model%Controller extends BaseKrudController
     }
 
     /**
-     * You already got full workin krud!
-     *
-     * Add here any extra methods you need or overwrite existings from BaseKrudController.
-     *
-     * just need write tables and fields.
+     * Off you go!
      */
 
 }

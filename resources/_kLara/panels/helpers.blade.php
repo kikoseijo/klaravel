@@ -7,8 +7,11 @@
           <li class="nav-item border-top">
             <a class="nav-link py-2" id="helpers-passport-tab" data-toggle="tab" href="#helpers-passport">Laravel Passport</a>
           </li>
-          <li class="nav-item border-top">
+          {{-- <li class="nav-item border-top">
             <a class="nav-link py-2" id="helpers-seo-tab" data-toggle="tab" href="#helpers-seo">SEO</a>
+          </li> --}}
+          <li class="nav-item border-top">
+            <a class="nav-link py-2" id="helpers-validations-tab" data-toggle="tab" href="#helpers-validations">Validation rules</a>
           </li>
           <li class="nav-item border-top">
             <a class="nav-link py-2" id="helpers-config-tab" data-toggle="tab" href="#helpers-config">DB Settings (config)</a>
@@ -39,6 +42,9 @@
             </div>
             <div class="tab-pane fade" id="helpers-seo" role="tabpanel" aria-labelledby="helpers-seo-tab">
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-seo.md')) !!}
+            </div>
+            <div class="tab-pane fade" id="helpers-validations" role="tabpanel" aria-labelledby="helpers-validations-tab">
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-validations.md')) !!}
             </div>
             <div class="tab-pane fade" id="helpers-passport" role="tabpanel" aria-labelledby="helpers-passport-tab">
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-passport.md')) !!}

@@ -1,7 +1,7 @@
 {
   "name": "klaravel",
-  "version": "v2.0.25",
-  "description": "Tools for developers of laravel",
+  "version": "v2.0.26",
+  "description": "A personal set of Tools and Helpers for Laravel developers.",
   "main": "index.js",
   "scripts": {
     "watch": "sass --style compact --watch resources/assets/sass/bootstrap.scss",

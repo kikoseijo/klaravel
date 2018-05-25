@@ -7,7 +7,7 @@ Add the pacakage to your composer by running `composer require spatie/eloquent-s
 #### Route
 
 ```
-Route::get('MODEL_PATH_NAME/sort/{id}/{action?}', 'MODELController@moveTag')->name('MODEL_PATH_NAME.sort');
+Route::get('MODEL_PATH_NAME/sort/{id}/{action?}', 'MODELController@sortRecord')->name('MODEL_PATH_NAME.sort');
 ```
 
 #### Controller

@@ -1,6 +1,5 @@
 <!-- klaravel::ui.tables.count -->
-
-@if ($records instanceof Illuminate\Database\Eloquent\Model &&  $records->total()>0)
+@if ($records->total()>0)
     <div class="{{$class or ''}}">
         Showing records from {!! $records->firstItem() !!} to {!! $records->lastItem() !!} of {!! $records->total() !!} record{!! $records->total() > 1 ? 's' : '' !!}
     </div>

@@ -20,6 +20,7 @@
     @stack('stylesheets')
     <script>
         window.Larapp = {!! json_encode([
+            'baseUrl' => config('app.url'),
             'csrfToken' => csrf_token(),
             'state' => ['user' => Auth::user()],
         ]) !!};

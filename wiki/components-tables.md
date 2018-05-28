@@ -3,6 +3,24 @@
 This components provide an homogeneous style and additional functionality by extending reusable
 components thanks to Laravel´s blade engine.
 
+#### Record count for tables
+
+```php
+// Paginated records
+@include('klaravel::ui.tables.count')
+// Illuminate\Database\Query\Builder simple count.
+@include('klaravel::ui.tables.count-query')
+```
+
+example usage:
+
+```php
+<table class="{{config('ksoft.style.table_style')}}">
+    <caption class="text-right">@includeIf('klaravel::ui.tables.count')</caption>
+    <thead class="thead-dark">
+    ...
+```
+
 #### Table actions navigation bar
 
 This component its build on top of [Boostrap4 Navbar](https://getbootstrap.com/docs/4.0/components/navbar/), add

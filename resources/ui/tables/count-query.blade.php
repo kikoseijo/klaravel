@@ -4,7 +4,7 @@
 @endphp
 @if ($totalRecordCount>0)
     <div class="{{$class or ''}}">
-        {!!$totalRecordCount !!} record{!! $totalRecordCount > 1 ? 's' : '' !!}
+        {!!$totalRecordCount !!} record{!! $totalRecordCount > 1 ? 's' : '' !!} total
     </div>
 @else
     <div class="{{$class or 'text-center'}}">

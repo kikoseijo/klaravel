@@ -11,7 +11,7 @@
 */
 return [
 
-    'version' => '2.0.26',
+    'version' => '2.0.27',
     'models_path' => 'Models/', // defaults "Models/...."
     'backend_dashboard_route_name' => '',
     'klaravel_enabled' => true, // klaravel section route('kLara.index') + route('kLara.wiki')

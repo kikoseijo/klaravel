@@ -26,6 +26,9 @@
             <a class="nav-link py-2" id="helpers-translate-tab" data-toggle="tab" href="#helpers-translate">Translate</a>
           </li>
           <li class="nav-item border-top">
+            <a class="nav-link py-2" id="helpers-translatable-tab" data-toggle="tab" href="#helpers-translatable">Translatable</a>
+          </li>
+          <li class="nav-item border-top">
             <a class="nav-link py-2" id="helpers-sortable-tab" data-toggle="tab" href="#helpers-sortable">Sortable</a>
           </li>
           <li class="nav-item border-top">
@@ -63,6 +66,9 @@
             </div>
             <div class="tab-pane fade" id="helpers-translate" role="tabpanel" aria-labelledby="helpers-translate-tab">
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-translate.md')) !!}
+            </div>
+            <div class="tab-pane fade" id="helpers-translatable" role="tabpanel" aria-labelledby="helpers-translatable-tab">
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-translatable.md')) !!}
             </div>
             <div class="tab-pane fade" id="helpers-sortable" role="tabpanel" aria-labelledby="helpers-sortable-tab">
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-sortable.md')) !!}

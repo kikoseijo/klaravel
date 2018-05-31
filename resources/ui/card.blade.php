@@ -7,7 +7,7 @@
                     <i class="far fa-sync-alt"></i>
                 </a>
             @endisset
-            {{$title}}
+            {!! $title !!}
         </div>
     @endisset
     @isset($tabs)

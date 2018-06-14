@@ -1,6 +1,6 @@
 {
   "name": "klaravel",
-  "version": "v2.0.28",
+  "version": "v2.0.29",
   "description": "A personal set of Tools and Helpers for Laravel developers.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,16 @@
     "type": "git",
     "url": "git+https://github.com/kikoseijo/kLaravel.git"
   },
-  "keywords": ["laravel", "klaravel", "crud", "scaffold", "control", "panel", "admin", "panel"],
+  "keywords": [
+    "laravel",
+    "klaravel",
+    "crud",
+    "scaffold",
+    "control",
+    "panel",
+    "admin",
+    "panel"
+  ],
   "author": "Kiko Seijo",
   "license": "MIT",
   "bugs": {

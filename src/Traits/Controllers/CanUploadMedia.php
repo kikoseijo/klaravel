@@ -1,7 +1,7 @@
 <?php namespace Ksoft\Klaravel\Traits;
 
 use Illuminate\Http\Request;
-use Spatie\MediaLibrary\Media;
+use Spatie\MediaLibrary\Models\Media;
 
 /**
  * Trait CanUploadMedia.

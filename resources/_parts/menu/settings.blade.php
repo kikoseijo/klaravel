@@ -2,16 +2,22 @@
     <!-- klaravel::_parts.menu.settings -->
     @if ($settings_menu_enabled)
         @foreach ($settings_menu as $menuTitle => $menuItems)
-            @component('klaravel::ui.dropdown', [
-                'title' => $menuTitle,
-                'active' => is_array($menuItems) && array_key_exists($croute, $menuItems)
-            ])
-                @if (is_array($menuItems))
-                    @foreach ($menuItems as $setUrl => $setLabel)
-                        <a href="{{ route($setUrl) }}" class="dropdown-item{{ $croute == $setUrl?' active':''}}">{{ $setLabel }}</a>
-                    @endforeach
-                @endif
-            @endcomponent
+            @if (is_array($menuItems))
+                @component('klaravel::ui.dropdown', [
+                    'title' => $menuTitle,
+                    'active' => is_array($menuItems) && array_key_exists($croute, $menuItems)
+                ])
+                        @foreach ($menuItems as $setUrl => $setLabel)
+                            <a href="{{ route_has($setUrl) }}" class="dropdown-item{{ $croute == $setUrl?' active':''}}">{{ $setLabel }}</a>
+                        @endforeach
+                @endcomponent
+            @else
+                <li class="nav-item">
+                    <a href="{{ route_has($menuItems) }}" class="nav-link{{ $croute == $menuItems?' active':''}}">
+                        {!! $menuTitle !!}
+                    </a>
+                </li>
+            @endif
         @endforeach
     @endif
 @else

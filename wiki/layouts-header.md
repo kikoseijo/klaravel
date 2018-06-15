@@ -5,7 +5,7 @@ This is level 1 of the header component, will allow you to customize header styl
 To take full control over the component you should overwrite the file, start by changing the configuration
 to a location of your choice, the default parameter its `ksoft.module.krud.header` it defaults to `klaravel::_parts.header`, you can change it to `parts.header` and create following file:
 
-#### Basic implementation
+#### Header local customization example (Advanced)
 
 ```php
 // resources/views/parts/header.blade.php
@@ -17,6 +17,17 @@ to a location of your choice, the default parameter its `ksoft.module.krud.heade
     // Prepare main admin menu
     if ($admin_menu_location = config('ksoft.menu_admin_config_location')) {
         $admin_menu = config($admin_menu_location);
+
+        if (isRoot()) {
+            $rootMenuViews = [
+                'apps.index'=>'Apps',
+                'user.index'=>'Admins',
+                'device.index'=>'Devices',
+                'page.index'=>'Pages',
+            ];
+
+            $admin_menu = is_array($admin_menu) ? array_merge($rootMenuViews, $admin_menu) : $rootMenuViews;
+        }
     }
 
     // Prepare 1 or more, icon dropdown menu.
@@ -25,24 +36,43 @@ to a location of your choice, the default parameter its `ksoft.module.krud.heade
     }
 
 @endphp
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark box-shadow">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark box-shadow larappHead">
   <div class="d-flex justify-content-between container">
     <a href="{!!$dashboard_url!!}" class="my-auto mr-4 brand-margin navbar-brand">
-      <span>{{ config('app.name', 'Klaravel by Sunnyface.com')}}</span>
+        <img src="{{array_get($site_settings,'icon')}}" class="headerNavLogo" alt="{{ array_get($site_settings,'name') }}" title="{{ array_get($site_settings,'name') }}">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="true" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" />
     </button>
-    @include('klaravel::_parts.header_menu', [
+    @component('klaravel::_parts.header_menu', [
         'croute' => Route::currentRouteName(),
         'admin_menu' => $admin_menu ?: [],
         'settings_menu_enabled' => isset($settings_menu) && count($settings_menu)>0,
         'settings_menu' => [
-            '<i class="fas fa-cog"></i>' => $settings_menu ?? [],
+            '<i class="fas fa-cog fa-fw mr-2"></i>' => $settings_menu ?? [],
+            '<i class="fas fa-users fa-fw mr-2"></i>' => 'log-viewer::logs.list' ,
         ],
     ])
+        // add extra menu item at end of left menu as $slot
+        <li class="nav-item">
+          <a href="#" class="nav-link mx-3 mt-1">Extra menu</a>
+        </li>
+    @endcomponent
   </div>
 </nav>
+
+@push('scripts')
+    <style media="screen">
+    .headerNavLogo {
+      width: 36px;
+      box-shadow: 2px 2px;
+      border-radius: 5px;
+      /* margin-right: 8px; */
+      height: auto;
+      vertical-align: middle;
+    }
+    </style>
+@endpush
 ```
 
 #### Menu from configuration

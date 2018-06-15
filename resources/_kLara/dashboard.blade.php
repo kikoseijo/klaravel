@@ -8,10 +8,10 @@ $dashMenu = [
      "link" => route('kLara.wiki', 'scaffold'),
    ],
    [
-       "img" => "https://dummyimage.com/348x160/343a40/fff.png?text=Route::List",
-       "title" => "List routes",
-       "Text" => "A searchable list of all your defined routes.",
-       "link" => route('kLara.routes.index'),
+     "img" => "https://dummyimage.com/348x160/343a40/fff.png?text=Header+and+Menu",
+     "title" => "Header, menu and footer layout",
+     "Text" => "Ready to use header component explained in detail with sources.",
+     "link" => route('kLara.wiki', 'layouts'),
    ],
    [
        "img" => "https://dummyimage.com/348x160/343a40/fff.png?text=How+to+-+Wiki",
@@ -32,10 +32,10 @@ $dashMenu = [
      "link" => route('kLara.wiki', 'components'),
    ],
    [
-     "img" => "https://dummyimage.com/348x160/343a40/fff.png?text=Header+and+Menu",
-     "title" => "Header, menu and footer layout",
-     "Text" => "Ready to use header component explained in detail with sources.",
-     "link" => route('kLara.wiki', 'layouts'),
+       "img" => "https://dummyimage.com/348x160/343a40/fff.png?text=Route::List",
+       "title" => "List routes",
+       "Text" => "A searchable list of all your defined routes.",
+       "link" => route('kLara.routes.index'),
    ],
    [
      "img" => "https://dummyimage.com/348x160/343a40/fff.png?text=Developer+tools",

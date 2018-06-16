@@ -2,7 +2,7 @@
 
 Install
 
-`composer require spatie/eloquent-tags`
+`composer require spatie/laravel-tags`
 
 Migrations
 

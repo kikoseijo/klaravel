@@ -1,10 +1,17 @@
 <!-- klaravel::ui.tables.btn-delete -->
-<a class="btn btn-danger" data-toggle="tooltip" title="Delete record"
-    onclick="event.preventDefault(); if (confirm('Confirm delete?')){ document.getElementById('delete-item-{{$item->id}}').submit();}"
-    href="{{ route_has($model_name.'.index') }}">
+@php
+    $deleteBtnEnabled = !isset($hide_delete) || (isset($hide_delete) && $hide_delete == false);
+    $deleteBtnLink = $deleteBtnEnabled ? route_has($model_name.'.index') : '#disabled';
+    $confirmMsg = "event.preventDefault(); if (confirm('Confirm delete?')){ document.getElementById('delete-item-{$item->id}').submit();}";
+@endphp
+<a class="btn btn-danger" {!!$deleteBtnEnabled?'data-toggle="tooltip" title="Delete record"':''!!}
+    onclick="{!! $deleteBtnEnabled ? $confirmMsg : '' !!}"  href="{{ $deleteBtnLink }}">
   <i class="far fa-trash-alt" aria-hidden="true"></i>
 </a>
-<form id="delete-item-{{$item->id}}" action="{{ route_has($model_name.'.destroy', $item->id) }}" method="POST" style="display: none;">
-    @csrf
-    <input type="hidden" name="_method" value="delete" />
-</form>
+
+@if ($deleteBtnEnabled)
+    <form id="delete-item-{{$item->id}}" action="{{ route_has($model_name.'.destroy', $item->id) }}" method="POST" style="display: none;">
+        @csrf
+        <input type="hidden" name="_method" value="delete" />
+    </form>
+@endif

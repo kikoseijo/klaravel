@@ -1,6 +1,6 @@
 <!-- klaravel::_parts.footer -->
 @php
-    $gitVersion = Larapp::call('Ksoft\Klaravel\Utils\QuickGit@toString');
+    $gitVersion = trim(exec('git log --pretty="%h" -n1 HEAD'));
 @endphp
 <footer class="py-5 mb-3">
     <div class="container">
@@ -17,7 +17,7 @@
             @else
                 © {{date('Y')}}
             @endif
-            
+
             @if(app()->environment() == 'production')
                 <span class="badge badge-success px-2 ml-3">
                    <i class="fas fa-fighter-jet mr-1"></i> Production {{$gitVersion}}

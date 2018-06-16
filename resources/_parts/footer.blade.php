@@ -20,11 +20,11 @@
 
             @if(app()->environment() == 'production')
                 <span class="badge badge-success px-2 ml-3">
-                   <i class="fas fa-fighter-jet mr-1"></i> Production {{$gitVersion}}
+                   <i class="fas fa-fw fa-fighter-jet mr-1"></i> Prod. <small>({{$gitVersion}})</small>
                 </span>
             @else
                 <span class="badge badge-warning px-2 ml-3">
-                   <i class="fas fa-wrench mr-1"></i> Development {{$gitVersion}}
+                   <i class="fas fa-fw fa-wrench mr-1"></i> Dev <small>({{$gitVersion}})</small>
                 </span>
             @endif
         </div>

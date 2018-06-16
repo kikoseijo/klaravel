@@ -33,7 +33,9 @@ trait CanUploadMedia
 
     public function remove($id, Media $media)
     {
-        $media->delete();
+        $record = $this->repo->find($id);
+        $record->deleteMedia($media); // Fix for deleting the media from storage also.
+
         return redirect(route($this->path.'.edit', $id).'#fotos')->with('flash_message', 'Media removed succesfully.');
     }
 

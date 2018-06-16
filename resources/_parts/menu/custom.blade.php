@@ -2,6 +2,9 @@
     <!-- klaravel::_parts.menu.custom -->
 
     @foreach ($admin_menu as $menuRoute => $menuLabel)
+        @php
+            $is_active_class = $croute == $menuRoute || in_array($preroute, explode('.',$menuRoute)) ? ' active':'';
+        @endphp
         @if (is_array($menuLabel))
 
             @if (count($menuLabel) == 1)
@@ -11,7 +14,7 @@
                 @endphp
                 <li class="nav-item" role="presentation">
                     <a href="{{ route_has($menuRoute) }}"
-                        class="nav-link{{ $croute == $menuRoute || str_contains($menuRoute, $preroute) ? ' active':''}}"
+                        class="nav-link{{ $is_active_class }}"
                         data-toggle="tooltip" title="{!! array_first($menuLabel) !!}">
 
                         {!! $singleLabel !!}
@@ -37,8 +40,8 @@
             @endif
         @else
             <li class="nav-item" role="presentation">
-                <a href="{{ route_has($menuRoute) }}" class="nav-link{{ $croute == $menuRoute || str_contains($menuRoute, $preroute) ? ' active':''}}">
-                    {!! $menuLabel !!}
+                <a href="{{ route_has($menuRoute) }}" class="nav-link{{ $is_active_class }}">
+                    {!! $menuLabel !!} 
                 </a>
             </li>
         @endif

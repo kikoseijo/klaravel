@@ -32,7 +32,7 @@
                         <td class="text-center align-middle">
                             @component('klaravel::ui.button-group',['class' => 'btn-group-sm'])
                                 <a href="{{ route('kLogs.delete', $logItem->id) }}" class="btn btn-danger btn-sm">
-                                    <i class="far fa-trash-alt"></i>
+                                    <i class="fas fa-trash-alt fa-fw"></i>
                                 </a>
                             @endcomponent
                         </td>

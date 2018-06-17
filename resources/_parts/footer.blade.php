@@ -29,7 +29,7 @@
             @endif
         </div>
         <div class="footer__credits">
-            Made with <i class="far fa-heart text-danger pulse"></i> in Malaga, Spain.
+            Made with <i class="far  fa-fw fa-heart text-danger pulse"></i> in Malaga, Spain.
             &nbsp;Created by
             <a href="http://kikoseijo.com" title="programador y diseñador de aplicaciones móviles en Málaga">
                 Kiko Seijo

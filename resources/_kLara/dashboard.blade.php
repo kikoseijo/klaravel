@@ -64,9 +64,9 @@ $dashMenu = [
                             <p class="card-text">
                                 {!! nl2br($dashValue["Text"]) !!}
                                 <a href="{!! $dashValue["link"] !!}" class="ml-1">
-                                    <i class="fas fa-chevron-right ml-1"></i>
-                                    <i class="fas fa-chevron-right ml-1"></i>
-                                    <i class="fas fa-chevron-right ml-1"></i>
+                                    <i class="fas fa-fw fa-chevron-right ml-1"></i>
+                                    <i class="fas fa-fw fa-chevron-right ml-1"></i>
+                                    <i class="fas fa-fw fa-chevron-right ml-1"></i>
                                 </a>
                             </p>
                         </div>

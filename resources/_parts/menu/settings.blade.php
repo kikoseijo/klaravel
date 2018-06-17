@@ -25,7 +25,7 @@
         <!-- klaravel::_parts.menu.settings -->
         <li class="nav-item">
             <a href="{{route('kLara.wiki','layouts')}}#layouts-settings" class="nav-link" data-toggle="tooltip" title="Enable settings menu">
-                <i class="far fa-cogs text-info"></i>
+                <i class="far fa-cogs fa-fw text-info"></i>
             </a>
         </li>
     @endif

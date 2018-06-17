@@ -21,10 +21,10 @@
                     <td class="text-center">
                         <div class="btn-group btn-group-sm" role="group" aria-label="name-id">
                             <a class="btn btn-primary" href="{{ url( $routeName . '/download/'.$backup['file_name']) }}">
-                                <i class="far fa-cloud-download-alt mr-1"></i>
+                                <i class="far fa-cloud-download-alt fa-fw"></i>
                             </a>
                             <a class="btn btn-danger" data-button-type="delete" href="{{ url($routeName . '/delete/'.$backup['file_name']) }}">
-                                <i class="far fa-trash-alt mr-1"></i>
+                                <i class="far fa-trash-alt fa-fw"></i>
 
                             </a>
                         </div>

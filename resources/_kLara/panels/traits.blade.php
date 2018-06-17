@@ -31,8 +31,8 @@
             <div class="tab-pane fade" id="trait-repositories" role="tabpanel" aria-labelledby="trait-repositories-tab">
                 @component('klaravel::ui.tab', [
                   'tabs' => [
-                    'repo-help' => '<i class="far fa-info mr-1"></i> Usage information',
-                    'repo-trait' => '<span class="text-warning"><i class="far fa-code mr-1"></i> Source code</span>'
+                    'repo-help' => '<i class="far fa-info  fa-fw mr-1"></i> Usage information',
+                    'repo-trait' => '<span class="text-warning"><i class="far  fa-fw fa-code mr-1"></i> Source code</span>'
                   ]
                 ])
                     <div id="repo-help" class="tab-pane fade active show" role="tabpanel" aria-labelledby="repo-help-tab">
@@ -49,8 +49,8 @@
             <div class="tab-pane fade" id="trait-eloquent" role="tabpanel" aria-labelledby="trait-eloquent-tab">
                 @component('klaravel::ui.tab', [
                   'tabs' => [
-                    'elo-help' => '<i class="far fa-info mr-1"></i> Usage information',
-                    'elo-trait' => '<span class="text-warning"><i class="far fa-code mr-1"></i> Source code</span>'
+                    'elo-help' => '<i class="far  fa-fw fa-info mr-1"></i> Usage information',
+                    'elo-trait' => '<span class="text-warning"><i class="far  fa-fw fa-code mr-1"></i> Source code</span>'
                   ]
                 ])
                     <div id="elo-help" class="tab-pane fade active show" role="tabpanel" aria-labelledby="elo-help-tab">

@@ -12,12 +12,12 @@
             ])
                 <li class="nav-item active mr-3">
                     <a href="{{ route('kLogs.index') }}" data-toggle="tooltip" class="nav-link text-primary" title="Clear all filters and reload">
-                        <i class="far fa-eraser mr-1"></i>
+                        <i class="far fa-eraser fa-fw mr-1"></i>
                     </a>
                 </li>
 
                 @component('klaravel::ui.dropdown', [
-                    'title' => '<i class="far fa-filter mr-1"></i> '. (request()->filled('tag') != ''
+                    'title' => '<i class="far fa-filter fa-fw mr-1"></i> '. (request()->filled('tag') != ''
                                         ? model_title(request('tag'))
                                         : 'Filter by Type'),
                     'class' => '  mr-3'
@@ -34,7 +34,7 @@
                 @endcomponent
 
                 @component('klaravel::ui.dropdown', [
-                    'title' => '<i class="far fa-filter mr-1"></i> '. (request()->filled('subject')
+                    'title' => '<i class="far fa-filter fa-fw mr-1"></i> '. (request()->filled('subject')
                                         ? model_title(request('subject'))
                                         : 'Filter by subject'),
                     'class' => '  mr-3'
@@ -51,7 +51,7 @@
 
                 <li class="nav-item active mr-3">
                     <a href="#mass-delete" data-toggle="modal" data-target="#klaravel-logs-mass-delete" class="nav-link text-primary" title="Open mass purge dialog">
-                        <i class="far fa-trash-alt mr-1" aria-hidden="true"></i> Mass purge
+                        <i class="far fa-trash-alt fa-fw mr-1" aria-hidden="true"></i> Mass purge
                     </a>
                 </li>
             @endcomponent
@@ -98,7 +98,7 @@
             </div>
             <div class="modal-footer justify-content-center py-4">
                 <button type="submit" class="btn btn-lg btn-danger">
-                    <i class="far fa-exclamation-triangle mr-2"></i>
+                    <i class="far fa-exclamation-triangle fa-fw mr-2"></i>
                      Yes, delete. &nbsp;<small> (Procceed to precaution!)</small>
                 </button>
             </div>

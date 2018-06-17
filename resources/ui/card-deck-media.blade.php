@@ -30,12 +30,12 @@
                 <div class="btn-group btn-group-sm">
                     @isset($remove_url)
                         <a href="{{$remove_url.'/'.$mediaItem->id}}" data-toggle="tooltip" title="Delete image" class="btn btn-danger">
-                            <i class="far fa-trash-alt"></i>
+                            <i class="far fa-trash-alt fa-fw"></i>
                         </a>
                     @endisset
                     @isset($make_default_url)
                         <a href="{{$make_default_url.'/'.$mediaItem->id}}" data-toggle="tooltip" title="Order #1st" class="btn btn-secondary">
-                            <i class="fas fa-filter"></i> {{$mediaItem->order_column}}
+                            <i class="fas fa-filter fa-fw mr-1"></i> {{$mediaItem->order_column}}
                         </a>
                     @endisset
                 </div>

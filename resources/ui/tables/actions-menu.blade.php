@@ -9,7 +9,7 @@
             @if (!isset($hide_add_menu))
                 <li class="nav-item active mr-3">
                     <a href="{{ route_has($model_name.'.create') }}" data-toggle="tooltip" class="nav-link text-primary" title="Add New record">
-                        <i class="far fa-plus" aria-hidden="true"></i> Add new
+                        <i class="far fa-plus fa-fw" aria-hidden="true"></i> Add new
                     </a>
                 </li>
             @endif
@@ -19,7 +19,7 @@
             @if (!isset($hide_per_page))
                 <li class="nav-item dropdown mr-3">
                     <a class="nav-link dropdown-toggle" title="Num. records per page" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                        <i class="far fa-table" aria-hidden="true"></i> {{session(config('ksoft.CONSTANTS.take', 'PER_PAGE'))}}
+                        <i class="far fa-table fa-fw mr-1" aria-hidden="true"></i> {{session(config('ksoft.CONSTANTS.take', 'PER_PAGE'))}}
                     </a>
                     <div class="dropdown-menu">
                         @foreach ([5, 10, 20, 50] as $perPage )
@@ -41,7 +41,7 @@
                     <input type="text" class="form-control" name="q" placeholder="Search..." value="{{ request('q') }}">
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary" type="submit">
-                        <i class="far fa-search"></i>
+                        <i class="far fa-search fa-fw"></i>
                       </button>
                     </div>
                 </div>

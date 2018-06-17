@@ -19,7 +19,7 @@
                     <td>{{ $record->key }}</td>
                     <td class="text-center mx-3">
                         <a href="{{ route('kCache.delete', $record->key) }}" class="btn btn-danger btn-sm">
-                            <i class="far fa-trash-alt"></i>
+                            <i class="far fa-trash-alt fa-fw"></i>
                         </a>
                     </td>
                 </tr>

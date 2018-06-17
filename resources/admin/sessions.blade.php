@@ -11,14 +11,14 @@
             ])
                 <li class="nav-item active mr-3">
                     <a href="{{ route('kSessions.index') }}?limit=X" data-toggle="tooltip" class="nav-link text-primary" title="Clear all filters and reload">
-                        <i class="far fa-eraser mr-1"></i>
+                        <i class="far fa-eraser mr-1  fa-fw"></i>
                     </a>
                 </li>
                 @php
                     $tLimit = session(SESSION_TIME_LIMIT_CACHE);
                 @endphp
                 @component('klaravel::ui.dropdown', [
-                    'title' => '<i class="far fa-clock mr-1"></i> '. ($tLimit ?: 'No time limit'),
+                    'title' => '<i class="far fa-clock fa-fw mr-1"></i> '. ($tLimit ?: 'No time limit'),
                     'class' => '  mr-3',
                     'active' => $tLimit != '',
                  ])

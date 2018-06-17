@@ -6,7 +6,7 @@
             @component('klaravel::ui.menu-nav')
                 <li class="nav-item active mr-3">
                     <a href="{{ route('kBackup.create_db') }}" data-toggle="tooltip" class="nav-link text-primary" title="New database backup">
-                        <i class="far fa-database mr-1" aria-hidden="true"></i> Database backup
+                        <i class="far fa-database fa-fw mr-1" aria-hidden="true"></i> Database backup
                     </a>
                 </li>
                 @if (config('ksoft.module.backup.can_see_full_backups'))
@@ -15,7 +15,7 @@
                             data-toggle="tooltip"
                             class="nav-link text-primary"
                             title="New full backup using config(ksoft.modules.backup.extra_arguments) configuration">
-                            <i class="far fa-folder mr-1" aria-hidden="true"></i> Full backup
+                            <i class="far fa-folder fa-fw mr-1" aria-hidden="true"></i> Full backup
                         </a>
                     </li>
                 @endif

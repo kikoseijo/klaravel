@@ -4,7 +4,7 @@
             <caption class="text-right">@includeIf('klaravel::ui.tables.count',['records' => $sessions])</caption>
             <thead class="{{config('ksoft.style.thead')}}">
                 <tr>
-                    <th><i class="far fa-calendar-alt"></i></th>
+                    <th><i class="far fa-calendar-alt fa-fw"></i></th>
                     <th>IP</th>
                     <th>Referer</th>
                     <th>Last page viewed</th>
@@ -33,7 +33,7 @@
                         <td>
                             @if ($referer)
                                 <a href="{{ $referer}}" data-toggle="tooltip" title="{{$referer}}" target="_blank">
-                                    <i class="far fa-external-link-square-alt"></i> {{str_limit(last(explode('/', $referer)),34)}}
+                                    <i class="far fa-external-link-square-alt fa-fw mr-1"></i> {{str_limit(last(explode('/', $referer)),34)}}
                                 </a>
                             @endif
                         </td>
@@ -41,7 +41,7 @@
                             @if ($currentUrl)
                                 <div class="excerpt text-truncate" style="max-width:600px;">
                                     <a href="{{ $currentUrl}}" data-toggle="tooltip" title="{{$currentUrl}}" target="_blank">
-                                        <i class="far fa-external-link-square-alt"></i>
+                                        <i class="far fa-external-link-square-alt fa-fw"></i>
                                     </a>
                                     {{ $currentUrl}}
                                 </div>
@@ -50,7 +50,7 @@
                         <td class="text-center align-middle">
                             @if($session->user_id)
                                 <a href="#tooltip" data-toogle="tooltip" title="{{ $session->visitor->name }}">
-                                    <i class="far fa-users"></i>
+                                    <i class="far fa-users fa-fw"></i>
                                 </a>
                             @else
                                 -
@@ -58,7 +58,7 @@
                         </td>
                         <td style="width:60px;" class="text-center align-middle">
                             <a href="{{ route('kSessions.delete', $session->id) }}" class="btn btn-danger btn-sm">
-                                <i class="far fa-trash-alt"></i>
+                                <i class="fas fa-trash-alt fa-fw"></i>
                             </a>
                         </td>
                     </tr>

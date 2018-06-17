@@ -12,7 +12,7 @@
     </a> --}}
     @if (!isset($hide_edit) || (isset($hide_edit) && !$hide_edit))
         <a href="{{route_has($model_name.'.edit', $item->id)}}" data-toggle="tooltip" title="Edit record" class="btn btn-primary">
-            <i class="far fa-edit" aria-hidden="true"></i>
+            <i class="fas fa-fw fa-pencil-alt" aria-hidden="true"></i>
         </a>
     @endif
 

@@ -6,7 +6,7 @@
 @endphp
 <a class="btn btn-danger" {!!$deleteBtnEnabled?'data-toggle="tooltip" title="Delete record"':''!!}
     onclick="{!! $deleteBtnEnabled ? $confirmMsg : '' !!}"  href="{{ $deleteBtnLink }}">
-  <i class="far fa-trash-alt" aria-hidden="true"></i>
+  <i class="fas fa-trash-alt fa-fw" aria-hidden="true"></i>
 </a>
 
 @if ($deleteBtnEnabled)

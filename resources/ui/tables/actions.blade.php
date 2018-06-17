@@ -1,5 +1,5 @@
 <!-- klaravel::ui.tables.actions -->
-<td style="{{$style or ''}}" class="align-middle text-center">
+<td style="{{$style or ''}}" class="align-middle text-right">
   <div class="btn-group{{isset($size)?' btn-group-'. $size:''}} klara-bt-group" role="group">
 
     {{-- @php

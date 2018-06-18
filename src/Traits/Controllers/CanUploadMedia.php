@@ -16,7 +16,7 @@ use Spatie\MediaLibrary\Models\Media;
  * <file-upload-component
  *    :fotos="[]"
  *        :is-multiple="true"
- *        base-url="{{route_has($model_name.'.media.upload', $record->id)}}"
+ *        base-url="{{route_has($model_name.'.media.upload', $record)}}"
  *        record-id="{{$record->id}}">
  *    </file-upload-component>
  * props: ['fotos', 'recordId', 'baseUrl', 'isMultiple'],

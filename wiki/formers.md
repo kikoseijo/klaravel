@@ -41,7 +41,7 @@ Checkboxes and radios having issues with alignments, use the components or by ha
 
 ```php
 {!! Former::open_for_files()
-    ->route($model_name . '.update', $record->id  )
+    ->route($model_name . '.update', $record  )
     ->populate( $record )
 !!}
   ...

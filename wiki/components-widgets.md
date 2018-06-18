@@ -75,7 +75,6 @@ of predefined classes, you can find more in the [official Bootstrap4 documentati
 ])
 ```
 
-
 #### Modal
 
 ```
@@ -101,7 +100,6 @@ And this could be the body of your modal on a separate file `parts/modal-with-fo
 {!! Former::close() !!}
 ```
 
-
 #### Tab
 
 ```
@@ -113,7 +111,7 @@ And this could be the body of your modal on a separate file `parts/modal-with-fo
 ])
     <div id="settings" class="tab-pane fade active show" role="tabpanel" aria-labelledby="settings-tab">
         {!! Former::open()
-            ->route($model_name . '.update', $record->id  )
+            ->route($model_name . '.update', $record  )
             ->populate( $record )
             ->open_for_files() !!}
             @include ('backend.'.$model_name.'.form', ['submitButtonText' => 'Update records'])

@@ -67,15 +67,15 @@ On your blade, using components.
             :fotos="[]"
             help="Recommended image size 1100x400 pixels"
             :is-multiple="true"
-            base-url="{{route_has($model_name.'.media.upload', $record->id)}}"
+            base-url="{{route_has($model_name.'.media.upload', $record)}}"
             record-id="{{$record->id}}">
         </klaravel-element-upload>
     </div>
     <div class="col-sm-8">
         @include('klaravel::ui.card-deck-media', [
             'medias' => $record->media,
-            'remove_url' => route_has($model_name.'.media.remove', $record->id),
-            'make_default_url' => route_has($model_name.'.media.makedefault', $record->id)
+            'remove_url' => route_has($model_name.'.media.remove', $record),
+            'make_default_url' => route_has($model_name.'.media.makedefault', $record)
         ])
     </div>
 </div>

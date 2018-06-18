@@ -56,7 +56,7 @@ inside you component folder and the BaseKrudController will defaults to your fil
     <div class="{{$crudWrapperClass}}">
         @card()
             {!! Former::open_for_files()
-                ->route($model_name . '.update', $record->id  )
+                ->route($model_name . '.update', $record  )
                 ->populate( $record )
             !!}
             @includeIf($viewsBasePath.$model_name.'.form', ['submitButtonText' => 'Update'])

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ksoft\Klaravel;
+namespace Ksoft\Klaravel\Routing;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

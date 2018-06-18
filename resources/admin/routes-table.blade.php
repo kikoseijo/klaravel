@@ -1,5 +1,5 @@
 @if (count($routes))
-    <table class="{{config('ksoft.style.table_style')}}">
+    <table class="{{config('ksoft.style.table_style')}} table-sm">
         <thead class="thead-dark">
             <tr>
                 <th></th>
@@ -33,10 +33,36 @@
                 <tr>
 
                     <td class="text-center">@include('klaravel::ui.badge',['type' => $action_color, 'title'=> $action_value])</td>
-                    <td><a href="{{ url($route['uri']) }}" target="_blank">{{ $route['uri'] }}</a></td>
-                    <td><a href="#show" data-toggle="tooltip" title="{{$action}}">{{ isset($action) ? last(explode('\\', $action)) : '' }}</a></td>
-                    <td>{{ $route_name }}</td>
-                    <td class="text-center">{{ isset($middleware) ? last(explode('\\', $middleware)) : '-' }}</td>
+                    <td>
+                        <a href="{{ url($route['uri']) }}" target="_blank" class="small">
+                            {{ $route['uri'] }}
+                        </a>
+                    </td>
+                    <td><a href="#show" class="small" data-toggle="tooltip" title="{{$action}}">{{ isset($action) ? last(explode('\\', $action)) : '' }}</a></td>
+                    <td><span class="small text-dark">{{ $route_name }}</span></td>
+                    <td class="text-center">
+                        @php
+                            $middles = explode(',', $middleware);
+                        @endphp
+                        @foreach ($middles as $sMiddle)
+                            @if (str_contains($sMiddle,':'))
+                                @php
+                                    $accumulated = $sMiddle;
+                                @endphp
+                                @continue
+                            @endif
+                            @php
+                                if (isset($accumulated)) {
+                                    $sMiddle=$accumulated.','.$sMiddle;
+                                    unset($accumulated);
+                                }
+                            @endphp
+                            {!! $loop->index >1 && str_contains($sMiddle,'\\') ? '<br />' : '' !!}
+                            @include('klaravel::ui.badge',['type' => 'dark', 'title'=> $sMiddle ])
+
+                        @endforeach
+                    </td>
+                    {{-- <td class="text-center">{{ isset($middleware) ? last(explode('\\', $middleware)) : '-' }}</td> --}}
                     <td>{{ $route['host'] }}</td>
 
                 </tr>

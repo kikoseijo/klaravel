@@ -14,6 +14,9 @@
               <a class="nav-link py-2" id="krud-repo-filters-tab" data-toggle="tab" href="#krud-repo-filters">Repository <small>(Query filters)</small></a>
           </li>
           <li class="nav-item border-top">
+              <a class="nav-link py-2" id="krud-policy-tab" data-toggle="tab" href="#krud-policy">Policy resource</a>
+          </li>
+          <li class="nav-item border-top">
               <a class="nav-link py-2" id="krud-views-tab" data-toggle="tab" href="#krud-views">Krud Reusable views</a>
           </li>
           <li class="nav-item border-top">
@@ -31,6 +34,9 @@
             </div>
             <div class="tab-pane fade" id="krud-help" role="tabpanel" aria-labelledby="krud-help-tab">
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/krud-help.md')) !!}
+            </div>
+            <div class="tab-pane fade" id="krud-policy" role="tabpanel" aria-labelledby="krud-policy-tab">
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/krud-policy.md')) !!}
             </div>
             <div class="tab-pane fade" id="krud-views" role="tabpanel" aria-labelledby="krud-views-tab">
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/krud-views.md')) !!}
@@ -54,7 +60,7 @@
                 <h1>Krud base layout</h1>
                 <p class="mt-3">Extend your blade views or copy paste to your project folder</p>
                 <pre class="mb-0 pb-0">
-                    <code>&#64;extends('klaravel::layouts.crud')</code>
+                    <code>&#64;extends(config('ksoft.krud.layout', 'klaravel::layouts.crud'))</code>
                 </pre>
                 <p>
                     Pay attention on available <strong>&#64;stack</strong>

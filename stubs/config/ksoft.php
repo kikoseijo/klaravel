@@ -75,6 +75,7 @@ return [
         ],
         'crud' => [ // Scaffold generator route('kLara.krud.gen')
             'enabled' => true,
+            'layout' => 'klaravel::layouts.crud',
             'header' => 'klaravel::_parts.header', // @includeIf()
             'footer' => 'klaravel::_parts.footer',
             'errors' => 'klaravel::ui.errors',

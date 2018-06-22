@@ -19,7 +19,7 @@
                 </a>
             </td>
             <td><a href="{{route($model_name.'.edit', $item->id)}}">{{ $item->name }}</a></td>
-            <td class="align-middle text-right">{{$item->created_at->diffForHumans()}}</td>
+            <td class="align-middle text-right">{{ isset($item->created_at)? $item->created_at->diffForHumans():'-'}}</td>
             @include('klaravel::ui.tables.actions', ['size' => 'sm'])
         </tr>
     @endforeach

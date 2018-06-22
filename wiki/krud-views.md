@@ -8,7 +8,7 @@ inside you component folder and the BaseKrudController will defaults to your fil
 `index.blade.php`
 
 ```
-@extends('klaravel::layouts.crud')
+@extends(config('ksoft.module.crud.layout', 'klaravel::layouts.crud'))
 
 @section('content')
     <div class="{{$crudWrapperClass}}">
@@ -32,7 +32,7 @@ inside you component folder and the BaseKrudController will defaults to your fil
 `create.blade.php`
 
 ```
-@extends('klaravel::layouts.crud')
+@extends(config('ksoft.module.crud.layout', 'klaravel::layouts.crud'))
 
 @section('content')
     <div class="{{$crudWrapperClass}}">
@@ -50,7 +50,7 @@ inside you component folder and the BaseKrudController will defaults to your fil
 `edit.blade.php`
 
 ```
-@extends('klaravel::layouts.crud')
+@extends(config('ksoft.module.crud.layout', 'klaravel::layouts.crud'))
 
 @section('content')
     <div class="{{$crudWrapperClass}}">

@@ -224,6 +224,8 @@ class MakeKrud extends Command
         $this->info("######################################");
         $this->info("");
 
+        $baseLayout = config('ksoft.module.crud.layout', 'klaravel::layouts.crud');
+
         $viewDir = kebab_case($this->model_name);
         $fileDirectory = app()->basePath().'/resources/views/'.$viewDir;
         if (!$this->fileManager->exists($fileDirectory)) {
@@ -232,6 +234,7 @@ class MakeKrud extends Command
                 $finalPath = $fileDirectory.'/'.$stub.'.blade.php';
                 $content  = $this->fileManager->get(KLARAVEL_PATH.'/stubs/krud/'.$stub.'.blade.php');
                 $content = str_replace('%model_name_url%', $viewDir, $content);
+                $content = str_replace('%base_layout%', $baseLayout, $content);
                 $this->fileManager->put($finalPath, $content);
                 $this->info($stub . ' saved succesfully to ' . $finalPath);
             }

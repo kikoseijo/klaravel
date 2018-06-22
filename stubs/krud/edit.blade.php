@@ -1,5 +1,4 @@
-<!-- klaravel::crud.edit -->
-@extends(config('ksoft.module.crud.layout', 'klaravel::layouts.crud'))
+@extends('%base_layout%')
 
 @section('content')
     <div class="{{$crudWrapperClass}}">

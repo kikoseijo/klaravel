@@ -1,7 +1,6 @@
 {
   "name": "ksoft/klaravel",
-  "description":
-    "Laravel control panel for developers, comes with integrated Scaffold generator, backups, logs, and built in instructions.",
+  "description": "Laravel control panel for developers, comes with integrated Scaffold generator, backups, logs, and built in instructions.",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -14,19 +13,19 @@
     "psr-4": {
       "Ksoft\\Klaravel\\": "src/"
     },
-    "files": ["src/helpers.php"]
+    "files": [
+      "src/helpers.php"
+    ]
   },
   "config": {
     "sort-packages": true
   },
   "require": {
     "anahkiasen/former": "^4.1",
-    "doctrine/dbal": "^2.6",
     "jenssegers/date": "^3.3",
     "league/commonmark": "^0.17.1",
     "spatie/laravel-activitylog": "^2.5",
-    "spatie/laravel-backup": "^5.2",
-    "zircote/swagger-php": "^2.0"
+    "spatie/laravel-backup": "^5.2"
   },
   "require-dev": {
     "laravel/laravel": "5.6.*",
@@ -34,7 +33,9 @@
   },
   "extra": {
     "laravel": {
-      "providers": ["Ksoft\\Klaravel\\ServiceProvider"],
+      "providers": [
+        "Ksoft\\Klaravel\\ServiceProvider"
+      ],
       "aliases": {
         "Larapp": "Ksoft\\Klaravel\\Facade"
       }

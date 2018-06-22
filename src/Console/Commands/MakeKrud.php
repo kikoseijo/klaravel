@@ -21,7 +21,6 @@ class MakeKrud extends Command
     protected $signature = 'ksoft:krud
                             {model : table name from where you want CRUD generated}
                             {--R|no-routes : Avoids writing routes to api.php (Will still print it on screen)}
-                            {--W|swagger= : Optional, Without swagger annotations}
                             {--F|folder= : Optional, recommended Subfolder to save files to}
                             {--N|name= : Optional, customize the name for the file prefix, defaults to model name}
                             {--P|prefix= : provide an optional route prefix}';
@@ -121,11 +120,6 @@ class MakeKrud extends Command
         $content  = $this->fileManager->get(KLARAVEL_PATH.'/stubs'.$stub);
         $fileName = $this->getFileName($stub);
 
-        if ($this->option('swagger')){
-            $swaggerAnn = $this->fileManager->get(KLARAVEL_PATH.'/stubs/');
-            $content = str_replace('%SwaggerAnnotations%', $swaggerAnn, $content);
-        }
-
         $modelSingularName = str_singular($this->model_name);
         $subfolderName     = $this->option('folder') ? '\\'.$this->option('folder') : '';
 
@@ -133,7 +127,6 @@ class MakeKrud extends Command
             '%folder%'         => $this->option('folder'),
             '%subfolder%'      => $subfolderName,
             '%model%'          => $this->option('name') ?? $this->model_name,
-            '%SwaggerAnnotations%' => '',
             '%modelSingular%'  => $modelSingularName,
             '%model_path%'     => $this->namespace_model,
             '%table_name%'     => snake_case($this->model_name),

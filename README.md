@@ -99,9 +99,7 @@ from installation.
 [spatie/laravel-activitylog](https://github.com/spatie/laravel-activitylog) Activity logs made easy.  
 [spatie/laravel-backup](https://github.com/spatie/laravel-backup) Backups made easy.  
 [jenssegers/date](jenssegers/date) Fast and efficient, the right choice.  
-[doctrine/dbal](https://github.com/doctrine/dbal) Db, eloquent, and much more.  
-[league/commonmark](https://commonmark.thephpleague.com) Easy to use, great results, documentation made easy.  
-[zircote/swagger-php](http://zircote.com/swagger-php/) Swagger for API documentation and more.
+[league/commonmark](https://commonmark.thephpleague.com) Easy to use, great results, documentation made easy.
 
 Coming soon...>
 

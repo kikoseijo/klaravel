@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Route;
 use Ksoft\Klaravel\Console\Commands\MakeKrud;
-use Ksoft\Klaravel\Console\Commands\BuildSwagger;
 use Ksoft\Klaravel\Console\Commands\PublishConfig;
 use Ksoft\Klaravel\Console\Commands\InstallPlugin;
 use Illuminate\Support\Facades\Blade;
@@ -94,7 +93,6 @@ class ServiceProvider extends BaseServiceProvider
         // if (config('ksoft.runtime_console') || $this->app->runningInConsole()) {
             $this->commands([
                 MakeKrud::class,
-                BuildSwagger::class,
                 PublishConfig::class,
                 InstallPlugin::class,
             ]);

@@ -22,6 +22,3 @@ class %model%Controller extends BaseCtrl
     }
 
 }
-
-
-%SwaggerAnnotations%

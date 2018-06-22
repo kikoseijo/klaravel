@@ -11,8 +11,8 @@
 */
 return [
 
-    'version' => '2.0.30', // for package footer version.
-    'file_version' => '2.0', // Will change when this file changes.
+    'version' => '3.0.0', // for package footer version.
+    'file_version' => '3.0', // Will change when this file changes.
     'models_path' => 'Models/', // defaults "Models/...."
     'backend_dashboard_route_name' => '',
     'klaravel_enabled' => true, // klaravel section route('kLara.index') + route('kLara.wiki')
@@ -41,31 +41,6 @@ return [
         // 'ksoft.plugins.index' => 'Plugins'
     ],
 
-    /**
-     * Swagger Builder configuration
-     * DEPRECATED---> in favor of GraphQL
-     */
-    'swagger' => [
-        'enabled' => false,
-        'constants' => [ // Dynamic constants implementations.
-            'API_HOST' => env('APP_URL', 'http://example.dev'),
-        ],
-        /**
-         * Where and how?
-         */
-        'docs_route' => '/docs',
-        'api_route' => '/api/documentation',
-        'json_path' => storage_path('api-docs'), // defautl "Models/"
-        'json_name' => 'api-docs.json',
-
-        /**
-         * Eventualy will generate crud from all models in a given path.
-         * TODO: implement this feature.
-         */
-        'excluded_models' => [
-            'Notification', 'TokenGuard',
-        ],
-    ],
     // Styles for base crud layouts.
     'style' => [
         'crud_container_wrapper' => 'container -body-block pb-5',

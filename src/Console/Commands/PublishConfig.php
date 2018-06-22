@@ -14,6 +14,7 @@ class PublishConfig extends Command
      */
     protected $signature = 'ksoft:publish
                         {--k|base-krud : Will publish BaseKrudController to App/Http/Controllers}
+                        {--k|base-ctrl : Will publish BaseCtrl (v2 of BaseKrud..)}
                         {--z|settings : Will publish base settings to config/settings/***.php}
                         {--c|config : Will publish config to config/ksoft.php}';
 
@@ -33,7 +34,7 @@ class PublishConfig extends Command
     {
         $this->info('Publish config files');
 
-        if ($this->option('base-krud') || $this->option('config') || $this->option('settings')) {
+        if ($this->option('base-krud') || $this->option('base-ctrl') || $this->option('config') || $this->option('settings')) {
             $this->withoutUserInteraction();
         } else {
             $this->withUserInteraction();
@@ -68,8 +69,12 @@ class PublishConfig extends Command
         }
 
         if ($this->option('base-krud')) {
-            $this->publishBaseKrud();
+            $this->publishBaseKrud('BaseKrudController');
             $this->info('Publish BaseKrudController file: <info>✔</info>');
+        }
+        if ($this->option('base-ctrl')) {
+            $this->publishBaseKrud();
+            $this->info('Publish BaseCtrl file: <info>✔</info>');
         }
     }
 
@@ -88,11 +93,11 @@ class PublishConfig extends Command
       );
     }
 
-    protected function publishBaseKrud(){
+    protected function publishBaseKrud($file='BaseCtrl'){
       (new Publisher($this))->publishFile(
-          KLARAVEL_PATH.'/stubs/Controllers/BaseKrudController.php',
+          KLARAVEL_PATH.'/stubs/Controllers/'.$file.'.php',
           base_path('app/Http/Controllers'),
-          'BaseKrudController.php'
+          $file.'.php'
       );
     }
 }

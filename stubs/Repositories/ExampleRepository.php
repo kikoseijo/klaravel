@@ -2,12 +2,11 @@
 
 namespace App\Repositories%subfolder%;
 
-use App\Contracts\Repositories%subfolder%\%model%Repository as Contract;
 use %model_path%;
 use Ksoft\Klaravel\Repositories\EloquentRepo;
 use Ksoft\Klaravel\Traits\QueryFiltersTrait;
 
-class %model%Repository extends EloquentRepo implements Contract
+class %model%Repository extends EloquentRepo
 {
     // use QueryFiltersTrait; // helpfull methods to search many fields.
     protected $query;
@@ -29,26 +28,8 @@ class %model%Repository extends EloquentRepo implements Contract
                 $query->orWhere($key, 'like', '%' . $qTerm . '%');
             }
         }
-
         // logi($query->toSql());
 
         return $query->paginate($perPage);
     }
-
-    /**
-     * @param  Illuminate\Http\Request $request
-     * @return Pagination|Collection|Array
-     */
-    public function withRelationships($request)
-    {
-        $search_term = $request->input('q') ?: '';
-
-        $queryBuilder = $this->model::where('id','>', 0);
-
-        return $this->paginateIf($queryBuilder->get());
-
-    }
-
-
-
 }

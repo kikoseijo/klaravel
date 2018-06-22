@@ -28,9 +28,10 @@ abstract class EloquentRepo implements Contract
     abstract protected function model();
 
     /**
+     * @param $perPage
      * @param $request
      */
-    abstract protected function withRelationships($request);
+    abstract protected function withPagination($perPage, $request);
 
     /**
      * [__construct ::]

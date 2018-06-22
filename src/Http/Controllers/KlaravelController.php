@@ -93,6 +93,8 @@ class KlaravelController extends Controller
             );
         } elseif ($request->file == 'config') {
             Artisan::call('ksoft:publish', ['--config' => 'true']);
+        } elseif ($request->file == 'base_ctrl') {
+            Artisan::call('ksoft:publish', ['--base-ctrl' => 'true']);
         } elseif ($request->file == 'base_controller') {
             Artisan::call('ksoft:publish', ['--base-krud' => 'true']);
         }

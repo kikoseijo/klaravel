@@ -8,7 +8,7 @@ use Ksoft\Klaravel\Traits\KrudControllerTrait;
 
 class BaseKrudController extends Controller
 {
-    use LumenResponsesTrait, KrudControllerTrait;
+    use LumenResponsesTrait, CallsInteractions;
 
     protected $repo;
     protected $path;

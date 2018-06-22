@@ -41,4 +41,10 @@
     BaseKrudController
 </a>
 
+<a href="{{route('kLara.publish')}}?file=base_ctrl"
+    onclick="javascript:return confirm('Are you sure?, Will overwrite existing configuration.')"
+    class="btn btn-secondary p-3">
+    BaseCtrl
+</a>
+
 <div class="w-100 my-5">&nbsp;</div>

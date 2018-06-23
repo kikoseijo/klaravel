@@ -394,7 +394,7 @@ class FormerBootstrap4 extends Framework implements FrameworkInterface
 		}
 
 		// Get class to use
-		$class = (strpos($item, '<button') !== false) ? 'btn' : 'addon';
+		$class = (strpos($item, '<button') !== false) ? 'btn' : 'text';
 
 		return Element::create('span', $item)->addClass('input-group-'.$class);
 	}
@@ -411,9 +411,10 @@ class FormerBootstrap4 extends Framework implements FrameworkInterface
 	public function prependAppend($field, $prepend, $append)
 	{
 		$return = '<div class="input-group">';
-		$return .= join(null, $prepend);
+		// $return .= join(null, $prepend);
+		$return .= Element::create('div', $prepend)->addClass('input-group-prepend');
 		$return .= $field->render();
-		$return .= join(null, $append);
+		$return .= Element::create('div', $append)->addClass('input-group-append');
 		$return .= '</div>';
 
 		return $return;

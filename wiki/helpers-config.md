@@ -2,8 +2,6 @@
 
 Further information can be found here: [https://github.com/oriceon/laravel-settings](https://github.com/oriceon/laravel-settings)
 
-<br />
-
 ### Install
 
 ```
@@ -11,8 +9,6 @@ composer require oriceon/laravel-settings
 php artisan vendor:publish --provider="Oriceon\Settings\SettingsServiceProvider" --force
 php artisan migrate
 ```
-
-<br />
 
 This library does a Db copy of the config, and persist user preferences on database with a file cache.
 
@@ -40,8 +36,6 @@ Update Klravel configuration in config/ksoft.php
 'menu_settings_config_location' => 'kapp.menu.config',
 ```
 
-<br />
-
 ### Backend routes
 
 ```php
@@ -51,8 +45,6 @@ foreach (config('kapp.menu.config') as $configKkey => $configVvalue) {
     Route::get('settings-edit/'.$settKey.'/', 'ConfigController@index')->name('settings.'.$settKey)->where('key',$settKey);
 }
 ```
-
-<br />
 
 ### Controller
 
@@ -87,8 +79,6 @@ class ConfigController extends Controller
     }
 }
 ```
-
-<br />
 
 ### Main Blade file settings.blade.php
 
@@ -152,8 +142,6 @@ class ConfigController extends Controller
     {!! Former::text($key) !!}
 @endif
 ```
-
-<br />
 
 ### Reference usage
 

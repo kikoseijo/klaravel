@@ -5,10 +5,13 @@
             <a class="nav-link py-2 active" id="helpers-commons-tab" data-toggle="tab" href="#helpers-commons">kLaravel integration</a>
           </li>
           <li class="nav-item border-top">
-            <a class="nav-link py-2" id="helpers-seeds-tab" data-toggle="tab" href="#helpers-seeds">Seeds</a>
+            <a class="nav-link py-2" id="helpers-seeds-tab" data-toggle="tab" href="#helpers-seeds">Seeding</a>
           </li>
           <li class="nav-item border-top">
-            <a class="nav-link py-2" id="helpers-passport-tab" data-toggle="tab" href="#helpers-passport">Laravel Passport</a>
+            <a class="nav-link py-2" id="helpers-passport-tab" data-toggle="tab" href="#helpers-passport">Passport (Laravel)</a>
+          </li>
+          <li class="nav-item border-top">
+            <a class="nav-link py-2" id="helpers-backups-tab" data-toggle="tab" href="#helpers-backups">Backup</a>
           </li>
           {{-- <li class="nav-item border-top">
             <a class="nav-link py-2" id="helpers-seo-tab" data-toggle="tab" href="#helpers-seo">SEO</a>
@@ -17,7 +20,7 @@
             <a class="nav-link py-2" id="helpers-validations-tab" data-toggle="tab" href="#helpers-validations">Validation rules</a>
           </li>
           <li class="nav-item border-top">
-            <a class="nav-link py-2" id="helpers-config-tab" data-toggle="tab" href="#helpers-config">DB Settings (config)</a>
+            <a class="nav-link py-2" id="helpers-config-tab" data-toggle="tab" href="#helpers-config">Settings (db)</a>
           </li>
           <li class="nav-item border-top">
             <a class="nav-link py-2" id="helpers-mailables-tab" data-toggle="tab" href="#helpers-mailables">Mailables</a>
@@ -57,6 +60,9 @@
             </div>
             <div class="tab-pane fade" id="helpers-passport" role="tabpanel" aria-labelledby="helpers-passport-tab">
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-passport.md')) !!}
+            </div>
+            <div class="tab-pane fade" id="helpers-backups" role="tabpanel" aria-labelledby="helpers-backups-tab">
+                {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-backups.md')) !!}
             </div>
             <div class="tab-pane fade" id="helpers-config" role="tabpanel" aria-labelledby="helpers-config-tab">
                 {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/helpers-config.md')) !!}

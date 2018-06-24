@@ -1,6 +1,6 @@
 # Integration helpers
 
-<br />
+Quick access instruccions
 
 ###### Klaravel nav button
 
@@ -8,8 +8,8 @@
 @includeif('klaravel::_parts.menu.klara')
 ```
 
-<br />
+###### Envoy template configuration
 
-###### Envoy.blade.php
+Used for quick and easy remote install and deploy.
 
 [https://gist.github.com/kikoseijo/205c49fbc66aba03bbb6d3ff456124ef](https://gist.github.com/kikoseijo/205c49fbc66aba03bbb6d3ff456124ef)

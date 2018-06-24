@@ -2,7 +2,6 @@
 
 All helper functions are declared with a `function_exists` conditional.
 
-
 ```php
 // Lowercases the string.
 function normalizeString($text, $limit): string {}
@@ -10,7 +9,7 @@ function normalizeString($text, $limit): string {}
 // Mardown converter
 function do_markdown($markdown): string {}
 
-// Model name to title_case with spaces
+// Model name to title_case replacing '_' with spaces
 function model_title($modelName): string {}
 
 // Pretty print arrays
@@ -41,6 +40,4 @@ function public_path($path = ''): string {}
 function logi($data): void {} // info
 function loge($data): void {} // error
 function logc($data): void {} // critical
-
-
 ```

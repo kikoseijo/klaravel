@@ -1,5 +1,7 @@
 <p align="center" style="margin-bottom:3rem;"><img src="/imgs/klaravel.png?raw=true"></p>
 
+> since version 3.0 Swagger its no longer included
+
 ## Klaravel (for lazy artisans)
 
 A flexible **developer´s control panel** to help you build faster Laravel´s applications, **Laravel 5.5+** and **PHP7.1+** recommended.

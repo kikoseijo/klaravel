@@ -1,3 +1,7 @@
+@php
+    $title = 'Caché configuration';
+@endphp
+
 @extends(config('ksoft.module.crud.layout', 'klaravel::layouts.crud'))
 
 @section('content')

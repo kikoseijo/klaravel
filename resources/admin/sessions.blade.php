@@ -1,3 +1,7 @@
+@php
+    $title = 'Activity sessions (kLaravel)';
+@endphp
+
 @extends(config('ksoft.module.crud.layout', 'klaravel::layouts.crud'))
 
 @section('content')

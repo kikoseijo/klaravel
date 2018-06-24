@@ -1,3 +1,6 @@
+@php
+    $title = 'Backups (db + filesystem)';
+@endphp
 @extends(config('ksoft.module.crud.layout', 'klaravel::layouts.crud'))
 
 @section('content')

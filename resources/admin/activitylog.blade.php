@@ -1,3 +1,7 @@
+@php
+    $title = 'Activity logs (db)';
+@endphp
+
 @extends(config('ksoft.module.crud.layout', 'klaravel::layouts.crud'))
 
 @section('content')

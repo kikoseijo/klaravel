@@ -1,4 +1,5 @@
 <!-- klaravel::ui.errors -->
+@includeIf('flash::message')
 @isset($errors)
     @if ($errors->any())
         <div class="container">

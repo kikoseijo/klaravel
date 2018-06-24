@@ -3,6 +3,9 @@
 
 @section('content')
     <div class="{{$crudWrapperClass}}">
+        @foreach (config('ksoft.module.crud.includes', []) as $viewToInclude)
+           @includeIf($viewToInclude)
+        @endforeach
         @card()
             {!! Former::open_for_files()
                 ->route($model_name . '.update', $record  )

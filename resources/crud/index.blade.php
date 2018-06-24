@@ -3,6 +3,9 @@
 
 @section('content')
     <div class="{{$crudWrapperClass}}">
+        @foreach (config('ksoft.module.crud.includes', []) as $viewToInclude)
+           @includeIf($viewToInclude)
+        @endforeach
         @card(['title' => 'Listing ' . title_case(str_plural($model_name))])
         @includeIf('klaravel::ui.tables.actions-menu')
         @if ($records->total()>0)

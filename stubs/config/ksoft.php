@@ -83,6 +83,9 @@ return [
             'pagination_query_params' => ['q', 'query', 'search'], // append to pagination loop.
             'session_range_from' => 'FROM_DATE', // persisted filter using session.
             'session_range_to' => 'TO_DATE',
+            'includes' => [ // views include inside section
+                // 'klaravel::ui.errors',
+            ],
             'assets' => [
                 'css/app.css', // laravel defaults works, (using Bootstrap4)
             ]

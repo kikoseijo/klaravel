@@ -3,6 +3,9 @@
 
 @section('content')
     <div class="{{$crudWrapperClass}}">
+        @foreach (config('ksoft.module.crud.includes', []) as $viewToInclude)
+           @includeIf($viewToInclude)
+        @endforeach
         @card(['title' => 'New ' . title_case($model_name)])
             {!! Former::open_for_files()->route($model_name.'.store') !!}
             <!-- {{$viewsBasePath.$model_name.'.form'}} -->

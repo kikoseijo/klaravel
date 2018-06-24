@@ -85,10 +85,16 @@ class BaseCtrl extends Controller
         $viewsBasePath = config('ksoft.module.crud.views_base_path', '');
         $crudWrapperClass = config('ksoft.style.crud_container_wrapper', 'container -body-block pb-5');
 
-        return [
+        $baseCrudStyles = [
             'viewsBasePath' => $viewsBasePath,
             'crudWrapperClass' => $crudWrapperClass,
         ];
+
+        if (method_exists($this, 'getExtraData')) {
+            return array_merge($baseCrudStyles, $this->getExtraData());
+        }
+
+        return $baseCrudStyles;
     }
 
     protected function returnCustomView($data, $key = 'index')

@@ -1,8 +1,8 @@
 <!-- klaravel::ui.dropdown -->
 <?php $curMenuId = isset($curMenuId) ? $curMenuId : 'drop-down-'.rand(10000,1111222); ?>
-<li class="nav-item dropdown{{$class or ''}}{{ isset($active) && $active ? ' active' : '' }}">
+<li class="nav-item dropdown{{$class ?? ''}}{{ isset($active) && $active ? ' active' : '' }}">
     <a
-    class="nav-link dropdown-toggle {{$titleClass or ''}}"
+    class="nav-link dropdown-toggle {{$titleClass ?? ''}}"
     href="#"
     id="{!! $curMenuId !!}"
     role="button"
@@ -13,6 +13,6 @@
     {!! $title !!}
 </a>
 <div class="dropdown-menu" aria-labelledby="{!! $curMenuId !!}">
-    {{ $slot or '' }}
+    {{ $slot ?? '' }}
 </div>
 </li>

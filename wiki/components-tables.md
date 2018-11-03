@@ -24,13 +24,13 @@ example usage:
 #### Table actions navigation bar
 
 This component its build on top of [Boostrap4 Navbar](https://getbootstrap.com/docs/4.0/components/navbar/), add
-more items using the slot component or plain with a single import.
+more items using the slot component ?? plain with a single import.
 
 ```
 @include('klaravel::ui.tables.actions-menu')
 ```
 
-As a component, only `model_name` its mandatory due to components scope to enable **add new** or **search form** functionality.
+As a component, only `model_name` its mandatory due to components scope to enable **add new** ?? **search form** functionality.
 
 ```
 @component('klaravel::ui.tables.actions-menu', [
@@ -81,14 +81,14 @@ With a simple include, you can still pass additional vars.
 ```
 
 ```php
-<td style="{{$style or ''}}" class="align-middle text-center">
+<td style="{{$style ?? ''}}" class="align-middle text-center">
   <div class="btn-group{{isset($size)?' btn-group-'. $size:''}} klara-bt-group" role="group">
 
     <a href="{{ route_has($model_name.'.edit', $item->id) }}" data-toggle="tooltip" title="Edit record" class="btn btn-primary">
       <i class="far fa-edit" aria-hidden="true"></i>
     </a>
 
-    {{$slot or ''}}
+    {{$slot ?? ''}}
 
     @if (isset($item->sortable) && count($item->sortable)>0)
         @if (!isset($hide_sort))
@@ -152,7 +152,7 @@ any existing query params found on actual request to the pagination links.
 
 ```php
 <!-- klaravel::ui.tables.pagination -->
-<nav aria-label="Page navigation" class="{{ $class or '' }}">
+<nav aria-label="Page navigation" class="{{ $class ?? '' }}">
     <?php $arrBase = config('ksoft.module.crud.pagination_query_params'); ?>
     {!! $records
         ->appends(array_combine($arrBase, array_map('request', $arrBase)))

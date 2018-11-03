@@ -3,11 +3,11 @@
     $totalRecordCount = count($records);
 @endphp
 @if ($totalRecordCount>0)
-    <div class="{{$class or ''}}">
+    <div class="{{$class ?? ''}}">
         {!!$totalRecordCount !!} record{!! $totalRecordCount > 1 ? 's' : '' !!} total
     </div>
 @else
-    <div class="{{$class or 'text-center'}}">
+    <div class="{{$class ?? 'text-center'}}">
         <h1>No records found</h1>
     </div>
 @endif

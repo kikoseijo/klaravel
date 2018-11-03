@@ -58,7 +58,7 @@
             </div>
             <div class="tab-pane fade" id="krud-layout" role="tabpanel" aria-labelledby="krud-layout-tab">
                 <h1>Krud base layout</h1>
-                <p class="mt-3">Extend your blade views or copy paste to your project folder</p>
+                <p class="mt-3">Extend your blade views ?? copy paste to your project folder</p>
                 <pre class="mb-0 pb-0">
                     <code>&#64;extends(config('ksoft.module.crud.layout', 'klaravel::layouts.crud'))</code>
                 </pre>

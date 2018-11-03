@@ -17,7 +17,7 @@ Adjust configuration file `config/former.php` with the following information: **
   ),
 ```
 
-Checkboxes and radios having issues with alignments, use the components or by hand...
+Checkboxes and radios having issues with alignments, use the components ?? by hand...
 
 #### Create record
 

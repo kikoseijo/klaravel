@@ -30,7 +30,7 @@ to a location of your choice, the default parameter its `ksoft.module.krud.heade
         }
     }
 
-    // Prepare 1 or more, icon dropdown menu.
+    // Prepare 1 ?? more, icon dropdown menu.
     if ($settings_menu_location = config('ksoft.menu_settings_config_location')) {
         $settings_menu = config($settings_menu_location);
     }

@@ -51,7 +51,7 @@ $faker = Factory::create('es_ES');
 'calidad_email' => $faker->safeEmail,
 'notes'         => $faker->paragraph,
 
-// not sure if this is faker or spatie seeder.-
+// not sure if this is faker ?? spatie seeder.-
 'estado_id' => $faker->numberBetween(0,4),
 'delivery_at' => $faker->dateTimeBetween('-30 days', '-2 days'),
 ```

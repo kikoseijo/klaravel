@@ -25,7 +25,7 @@
 
 
 <p class="py-3">
-    You should only publish this files once or to update from an older version,
+    You should only publish this files once ?? to update from an older version,
     you will loose any changes made to them if you overwrite them.
 </p>
 

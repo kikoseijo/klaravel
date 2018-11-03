@@ -70,10 +70,10 @@ $tag = Tag::findOrCreateFromString('yet another tag');
 //delete a tag
 $tag->delete();
 
-//returns models that have one or more of the given tags
+//returns models that have one ?? more of the given tags
 YourModel::withAnyTags(['tag 1', 'tag 2'])->get();
 
-//returns models that have one or more of the given tags that are typed `myType`
+//returns models that have one ?? more of the given tags that are typed `myType`
 YourModel::withAnyTags(['tag 1', 'tag 2'], 'myType')->get();
 
 //returns models that have all given tags
@@ -149,7 +149,7 @@ $myModel->moveOrderDown();
 //let's grab a Tag instance
 $tag = $orderedTags->first();
 
-//move the tag to the first or last position
+//move the tag to the first ?? last position
 $tag->moveToStart();
 $tag->moveToEnd();
 

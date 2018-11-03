@@ -1,5 +1,5 @@
 <!-- klaravel::ui.card -->
-<div class="card {{$class or ''}}"{!! isset($style)? ' style="'.$style.'"':'' !!}>
+<div class="card {{$class ?? ''}}"{!! isset($style)? ' style="'.$style.'"':'' !!}>
     @isset($title)
         <div class="card-header">
             @isset($reload_btn)
@@ -33,6 +33,6 @@
         </div>
     @endisset
     <div class="card-body">
-        {{ $slot or '' }}
+        {{ $slot ?? '' }}
     </div>
 </div>

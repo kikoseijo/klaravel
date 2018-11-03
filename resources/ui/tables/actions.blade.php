@@ -1,5 +1,5 @@
 <!-- klaravel::ui.tables.actions -->
-<td style="{{$style or ''}}" class="align-middle text-right">
+<td style="{{$style ?? ''}}" class="align-middle text-right">
   <div class="btn-group{{isset($size)?' btn-group-'. $size:''}} klara-bt-group" role="group">
 
     {{-- @php
@@ -16,7 +16,7 @@
         </a>
     @endif
 
-    {{$slot or ''}}
+    {{$slot ?? ''}}
 
     @if (isset($item->sortable) && count($item->sortable)>0)
         @if (!isset($hide_sort))

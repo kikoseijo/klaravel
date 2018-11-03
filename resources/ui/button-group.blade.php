@@ -1,7 +1,7 @@
 <!-- klaravel::ui.button-group -->
 <div
-    class="btn-group {{ $class or '' }}"
+    class="btn-group {{ $class ?? '' }}"
     role="group"
 >
-    {{ $slot or '' }}
+    {{ $slot ?? '' }}
 </div>

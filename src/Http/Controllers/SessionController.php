@@ -45,7 +45,7 @@ class SessionController extends Controller
             $tlimit = session(SESSION_TIME_LIMIT_CACHE);
         }
 
-        if (!isset($tlimit) or is_null($tlimit)) {
+        if (!isset($tlimit) ?? is_null($tlimit)) {
             return $query;
         }
 

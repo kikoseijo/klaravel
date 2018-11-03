@@ -1,5 +1,5 @@
 <!-- klaravel::ui.tab -->
-<ul class="nav nav-tabs {{$class or ''}}" role="tablist">
+<ul class="nav nav-tabs {{$class ?? ''}}" role="tablist">
     @php
         $i = 0;
     @endphp
@@ -18,5 +18,5 @@
     @endforeach
 </ul>
 <div class="tab-content p-3">
-    {{ $slot or '' }}
+    {{ $slot ?? '' }}
 </div>

@@ -14,7 +14,7 @@ Notice the use of `{{$slot}}`, when included as a component.
     <ul class="mr-auto navbar-nav top-left-menu">
         @auth
             @include('klaravel::_parts.menu.custom')
-            {{ $slot or ''}}
+            {{ $slot ?? ''}}
         @endauth
     </ul>
     <ul class="ml-auto navbar-nav top-right-menu">

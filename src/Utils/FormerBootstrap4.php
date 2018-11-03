@@ -382,7 +382,7 @@ class FormerBootstrap4 extends Framework implements FrameworkInterface
 	////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Wrap an item to be prepended or appended to the current field
+	 * Wrap an item to be prepended ?? appended to the current field
 	 *
 	 * @return Element A wrapped item
 	 */

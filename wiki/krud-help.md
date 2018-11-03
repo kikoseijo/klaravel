@@ -80,9 +80,9 @@ Every time you create a new Krud you will be working in the same main areas: you
 
 To have filters and advanced queries on models for your tables, concentrate work on the component repository, but you should also have your customized `index.blade.php` located in the same directory than the generated form and table blades. The file template for you to copy over your project its under the `Krud Reusable views` subject.
 
-For modules that require a high level of customization you might end up having the 3 hidden base views overwritten, this is complete normal, you might use this library for backend and build the front using build tools like Vue.js or React.
+For modules that require a high level of customization you might end up having the 3 hidden base views overwritten, this is complete normal, you might use this library for backend and build the front using build tools like Vue.js ?? React.
 
-For more advanced examples you can explore the additional modules in this library like backups, sessions or activity logs, then you will be able to see a working example on how complex task are made easy.
+For more advanced examples you can explore the additional modules in this library like backups, sessions ?? activity logs, then you will be able to see a working example on how complex task are made easy.
 
 ### Webpack
 

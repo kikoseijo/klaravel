@@ -11,7 +11,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      {{$slot or ''}}
+      {{$slot ?? ''}}
     </div>
   </div>
 </div>

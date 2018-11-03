@@ -1,3 +1,3 @@
-<ul class="nav {{$class or 'justify-content-center'}}">
-  {{$slot or ''}}
+<ul class="nav {{$class ?? 'justify-content-center'}}">
+  {{$slot ?? ''}}
 </ul>

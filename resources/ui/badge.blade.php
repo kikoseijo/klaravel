@@ -1,4 +1,4 @@
 <!-- klaravel::ui.badge -->
-<span class="badge badge-{{ $type }} {{ $class or '' }}{{ isset($pill) ? ' badge-pill' : ''}}">
-    {{ $slot or '' }}{!! $title or '' !!}
+<span class="badge badge-{{ $type }} {{ $class ?? '' }}{{ isset($pill) ? ' badge-pill' : ''}}">
+    {{ $slot ?? '' }}{!! $title ?? '' !!}
 </span>

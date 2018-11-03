@@ -48,7 +48,7 @@
                             $selected = request('subject') == $logSubject ? ' active': '';
                         @endphp
                         <a href="{{ route('kLogs.index') }}?subject={{$logSubject}}" class="dropdown-item{{ $selected}}">
-                            {{$logSubject or '-'}}
+                            {{$logSubject ?? '-'}}
                         </a>
                     @endforeach
                 @endcomponent

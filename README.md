@@ -49,7 +49,7 @@ Includes [Formers-former](https://github.com/formers/former) for quick and easy 
 
 ## Components
 
-Bootstrap4 based components, as a component or simple includes, use what you need, them there for you.
+Bootstrap4 based components, as a component ?? simple includes, use what you need, them there for you.
 
 &nbsp;
 

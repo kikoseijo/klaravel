@@ -6,7 +6,7 @@
     <ul class="mr-auto navbar-nav top-left-menu">
         @auth
             @include('klaravel::_parts.menu.custom')
-            {{ $slot or ''}}
+            {{ $slot ?? ''}}
         @endauth
     </ul>
     <ul class="ml-auto navbar-nav top-right-menu">

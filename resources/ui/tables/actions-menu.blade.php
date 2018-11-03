@@ -14,7 +14,7 @@
                 </li>
             @endif
 
-            {{$slot or ''}}
+            {{$slot ?? ''}}
 
             @if (!isset($hide_per_page))
                 <li class="nav-item dropdown mr-3">

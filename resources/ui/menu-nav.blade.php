@@ -5,7 +5,7 @@
   </button>
   <div class="collapse navbar-collapse" id="klravel-menu-nav">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            {{$slot or ''}}
+            {{$slot ?? ''}}
         </ul>
   </div>
 </nav>

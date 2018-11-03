@@ -20,7 +20,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="true" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" />
     </button>
-    @include('klaravel::_parts.header_menu', [
+    @component('klaravel::_parts.header_menu', [
         'croute' => Route::currentRouteName(),
         'admin_menu' => $admin_menu ?: [],
         'settings_menu_enabled' => isset($settings_menu) && count($settings_menu)>0,
@@ -28,6 +28,7 @@
             '<i class="far  fa-fw fa-cog"></i>' => $settings_menu ?? [],
         ],
     ])
+    @endcomponent
   </div>
 </nav>
 

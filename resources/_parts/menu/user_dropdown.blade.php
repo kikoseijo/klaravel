@@ -19,11 +19,13 @@
             <a href="{{ route('kBackup.index') }}" class="dropdown-item{{ str_contains($croute, 'kBackup') ? ' active' : '' }}">Backups</a>
         @endif
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="{{ route('logout') }}"
-    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-        Logout&nbsp;&nbsp;&nbsp;<span class="text-danger"><i class="far fa-sign-out-alt fa-fw"></i></span>
-    </a>
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-    </form>
+    @if (Route::has('login'))
+        <a class="dropdown-item" href="{{ route('logout') }}"
+        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Logout&nbsp;&nbsp;&nbsp;<span class="text-danger"><i class="far fa-sign-out-alt fa-fw"></i></span>
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    @endif
 @endcomponent

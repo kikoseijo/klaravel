@@ -94,7 +94,7 @@ from installation.
 
 ## Special thanks
 
-[Laravel #1 PHP framework](https://laravel.com/ 'Best php framework ever for ever, Laravel') Tylor Owen, you are the \*\*\*\* Boss!  
+[Laravel #1 PHP framework](https://laravel.com/ 'Best php framework ever for ever, Laravel') Tylor Otwell, you are the \*\*\*\* Boss!  
 [Bootstrap4](https://getbootstrap.com/) Flex layouts the right way, most commonly used CSS framework.  
 [Font Awesome](https://fontawesome.com) Font Icons with an excellent v5 collection.  
 [anahkiasen/former](https://github.com/formers/former) Easy form build and style.  

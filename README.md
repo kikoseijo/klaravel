@@ -17,6 +17,14 @@ composer require ksoft/klaravel
 
 Navigate to [/klaravel](http://localhost:8000/klaravel), and enjoy.
 
+### Optional
+
+Publish assets for better understanding of the posibilities it provides you with:
+
+```
+php artisan vendor:publish --provider="Ksoft\Klaravel\ServiceProvider"
+```
+
 &nbsp;
 &nbsp;
 
@@ -25,7 +33,7 @@ Navigate to [/klaravel](http://localhost:8000/klaravel), and enjoy.
 A developer dashboard to read documentation, tools and information regarding
 Laravel´s ecosystem with a selection of best flavored and commonly used patterns, pre maid components, traits,...
 
-![Developer Dashboard](/imgs/v2-dashboard.png?raw=true 'Klaravel Developer dashboard')
+![Developer Dashboard](/imgs/v2-dashboard.png?raw=true "Klaravel Developer dashboard")
 
 &nbsp;
 &nbsp;
@@ -42,7 +50,7 @@ Laravel´s ecosystem with a selection of best flavored and commonly used pattern
 
 Includes [Formers-former](https://github.com/formers/former) for quick and easy form creation.
 
-![Scaffold - crud generator](/imgs/v2-scaffold.png?raw=true 'Scaffold - crud generator')
+![Scaffold - crud generator](/imgs/v2-scaffold.png?raw=true "Scaffold - crud generator")
 
 &nbsp;
 &nbsp;
@@ -53,7 +61,7 @@ Bootstrap4 based components, as a component ?? simple includes, use what you nee
 
 &nbsp;
 
-![Blade components](/imgs/v2-component.png?raw=true 'Blade components')
+![Blade components](/imgs/v2-component.png?raw=true "Blade components")
 
 &nbsp;
 &nbsp;
@@ -64,7 +72,7 @@ Easy way to list your routes, searching and listing the right way.
 
 &nbsp;
 
-![List and filter your Laravel routes](/imgs/v2-routes.png?raw=true 'List and filter your Laravel routes')
+![List and filter your Laravel routes](/imgs/v2-routes.png?raw=true "List and filter your Laravel routes")
 
 &nbsp;
 &nbsp;
@@ -75,7 +83,7 @@ Them make our life easier. Dont you think?
 
 &nbsp;
 
-![Available traits](/imgs/v2-traits.png?raw=true 'Available traits')
+![Available traits](/imgs/v2-traits.png?raw=true "Available traits")
 
 &nbsp;
 &nbsp;
@@ -87,14 +95,14 @@ from installation.
 
 &nbsp;
 
-![Scaffold Control Panel](/imgs/v2-logs.png?raw=true 'Klaravel Scaffold Control Panel')
+![Scaffold Control Panel](/imgs/v2-logs.png?raw=true "Klaravel Scaffold Control Panel")
 
 &nbsp;
 &nbsp;
 
 ## Special thanks
 
-[Laravel #1 PHP framework](https://laravel.com/ 'Best php framework ever for ever, Laravel') Tylor Otwell, you are the \*\*\*\* Boss!  
+[Laravel #1 PHP framework](https://laravel.com/ "Best php framework ever for ever, Laravel") Tylor Otwell, you are the \*\*\*\* Boss!  
 [Bootstrap4](https://getbootstrap.com/) Flex layouts the right way, most commonly used CSS framework.  
 [Font Awesome](https://fontawesome.com) Font Icons with an excellent v5 collection.  
 [anahkiasen/former](https://github.com/formers/former) Easy form build and style.  
@@ -112,11 +120,11 @@ Coming soon...>
 
 ## Credits
 
-[Spatie](https://spatie.be/en/ 'Spatie webdesign, Antwerp – websites and webapps in Laravel') Big thanks you to this Belgium people  
-[DevOps](https://sunnyface.com 'Programador ios málaga Marbella') Web development  
-[AppDev](https://gestorapp.com 'Gestor de aplicaciones moviles en málaga, mijas, marbella') Mobile aplications  
-[SocialApp](https://sosvecinos.com 'Plataforma móvil para la gestion de comunidades') Residents mobile application  
-[KikoSeijo.com](https://kikoseijo.com 'Programador freelance movil y Laravel') Freelance senior programmer
+[Spatie](https://spatie.be/en/ "Spatie webdesign, Antwerp – websites and webapps in Laravel") Big thanks you to this Belgium people  
+[DevOps](https://sunnyface.com "Programador ios málaga Marbella") Web development  
+[AppDev](https://gestorapp.com "Gestor de aplicaciones moviles en málaga, mijas, marbella") Mobile aplications  
+[SocialApp](https://sosvecinos.com "Plataforma móvil para la gestion de comunidades") Residents mobile application  
+[KikoSeijo.com](https://kikoseijo.com "Programador freelance movil y Laravel") Freelance senior programmer
 
 &nbsp;
 &nbsp;

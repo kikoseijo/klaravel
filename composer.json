@@ -22,7 +22,6 @@
   },
   "require": {
     "anahkiasen/former": "^4.1",
-    "jenssegers/date": "^3.4",
     "league/commonmark": "^0.17.1"
   },
   "require-dev": {

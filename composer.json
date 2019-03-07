@@ -23,13 +23,13 @@
   "require": {
     "anahkiasen/former": "^4.1",
     "jenssegers/date": "^3.4",
-    "league/commonmark": "^0.17.1",
-    "spatie/laravel-activitylog": "^2.5",
+    "league/commonmark": "^0.18.1",
+    "spatie/laravel-activitylog": "^3.2",
     "spatie/laravel-backup": "6.1.*"
   },
   "require-dev": {
-    "laravel/laravel": "5.6.*",
-    "laravel/lumen": "5.6.*"
+    "laravel/laravel": "5.8.*",
+    "laravel/lumen": "5.8.*"
   },
   "extra": {
     "laravel": {

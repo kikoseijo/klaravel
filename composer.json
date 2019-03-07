@@ -26,8 +26,8 @@
     "league/commonmark": "^0.17.1"
   },
   "require-dev": {
-    "laravel/laravel": "5.6.*",
-    "laravel/lumen": "5.6.*"
+    "laravel/laravel": "5.8.*",
+    "laravel/lumen": "5.8.*"
   },
   "extra": {
     "laravel": {

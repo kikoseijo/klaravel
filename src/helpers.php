@@ -1,7 +1,7 @@
 <?php
 
 use Carbon\Carbon;
-use Jenssegers\Date\Date as JenssDate;
+// use Jenssegers\Date\Date as JenssDate;
 use League\CommonMark\CommonMarkConverter;
 use Spatie\Image\Image;
 use Illuminate\Support\Facades\Route;
@@ -92,23 +92,23 @@ if (!function_exists('pretty_print_array')) {
     }
 }
 
-if (!function_exists('diff_date_for_humans')) {
-    function diff_date_for_humans(Carbon $date): string
-    {
-        return (new JenssDate($date->timestamp))->ago();
-    }
-}
-
-if (!function_exists('diff_string_for_humans')) {
-    function diff_string_for_humans($stringDate, $format = 'Y-m-d H:i:s'): string
-    {
-        if (!$stringDate) {
-            return '';
-        }
-        $date = JenssDate::createFromFormat($format, $stringDate);
-        return (new JenssDate($date))->ago();
-    }
-}
+// if (!function_exists('diff_date_for_humans')) {
+//     function diff_date_for_humans(Carbon $date): string
+//     {
+//         return (new JenssDate($date->timestamp))->ago();
+//     }
+// }
+//
+// if (!function_exists('diff_string_for_humans')) {
+//     function diff_string_for_humans($stringDate, $format = 'Y-m-d H:i:s'): string
+//     {
+//         if (!$stringDate) {
+//             return '';
+//         }
+//         $date = JenssDate::createFromFormat($format, $stringDate);
+//         return (new JenssDate($date))->ago();
+//     }
+// }
 
 if (!function_exists('resource')) {
     /**

@@ -67,9 +67,11 @@ class ServiceProvider extends BaseServiceProvider
     protected function registerViews()
     {
         $this->loadViewsFrom(__DIR__.'/../resources', 'klaravel');
+
         $this->publishes([
             __DIR__.'/../resources' => resource_path('views/vendor/klaravel'),
-        ]);
+        ], 'klaravel-views');
+
         $this->publishes([
             __DIR__.'/../stubs/config/ksoft.php' => config_path('ksoft.php'),
         ], 'config');

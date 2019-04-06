@@ -17,12 +17,18 @@ composer require ksoft/klaravel
 
 Navigate to [/klaravel](http://localhost:8000/klaravel), and enjoy.
 
+### Publish configuration file
+
+```bash
+php artisan vendor:publish --provider="Ksoft\Klaravel\ServiceProvider" --tag=config
+```
+
 ### Optional
 
-Publish assets for better understanding of the posibilities it provides you with:
+Publish some views been made for reusable, they are all based mainly in Bootstrap4, them are all reusable components for tables, Modals, Navbars, forms and maps.
 
-```
-php artisan vendor:publish --provider="Ksoft\Klaravel\ServiceProvider"
+```bash
+php artisan vendor:publish --provider="Ksoft\Klaravel\ServiceProvider" --tag=klaravel-views
 ```
 
 &nbsp;

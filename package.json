@@ -1,6 +1,6 @@
 {
   "name": "klaravel",
-  "version": "v3.0.0",
+  "version": "v3.1.0",
   "description": "A personal set of Tools and Helpers for Laravel developers.",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,9 @@
   },
   "keywords": [
     "laravel",
-    "klaravel",
+    "framework",
+    "templates",
+    "skeleton",
     "crud",
     "scaffold",
     "control",

@@ -28,7 +28,7 @@ php artisan vendor:publish --provider="Ksoft\Klaravel\ServiceProvider" --tag=con
 Publish some views been made for reusable, they are all based mainly in Bootstrap4, them are all reusable components for tables, Modals, Navbars, forms and maps.
 
 ```bash
-php artisan vendor:publish --provider="Ksoft\Klaravel\ServiceProvider" --tag=klaravel-views
+php artisan vendor:publish --tag=klaravel-views
 ```
 
 &nbsp;

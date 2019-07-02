@@ -24,7 +24,7 @@
     "anahkiasen/former": "^4.1",
     "league/commonmark": "^0.18.1",
     "spatie/laravel-activitylog": "^3.2",
-    "spatie/laravel-backup": "6.1.*"
+    "spatie/laravel-backup": "6.2.*"
   },
   "require-dev": {
     "laravel/laravel": "5.8.*",

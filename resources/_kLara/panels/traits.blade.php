@@ -39,7 +39,7 @@
                         {!! do_markdown(file_get_contents(KLARAVEL_PATH . '/wiki/trait-repositories.md')) !!}
                     </div>
                     <div class="tab-pane fade" id="repo-trait" role="tabpanel" aria-labelledby="repo-trait-tab">
-                        {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/src/Traits/Repositories/QueryFiltersTrait.php').'```') !!}
+                        {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/src/Traits/QueryFiltersTrait.php').'```') !!}
                     </div>
                 @endcomponent
             </div>

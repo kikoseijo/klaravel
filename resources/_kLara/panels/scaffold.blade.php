@@ -54,7 +54,8 @@
                 </p>
                 <pre><code>use Ksoft\Klaravel\Traits\QueryFiltersTrait;</code></pre>
                 <p>More information and example use in <a href="{{route('kLara.wiki','traits')}}">wiki-traits</a></p>
-                {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/src/Traits/Repositories/QueryFiltersTrait.php').'```') !!}
+                {!! do_markdown('```' .file_get_contents(KLARAVEL_PATH . '/src/Traits/QueryFiltersTrait.php').'```') !!}
+
             </div>
             <div class="tab-pane fade" id="krud-layout" role="tabpanel" aria-labelledby="krud-layout-tab">
                 <h1>Krud base layout</h1>

@@ -22,7 +22,7 @@
   },
   "require": {
     "anahkiasen/former": "^4.1",
-    "league/commonmark": "^0.17.1"
+    "league/commonmark": "^1.5"
   },
   "require-dev": {
     "laravel/laravel": "5.8.*",

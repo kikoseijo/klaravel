@@ -1,7 +1,7 @@
 <!-- klaravel::_parts.menu.user_dropdown -->
 @component('klaravel::ui.dropdown', [
     'title' => '<i class="fas fa-user-circle fa-fw mr-2"></i> ',
-    'active' => 'ksoft' == $preroute || str_contains($croute, ['kSessions', 'kLogs', 'kCache', 'kBackup'])
+    'active' => 'ksoft' == $preroute || in_array($croute, ['kSessions', 'kLogs', 'kCache', 'kBackup'])
 ])
         @if (config('ksoft.enable_plugins_menu'))
             <a href="{{ route('ksoft.plugins.index') }}" class="dropdown-item{{ str_contains($croute, 'ksoft.plugins.index') ? ' active' : '' }}">Install plugin</a>

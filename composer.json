@@ -22,12 +22,11 @@
   },
   "require": {
     "anahkiasen/former": "^5.1",
-    "spatie/laravel-activitylog": "^3.2",
-    "spatie/laravel-backup": "^6.2"
+    "spatie/laravel-activitylog": "^4.0",
+    "spatie/laravel-backup": "^8.0"
   },
   "require-dev": {
-    "laravel/laravel": "5.8.*",
-    "laravel/lumen": "5.8.*"
+    "laravel/laravel": "10.0.*",
   },
   "extra": {
     "laravel": {

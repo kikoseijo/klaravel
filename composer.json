@@ -21,8 +21,7 @@
     "sort-packages": true
   },
   "require": {
-    "anahkiasen/former": "^4.6",
-    "league/commonmark": "^1.5",
+    "anahkiasen/former": "^5.1",
     "spatie/laravel-activitylog": "^3.2",
     "spatie/laravel-backup": "^6.2"
   },

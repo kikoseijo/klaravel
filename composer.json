@@ -26,7 +26,7 @@
     "spatie/laravel-backup": "^8.0"
   },
   "require-dev": {
-    "laravel/laravel": "10.0.*",
+    "laravel/laravel": "10.0.*"
   },
   "extra": {
     "laravel": {

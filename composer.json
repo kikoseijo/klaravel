@@ -21,12 +21,12 @@
     "sort-packages": true
   },
   "require": {
-    "anahkiasen/former": "^4.1",
-    "league/commonmark": "^1.5"
+    "anahkiasen/former": "^5.1",
+    "league/commonmark": "^2.2.1"
   },
   "require-dev": {
-    "laravel/laravel": "5.8.*",
-    "laravel/lumen": "5.8.*"
+    "laravel/laravel": "10.0.*",
+    "laravel/lumen": "10.0.*"
   },
   "extra": {
     "laravel": {

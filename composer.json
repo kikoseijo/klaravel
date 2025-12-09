@@ -23,7 +23,7 @@
   "require": {
     "anahkiasen/former": "^5.1",
     "spatie/laravel-activitylog": "^4.0",
-    "spatie/laravel-backup": "^8.0"
+    "spatie/laravel-backup": "^9.0"
   },
   "require-dev": {
     "laravel/laravel": "10.0.*"

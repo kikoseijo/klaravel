@@ -12,6 +12,7 @@ class Session extends Model
 
     protected $casts = [
         'id'    => 'string',
+        'last_activity'    => 'datetime',
     ];
 
     public function visitor()

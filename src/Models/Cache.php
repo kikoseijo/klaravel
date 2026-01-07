@@ -11,11 +11,12 @@ class Cache extends Model
     protected $casts = [
         'key'    => 'string',
         'value'    => 'array',
+        'expiration'    => 'datetime',
     ];
 
     protected $dates = [
        'expiration',
    ];
-   
+
 
 }

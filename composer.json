@@ -22,8 +22,8 @@
   },
   "require": {
     "anahkiasen/former": "^5.1",
-    "spatie/laravel-activitylog": "^4.0",
-    "spatie/laravel-backup": "^9.0"
+    "spatie/laravel-activitylog": "^4.10",
+    "spatie/laravel-backup": "^9.3"
   },
   "require-dev": {
     "laravel/laravel": "10.0.*"
